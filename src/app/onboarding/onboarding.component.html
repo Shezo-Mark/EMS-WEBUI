@@ -289,29 +289,6 @@
                           <textarea formControlName="SpecialRequirmentOrNotes" class="form-control"  rows="2"></textarea>
 
                       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                   </section>
                   <br><br>
                   <button  type="submit" class="btn btn-success me-2" mat-button>
@@ -334,56 +311,39 @@
           <table class="table table-bordered border text-nowrap mb-0" id="new-edit">
             <thead>
               <tr>
-                <!-- <th>ID</th> -->
                <th>Client Id</th>
                 <th>Company Name</th>
                 <th>Point Of Contact/POC</th>
-                <!-- <th>Contact Email</th> -->
-
                 <th>Contract Date</th>
-                <th>Actions</th>
+                <th width="5%">Actions</th>
 
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let item of onboardingList;let ndx = index">
-                <!-- <td>{{item.onboardingId}}</td> -->
                    <td>{{item.clientId}}</td>
                 <td>{{item.companyName}}</td>
-                 <td>
-                <div *ngFor="let contact of getFormattedData(item.contactPersonInfo)" class="mb-2 p-2 border rounded bg-light shadow-sm">
-    <div><strong>Name:</strong> {{ contact.name }}</div>
-    <div><strong>Designation:</strong> {{ contact.Designation }}</div>
-    <div><strong>Email:</strong> <a href="mailto:{{ contact.ContactEmailAddress }}">{{ contact.ContactEmailAddress }}</a></div>
-    <div><strong>Phone:</strong> <a href="tel:{{ contact.ContactPhoneNumber }}">{{ contact.ContactPhoneNumber }}</a></div>
-  </div>
-                </td>
-<!-- <td>{{item.contactPersonName}}</td> -->
-                <!-- <td>{{item.contactEmailAddress}}</td> -->
+                 <td >
 
+                <div *ngFor="let contact of getFormattedData(item.contactPersonInfo)" class="mb-2 p-2 border rounded bg-light shadow-sm">
+                    <div><strong>Name:</strong> {{ contact.name }}</div>
+                    <div><strong>Designation:</strong> {{ contact.Designation }}</div>
+                    <div><strong>Email:</strong> <a href="mailto:{{ contact.ContactEmailAddress }}">{{ contact.ContactEmailAddress }}</a></div>
+                    <div><strong>Phone:</strong> <a href="tel:{{ contact.ContactPhoneNumber }}">{{ contact.ContactPhoneNumber }}</a></div>
+                  </div>
+                </td>
                 <td>{{item.contractDate | date: 'yyyy-MM-dd'}}</td>
                 <td>
-                  <button type="button" (click)="setRegistrationValuesForupdate(item)" class="btn btn-sm btn-primary">
+                  <button type="button" (click)="setRegistrationValuesForupdate(item)" class="btn btn-sm d_action_edit">
                     <span class="fe fe-edit"> </span>
-                    <!-- Edit -->
                   </button>
-                      <button type="button" class="btn mx-3 btn-sm btn-danger" (click)="onDelete(item.onboardingId)">
+                                      <!-- <button type="button" class="btn mx-1 btn-sm d_action_view" (click)="onDelete(item.onboardingId)">
+                      <span class="fe fe-eye"></span>
+                    </button> -->
+                      <button type="button" class="btn btn-sm ms-1 d_action_delete" (click)="onDelete(item.onboardingId)">
                       <span class="fe fe-trash-2"></span>
                     </button>
-                  <!-- <button (click)="deleteRow(item)" id="bDel" type="button" class="btn mx-3 btn-sm btn-danger">
-                    <span class="fe fe-trash-2"> </span>
-
-                  </button> -->
-                  <!-- <label>
-                    <input (click)="IsActive(item)" type="checkbox" [checked]="item.isActive"
-                      name="form-switch-checkbox1" class="form-switch-input">
-                    <span class="form-switch-indicator"></span>
-                  </label> -->
                 </td>
-
-
-
-
               </tr>
             </tbody>
           </table>
