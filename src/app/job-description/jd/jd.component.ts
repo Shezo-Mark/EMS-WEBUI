@@ -238,9 +238,10 @@ loginUser:any={};
     this.isEdit = false;
   }
   setValueToForm(row: any) {
+    debugger;
     this.jobForm.controls['JobDescriptionId'].setValue(row.jobDescriptionId);
     this.jobForm.controls['DepartmentId'].setValue(row.departmentId);
-    this.jobForm.controls['OnnboardingId'].setValue(row.onnboardingId);
+    this.jobForm.controls['OnboardingId'].setValue(row.onboardingId);
     this.jobForm.controls['PostHostId'].setValue(row.postHostId);
     this.jobForm.controls['GroupId'].setValue(row.groupId);
     this.jobForm.controls['HiringManagerId'].setValue(row.hiringManagerId);
