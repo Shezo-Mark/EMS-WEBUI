@@ -161,7 +161,7 @@
                             </div>
                           </div>
                           <div class="row mg-b-20">
-                            
+
                             <div class="parsley-input col-md-4">
                                 <label>Gender: <span class="tx-danger">*</span></label>
                                 <ng-select #select [items]="genderList" [searchable]="false" bindLabel="text" bindValue="id" value="id" formControlName="genderId">
@@ -191,7 +191,7 @@
                                   class="tx-danger">
                                   <small>House No is <strong>required</strong></small>
                               </div>
-                          </div>                          
+                          </div>
                           </div>
                           <div class="row mg-b-20">
 
@@ -204,7 +204,7 @@
                                     <small>Address is <strong>required</strong></small>
                                 </div>
                             </div>
-                         
+
                           </div> -->
           </div>
           <div class="mg-t-30">
@@ -231,7 +231,6 @@
               bindLabel="branchName" bindValue="branchId">
             </ng-select>
           </div> -->
-
         </div>
       </div>
       <div class="card-body">
@@ -239,41 +238,17 @@
           <table class="table table-bordered border text-nowrap mb-0" id="new-edit">
             <thead>
               <tr>
-                <th>Employee CODE</th>
+                <th width="8%">Employee CODE</th>
                 <th>Full Name</th>
                 <th>CNIC</th>
                 <th>Contact</th>
                 <th>Personal Email</th>
-                <th>Actions</th>
+                <th width="4%">Status</th>
+                <th width="10%">Documents</th>
+                <th width="5%" class="text-center">Actions</th>
               </tr>
             </thead>
             <tbody>
-              <!-- <tr *ngFor="let item of gridList;let ndx = index">
-                <td>{{item.firstName}} {{item.middleName}} {{item.lastName}}</td>
-                <td>{{item.teacherPhoneNo}}</td>
-                <td>{{item.teacherEmail}}</td>
-                <td>
-                  <a class="btn me-3 btn-sm btn-primary" [routerLink]="['/teacher/teacher-courses']"
-                    [queryParams]="{tid:item.teacherId}">
-                    Add Courses
-                  </a>
-                  <a class="btn me-3 btn-sm btn-success" [routerLink]="['/teacher/teacher-classes']"
-                    [queryParams]="{tid:item.teacherId}">
-                    Add Classes
-                  </a>
-                  <button type="button" (click)="setValueToForm(item)" class="btn me-3 btn-sm btn-primary">
-                    <span class="fe fe-edit"> </span>
-                  </button>
-                  <button (click)="deleteRow(item)" id="bDel" type="button" class="btn me-3 btn-sm btn-danger">
-                    <span class="fe fe-trash-2"> </span>
-                  </button>
-                  <label>
-                    <input (click)="IsActive(item)" type="checkbox" [checked]="item.isActive"
-                      name="form-switch-checkbox1" class="form-switch-input">
-                    <span class="form-switch-indicator"></span>
-                  </label>
-                </td>
-              </tr> -->
               <tr *ngFor="let item of employeesList;index as i">
                 <td>{{item.employeeCode}}</td>
                 <td>{{item.firstName}} {{item.middleName}} {{item.lastName}}</td>
@@ -281,37 +256,52 @@
                 <td>{{item.contact}}</td>
                 <td>{{item.personalEmail}}</td>
                 <td>
-                  <a title="Upload Attachments" href="javascript:void(0);"
-                     (click)="openScrollableContentMd(uploadDocumentsModal, item.employeeId)"
-                     class="btn me-3 btn-sm btn-success">
-                    Upload Documents
-                  </a>
-                
-                  <!-- <a title="Given Accessories" href="javascript:void(0);"
-                     (click)="openScrollableContentMd(givenAccessoriesModal, item.employeeId)"
-                     class="btn me-3 btn-sm btn-info">
-                    Given Accessories
-                  </a> -->
-                
-                  <a title="Download Attachments" href="javascript:void(0);"
-                     (click)="openScrollableContentMd(AttachmerntList, item.employeeId)"
-                     class="dropdown-item">
-                    Documents
-                  </a>
-                
-                  <button type="button" class="btn me-3 btn-sm btn-primary"
-                          [routerLink]="['/register/employee']"
-                          [queryParams]="{id:item.employeeId}">
-                    <span class="fe fe-edit"> </span>
-                  </button>
-                
                   <label>
                     <input (click)="IsActive(item)" type="checkbox"
                            [checked]="item.isActive" class="form-switch-input">
                     <span class="form-switch-indicator"></span>
                   </label>
                 </td>
-                
+                <td>
+                  <a title="Upload Attachments" href="javascript:void(0);"
+                     (click)="openScrollableContentMd(uploadDocumentsModal, item.employeeId)"
+                     class="btn me-3 btn-sm btn-success">
+                    Upload Documents
+                  </a>
+                </td>
+                <td>
+                  <!-- <a title="Upload Attachments" href="javascript:void(0);"
+                     (click)="openScrollableContentMd(uploadDocumentsModal, item.employeeId)"
+                     class="btn me-3 btn-sm btn-success">
+                    Upload Documents
+                  </a> -->
+
+                  <!-- <a title="Given Accessories" href="javascript:void(0);"
+                     (click)="openScrollableContentMd(givenAccessoriesModal, item.employeeId)"
+                     class="btn me-3 btn-sm btn-info">
+                    Given Accessories
+                  </a> -->
+
+                  <!-- <a title="Download Attachments" href="javascript:void(0);"
+                     (click)="openScrollableContentMd(AttachmerntList, item.employeeId)"
+                     class="dropdown-item">
+                    Documents
+                  </a> -->
+
+                  <button type="button" class="btn me-2 btn-sm d_action_edit"
+                          [routerLink]="['/register/employee']"
+                          [queryParams]="{id:item.employeeId}">
+                    <span class="fe fe-edit"> </span>
+                  </button>
+                         <button type="button" class="btn btn-sm d_action_delete"> <span class="fe fe-trash-2"></span></button>
+
+                  <!-- <label>
+                    <input (click)="IsActive(item)" type="checkbox"
+                           [checked]="item.isActive" class="form-switch-input">
+                    <span class="form-switch-indicator"></span>
+                  </label> -->
+                </td>
+
               </tr>
             </tbody>
           </table>
@@ -346,7 +336,7 @@
     <div class="form-group row" *ngFor="let item of attachmentList; let ndx = index">
       <div class="col-md-10">
         <label for="file-{{ndx}}" style="font-weight: bold;">{{item.documentName}}</label>
-        <input accept="application/pdf" id="file-{{ndx}}" type="file" 
+        <input accept="application/pdf" id="file-{{ndx}}" type="file"
                (change)="onSelectAttachment($event, item.employeeDocumentId)" class="form-control">
       </div>
       <div class="col-md-2" style="margin-top: 30px;">

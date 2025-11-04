@@ -42,10 +42,10 @@
     <div class="card">
       <div class="card-header">
         <div class="card-title">Client Onboarding</div>
-        
+
       </div>
       <div class="card-body">
-        <div id="wizard3">        
+        <div id="wizard3">
                   <form [formGroup]="registrationForm" novalidate (ngSubmit)="formSubmit()">
                   <section>
                     <div class="row">
@@ -57,7 +57,7 @@
                         </div>
 
                       </div>
-                      
+
                       <div class="col-md-6 col-sm-12 col-md-4 my-1">
                         <label>Company Name
                             : </label>
@@ -74,7 +74,7 @@
                                 <form [formGroup]="registrationForm" >
                                       <div formArrayName="ContactPersonInfo">
   <div *ngFor="let contact of contactPersonInfoArray.controls; let i = index" [formGroupName]="i" class="row mb-2">
-        
+
          <div class="col-md-6">
           <div class="form-group">
             <label>Point Of Contact(POC) </label>
@@ -88,20 +88,20 @@
       <input type="text" class="form-control" formControlName="Designation" placeholder="POC Designation">
     </div>
     </div>
- 
+
     <div class="col-md-6">
         <div class="form-group">
                 <label>Contact Email Address: </label>
       <input type="text" class="form-control" formControlName="ContactEmailAddress" placeholder="">
    </div>
     </div>
-   
+
     <div class="col-md-6">
         <div class="form-group">
              <label>Contact Phone Number: </label>
       <input type="text" class="form-control" formControlName="ContactPhoneNumber" placeholder="">
     </div>
-    </div>  
+    </div>
 
 
 
@@ -137,7 +137,7 @@
     <div class="col-md-3">
       <input type="text" class="form-control" formControlName="name" placeholder="Contact Person Name">
     </div>
- 
+
 
   </div>
 
@@ -201,11 +201,11 @@
                           <option value="BPO">BPO</option>
                           <option value="Back Office" >Back Office</option>
                           <option value="Industry">Industry</option>
-                         
+
                         </select>
-                          
-                          
-                        
+
+
+
                       <!-- /.form-group -->
                       </div>
                       <div class="col-md-6 col-sm-12 col-md-4 my-1">
@@ -257,7 +257,7 @@
                       </div>
                       <br><br>
                       <div class="col-md-6 col-sm-12 col-md-4 my-1">
-                        
+
                           <label>Services Required:
                           </label>
                           <select multiple class="form-control" formControlName="ServicesRequired"  >
@@ -274,44 +274,21 @@
                             </option>
                             <option value="Driving license">Backend Services
                             </option>
-                            
+
                           </select>
-                        
+
                       </div>
-                  
+
                     </div>
 
                     <br>
                       <div  class="row">
-                        
+
                           <label>Special Requirements or Notes:
                           </label>
                           <textarea formControlName="SpecialRequirmentOrNotes" class="form-control"  rows="2"></textarea>
-                        
-                      </div>
-                    
-                     
-                      
-                    
-                    
-                  
-                  
-                  
-                  
-      
-                
-                 
-                  
-      
-               
 
-                 
-                  
-                        
-                        
-                       
-                     
-                     
+                      </div>
                   </section>
                   <br><br>
                   <button  type="submit" class="btn btn-success me-2" mat-button>
@@ -334,56 +311,39 @@
           <table class="table table-bordered border text-nowrap mb-0" id="new-edit">
             <thead>
               <tr>
-                <!-- <th>ID</th> -->
                <th>Client Id</th>
                 <th>Company Name</th>
                 <th>Point Of Contact/POC</th>
-                <!-- <th>Contact Email</th> -->
-                
                 <th>Contract Date</th>
-                <th>Actions</th>
-                
+                <th width="5%">Actions</th>
+
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let item of onboardingList;let ndx = index">
-                <!-- <td>{{item.onboardingId}}</td> -->
                    <td>{{item.clientId}}</td>
                 <td>{{item.companyName}}</td>
-                 <td>
+                 <td >
+
                 <div *ngFor="let contact of getFormattedData(item.contactPersonInfo)" class="mb-2 p-2 border rounded bg-light shadow-sm">
-    <div><strong>Name:</strong> {{ contact.name }}</div>
-    <div><strong>Designation:</strong> {{ contact.Designation }}</div>
-    <div><strong>Email:</strong> <a href="mailto:{{ contact.ContactEmailAddress }}">{{ contact.ContactEmailAddress }}</a></div>
-    <div><strong>Phone:</strong> <a href="tel:{{ contact.ContactPhoneNumber }}">{{ contact.ContactPhoneNumber }}</a></div>
-  </div>
+                    <div><strong>Name:</strong> {{ contact.name }}</div>
+                    <div><strong>Designation:</strong> {{ contact.Designation }}</div>
+                    <div><strong>Email:</strong> <a href="mailto:{{ contact.ContactEmailAddress }}">{{ contact.ContactEmailAddress }}</a></div>
+                    <div><strong>Phone:</strong> <a href="tel:{{ contact.ContactPhoneNumber }}">{{ contact.ContactPhoneNumber }}</a></div>
+                  </div>
                 </td>
-<!-- <td>{{item.contactPersonName}}</td> -->
-                <!-- <td>{{item.contactEmailAddress}}</td> -->
-                
                 <td>{{item.contractDate | date: 'yyyy-MM-dd'}}</td>
                 <td>
-                  <button type="button" (click)="setRegistrationValuesForupdate(item)" class="btn btn-sm btn-primary">
+                  <button type="button" (click)="setRegistrationValuesForupdate(item)" class="btn btn-sm d_action_edit">
                     <span class="fe fe-edit"> </span>
-                    <!-- Edit -->
                   </button>
-                      <button type="button" class="btn mx-3 btn-sm btn-danger" (click)="onDelete(item.onboardingId)">
+                                      <!-- <button type="button" class="btn mx-1 btn-sm d_action_view" (click)="onDelete(item.onboardingId)">
+                      <span class="fe fe-eye"></span>
+                    </button> -->
+                      <button type="button" class="btn btn-sm ms-1 d_action_delete" (click)="onDelete(item.onboardingId)">
                       <span class="fe fe-trash-2"></span>
                     </button>
-                  <!-- <button (click)="deleteRow(item)" id="bDel" type="button" class="btn mx-3 btn-sm btn-danger">
-                    <span class="fe fe-trash-2"> </span>
-                    
-                  </button> -->
-                  <!-- <label>
-                    <input (click)="IsActive(item)" type="checkbox" [checked]="item.isActive"
-                      name="form-switch-checkbox1" class="form-switch-input">
-                    <span class="form-switch-indicator"></span>
-                  </label> -->
                 </td>
-
-
-
-              
               </tr>
             </tbody>
           </table>
@@ -393,7 +353,7 @@
             [pageSize]="pagination.pageSize" (pageChange)="onPageChange($event)" [maxSize]="pagination.maxSize"
             [boundaryLinks]="true" [ellipses]="true"></ngb-pagination>
 
-<!-- 
+<!--
           <ng-select class="" style="min-width: 100px" name="pageSize" (change)="getdepartments()"
             [(ngModel)]="pagination.pageSize">
             <ng-option value="5">5</ng-option>

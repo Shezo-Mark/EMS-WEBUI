@@ -138,7 +138,7 @@ export class EmployeeListComponent {
     return this.teacherForm.controls;
   }
   onPageChange(event: any) {
-    
+
     this.pagination.pageNo = event;
     this.getEmployees();
     // You can perform any necessary actions with the selected page number here
@@ -174,37 +174,15 @@ export class EmployeeListComponent {
     this.teacherForm.controls['middleName'].setValue(row.middleName);
     this.teacherForm.controls['lastName'].setValue(row.lastName);
     this.teacherForm.controls['teacherEmail'].setValue(row.teacherEmail);
-    // this.teacherForm.controls['nationality'].setValue(row.nationality);
-    // let FormatedateOfBirth = this.datePipe.transform(row?.dateOfBirth,"yyyy-MM-dd");
-    // let splitdateOfBirth:any = FormatedateOfBirth?.split('-');
-    // this.dateofBirthDatePicker.year = Number(splitdateOfBirth[0]);
-    // this.dateofBirthDatePicker.month = Number(splitdateOfBirth[1]);
-    // this.dateofBirthDatePicker.day = Number(splitdateOfBirth[2]);
-    // let FormatedateOfJoining = this.datePipe.transform(row?.dateOfJoining,"yyyy-MM-dd");
-    // let splitdateOfJoining:any = FormatedateOfJoining?.split('-');
-    // this.dateofJoiningDatePicker.year = Number(splitdateOfJoining[0]);
-    // this.dateofJoiningDatePicker.month = Number(splitdateOfJoining[1]);
-    // this.dateofJoiningDatePicker.day = Number(splitdateOfJoining[2]);
     this.teacherForm.controls['teacherPhoneNo'].setValue(row.teacherPhoneNo);
-    // this.teacherForm.controls['religion'].setValue(row.religion);
-    // this.teacherForm.controls['genderId'].setValue(row.genderId);
-    // this.teacherForm.controls['streetName'].setValue(row.streetName);
-    // this.teacherForm.controls['houseNo'].setValue(row.houseNo);
-    // this.teacherForm.controls['area'].setValue(row.area);
-    // this.teacherForm.controls['zone'].setValue(row.zone);
-    // this.teacherForm.controls['address'].setValue(row.address);
     this.isEdit=true;
     this.curdBtnIsList = false;
   }
   formSubmit() {
-    
+
     this.submitted = true;
     if (!this.teacherForm.valid)
       return;
-      // let joiningDate = this.dateofJoiningDatePicker.year +'-'+ this.dateofJoiningDatePicker.month +'-'+ this.dateofJoiningDatePicker.day;
-      // let dateofBirth = this.dateofBirthDatePicker.year +'-'+ this.dateofBirthDatePicker.month +'-'+ this.dateofBirthDatePicker.day;
-      // this.teacherForm.value['dateOfJoining'] = joiningDate;
-      // this.teacherForm.value['dateOfBirth'] = dateofBirth;
     this.teacherSrv.saveteacher(this.teacherForm.value).subscribe({
       next: (data: any) => {
         this.teacherForm.reset();
@@ -222,7 +200,7 @@ export class EmployeeListComponent {
     });
   }
   IsActive(row: any) {
-    
+
     this.employeeService.active(row.employeeId).subscribe({
       next: result => {
         if (result.status) {
@@ -285,7 +263,7 @@ export class EmployeeListComponent {
       };
     }
   }
-  
+
   deleteDocument(documentId: string) {
     if (confirm('Are you sure to delete ')) {
       this.documentService.deleteDocument(documentId).subscribe({
