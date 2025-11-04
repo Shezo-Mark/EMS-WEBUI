@@ -2,6 +2,7 @@ import { Observable, Subject } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { Injectable } from '@angular/core';
 import { HttpRequestService } from 'src/app/shared/services/http-request.service';
+import { HttpParams } from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
 })
@@ -61,4 +62,7 @@ export class EmployeeService {
   active(id:any): Observable<any> {
     return this.http.get(`employee/active?employeeId=`+id);
     }
+     deleteemployee(employeeId: any ): Observable<any> {
+        return this.http.delete(`employee/delete/` + employeeId);
+      }
 }

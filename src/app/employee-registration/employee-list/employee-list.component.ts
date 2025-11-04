@@ -277,4 +277,16 @@ export class EmployeeListComponent {
       });
     }
   }
+  onDelete(id: any){
+      this.employeeService.deleteemployee(id).subscribe({
+    next: (res) => {
+      debugger
+      console.log('Employee deleted successfully', res);
+      // optionally refresh your list
+    },
+    error: (err) => {
+      console.error('Delete failed', err);
+    }
+  });
+  }
 }

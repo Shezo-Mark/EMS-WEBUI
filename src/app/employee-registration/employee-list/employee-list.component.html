@@ -293,7 +293,7 @@
                           [queryParams]="{id:item.employeeId}">
                     <span class="fe fe-edit"> </span>
                   </button>
-                         <button type="button" class="btn btn-sm d_action_delete"> <span class="fe fe-trash-2"></span></button>
+                         <button type="button" class="btn btn-sm d_action_delete" (click)="onDelete(item.employeeId)"> <span class="fe fe-trash-2"></span></button>
 
                   <!-- <label>
                     <input (click)="IsActive(item)" type="checkbox"
