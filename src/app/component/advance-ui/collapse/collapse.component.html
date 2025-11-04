@@ -1,0 +1,129 @@
+<app-page-header
+  [title]="'Collapse'"
+  [items]="['Advance-ui']"
+  [active_item]="'Collapse'"
+></app-page-header>
+
+<!-- row -->
+<div class="row">
+  <div class="col-lg-12 col-md-12">
+    <div class="card custom-card">
+      <div class="card-body">
+        <div>
+          <h6 class="card-title mb-1">Basic Example</h6>
+          <p class="text-muted card-sub-title">
+            Click the buttons below to show and hide another element via class
+            changes
+          </p>
+        </div>
+        <div>
+          <a
+            aria-controls="collapseExample"
+            (click)="isCollapsed = !isCollapsed"
+            [attr.aria-expanded]="!isCollapsed"
+            class="btn mb-2 btn-primary"
+            role="button"
+            >Toggle Content</a
+          >
+          <div
+            #collapse="ngbCollapse"
+            [(ngbCollapse)]="isCollapsed"
+            class="mg-t-5"
+            id="collapseExample"
+          >
+            <div class="border br-5 p-4">
+              Et harum quidem rerum facilis est et expedita distinctio. Nam
+              libero tempore, cum soluta nobis est eligendi optio cumque nihil
+              impedit quo minus id quod maxime placeat facere possimus, omnis
+              voluptas assumenda est, omnis dolor repellendus.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-12 col-md-12">
+    <div class="card custom-card">
+      <div class="card-body">
+        <div>
+          <h6 class="card-title mb-1">Multiple Targets</h6>
+          <p class="text-muted card-sub-title">
+            A button or link can show and hide multiple elements by referencing
+            them with a jquery selector in its href or data-bs-target attribute.
+          </p>
+        </div>
+        <div>
+          <div class="btn-list">
+            <a
+              aria-controls="multiCollapseExample1"
+              aria-controls="collapseExample"
+              (click)="isCollapsed1 = !isCollapsed1"
+              [attr.aria-expanded]="!isCollapsed1"
+              class="btn ripple btn-secondary text-white"
+              role="button"
+              >Toggle First Content</a
+            >
+            <a
+              aria-controls="multiCollapseExample2"
+              aria-controls="collapseExample"
+              (click)="isCollapsed2 = !isCollapsed2"
+              [attr.aria-expanded]="!isCollapsed2"
+              class="btn ripple btn-success text-white"
+              role="button"
+              >Toggle Second Content</a
+            >
+            <a
+              aria-controls="multiCollapseExample1 multiCollapseExample2"
+              aria-controls="collapseExample"
+              (click)="isCollapsed3 = !isCollapsed3"
+              [attr.aria-expanded]="!isCollapsed3"
+              class="btn ripple btn-info text-white"
+              role="button"
+              >Toggle Both Contents</a
+            >
+          </div>
+          <div
+            #collapse3="ngbCollapse"
+            [(ngbCollapse)]="isCollapsed3"
+            class="row row-sm"
+          >
+            <div class="col">
+              <div
+                #collapse1="ngbCollapse"
+                [(ngbCollapse)]="isCollapsed1"
+                class="multi-collapse mt-2"
+                id="multiCollapseExample1"
+              >
+                <div class="border br-5 p-4">
+                  Et harum quidem rerum facilis est et expedita distinctio. Nam
+                  libero tempore, cum soluta nobis est eligendi optio cumque
+                  nihil impedit quo minus id quod maxime placeat facere
+                  possimus, omnis voluptas assumenda est, omnis dolor
+                  repellendus.
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div
+                #collapse2="ngbCollapse"
+                [(ngbCollapse)]="isCollapsed2"
+                class="collapse multi-collapse mt-2"
+                id="multiCollapseExample2"
+              >
+                <div class="border br-5 p-4">
+                  Et harum quidem rerum facilis est et expedita distinctio. Nam
+                  libero tempore, cum soluta nobis est eligendi optio cumque
+                  nihil impedit quo minus id quod maxime placeat facere
+                  possimus, omnis voluptas assumenda est, omnis dolor
+                  repellendus.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- row closed -->

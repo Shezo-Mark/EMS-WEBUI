@@ -1,0 +1,55 @@
+<app-page-header
+  [title]="'Gallary'"
+  [items]="['Pages']"
+  [active_item]="'Gallary'"
+></app-page-header>
+<!-- Gallery -->
+<div class="demo-gallery">
+  <ul class="list-unstyled row row-sm" gallerize>
+    <li *ngFor="let img of imageData" class="col-sm-6 col-xl-3">
+      <img
+        class="img-fluid wp-100 mb-2 br-5"
+        [src]="img.srcUrl"
+        alt="banner image"
+      />
+    </li>
+  </ul>
+  <!-- /Gallery -->
+
+  <!-- Pagination -->
+  <div class="row mb-5">
+    <div class="col-md-6 mt-1 d-none d-md-block">1 - 10 of 234 photos</div>
+    <div class="col-md-6">
+      <div class="float-end">
+        <ul class="pagination">
+          <li class="page-item page-prev disabled">
+            <a class="page-link" href="javascript:void(0);" tabindex="-1"
+              >Prev</a
+            >
+          </li>
+          <li class="page-item active">
+            <a class="page-link" href="javascript:void(0);">1</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="javascript:void(0);">2</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="javascript:void(0);">3</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="javascript:void(0);">4</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="javascript:void(0);">5</a>
+          </li>
+          <li class="page-item page-next">
+            <a class="page-link" href="javascript:void(0);">Next</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- COL-END -->
+  </div>
+  <!-- Pagination -->
+</div>
+<!-- row closed -->

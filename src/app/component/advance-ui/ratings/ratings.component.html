@@ -1,0 +1,205 @@
+<app-page-header
+  [title]="'Ratings'"
+  [items]="['Advance-ui']"
+  [active_item]="'Ratings'"
+></app-page-header>
+
+<div class="row row-cards">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Star Rating</div>
+      </div>
+      <div class="card-body">
+        <ng-template #StarRating let-fill="fill">
+          <span class="star" [class.full]="fill === 100">
+            <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+          </span>
+        </ng-template>
+        <ngb-rating
+          [(rate)]="currentRate"
+          [starTemplate]="StarRating"
+          [max]="5"
+          class="ng-rating"
+        ></ngb-rating>
+        <hr />
+        <p class="mb-0">
+          Rate: <b>{{ currentRate }}</b>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Heart Rating</div>
+      </div>
+      <div class="card-body">
+        <ng-template #t let-fill="fill">
+          <span class="star" [class.full]="fill === 100">
+            <span class="heartHalf" [style.width.%]="fill">&hearts;</span
+            >&hearts;
+          </span>
+        </ng-template>
+        <ngb-rating
+          [(rate)]="heartRate"
+          [starTemplate]="t"
+          [max]="5"
+          class="ng-rating"
+        ></ngb-rating>
+        <hr />
+        <p class="mb-0">
+          Rate: <b>{{ heartRate }}</b>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Multi Star Rating</div>
+      </div>
+      <div class="card-body">
+        <input [(ngModel)]="MultiStarCurrentRateInput" />
+        <ngb-rating [(rate)]="MultiStarCurrentRateInput" class="ng-rating">
+          <ng-template let-fill="fill" let-index="index">
+            <span class="star" [class.filled]="fill === 100">&#9733;</span>
+          </ng-template>
+        </ngb-rating>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Multi Heart Rating</div>
+      </div>
+      <div class="card-body">
+        <input [(ngModel)]="MultiHeartsCurrentRateInput" />
+        <ng-template #t let-fill="fill">
+          <span class="star" [class.full]="fill === 100">
+            <span class="heartHalf" [style.width.%]="fill">&hearts;</span
+            >&hearts;
+          </span>
+        </ng-template>
+        <ngb-rating
+          [(rate)]="MultiHeartsCurrentRateInput"
+          [starTemplate]="t"
+          [max]="10"
+          class="ng-rating"
+        ></ngb-rating>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Squar Rating</div>
+      </div>
+      <div class="card-body">
+        <bar-rating
+          [(rate)]="SquarRate"
+          [max]="5"
+          [theme]="'square'"
+          [showText]="true"
+        ></bar-rating>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Circle Rating</div>
+      </div>
+      <div class="card-body">
+        <bar-rating [(rate)]="RoundRat" [max]="5">
+          <ng-template ratingActive>
+            <i
+              class="bi bi-circle-fill"
+              style="margin: 3px; color: #edb867; height: 200px"
+            ></i>
+          </ng-template>
+        </bar-rating>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row row-cards">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Basic Star Rating</div>
+      </div>
+      <div class="card-body">
+        <ng-template #BasicStarRating let-fill="fill">
+          <span class="star" [class.full]="fill === 100">
+            <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+          </span>
+        </ng-template>
+        <ngb-rating
+          [starTemplate]="BasicStarRating"
+          [max]="5"
+          class="ng-rating"
+        ></ngb-rating>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Rounded star Rating</div>
+      </div>
+      <div class="card-body">
+        <bar-rating [(rate)]="rate" [max]="5">
+          <ng-template ratingActive>
+            <i class="bi bi-star-fill" style="margin: 3px; color: #e25717"></i>
+          </ng-template>
+        </bar-rating>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">read only mode</div>
+      </div>
+      <div class="card-body">
+        <ng-template #eventstar let-fill="fill">
+          <span class="star" [class.full]="fill === 100">
+            <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+          </span>
+        </ng-template>
+
+        <ngb-rating
+          [(rate)]="selected"
+          [readonly]="readonly"
+          [starTemplate]="eventstar"
+          [max]="5"
+          class="ng-rating"
+        ></ngb-rating>
+        <hr />
+        <button
+          class="btn btn-sm btn-outline-{{ readonly ? 'danger' : 'success' }}"
+          (click)="readonly = !readonly"
+        >
+          {{ readonly ? "readonly" : "editable" }}
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Horizontal bar rating</div>
+      </div>
+      <div class="card-body mb-0">
+        <bar-rating
+          [(rate)]="horiRate"
+          [max]="10"
+          [theme]="'horizontal'"
+          [showText]="true"
+        ></bar-rating>
+      </div>
+    </div>
+  </div>
+</div>

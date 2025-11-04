@@ -1,0 +1,102 @@
+<app-page-header
+  [title]="'Notification'"
+  [items]="['Apps']"
+  [active_item]="'Notification'"
+></app-page-header>
+
+<div class="row">
+  <div class="col-md-12">
+    <!-- div -->
+    <div class="card mg-b-20">
+      <div class="card-header">
+        <div class="card-title">Position Notification</div>
+        <p class="mb-0 tx-13 text-muted">
+          It is Very Easy to Customize and it uses in website apllication.
+        </p>
+      </div>
+      <div class="card-body">
+        <div class="example border-0 p-0">
+          <div class="btn-list">
+            <button (click)="showDefault()" class="btn btn-light mg-t-5">
+              Default
+            </button>
+            <button (click)="showCenter()" class="btn btn-light mg-t-5 ">
+              Center
+            </button>
+            <button (click)="showLeft()" class="btn btn-light mg-t-5">Left</button>
+            <button (click)="showCenterInfo()" class="btn btn-light mg-t-5">
+              Center Info
+            </button>
+            <button (click)="showCenterError()" class="btn btn-light mg-t-5 ">
+              Center Error
+            </button>
+            <button (click)="showCenterWarning()" class="btn btn-light mg-t-5 ">
+              Center Warning
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- div -->
+
+    <!-- div -->
+    <div class="card mg-b-20">
+      <div class="card-header">
+        <div class="card-title">Notification Types</div>
+        <p class="mb-0 tx-13 text-muted">
+          It is Very Easy to Customize and it uses in website apllication.
+        </p>
+      </div>
+      <div class="card-body">
+        <div class="example border-0 p-0">
+          <div class="btn-list">
+              <button (click)="showPrimary()" class="btn btn-primary">
+                 Primary
+            </button>
+            <button (click)="showSuccess()" class="btn btn-success">
+               Success
+            </button>
+            
+            <button (click)="showError()" class="btn btn-danger">
+              Error
+            </button>
+            <button (click)="showWarning()" class="btn btn-warning">
+               Warning
+            </button>
+            <button (click)="showInfo()" class="btn btn-info">
+              Info
+            </button>
+            <button  (click)="showFixedError()" class="btn btn-danger mg-t-5">
+              Fixed Error
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- div -->
+
+     <div class="card mg-b-20">
+      <div class="card-header">
+        <div class="card-title">Basic Snackbar Notification</div>
+        <p class="mb-0 tx-13 text-muted">
+          It is Very Easy to Customize and it uses in website apllication.
+        </p>
+      </div>
+      <div class="card-body" >
+        <mat-form-field appearance="fill">
+          <mat-label>Snack bar duration (seconds)</mat-label>
+          <input type="number" [(ngModel)]="durationInSeconds" matInput />
+        </mat-form-field>
+
+        <button
+          class="btn btn-primary ms-2"
+          mat-stroked-button
+          (click)="openSnackBarCustom()"
+        >
+          Nofify
+        </button>
+      </div>
+    </div>
+    <!-- div -->
+  </div>
+</div>

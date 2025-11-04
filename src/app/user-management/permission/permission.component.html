@@ -1,0 +1,75 @@
+<app-page-header [title]="'Permissions'" [items]="['Forms']" [active_item]="'Permission'"></app-page-header>
+
+<div class="row row-sm">
+    <div class="col-sm-12 col-lg-12 col-xl-12">
+        <div class="card custom-card">
+            <div class="">
+                <div class="p-3 border-bottom">
+                    <div class="d-flex align-items-center mb-3">
+                        <h5 class="mb-0">Role</h5>
+                    </div>
+                    <div class="form-group">
+                        <ng-select #select [items]="roles" [(ngModel)]="roleId" (change)="onChangeRole()"
+                          bindLabel="roleName" bindValue="roleId">
+                        </ng-select>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  <div class="row">
+    <div class="col-xl-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Role Permission</h3>
+          <button class="btn btn-primary pd-x-20" [disabled]="this.permisssions.length == 0" (click)="saveUpdateRolePermission()">Save</button>
+        </div>
+        <div class="card-body h-100">
+          <div id="accordion" class="w-100 br-2 overflow-hidden">
+            <ng-container  *ngFor="let item of GroupArraypermisssions; ;let ndx = index">
+              <div *ngIf="!(item.children.length>0)" class="alert alert-solid-danger witout-parent" role="alert">
+                <label class="custom-control form-checkbox custom-control-md">
+                  <input type="checkbox" class="custom-control-input" name="example-checkbox1" value="option1" [(ngModel)]="item.isAssigned"  [checked]="item.isAssigned">
+                  <span class="custom-control-label custom-control-label-md ">{{item.title}} </span>
+              </label>
+              </div>
+             <ngb-accordion [closeOthers]="true"  *ngIf="item.children.length > 0">
+                <ngb-panel  id="{{item.permissionItemId}}" cardClass="panel-heading1 collapseOne1">
+                  <ng-template ngbPanelTitle>
+                      <i class="fa fa-minus-circle me-2"></i>
+                       {{item.title}}
+                    </ng-template>
+                  <ng-template ngbPanelContent>
+                          <div class="border table-responsive p-3 accstyle">
+                              <table class="table mb-0 table-bordered table-hover table-striped border-top mb-0">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col" width="300">Title</th>
+                                      <th scope="col" width="100" >
+                                        Is Assigned
+                                      </th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr *ngFor="let childItem of item.children">
+                                      <td>{{childItem.title}}</td>
+                                      <td >
+                                          <label class="custom-control form-checkbox custom-control-md">
+                                              <input type="checkbox" class="custom-control-input" name="example-checkbox1" value="option1" (change)="checkParentSelected(ndx,childItem)" [(ngModel)]="childItem.isAssigned"  [checked]="childItem.isAssigned">
+                                              <span class="custom-control-label custom-control-label-md "></span>
+                                          </label>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                          </div>
+                  </ng-template>
+                </ngb-panel>
+            </ngb-accordion>
+          </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

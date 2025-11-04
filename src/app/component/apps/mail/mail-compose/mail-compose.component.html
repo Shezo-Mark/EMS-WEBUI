@@ -1,0 +1,245 @@
+<app-page-header
+  [title]="'Mail-Compose'"
+  [items]="['Apps']"
+  [active_item]="'Mail-Compose'"
+></app-page-header>
+
+<!-- row opened -->
+<div class="row row-sm">
+  <!-- Col -->
+  <div class="col-lg-4 col-xl-3 col-md-12">
+    <div class="card mg-b-20">
+      <div class="main-content-left main-content-left-mail card-body">
+        <a
+          class="btn btn-primary btn-compose"
+          (click)="open(content)"
+          href="javascript:void(0);"
+          >Compose</a
+        >
+        <div class="main-mail-menu">
+          <nav class="nav main-nav-column mg-b-20">
+            <a class="nav-link active" href=""
+              ><i class="ri-mail-download-line"></i> Inbox
+              <span class="badge bg-primary me-2">20</span></a
+            >
+            <a class="nav-link" href=""
+              ><i class="ri-star-line"></i> Starred
+              <span class="badge bg-secondary me-2">3</span></a
+            >
+            <a class="nav-link" href=""
+              ><i class="ri-bookmark-2-line"></i> Important
+              <span class="badge bg-warning me-2">10</span></a
+            >
+            <a class="nav-link" href=""
+              ><i class="ri-share-forward-line"></i> Sent Mail
+              <span class="badge bg-info me-2">8</span></a
+            >
+            <a class="nav-link" href=""
+              ><i class="ri-edit-line"></i> Drafts
+              <span class="badge bg-primary me-2">15</span></a
+            >
+            <a class="nav-link" href=""
+              ><i class="ri-spam-line"></i> Spam
+              <span class="badge bg-danger me-2">128</span></a
+            >
+            <a class="nav-link" href=""
+              ><i class="ri-delete-bin-5-line"></i> Trash
+              <span class="badge bg-success me-2">6</span></a
+            >
+          </nav>
+          <label class="main-content-label main-content-label-sm">Label</label>
+          <nav class="nav main-nav-column mg-b-20">
+            <a class="nav-link" href="javascript:void(0);"
+              ><i class="ri-folder-shared-line"></i> Social
+              <span class="badge bg-secondary me-2">10</span></a
+            >
+            <a class="nav-link" href="javascript:void(0);"
+              ><i class="ri-folder-shared-line"></i> Promotions
+              <span class="badge bg-info me-2">22</span></a
+            >
+            <a class="nav-link" href="javascript:void(0);"
+              ><i class="ri-folder-shared-line"></i> Updates
+              <span class="badge bg-warning me-2">17</span></a
+            >
+          </nav>
+        </div>
+        <!-- main-mail-menu -->
+      </div>
+    </div>
+  </div>
+  <!-- /Col -->
+  <div class="col-lg-8 col-xl-9 col-md-12">
+    <div class="card">
+      <div class="card-header border-bottom">
+        <h3 class="card-title mt-2 mb-1">Compose new message</h3>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <div class="row align-items-center">
+              <label class="col-sm-2">To</label>
+              <div class="col-xl-10">
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row align-items-center">
+              <label class="col-sm-2">Subject</label>
+              <div class="col-xl-10">
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row align-items-center">
+              <label class="col-xl-2">CC</label>
+              <div class="col-xl-10">
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row align-items-center">
+              <label class="col-xl-2">BC</label>
+              <div class="col-xl-10">
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <label class="col-sm-2">Message</label>
+              <div class="col-xl-10">
+                <textarea rows="10" class="form-control"></textarea>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer d-sm-flex">
+        <div class="mt-2 mb-2">
+          <a
+            href="javascript:void(0)"
+            ngbTooltip="Attach"
+            placement="top"
+            class="btn btn-icon border me-1"
+            ><i class="fe fe-paperclip text-muted fs-20"></i
+          ></a>
+          <a
+            href="javascript:void(0)"
+            ngbTooltip="Link"
+            placement="top"
+            class="btn btn-icon border me-1"
+            ><i class="fe fe-link-2 text-muted fs-20"></i
+          ></a>
+          <a
+            href="javascript:void(0)"
+            ngbTooltip="image"
+            placement="top"
+            class="btn btn-icon border me-1"
+            ><i class="fe fe-image text-muted fs-20"></i
+          ></a>
+          <a
+            href="javascript:void(0)"
+            ngbTooltip="trash"
+            placement="top"
+            class="btn btn-icon border me-1"
+            ><i class="fe fe-trash-2 text-muted fs-20"></i
+          ></a>
+        </div>
+        <div class="btn-list ms-auto">
+          <button type="button" class="btn btn-danger btn-space">
+            Discard
+          </button>
+          <button type="submit" class="btn btn-primary btn-space">
+            Send message
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- row closed -->
+<ng-template #content let-modal>
+  <div class="main-mail-compose-box">
+    <div class="main-mail-compose-header">
+      <span>New Message</span>
+      <nav class="nav">
+        <a class="nav-link"
+          ><i (click)="modal.dismiss('Cross click')" class="fas fa-times"></i
+        ></a>
+      </nav>
+    </div>
+    <div class="main-mail-compose-body">
+      <div class="form-group">
+        <label class="form-label">To</label>
+        <div>
+          <input
+            class="form-control"
+            placeholder="Enter recipient's email address"
+            type="text"
+          />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Subject</label>
+        <div>
+          <input class="form-control" type="text" />
+        </div>
+      </div>
+      <div class="form-group">
+        <textarea
+          class="form-control"
+          placeholder="Write your message here..."
+          rows="8"
+        ></textarea>
+      </div>
+      <div class="form-group mg-b-0">
+        <nav class="nav">
+          <a
+            class="nav-link"
+            data-bs-toggle="tooltip"
+            href=""
+            aria-label="Add attachment"
+            data-bs-original-title="Add attachment"
+            ><i class="fas fa-paperclip"></i
+          ></a>
+          <a
+            class="nav-link"
+            data-bs-toggle="tooltip"
+            href=""
+            aria-label="Add photo"
+            data-bs-original-title="Add photo"
+            ><i class="far fa-image"></i
+          ></a>
+          <a
+            class="nav-link"
+            data-bs-toggle="tooltip"
+            href=""
+            aria-label="Add link"
+            data-bs-original-title="Add link"
+            ><i class="fas fa-link"></i
+          ></a>
+          <a
+            class="nav-link"
+            data-bs-toggle="tooltip"
+            href=""
+            aria-label="Emoticons"
+            data-bs-original-title="Emoticons"
+            ><i class="far fa-smile"></i
+          ></a>
+          <a
+            class="nav-link"
+            data-bs-toggle="tooltip"
+            href=""
+            aria-label="Discard"
+            data-bs-original-title="Discard"
+            ><i class="far fa-trash-alt"></i
+          ></a>
+        </nav>
+        <button class="btn btn-primary">Send</button>
+      </div>
+    </div>
+  </div>
+</ng-template>

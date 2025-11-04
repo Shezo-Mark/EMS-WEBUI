@@ -1,0 +1,70 @@
+<app-page-header  [title]="'Apex-charts'" [items]="['Charts']" [active_item]="'Apex-charts'" ></app-page-header>
+<div class="row row-sm">
+    <div class="col-sm-12 col-lg-6">
+        <div class="card overflow-hidden">
+            <div class="card-body">
+                <div class="main-content-label mg-b-20 ">
+                    AREA CHART WITH RANDOM DATA
+                </div>
+                <p class="">Below is the area chart with random data example.</p>
+                <div class="chart-container">
+                
+                    <apx-chart [series]="RandomData.series" [colors]="RandomData.colors"  [chart]="RandomData.chart" [annotations]="RandomData.annotations" [dataLabels]="RandomData.dataLabels" [markers]="RandomData.markers" [xaxis]="RandomData.xaxis"
+                    [tooltip]="RandomData.tooltip">
+                   </apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <div class="col-sm-12 col-lg-6">
+        <div class="card overflow-hidden">
+            <div class="card-body">
+                <div class="main-content-label mg-b-20">
+                    AREA CHART WITH BAR DATA
+                </div>
+                <p class="">Below is the area chart with random data example.</p>
+                <div class="chart-container">
+                
+                    <apx-chart [series]="BarData.series"  [colors]="BarData.colors" [chart]="BarData.chart" [annotations]="BarData.annotations" [dataLabels]="BarData.dataLabels" [markers]="BarData.markers" [xaxis]="BarData.xaxis"
+                    [tooltip]="BarData.tooltip" [fill]="BarData.fill">
+                    </apx-chart>
+                </div>
+            </div>
+        </div>
+     </div>
+
+     <div class="col-sm-12 col-lg-6">
+        <div class="card overflow-hidden">
+            <div class="card-body">
+                <div class="main-content-label mg-b-20">
+                    AREA CHART WITH ApexChart DATA
+                </div>
+                <p class="mg-b-20">Below is the area chart with random data example.</p>
+                <div class="chart-container">
+                
+                      <apx-chart [series]="ApexChartData.series"  [colors]="ApexChartData.colors" [chart]="ApexChartData.chart" [annotations]="ApexChartData.annotations" [dataLabels]="ApexChartData.dataLabels" [markers]="ApexChartData.markers" [xaxis]="ApexChartData.xaxis"
+                    [tooltip]="ApexChartData.tooltip" [fill]="ApexChartData.fill">
+                    </apx-chart>
+                </div>
+            </div>
+        </div>
+     </div>
+
+    <div class="col-sm-12 col-lg-6">
+        <div class="card overflow-hidden">
+            <div class="card-body">
+                <div class="main-content-label mg-b-20">
+                    AREA CHART WITH STACKED BAR DATA
+                </div>
+                <p class="mg-b-20">Below is the area chart with random data example.</p>
+                <div class="chart-container">
+                
+                    <apx-chart [series]="StackedBarData.series"  [colors]="StackedBarData.colors" [chart]="StackedBarData.chart" [annotations]="StackedBarData.annotations" [dataLabels]="StackedBarData.dataLabels" [markers]="StackedBarData.markers" [xaxis]="StackedBarData.xaxis"
+                    [tooltip]="StackedBarData.tooltip" [fill]="StackedBarData.fill">
+                    </apx-chart>
+                </div>
+            </div>
+        </div>
+     </div>
+</div>

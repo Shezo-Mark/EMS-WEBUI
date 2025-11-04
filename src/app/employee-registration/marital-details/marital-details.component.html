@@ -1,0 +1,305 @@
+
+<div class="row mb-5">
+  <div class="col-md-4 col-sm-12 col-md-4 my-1">
+      <div class="form-group">
+        <label>Marital Status: </label>
+        <ng-select #select [items]="maritalList" 
+          bindLabel="text" bindValue="id" [(ngModel)]="MaritalStatusId" (change)="onSelectChange($event)">
+        </ng-select>
+        <!-- <div
+          *ngIf="(basicFamilyFormControl['MaritalStatusId'].invalid) && submitted&& (basicFamilyFormControl['MaritalStatusId'].errors?.['required'])"
+          class="tx-danger">
+          <small>Marital Status is <strong>required</strong></small>
+        </div> -->
+      </div>
+    </div>
+
+</div>
+    <section *ngIf="selectedMaritalStatus?.code=='MARRIED'">
+      <form [formGroup]="formfamily" novalidate (ngSubmit)="FamilyFormSubmit()">
+      <div class="row">
+        <!-- <div class="col-md-4 col-sm-12 col-md-4 my-1">
+            <div class="form-group">
+              <label>Marital Status: </label>
+              <ng-select #select [items]="maritalList"  formControlName="MaritalStatusId"
+                bindLabel="text" bindValue="id" (change)="onSelectChange($event)">
+              </ng-select>
+              <div
+                *ngIf="(basicFamilyFormControl['MaritalStatusId'].invalid) && submitted&& (basicFamilyFormControl['MaritalStatusId'].errors?.['required'])"
+                class="tx-danger">
+                <small>Marital Status is <strong>required</strong></small>
+              </div>
+            </div>
+          </div> -->
+          <div class="col-md-4 col-sm-12 col-md-4 my-1">
+            <label>No. of Dependents: </label>
+            <input class="form-control" formControlName="NoOfDependents" placeholder="Enter No. of Dependents"
+              [ngClass]="{'has-success': basicFamilyFormControl['NoOfDependents'].valid}">
+            <div
+              *ngIf="(basicFamilyFormControl['NoOfDependents'].invalid) && submitted && (basicFamilyFormControl['NoOfDependents'].errors?.['required'])"
+              class="tx-danger">
+              <small>No. of Dependents is <strong>required</strong></small>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-12 col-md-4 my-1">
+            <label>Name of Spouse: </label>
+            <input class="form-control" formControlName="NameOfSpouse" placeholder="Enter Name of Spouse"
+              [ngClass]="{'has-success': basicFamilyFormControl['NameOfSpouse'].valid}">
+            <div
+              *ngIf="(basicFamilyFormControl['NameOfSpouse'].invalid) && submitted&& (basicFamilyFormControl['NameOfSpouse'].errors?.['required'])"
+              class="tx-danger">
+              <small>Name of Spouse is <strong>required</strong></small>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-12 col-md-4 my-1">
+            <div class="form-group">
+              <label> Spouse Alive Status: </label>
+              <ng-select #select [items]="spouseAliveList"  formControlName="SpouseAliveStatusId"
+                bindLabel="text" bindValue="id">
+              </ng-select>
+              <div
+                *ngIf="(basicFamilyFormControl['SpouseAliveStatusId'].invalid) && submitted&& (basicFamilyFormControl['SpouseAliveStatusId'].errors?.['required'])"
+                class="tx-danger">
+                <small> Spouse Alive Status is <strong>required</strong></small>
+              </div>
+            </div>
+          </div>
+
+      </div>
+      <div class="row">
+
+        <div class="col-md-4 col-sm-12 col-md-4 my-1">
+          <label>Spouse Date Of Birth: </label>
+          <div class="form-input">
+            <div class="input-group">
+              <input formControlName="SpouseDateOfBirth" class="form-control" placeholder="dd/mm/yyyy" name="d22"
+                [(ngModel)]="dateofbirthPicker" ngbDatepicker #d22="ngbDatepicker" />
+              <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d22.toggle()"
+                type="button"></button>
+            </div>
+          </div>
+          <div
+            *ngIf="(basicFamilyFormControl['SpouseDateOfBirth'].invalid) && submitted&& (basicFamilyFormControl['SpouseDateOfBirth'].errors?.['required'])"
+            class="tx-danger">
+            <small>Spouse Date Of Birth is <strong>required</strong></small>
+          </div>
+        </div> 
+       
+      </div>
+
+      <button type="submit" class="btn btn-success mt-2 mb-2 ">
+        Save
+      </button>
+    </form>
+    <form [formGroup]="formchild" novalidate (ngSubmit)="ChildrenFormSubmit()">
+      <div class="row">
+        <b> Children</b>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-sm-12 col-md-4 my-1">
+            <label>Name of Child: </label>
+            <input class="form-control" formControlName="NameOfChild" placeholder="Enter Name of Child"
+              [ngClass]="{'has-success': basicChildrenFormControl['NameOfChild'].valid}">
+            <div
+              *ngIf="(basicChildrenFormControl['NameOfChild'].invalid) && submitted&& (basicChildrenFormControl['NameOfChild'].errors?.['required'])"
+              class="tx-danger">
+              <small>Name of Child is <strong>required</strong></small>
+            </div>
+          </div>
+        <div class="col-md-4 col-sm-12 col-md-4 my-1">
+            <div class="form-group">
+              <label>Child Gender: </label>
+              <ng-select #select [items]="genderList"  formControlName="ChildGenderId"
+                bindLabel="text" bindValue="id">
+              </ng-select>
+              <div
+                *ngIf="(basicChildrenFormControl['ChildGenderId'].invalid) && submitted&& (basicChildrenFormControl['ChildGenderId'].errors?.['required'])"
+                class="tx-danger">
+                <small>Child Gender is  <strong>required</strong></small>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-12 col-md-4 my-1">
+            <label>Child Date Of Birth: </label>
+            <div class="form-input">
+              <div class="input-group">
+                <input formControlName="ChildDateOfBirth" class="form-control" placeholder="dd/mm/yyyy" name="d23"
+                  [(ngModel)]="childdateofbirthPicker" ngbDatepicker #d23="ngbDatepicker" />
+                <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d23.toggle()"
+                  type="button"></button>
+              </div>
+            </div>
+            <div
+              *ngIf="(basicChildrenFormControl['ChildDateOfBirth'].invalid) && submitted&& (basicChildrenFormControl['ChildDateOfBirth'].errors?.['required'])"
+              class="tx-danger">
+              <small>Child Date Of Birth is <strong>required</strong></small>
+            </div>
+          </div>
+        
+       
+      </div>
+
+
+     
+    
+    <button type="submit" class="btn btn-success me-2">
+      Save Children
+    </button>
+  </form>
+
+  <br><br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name of Child</th>
+        <!-- <th scope="col">Child Gender</th> -->
+        <th scope="col">Child Date Of Birth</th>
+        <th scope="col">Ations</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr *ngFor="let item of childrenList;index as i">
+          <th scope="row">{{i+1}}</th>
+          <td>{{item.nameOfChild}}</td>
+          <!-- <td>{{item.childGender}}</td> -->
+          <td>{{item.childDateOfBirth | date: 'yyyy-MM-dd'}}</td>
+         
+          <td>
+            <button type="button"  class="btn me-3 btn-sm btn-primary" (click)="Edit(item)">
+            <span class="fe fe-edit"> </span>
+            <!-- Edit -->
+          </button>
+          </td>
+          
+          
+        </tr>
+      
+    </tbody>
+  </table>
+<br><br>
+</section>
+
+<section *ngIf="selectedMaritalStatus?.code=='SINGLE'">
+  <form [formGroup]="formfamily" novalidate (ngSubmit)="FamilyFormSubmit()">
+<div class="row">
+    <div class="col-md-4 col-sm-12 col-md-4 my-1">
+        <label>Name of Father: </label>
+        <input class="form-control" formControlName="NameOfFather" placeholder="Enter Name of Father"
+          [ngClass]="{'has-success': basicFamilyFormControl['NameOfFather'].valid}">
+        <div
+          *ngIf="(basicFamilyFormControl['NameOfFather'].invalid) && submitted&& (basicFamilyFormControl['NameOfFather'].errors?.['required'])"
+          class="tx-danger">
+          <small>Name of Father is <strong>required</strong></small>
+        </div>
+      </div>
+    <div class="col-md-4 col-sm-12 col-md-4 my-1">
+        <div class="form-group">
+          <label> Father Alive Status: </label>
+          <ng-select #select [items]="fatherAlivelList"  formControlName="FatherAliveStatusId"
+            bindLabel="text" bindValue="id">
+          </ng-select>
+          <div
+            *ngIf="(basicFamilyFormControl['FatherAliveStatusId'].invalid) && submitted&& (basicFamilyFormControl['FatherAliveStatusId'].errors?.['required'])"
+            class="tx-danger">
+            <small> Father Alive Status is <strong>required</strong></small>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12 col-md-4 my-1">
+        <label>Father Contact: </label>
+        <input class="form-control" formControlName="FatherContact" placeholder="Enter Father Contact"
+          [ngClass]="{'has-success': basicFamilyFormControl['FatherContact'].valid}">
+        <div
+          *ngIf="(basicFamilyFormControl['FatherContact'].invalid) && submitted && (basicFamilyFormControl['FatherContact'].errors?.['required'])"
+          class="tx-danger">
+          <small>Father Contact is <strong>required</strong></small>
+        </div>
+      </div>
+     
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-sm-12 col-md-4 my-1">
+        <label>Name of Mother: </label>
+        <input class="form-control" formControlName="NameOfMother" placeholder="Enter Name of Mother"
+          [ngClass]="{'has-success': basicFamilyFormControl['NameOfMother'].valid}">
+        <div
+          *ngIf="(basicFamilyFormControl['NameOfMother'].invalid) && submitted&& (basicFamilyFormControl['NameOfMother'].errors?.['required'])"
+          class="tx-danger">
+          <small>Name of Mother is <strong>required</strong></small>
+        </div>
+      </div>
+    <div class="col-md-4 col-sm-12 col-md-4 my-1">
+        <div class="form-group">
+          <label> Mother Alive Status: </label>
+          <ng-select #select [items]="motherAliveList"  formControlName="MotherAliveStatusId"
+            bindLabel="text" bindValue="id">
+          </ng-select>
+          <div
+            *ngIf="(basicFamilyFormControl['MotherAliveStatusId'].invalid) && submitted && (basicFamilyFormControl['MotherAliveStatusId'].errors?.['required'])"
+            class="tx-danger">
+            <small> Mother Alive Status is <strong>required</strong></small>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12 col-md-4 my-1">
+        <label>Mother Contact: </label>
+        <input class="form-control" formControlName="MotherContact" placeholder="Enter Mother Contact"
+          [ngClass]="{'has-success': basicFamilyFormControl['MotherContact'].valid}">
+        <div
+          *ngIf="(basicFamilyFormControl['MotherContact'].invalid) && submitted && (basicFamilyFormControl['MotherContact'].errors?.['required'])"
+          class="tx-danger">
+          <small>Mother Contact is <strong>required</strong></small>
+        </div>
+      </div>
+  </div>
+  <div class="row"> 
+    <div class="col-md-4 col-sm-12 col-md-4 my-1">
+        <label>No. of Sisters: </label>
+        <input class="form-control" formControlName="NoOfSisters" placeholder="Enter No. of Sisters"
+          [ngClass]="{'has-success': basicFamilyFormControl['NoOfSisters'].valid}">
+        <div
+          *ngIf="(basicFamilyFormControl['NoOfSisters'].invalid) && submitted && (basicFamilyFormControl['NoOfSisters'].errors?.['required'])"
+          class="tx-danger">
+          <small>No. of Sisters is <strong>required</strong></small>
+        </div>
+      </div>    
+      <div class="col-md-4 col-sm-12 col-md-4 my-1">
+        <label>No. of Brothers: </label>
+        <input class="form-control" formControlName="NoOfBrothers" placeholder="Enter No. of Brothers"
+          [ngClass]="{'has-success': basicFamilyFormControl['NoOfBrothers'].valid}">
+        <div
+          *ngIf="(basicFamilyFormControl['NoOfBrothers'].invalid) && submitted && (basicFamilyFormControl['NoOfBrothers'].errors?.['required'])"
+          class="tx-danger">
+          <small>No. of Brothers is <strong>required</strong></small>
+        </div>
+      </div>    <div class="col-md-4 col-sm-12 col-md-4 my-1">
+        <label>Emergency Contact: </label>
+        <input class="form-control" formControlName="EmergencyContact" placeholder="Enter Emergency Contact"
+          [ngClass]="{'has-success': basicFamilyFormControl['EmergencyContact'].valid}">
+        <div
+          *ngIf="(basicFamilyFormControl['EmergencyContact'].invalid) && submitted && (basicFamilyFormControl['EmergencyContact'].errors?.['required'])"
+          class="tx-danger">
+          <small>Emergency Contact is <strong>required</strong></small>
+        </div>
+      </div> 
+    </div>
+    <div class="row">
+     
+          <div class="col-md-4 col-sm-12 col-md-4 my-1">
+            <label>Emergency Contact Name: </label>
+            <input class="form-control" formControlName="EmergencyContactName" placeholder="Enter Emergency Contact Name"
+              [ngClass]="{'has-success': basicFamilyFormControl['EmergencyContactName'].valid}">
+            <div
+              *ngIf="(basicFamilyFormControl['EmergencyContactName'].invalid) && submitted && (basicFamilyFormControl['EmergencyContactName'].errors?.['required'])"
+              class="tx-danger">
+              <small>Emergency Contact Name is <strong>required</strong></small>
+            </div>
+          </div> 
+    </div>
+    <button type="submit" class="btn btn-success mt-2 mb-2 ">
+      Save
+    </button>
+  </form>
+</section>

@@ -1,0 +1,12 @@
+::ng-deep{
+    .dark-theme .fa {
+            color: black !important;
+        }
+
+               .dark-theme .angular-editor-toolbar{
+                     background-color: var(--dark-body) !important;
+                }
+                                .dark-theme button{
+                                    color: var(--dark-body) !important;
+                                }
+}

@@ -1,0 +1,78 @@
+<app-page-header [title]="'Accessories'" [items]="['Accessories']" [active_item]="'Accessories'"></app-page-header>
+
+<div class="row">
+  <div class="col">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h5>Accessories</h5>
+        <div class="btn-group" role="group">
+          <input type="radio" class="btn-check" name="viewToggle" id="Add" (click)="changeCurdView(false)"
+            [checked]="!curdBtnIsList">
+          <label ngbTooltip="Add a new accessory" placement="top" class="btn btn-outline-primary" for="Add">
+            <i class="fa fa-plus"></i> Add
+          </label>
+          <input type="radio" class="btn-check" name="viewToggle" id="List" (click)="changeCurdView(true)"
+            [checked]="curdBtnIsList">
+          <label ngbTooltip="View accessory list" placement="top" class="btn btn-outline-primary" for="List">
+            <i class="fa fa-list-ul"></i> List
+          </label>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="input-group mb-3" *ngIf="curdBtnIsList">
+          <input type="text" class="form-control" [(ngModel)]="pagination.searchText" (keyup.enter)="onSearchText()"
+            placeholder="Search...">
+          <button class="btn btn-info" (click)="onSearchText()"><i class="fe fe-search"></i> Search</button>
+        </div>
+
+        <form *ngIf="!curdBtnIsList" [formGroup]="accessoriesForm" novalidate (ngSubmit)="formSubmit()">
+          <div class="mb-3">
+            <label>Accessories name: <span class="text-danger">*</span></label>
+            <input class="form-control" formControlName="AccessoriesName" placeholder="Enter Accessories name">
+            <div
+              *ngIf="(basicFormControl['AccessoriesName'].touched || submitted) && basicFormControl['AccessoriesName'].errors?.['required']"
+              class="text-danger">
+              <small>Accessories Name is <strong>required</strong></small>
+            </div>
+          </div>
+          <button class="btn btn-primary" type="submit">Save</button>
+        </form>
+
+        <div *ngIf="curdBtnIsList" class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Accessories Name</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of accessoriesList; let ndx = index">
+                <td>{{item.accessoriesName}}</td>
+                <td>
+                  <button type="button" (click)="setValueToForm(item)" class="btn btn-sm btn-primary">
+                    <i class="fe fe-edit"></i>
+                  </button>
+                  <button type="button" (click)="deleteRow(item)" class="btn btn-sm btn-danger mx-2">
+                    <i class="fe fe-trash-2"></i>
+                  </button>
+                  <input type="checkbox" (click)="IsActive(item)" [checked]="item.isActive" class="form-check-input">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="d-flex justify-content-between mt-3" *ngIf="curdBtnIsList">
+          <ngb-pagination [collectionSize]="pagination.totalCount" [(page)]="pagination.pageNo"
+            [pageSize]="pagination.pageSize" (pageChange)="onPageChange($event)" [maxSize]="pagination.maxSize"
+            [boundaryLinks]="true" [ellipses]="true"></ngb-pagination>
+          <ng-select style="min-width: 100px" name="pageSize" (change)="getAccessories()"
+            [(ngModel)]="pagination.pageSize">
+            <ng-option *ngFor="let size of [5, 10, 50, 100]" [value]="size">{{size}}</ng-option>
+          </ng-select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

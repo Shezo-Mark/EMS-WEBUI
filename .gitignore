@@ -1,0 +1,13 @@
+# Node modules
+node_modules/
+
+# Angular cache
+/.angular/cache/
+
+# Visual Studio files
+/.vs/
+*.vsidx
+
+# SQLite
+*.sqlite
+*.sqlite-journal

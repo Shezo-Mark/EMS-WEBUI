@@ -1,0 +1,119 @@
+
+  <div class="row mb-5">
+    <div class="col-md-4 col-sm-12 col-md-4 my-1">
+        <div class="form-group">
+          <label>Education Type: </label>
+          <ng-select #select [items]="educationTypesList" 
+            bindLabel="text" bindValue="id" [(ngModel)]="EducationTypeId" (change)="onSelectChange($event)">
+          </ng-select>
+          <!-- <div
+            *ngIf="(basicFamilyFormControl['MaritalStatusId'].invalid) && submitted&& (basicFamilyFormControl['MaritalStatusId'].errors?.['required'])"
+            class="tx-danger">
+            <small>Marital Status is <strong>required</strong></small>
+          </div> -->
+        </div>
+      </div>
+  
+  </div>
+  <form *ngIf="selectedEducationType?.code=='FORMAL_EDUCATION'" [formGroup]="form" novalidate (ngSubmit)="ParentFormSubmit()">
+  <section>
+
+    <div class="row">
+      <div class="col-md-4 col-sm-12 col-md-4 my-1">
+        <label>Name of Highest Degree</label>
+        <input type="text" name="name" formControlName="NameOfHighestDegree" placeholder="Name of Highest Degree " class="form-control" />
+        <div
+          *ngIf="(basicFormControlEducation['NameOfHighestDegree'].invalid) && submitted&& (basicFormControlEducation['NameOfHighestDegree'].errors?.['required'])"
+          class="tx-danger">
+          <small>Name of Degree is <strong>required</strong></small>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12 col-md-4 my-1">
+        <label>Name of Institute</label>
+        <input type="text" name="name"
+          formControlName="NameOfInstitute" placeholder="Name Of Institute" class="form-control" />
+        <div
+          *ngIf="(basicFormControlEducation['NameOfInstitute'].invalid) && submitted&& (basicFormControlEducation['NameOfInstitute'].errors?.['required'])"
+          class="tx-danger">
+          <small>Name of Institute is <strong>required</strong></small>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12 col-md-4 my-1">
+        <label>Passing Year</label>
+        <input type="text" name="name" formControlName="PassingYear" placeholder="Passing Year"
+          class="form-control" />
+        <div
+          *ngIf="(basicFormControlEducation['PassingYear'].invalid) && submitted&& (basicFormControlEducation['PassingYear'].errors?.['required'])"
+          class="tx-danger">
+          <small>Passing year is <strong>required</strong></small>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="row">
+      <div class="col-md-4 col-sm-12 col-md-4 my-1">
+        <label>Obtain Marks</label>
+        <input type="email" name="name" formControlName="ObtainMarks" placeholder="Obtain Marks" class="form-control" />
+        <div *ngIf="submitted && (basicFormControlEducation['ObtainMarks'].errors?.['required'])" class="tx-danger">
+          <small>Obtain Marks is <strong>required</strong></small>
+        </div>
+        <div *ngIf="submitted && (basicFormControlEducation['ObtainMarks'].errors?.['pattern'])" class="tx-danger">
+          
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12 col-md-4 my-1">
+        <label>Total Marks</label>
+        <input type="text" name="name" formControlName="TotalMarks" placeholder="Total Marks"
+          class="form-control" />
+        <div
+          *ngIf="(basicFormControlEducation['TotalMarks'].invalid) && submitted&& (basicFormControlEducation['TotalMarks'].errors?.['required'])"
+          class="tx-danger">
+          <small>Total Marks is <strong>required</strong></small>
+        </div>
+      </div> -->
+      
+     
+    
+   
+  </section><br>
+  <button type="submit" class="btn btn-success me-2">
+    Save
+  </button>
+  <!-- <button type="button" (click)="goNext()" class="btn btn-primary me-2">
+    Next
+  </button> -->
+</form>
+<button *ngIf="selectedEducationType?.code=='INFORMAL_EDUCATION'" [disabled]="!selectedEducationType" (click)="SaveInformal()" type="button" class="btn btn-success me-2">
+  Save
+</button>
+<!-- <br><br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name of Highest Degree</th>
+      <th scope="col">Name of Institute</th>
+      <th scope="col">Passing Year</th>
+    
+      <th scope="col">Ations</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr *ngFor="let item of educationList;index as i">
+        <th scope="row">{{i+1}}</th>
+        <td>{{item.nameOfHighestDegree}}</td>
+        <td>{{item.nameOfInstitute}}</td>
+        <td>{{item.passingYear}}</td>
+       
+        <td>
+          <button type="button"  class="btn me-3 btn-sm btn-primary" (click)="Edit(item)">
+          <span class="fe fe-edit"> </span>
+        </button>
+        </td>
+        
+        
+      </tr>
+    
+    
+  </tbody>
+</table> -->

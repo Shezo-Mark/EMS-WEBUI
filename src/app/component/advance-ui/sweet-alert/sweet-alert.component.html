@@ -1,0 +1,148 @@
+ <app-page-header  [title]="'Sweet Alert'" [items]="['Advance-ui']" [active_item]="'Sweet Alert'" ></app-page-header> 
+
+	<!-- Row -->
+				<div class="row">
+					<div class="col-sm-6 col-md-6 col-lg-3">
+						<div class="card custom-card text-center">
+							<div class="card-body">
+								<div>
+									<h6 class="card-title mb-1">Basic Alert</h6>
+									<p class="text-muted card-sub-title">A Basic Message</p>
+								</div>
+								<div class="btn ripple btn-primary" id='swal-basic' (click)="basicAlert()">
+									Click me !
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-6 col-lg-3">
+						<div class="card custom-card text-center">
+							<div class="card-body">
+								<div>
+									<h6 class="card-title mb-1">Title alert</h6>
+									<p class="text-muted card-sub-title">A title with a text under</p>
+								</div>
+								<div class="btn ripple btn-primary" id='swal-title'  (click)="titleAlert()">
+									Click me !
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-6 col-lg-3">
+						<div class="card custom-card text-center">
+							<div class="card-body">
+								<div>
+									<h6 class="card-title mb-1">Success alert</h6>
+									<p class="text-muted card-sub-title">A Success Message</p>
+								</div>
+								<div class="btn ripple btn-primary" id='swal-success' (click)="successAlert()">
+									Click me !
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-6 col-lg-3">
+						<div class="card custom-card text-center">
+							<div class="card-body">
+								<div>
+									<h6 class="card-title mb-1">Warning alert</h6>
+									<p class="text-muted card-sub-title">A warning message</p>
+								</div>
+								<div class="btn ripple btn-primary" id='swal-warning'  (click)="warningAlert()">
+									Click me !
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /row -->
+
+				<!-- Row -->
+				<div class="row">
+					<div class="col-sm-6 col-md-6 col-lg-3">
+						<div class="card custom-card text-center">
+							<div class="card-body">
+								<div>
+									<h6 class="card-title mb-1">Passing a parameter alert</h6>
+									<p class="text-muted card-sub-title">By passing a parameter</p>
+								</div>
+								<div class="btn ripple btn-primary" id='swal-parameter' (click)="parameterAlert()">
+									Click me !
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-6 col-lg-3">
+						<div class="card custom-card text-center">
+							<div class="card-body">
+								<div>
+									<h6 class="card-title mb-1">Image alert</h6>
+									<p class="text-muted card-sub-title">A message with custom Image</p>
+								</div>
+								<div class="btn ripple btn-primary" id='swal-image'  (click)="imageAlert()">
+									Click me !
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-6 col-lg-3">
+						<div class="card custom-card text-center">
+							<div class="card-body">
+								<div>
+									<h6 class="card-title mb-1">Timer alert</h6>
+									<p class="text-muted card-sub-title">A message with auto close timer</p>
+								</div>
+								<div class="btn ripple btn-primary" id='swal-timer'  (click)="timerAlert()">
+									Click me !
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-6 col-lg-3">
+						<div class="card custom-card text-center">
+							<div class="card-body">
+								<div>
+									<h6 class="card-title mb-1">Ajax Alert</h6>
+									<p class="text-muted card-sub-title">With a loader (for a AJAX requests)</p>
+								</div>
+								<div class="btn ripple btn-primary" id='swal-ajax' (click)="animationAlert()">
+									Click me !
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- row closed -->
+
+				<!--ROW-->
+
+				<div class="row">
+					<div class="col-lg-12 col-xl-12">
+						<div class="card custom-card text-center">
+							<div class="card-header">
+								<h3 class="card-title">Basic Sweet-alert</h3>
+							</div>
+							<div class="card-body">
+								<table class="table card-table border">
+									<tr>
+										<td class="wd-15">Title</td>
+										<td><input type='text' class="form-control" [(ngModel)]="SimpleTitle" placeholder='Title text' id='title'></td>
+									</tr>
+									<tr>
+										<td>Message</td>
+										<td><input type='text' class="form-control"  [(ngModel)]="SimpleMessage"  placeholder='Your message' id='message'></td>
+									</tr>
+									<tr>
+										<td colspan='2' class="mt-5 text-center">
+											<input type='button' class="btn btn-primary mt-2" value='Simple alert' id='but1' (click)="simpleAlert()">&nbsp;
+											<input type='button' class="btn btn-primary mt-2" value='Alert with title' id='but2' (click)="AlertWithtitle()">&nbsp;
+											<input type='button' class="btn btn-primary mt-2" value='Alert with image' id='but3' (click)="AlertwithImage()">&nbsp;
+											<input type='button' class="btn btn-primary mt-2" value='With timer' id='but4' (click)="AlertwithTimer()">
+										</td>
+									</tr> 
+								</table>
+							</div>
+						</div>
+					 </div>
+				</div>
+				<!--row closed-->

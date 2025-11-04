@@ -1,0 +1,10 @@
+::ng-deep {
+
+    .ngx-slider .ngx-slider-selection,
+    .ngx-slider .ngx-slider-pointer {
+        background: #623AA2 !important;
+    }
+       .dark-theme .ngx-slider .ngx-slider-bar{
+            background-color: var(--dark-body) !important;
+        }
+}

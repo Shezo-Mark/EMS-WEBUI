@@ -1,0 +1,1289 @@
+<app-page-header
+  [title]="'Contacts'"
+  [items]="['Apps']"
+  [active_item]="'Contacts'"
+></app-page-header>
+
+<!-- row -->
+<div class="row row-sm">
+  <div class="col-sm-12 col-lg-5 col-xl-4">
+    <div class="card custom-card">
+      <div class="">
+        <div class="p-3 border-bottom">
+          <div class="d-flex align-items-center mb-3">
+            <h5 class="mb-0">Contacts</h5>
+            <div class="ms-auto d-flex align-items-center">
+              <a
+                href="javascript:void(0);"
+                class="btn btn-sm btn-def text-muted tx-16"
+                ><i class="fe fe-user-plus"></i
+              ></a>
+              <a
+                href="javascript:void(0);"
+                class="btn btn-sm btn-def text-muted ms-1 tx-16"
+                ><i class="fe fe-settings"></i
+              ></a>
+            </div>
+          </div>
+          <div class="input-group mb-0">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Name, Mobile Number..."
+            />
+            <span class="input-group-append">
+              <button class="btn ripple btn-primary" type="button">
+                Search
+              </button>
+            </span>
+          </div>
+        </div>
+        <div class="main-content-contacts pt-0">
+          <div class="main-content-left main-content-left-contacts">
+            <ul
+              ngbNav
+              #nav="ngbNav"
+              [(activeId)]="active"
+              class="nav nav-pills flex-column flex-md-row p-3"
+            >
+              <li [ngbNavItem]="1">
+                <a ngbNavLink class="me-2 border-bottom-0">
+                  <i class="fe fe-users me-1 ms-1"></i>All Contacts
+                </a>
+                <ng-template ngbNavContent>
+                  <!-- <ng-scrollbar> -->
+                  <div class="tab-pane">
+                    <div class="main-contacts-list" id="mainContactList">
+                      <div class="main-contact-label">A</div>
+                      <div class="main-contact-item selected">
+                        <div class="main-img-user main-avatar online">
+                          <img alt="avatar" src="./assets/img/users/14.jpg" />
+                        </div>
+                        <div class="main-contact-body">
+                          <h6>Abigail Johnson</h6>
+                          <span class="phone">+1-234-567-890</span>
+                        </div>
+                        <div class="main-contact-star" ngbDropdown>
+                          <a
+                            href="javascript:void(0);"
+                            ngbDropdownToggle
+                            role="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            ><i
+                              class="fe fe-more-vertical tx-18"
+                              ngbTooltip="View more"
+                            ></i
+                          ></a>
+                          <div ngbDropdownMenu class="dropdown-menu-right">
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-star me-2"></i>Add to Favorite</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-edit me-2"></i>Edit</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-trash-2 me-2"></i>Delete</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="main-contact-item">
+                        <div class="main-img-user main-avatar offline">
+                          <img alt="avatar" src="./assets/img/users/4.jpg" />
+                        </div>
+                        <div class="main-contact-body">
+                          <h6>Archie Cantones</h6>
+                          <span>archie@cantones.com</span>
+                        </div>
+                        <div class="main-contact-star" ngbDropdown>
+                          <a
+                            href="javascript:void(0);"
+                            ngbDropdownToggle
+                            role="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            ><i
+                              class="fe fe-more-vertical tx-18"
+                              ngbTooltip="View more"
+                            ></i
+                          ></a>
+                          <div ngbDropdownMenu class="dropdown-menu-right">
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-star me-2"></i>Add to Favorite</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-edit me-2"></i>Edit</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-trash-2 me-2"></i>Delete</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="main-contact-item">
+                        <div class="main-avatar online">A</div>
+                        <div class="main-contact-body">
+                          <h6>Allan Rey Palban</h6>
+                          <span>allanr@palban.com</span>
+                        </div>
+                        <div class="main-contact-star" ngbDropdown>
+                          <a
+                            href="javascript:void(0);"
+                            ngbDropdownToggle
+                            role="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            ><i
+                              class="fe fe-more-vertical tx-18"
+                              ngbTooltip="View more"
+                            ></i
+                          ></a>
+                          <div ngbDropdownMenu class="dropdown-menu-right">
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-star me-2"></i>Add to Favorite</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-edit me-2"></i>Edit</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-trash-2 me-2"></i>Delete</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="main-contact-item">
+                        <div class="main-avatar bg-secondary">A</div>
+                        <div class="main-contact-body">
+                          <h6>Aileen Mante</h6>
+                          <span>+1-234-567-890</span>
+                        </div>
+                        <div class="main-contact-star" ngbDropdown>
+                          <a
+                            href="javascript:void(0);"
+                            ngbDropdownToggle
+                            role="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            ><i
+                              class="fe fe-more-vertical tx-18"
+                              ngbTooltip="View more"
+                            ></i
+                          ></a>
+                          <div ngbDropdownMenu class="dropdown-menu-right">
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-star me-2"></i>Add to Favorite</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-edit me-2"></i>Edit</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-trash-2 me-2"></i>Delete</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="main-contact-label">B</div>
+                      <div class="main-contact-item">
+                        <div class="main-img-user main-avatar online">
+                          <img alt="avatar" src="./assets/img/users/4.jpg" />
+                        </div>
+                        <div class="main-contact-body">
+                          <h6>Brandon Dilao</h6>
+                          <span>+1-234-567-890</span>
+                        </div>
+                        <div class="main-contact-star" ngbDropdown>
+                          <a
+                            href="javascript:void(0);"
+                            ngbDropdownToggle
+                            role="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            ><i
+                              class="fe fe-more-vertical tx-18"
+                              ngbTooltip="View more"
+                            ></i
+                          ></a>
+                          <div ngbDropdownMenu class="dropdown-menu-right">
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-star me-2"></i>Add to Favorite</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-edit me-2"></i>Edit</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-trash-2 me-2"></i>Delete</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="main-contact-item">
+                        <div class="main-img-user main-avatar online">
+                          <img alt="avatar" src="./assets/img/users/5.jpg" />
+                        </div>
+                        <div class="main-contact-body">
+                          <h6>Britney Labares</h6>
+                          <span>+1-234-567-890</span>
+                        </div>
+                        <div class="main-contact-star" ngbDropdown>
+                          <a
+                            href="javascript:void(0);"
+                            ngbDropdownToggle
+                            role="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            ><i
+                              class="fe fe-more-vertical tx-18"
+                              ngbTooltip="View more"
+                            ></i
+                          ></a>
+                          <div ngbDropdownMenu class="dropdown-menu-right">
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-star me-2"></i>Add to Favorite</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-edit me-2"></i>Edit</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-trash-2 me-2"></i>Delete</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="main-contact-item">
+                        <div class="main-avatar bg-danger">B</div>
+                        <div class="main-contact-body">
+                          <h6>Brateyley Cruz</h6>
+                          <span>+1-234-567-890</span>
+                        </div>
+                        <div class="main-contact-star" ngbDropdown>
+                          <a
+                            href="javascript:void(0);"
+                            ngbDropdownToggle
+                            role="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            ><i
+                              class="fe fe-more-vertical tx-18"
+                              ngbTooltip="View more"
+                            ></i
+                          ></a>
+                          <div ngbDropdownMenu class="dropdown-menu-right">
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-star me-2"></i>Add to Favorite</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-edit me-2"></i>Edit</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-trash-2 me-2"></i>Delete</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="main-contact-label">C</div>
+                      <div class="main-contact-item">
+                        <div class="main-img-user main-avatar online">
+                          <img alt="avatar" src="./assets/img/users/6.jpg" />
+                        </div>
+                        <div class="main-contact-body">
+                          <h6>Camille Audrey</h6>
+                          <span>+1-234-567-890</span>
+                        </div>
+                        <div class="main-contact-star" ngbDropdown>
+                          <a
+                            href="javascript:void(0);"
+                            ngbDropdownToggle
+                            role="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            ><i
+                              class="fe fe-more-vertical tx-18"
+                              ngbTooltip="View more"
+                            ></i
+                          ></a>
+                          <div ngbDropdownMenu class="dropdown-menu-right">
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-star me-2"></i>Add to Favorite</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-edit me-2"></i>Edit</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-trash-2 me-2"></i>Delete</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="main-contact-item">
+                        <div class="main-img-user main-avatar offline">
+                          <img alt="avatar" src="./assets/img/users/7.jpg" />
+                        </div>
+                        <div class="main-contact-body">
+                          <h6>Christian Lerio</h6>
+                          <span>+1-234-567-890</span>
+                        </div>
+                        <div class="main-contact-star" ngbDropdown>
+                          <a
+                            href="javascript:void(0);"
+                            ngbDropdownToggle
+                            role="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            ><i
+                              class="fe fe-more-vertical tx-18"
+                              ngbTooltip="View more"
+                            ></i
+                          ></a>
+                          <div ngbDropdownMenu class="dropdown-menu-right">
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-star me-2"></i>Add to Favorite</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-edit me-2"></i>Edit</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-trash-2 me-2"></i>Delete</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="main-contact-item">
+                        <div class="main-img-user main-avatar online">
+                          <img alt="avatar" src="./assets/img/users/8.jpg" />
+                        </div>
+                        <div class="main-contact-body">
+                          <h6>Christopher Segovia</h6>
+                          <span>+1-234-567-890</span>
+                        </div>
+                        <div class="main-contact-star" ngbDropdown>
+                          <a
+                            href="javascript:void(0);"
+                            ngbDropdownToggle
+                            role="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            ><i
+                              class="fe fe-more-vertical tx-18"
+                              ngbTooltip="View more"
+                            ></i
+                          ></a>
+                          <div ngbDropdownMenu class="dropdown-menu-right">
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-star me-2"></i>Add to Favorite</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-edit me-2"></i>Edit</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-trash-2 me-2"></i>Delete</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="main-contact-label">D</div>
+                      <div class="main-contact-item">
+                        <div class="main-img-user main-avatar online">
+                          <img alt="avatar" src="./assets/img/users/9.jpg" />
+                        </div>
+                        <div class="main-contact-body">
+                          <h6>Darius Clayton</h6>
+                          <span>+1-234-567-890</span>
+                        </div>
+                        <div class="main-contact-star" ngbDropdown>
+                          <a
+                            href="javascript:void(0);"
+                            ngbDropdownToggle
+                            role="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            ><i
+                              class="fe fe-more-vertical tx-18"
+                              ngbTooltip="View more"
+                            ></i
+                          ></a>
+                          <div ngbDropdownMenu class="dropdown-menu-right">
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-star me-2"></i>Add to Favorite</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-edit me-2"></i>Edit</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-trash-2 me-2"></i>Delete</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="main-contact-item">
+                        <div class="main-img-user main-avatar offline">
+                          <img alt="avatar" src="./assets/img/users/1.jpg" />
+                        </div>
+                        <div class="main-contact-body">
+                          <h6>Dyanne Aceron</h6>
+                          <span>+1-234-567-890</span>
+                        </div>
+                        <div class="main-contact-star" ngbDropdown>
+                          <a
+                            href="javascript:void(0);"
+                            ngbDropdownToggle
+                            role="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            ><i
+                              class="fe fe-more-vertical tx-18"
+                              ngbTooltip="View more"
+                            ></i
+                          ></a>
+                          <div ngbDropdownMenu class="dropdown-menu-right">
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-star me-2"></i>Add to Favorite</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-edit me-2"></i>Edit</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-trash-2 me-2"></i>Delete</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="main-contact-item">
+                        <div class="main-img-user main-avatar online">
+                          <img alt="avatar" src="./assets/img/users/10.jpg" />
+                        </div>
+                        <div class="main-contact-body">
+                          <h6>Divina Gracia</h6>
+                          <span>+1-234-567-890</span>
+                        </div>
+                        <div class="main-contact-star" ngbDropdown>
+                          <a
+                            href="javascript:void(0);"
+                            ngbDropdownToggle
+                            role="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            ><i
+                              class="fe fe-more-vertical tx-18"
+                              ngbTooltip="View more"
+                            ></i
+                          ></a>
+                          <div ngbDropdownMenu class="dropdown-menu-right">
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-star me-2"></i>Add to Favorite</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-edit me-2"></i>Edit</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-trash-2 me-2"></i>Delete</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- </ng-scrollbar> -->
+                </ng-template>
+              </li>
+              <li [ngbNavItem]="2">
+                <a ngbNavLink class="me-2 border-bottom-0" data-bs-toggle="tab"
+                  ><i class="fe fe-star me-1 ms-1"></i>Favorites</a
+                >
+                <ng-template ngbNavContent>
+                  <!-- <ng-scrollbar> -->
+                  <div class="tab-pane" id="fav-contact">
+                    <div class="main-contacts-list" id="mainContactList1">
+                      <div class="main-contact-label">A</div>
+                      <div class="main-contact-item selected">
+                        <div class="main-img-user main-avatar online">
+                          <img alt="avatar" src="./assets/img/users/7.jpg" />
+                        </div>
+                        <div class="main-contact-body">
+                          <h6>Anna Sthesia</h6>
+                          <span class="phone">+1-534-567-456</span>
+                        </div>
+                        <div class="main-contact-star" ngbDropdown>
+                          <a
+                            href="javascript:void(0);"
+                            ngbDropdownToggle
+                            role="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            ><i
+                              class="fe fe-more-vertical tx-18"
+                              ngbTooltip="View more"
+                            ></i
+                          ></a>
+                          <div ngbDropdownMenu class="dropdown-menu-right">
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-star me-2"></i>Add to Favorite</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-edit me-2"></i>Edit</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-trash-2 me-2"></i>Delete</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="main-contact-item">
+                        <div class="main-img-user main-avatar offline">
+                          <img alt="avatar" src="./assets/img/users/8.jpg" />
+                        </div>
+                        <div class="main-contact-body">
+                          <h6>Anna Mull</h6>
+                          <span>annamul@gmail.com</span>
+                        </div>
+                        <div class="main-contact-star" ngbDropdown>
+                          <a
+                            href="javascript:void(0);"
+                            ngbDropdownToggle
+                            role="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            ><i
+                              class="fe fe-more-vertical tx-18"
+                              ngbTooltip="View more"
+                            ></i
+                          ></a>
+                          <div ngbDropdownMenu class="dropdown-menu-right">
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-star me-2"></i>Add to Favorite</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-edit me-2"></i>Edit</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-trash-2 me-2"></i>Delete</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="main-contact-item">
+                        <div class="main-img-user main-avatar online">
+                          <img alt="avatar" src="./assets/img/users/4.jpg" />
+                        </div>
+                        <div class="main-contact-body">
+                          <h6>AlFredo</h6>
+                          <span>alfredo@gmail.com</span>
+                        </div>
+                        <div class="main-contact-star" ngbDropdown>
+                          <a
+                            href="javascript:void(0);"
+                            ngbDropdownToggle
+                            role="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            ><i
+                              class="fe fe-more-vertical tx-18"
+                              ngbTooltip="View more"
+                            ></i
+                          ></a>
+                          <div ngbDropdownMenu class="dropdown-menu-right">
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-star me-2"></i>Add to Favorite</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-edit me-2"></i>Edit</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-trash-2 me-2"></i>Delete</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="main-contact-item">
+                        <div class="main-img-user main-avatar offline">
+                          <img alt="avatar" src="./assets/img/users/11.jpg" />
+                        </div>
+                        <div class="main-contact-body">
+                          <h6>Aileen Mante</h6>
+                          <span>+1-234-567-890</span>
+                        </div>
+                        <div class="main-contact-star" ngbDropdown>
+                          <a
+                            href="javascript:void(0);"
+                            ngbDropdownToggle
+                            role="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            ><i
+                              class="fe fe-more-vertical tx-18"
+                              ngbTooltip="View more"
+                            ></i
+                          ></a>
+                          <div ngbDropdownMenu class="dropdown-menu-right">
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-star me-2"></i>Add to Favorite</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-edit me-2"></i>Edit</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-trash-2 me-2"></i>Delete</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="main-contact-label">B</div>
+                      <div class="main-contact-item">
+                        <div class="main-img-user main-avatar online">
+                          <img alt="avatar" src="./assets/img/users/5.jpg" />
+                        </div>
+                        <div class="main-contact-body">
+                          <h6>Bernadette</h6>
+                          <span>+1-234-567-890</span>
+                        </div>
+                        <div class="main-contact-star" ngbDropdown>
+                          <a
+                            href="javascript:void(0);"
+                            ngbDropdownToggle
+                            role="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            ><i
+                              class="fe fe-more-vertical tx-18"
+                              ngbTooltip="View more"
+                            ></i
+                          ></a>
+                          <div ngbDropdownMenu class="dropdown-menu-right">
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-star me-2"></i>Add to Favorite</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-edit me-2"></i>Edit</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-trash-2 me-2"></i>Delete</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="main-contact-item">
+                        <div class="main-img-user main-avatar online">
+                          <img alt="avatar" src="./assets/img/users/9.jpg" />
+                        </div>
+                        <div class="main-contact-body">
+                          <h6>Barry Mundy</h6>
+                          <span>+1-234-567-890</span>
+                        </div>
+                        <div class="main-contact-star" ngbDropdown>
+                          <a
+                            href="javascript:void(0);"
+                            ngbDropdownToggle
+                            role="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            ><i
+                              class="fe fe-more-vertical tx-18"
+                              ngbTooltip="View more"
+                            ></i
+                          ></a>
+                          <div ngbDropdownMenu class="dropdown-menu-right">
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-star me-2"></i>Add to Favorite</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-edit me-2"></i>Edit</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-trash-2 me-2"></i>Delete</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="main-contact-item">
+                        <div class="main-avatar offline bg-danger">B</div>
+                        <div class="main-contact-body">
+                          <h6>Barb Akew</h6>
+                          <span>+1-234-567-890</span>
+                        </div>
+                        <div class="main-contact-star" ngbDropdown>
+                          <a
+                            href="javascript:void(0);"
+                            ngbDropdownToggle
+                            role="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            ><i
+                              class="fe fe-more-vertical tx-18"
+                              ngbTooltip="View more"
+                            ></i
+                          ></a>
+                          <div ngbDropdownMenu class="dropdown-menu-right">
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-star me-2"></i>Add to Favorite</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-edit me-2"></i>Edit</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-trash-2 me-2"></i>Delete</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="main-contact-label">C</div>
+                      <div class="main-contact-item">
+                        <div class="main-img-user main-avatar offline">
+                          <img alt="avatar" src="./assets/img/users/12.jpg" />
+                        </div>
+                        <div class="main-contact-body">
+                          <h6>Charles</h6>
+                          <span>+1-234-567-890</span>
+                        </div>
+                        <div class="main-contact-star" ngbDropdown>
+                          <a
+                            href="javascript:void(0);"
+                            ngbDropdownToggle
+                            role="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            ><i
+                              class="fe fe-more-vertical tx-18"
+                              ngbTooltip="View more"
+                            ></i
+                          ></a>
+                          <div ngbDropdownMenu class="dropdown-menu-right">
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-star me-2"></i>Add to Favorite</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-edit me-2"></i>Edit</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-trash-2 me-2"></i>Delete</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="main-contact-item">
+                        <div class="main-img-user main-avatar online">
+                          <img alt="avatar" src="./assets/img/users/8.jpg" />
+                        </div>
+                        <div class="main-contact-body">
+                          <h6>Christopher</h6>
+                          <span>+1-234-567-890</span>
+                        </div>
+                        <div class="main-contact-star" ngbDropdown>
+                          <a
+                            href="javascript:void(0);"
+                            ngbDropdownToggle
+                            role="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            ><i
+                              class="fe fe-more-vertical tx-18"
+                              ngbTooltip="View more"
+                            ></i
+                          ></a>
+                          <div ngbDropdownMenu class="dropdown-menu-right">
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-star me-2"></i>Add to Favorite</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-edit me-2"></i>Edit</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-trash-2 me-2"></i>Delete</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="main-contact-item">
+                        <div class="main-img-user main-avatar online">
+                          <img alt="avatar" src="./assets/img/users/15.jpg" />
+                        </div>
+                        <div class="main-contact-body">
+                          <h6>Connor</h6>
+                          <span>+1-234-567-890</span>
+                        </div>
+                        <div class="main-contact-star" ngbDropdown>
+                          <a
+                            href="javascript:void(0);"
+                            ngbDropdownToggle
+                            role="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            ><i
+                              class="fe fe-more-vertical tx-18"
+                              ngbTooltip="View more"
+                            ></i
+                          ></a>
+                          <div ngbDropdownMenu class="dropdown-menu-right">
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-star me-2"></i>Add to Favorite</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-edit me-2"></i>Edit</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-trash-2 me-2"></i>Delete</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="main-contact-label">D</div>
+                      <div class="main-contact-item">
+                        <div class="main-img-user main-avatar online">
+                          <img alt="avatar" src="./assets/img/users/13.jpg" />
+                        </div>
+                        <div class="main-contact-body">
+                          <h6>Deirdre</h6>
+                          <span>+1-234-567-890</span>
+                        </div>
+                        <div class="main-contact-star" ngbDropdown>
+                          <a
+                            href="javascript:void(0);"
+                            ngbDropdownToggle
+                            role="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            ><i
+                              class="fe fe-more-vertical tx-18"
+                              ngbTooltip="View more"
+                            ></i
+                          ></a>
+                          <div ngbDropdownMenu class="dropdown-menu-right">
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-star me-2"></i>Add to Favorite</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-edit me-2"></i>Edit</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-trash-2 me-2"></i>Delete</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="main-contact-item">
+                        <div class="main-img-user main-avatar online">
+                          <img alt="avatar" src="./assets/img/users/8.jpg" />
+                        </div>
+                        <div class="main-contact-body">
+                          <h6>Dorothy</h6>
+                          <span>+1-234-567-890</span>
+                        </div>
+                        <div class="main-contact-star" ngbDropdown>
+                          <a
+                            href="javascript:void(0);"
+                            ngbDropdownToggle
+                            role="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            ><i
+                              class="fe fe-more-vertical tx-18"
+                              ngbTooltip="View more"
+                            ></i
+                          ></a>
+                          <div ngbDropdownMenu class="dropdown-menu-right">
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-star me-2"></i>Add to Favorite</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-edit me-2"></i>Edit</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-trash-2 me-2"></i>Delete</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="main-contact-item">
+                        <div class="main-img-user main-avatar offline">
+                          <img alt="avatar" src="./assets/img/users/7.jpg" />
+                        </div>
+                        <div class="main-contact-body">
+                          <h6>Divina Gracia</h6>
+                          <span>+1-234-567-890</span>
+                        </div>
+                        <div class="main-contact-star" ngbDropdown>
+                          <a
+                            href="javascript:void(0);"
+                            ngbDropdownToggle
+                            role="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            ><i
+                              class="fe fe-more-vertical tx-18"
+                              ngbTooltip="View more"
+                            ></i
+                          ></a>
+                          <div ngbDropdownMenu class="dropdown-menu-right">
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-star me-2"></i>Add to Favorite</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-edit me-2"></i>Edit</a
+                            >
+                            <a ngbDropdownItem href="javascript:void(0);"
+                              ><i class="fe fe-trash-2 me-2"></i>Delete</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- </ng-scrollbar> -->
+                </ng-template>
+              </li>
+            </ul>
+            <div [ngbNavOutlet]="nav"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12 col-lg-7 col-xl-8">
+    <div class="">
+      <a class="main-header-arrow" href="" id="ChatBodyHide"
+        ><i class="icon ion-md-arrow-back"></i
+      ></a>
+      <div
+        class="main-content-body main-content-body-contacts card custom-card"
+      >
+        <div class="main-contact-info-header pt-3">
+          <div class="media">
+            <div class="main-img-user">
+              <img alt="avatar" src="./assets/img/users/6.jpg" />
+              <a href=""><i class="fe fe-camera"></i></a>
+            </div>
+            <div class="media-body">
+              <h5>Petey Cruiser</h5>
+              <p class="text-muted tx-12">Web Designer</p>
+              <nav class="contact-info">
+                <a
+                  href="javascript:void(0);"
+                  class="contact-icon border me-2 tx-inverse my-1"
+                  ngbTooltip="Call"
+                  ><i class="fe fe-phone"></i
+                ></a>
+                <a
+                  href="javascript:void(0);"
+                  class="contact-icon border me-3 tx-inverse my-1"
+                  ngbTooltip="Video"
+                  ><i class="fe fe-video"></i
+                ></a>
+                <a
+                  href="javascript:void(0);"
+                  class="contact-icon border me-3 tx-inverse my-1"
+                  ngbTooltip="message"
+                  ><i class="fe fe-message-square"></i
+                ></a>
+                <a
+                  href="javascript:void(0);"
+                  class="contact-icon border me-3 tx-inverse my-1"
+                  ngbTooltip="Add to Group"
+                  ><i class="fe fe-user-plus"></i
+                ></a>
+                <a
+                  href="javascript:void(0);"
+                  class="contact-icon border me-3 tx-inverse my-1"
+                  ngbTooltip="Block"
+                  ><i class="fe fe-slash"></i
+                ></a>
+              </nav>
+            </div>
+          </div>
+          <div class="contact-btn pt-3 pe-0 me-2">
+            <a
+              href="javascript:void(0);"
+              class="btn ripple btn-primary text-white btn-icon me-2"
+              placement="top"
+              ngbTooltip="Edit"
+              ><i class="fe fe-edit"></i
+            ></a>
+            <a
+              href="javascript:void(0);"
+              class="btn ripple btn-secondary text-white btn-icon me-2"
+              placement="top"
+              ngbTooltip="Delete"
+              ><i class="fe fe-trash-2"></i
+            ></a>
+            <a
+              href="javascript:void(0);"
+              class="btn ripple btn-info text-white btn-icon"
+              placement="top"
+              ngbTooltip="Favorite"
+              ><i class="fe fe-star"></i
+            ></a>
+          </div>
+        </div>
+        <div class="main-contact-info-body p-4">
+          <div>
+            <h6>Biography</h6>
+            <p>
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+              quae ab illo inventore veritatis et quasi architecto beatae vitae
+              dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+              aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
+              eos qui ratione voluptatem sequi nesciunt.
+            </p>
+          </div>
+          <div class="row mb-4">
+            <div class="col-xl-2">
+              <label class="text-muted tx-14">Status </label>
+            </div>
+            <div class="col-xl-10">
+              <p class="mb-0 tx-14">Online</p>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-xl-2">
+              <label class="text-muted tx-14">Work </label>
+            </div>
+            <div class="col-xl-10">
+              <p class="mb-0 tx-14">+1 (234) 567 8901</p>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-xl-2">
+              <label class="text-muted tx-14">Personal </label>
+            </div>
+            <div class="col-xl-10">
+              <p class="mb-0 tx-14">+1 (498) 021 0090</p>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-xl-2">
+              <label class="text-muted tx-14">Gmail Account </label>
+            </div>
+            <div class="col-xl-10">
+              <p class="mb-0 tx-14">sonia.taylor@gmail.com</p>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-xl-2">
+              <label class="text-muted tx-14">Current Address </label>
+            </div>
+            <div class="col-xl-10">
+              <p class="mb-0 tx-14">
+                012 Dashboard Apartments, San Francisco, California 13245
+              </p>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-xl-2">
+              <label class="text-muted tx-14">Call History</label>
+            </div>
+            <div class="col-xl-10">
+              <p class="mb-0 tx-14">Duration of last call: 2m 32sec</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Recent Contacts</div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12 col-lg-12 col-xl-6 col-xxl-4">
+            <div class="border d-flex p-2 br-5 mb-2">
+              <div class="recent-contacts me-3">
+                <div class="main-img-user avatar-md">
+                  <img
+                    alt="avatar"
+                    class="rounded-circle"
+                    src="./assets/img/users/5.jpg"
+                  />
+                </div>
+              </div>
+              <div>
+                <h6 class="mt-1 mb-1">Abigali kelly</h6>
+                <p class="mb-0 text-muted">Front end</p>
+              </div>
+              <div class="my-auto ms-auto">
+                <nav class="contact-info d-flex">
+                  <a
+                    href="javascript:void(0);"
+                    class="contact-icon border tx-inverse rounded-pill me-2"
+                    ngbTooltip="Call"
+                    ><i class="fe fe-phone tx-12"></i
+                  ></a>
+                  <a
+                    href="javascript:void(0);"
+                    class="contact-icon border tx-inverse rounded-pill"
+                    ngbTooltip="Video"
+                    ><i class="fe fe-video tx-12"></i
+                  ></a>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-12 col-xl-6 col-xxl-4">
+            <div class="border d-flex p-2 br-5 mb-2">
+              <div class="recent-contacts me-3">
+                <div class="main-img-user avatar-md">
+                  <img
+                    alt="avatar"
+                    class="rounded-circle"
+                    src="./assets/img/users/2.jpg"
+                  />
+                </div>
+              </div>
+              <div>
+                <h6 class="mt-1 mb-1">Brenda Crux</h6>
+                <p class="mb-0 text-muted">Angular</p>
+              </div>
+              <div class="my-auto ms-auto">
+                <nav class="contact-info d-flex">
+                  <a
+                    href="javascript:void(0);"
+                    class="contact-icon border tx-inverse rounded-pill me-2"
+                    ngbTooltip="Call"
+                    ><i class="fe fe-phone tx-12"></i
+                  ></a>
+                  <a
+                    href="javascript:void(0);"
+                    class="contact-icon border tx-inverse rounded-pill"
+                    ngbTooltip="Video"
+                    ><i class="fe fe-video tx-12"></i
+                  ></a>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-12 col-xl-6 col-xxl-4">
+            <div class="border d-flex p-2 br-5 mb-2">
+              <div class="recent-contacts me-3">
+                <div class="main-img-user avatar-md">
+                  <img
+                    alt="avatar"
+                    class="rounded-circle"
+                    src="./assets/img/users/8.jpg"
+                  />
+                </div>
+              </div>
+              <div>
+                <h6 class="mt-1 mb-1">Rach Michelle</h6>
+                <p class="mb-0 text-muted">Php</p>
+              </div>
+              <div class="my-auto ms-auto">
+                <nav class="contact-info d-flex">
+                  <a
+                    href="javascript:void(0);"
+                    class="contact-icon border tx-inverse rounded-pill me-2"
+                    ngbTooltip="Call"
+                    ><i class="fe fe-phone tx-12"></i
+                  ></a>
+                  <a
+                    href="javascript:void(0);"
+                    class="contact-icon border tx-inverse rounded-pill"
+                    ngbTooltip="Video"
+                    ><i class="fe fe-video tx-12"></i
+                  ></a>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-12 col-xl-6 col-xxl-4">
+            <div class="border d-flex p-2 br-5 mb-2">
+              <div class="recent-contacts me-3">
+                <div class="main-img-user avatar-md">
+                  <img
+                    alt="avatar"
+                    class="rounded-circle"
+                    src="./assets/img/users/9.jpg"
+                  />
+                </div>
+              </div>
+              <div>
+                <h6 class="mt-1 mb-1">Matt Harder</h6>
+                <p class="mb-0 text-muted">Codeignitor</p>
+              </div>
+              <div class="my-auto ms-auto">
+                <nav class="contact-info d-flex">
+                  <a
+                    href="javascript:void(0);"
+                    class="contact-icon border tx-inverse rounded-pill me-2"
+                    ngbTooltip="Call"
+                    ><i class="fe fe-phone tx-12"></i
+                  ></a>
+                  <a
+                    href="javascript:void(0);"
+                    class="contact-icon border tx-inverse rounded-pill"
+                    ngbTooltip="Video"
+                    ><i class="fe fe-video tx-12"></i
+                  ></a>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-12 col-xl-6 col-xxl-4">
+            <div class="border d-flex p-2 br-5 mb-2">
+              <div class="recent-contacts me-3">
+                <div class="main-img-user avatar-md">
+                  <img
+                    alt="avatar"
+                    class="rounded-circle"
+                    src="./assets/img/users/1.jpg"
+                  />
+                </div>
+              </div>
+              <div>
+                <h6 class="mt-1 mb-1">Micheal Phelps</h6>
+                <p class="mb-0 text-muted">Web Testing</p>
+              </div>
+              <div class="my-auto ms-auto">
+                <nav class="contact-info d-flex">
+                  <a
+                    href="javascript:void(0);"
+                    class="contact-icon border tx-inverse rounded-pill me-2"
+                    ngbTooltip="Call"
+                    ><i class="fe fe-phone tx-12"></i
+                  ></a>
+                  <a
+                    href="javascript:void(0);"
+                    class="contact-icon border tx-inverse rounded-pill"
+                    ngbTooltip="Video"
+                    ><i class="fe fe-video tx-12"></i
+                  ></a>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-12 col-xl-6 col-xxl-4">
+            <div class="border d-flex p-2 br-5 mb-2">
+              <div class="recent-contacts me-3">
+                <div class="main-img-user avatar-md">
+                  <img
+                    alt="avatar"
+                    class="rounded-circle"
+                    src="./assets/img/users/7.jpg"
+                  />
+                </div>
+              </div>
+              <div>
+                <h6 class="mt-1 mb-1">Azenda Hills</h6>
+                <p class="mb-0 text-muted">Django</p>
+              </div>
+              <div class="my-auto ms-auto d-md-flex">
+                <nav class="contact-info d-flex">
+                  <a
+                    href="javascript:void(0);"
+                    class="contact-icon border tx-inverse rounded-pill me-2"
+                    ngbTooltip="Call"
+                    ><i class="fe fe-phone tx-12"></i
+                  ></a>
+                  <a
+                    href="javascript:void(0);"
+                    class="contact-icon border tx-inverse rounded-pill"
+                    ngbTooltip="Video"
+                    ><i class="fe fe-video tx-12"></i
+                  ></a>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Row -->

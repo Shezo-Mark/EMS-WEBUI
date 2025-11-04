@@ -1,0 +1,9 @@
+::ng-deep{
+    .ng-scroll-content{
+        display: block !important;
+    }
+    
+        .dropdown-toggle::after {
+            display: inline-block !important;
+        }
+}

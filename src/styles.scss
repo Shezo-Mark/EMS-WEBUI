@@ -1,0 +1,902 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "./assets/css/style.css";
+@import "./assets/css/plugins.css";
+@import "./assets/switcher/css/switcher.css";
+@import "./assets/css/icons.css";
+@import "./assets/switcher/demo.css";
+@import "./assets/css/animate.css";
+@import "./assets/scss/variables";
+
+ 
+//angular-calender
+//@import "./angular-calendar/scss/angular-calendar.scss";
+// ArchwizardModule
+
+@import '../node_modules/angular-archwizard/styles/archwizard.css';
+
+
+
+//angular material design
+@import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
+
+//ngx-toaster
+@import "../node_modules/ngx-toastr/toastr.css";
+
+// leaflet map
+//@import '~leaflet/dist/leaflet.css';
+
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import '~@angular/cdk/overlay-prebuilt.css'; 
+//bar rating
+@import "../node_modules/ngx-bar-rating/themes/br-default-theme.scss";
+@import "../node_modules/ngx-bar-rating/themes/br-horizontal-theme.scss";
+@import "../node_modules/ngx-bar-rating/themes/br-vertical-theme.scss";
+@import "../node_modules/ngx-bar-rating/themes/br-movie-theme.scss";
+@import "../node_modules/ngx-bar-rating/themes/br-square-theme.scss";
+
+// font awsome
+//@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
+ @import 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&amp;display=swap';
+ @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+ 
+//ks98
+//@import "~@angular/cdk/overlay-prebuilt.css";
+
+
+#hidedate{
+    .ngb-dp-content.ngb-dp-months {display:none !important;}
+  }
+
+
+  .ngb-dp-daypicker,
+  .ngb-dp-monthpicker {
+    display: none !important;
+  }
+
+
+.slide-item.active,
+.slide-item:hover,
+.slide-item:focus{
+    color: var(--primary-bg-color);
+}
+.modal.show .modal-dialog.modal-lg {max-width:80%;}
+.ng-select .ng-clear-wrapper {
+    padding: 7px !important;
+}
+
+.ngx-colors-overlay {
+    z-index: 11111111111 !important;
+}
+
+.ng-scrollbar-thumb {
+    background-color: transparent !important;
+}
+
+.ng-scrollbar-wrapper[deactivated=false][dir=ltr]>scrollbar-y.scrollbar-control {
+    right: initial;
+    left: 0;
+}
+
+//dropdown select color
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked {
+    background-color: #7f33d3;
+    color: #f7f7f7;
+}
+
+.NgxEditor__MenuBar {
+    border: 1px solid #e7e7e7;
+}
+
+.apexcharts-toolbar {
+    display: none !important;
+}
+
+.horizontal {
+    app-sidebar {
+
+        .ng-scrollbar-wrapper,
+        .ng-scroll-viewport-wrapper,
+        .ng-scroll-layer,
+        .ng-scroll-viewport {
+            position: initial;
+        }
+
+        .ng-scroll-viewport {
+            contain: unset;
+        }
+
+        .ng-scroll-viewport-wrapper {
+            overflow: auto;
+        }
+
+        [_nghost-guy-c128]>.ng-scrollbar-wrapper[verticalUsed=true][_ngcontent-guy-c128]>.ng-scroll-viewport-wrapper[_ngcontent-guy-c128]>.ng-scroll-viewport[_ngcontent-guy-c128],
+        [_nghost-guy-c128]>.ng-scrollbar-wrapper[verticalUsed=true][_ngcontent-guy-c128]>.ng-scroll-viewport-wrapper[_ngcontent-guy-c128]>*[_ngcontent-guy-c128]>*[_ngcontent-guy-c128]>.ng-scroll-viewport {
+            overflow: auto;
+        }
+    }
+}
+
+.main-header {
+    .dropdown-toggle::after {
+        display: none !important;
+    }
+}
+
+ .dropdown-toggle::after {
+    display: none;
+ }
+
+.dark-theme {
+    .accordion-item {
+        color: #fff;
+    }
+}
+
+.main-header {
+    margin-bottom: -64px !important;
+}
+
+.rtl .ng-scroll-content {
+    direction: rtl;
+    text-align: right;
+}
+
+.rtl .ngx-colors-overlay .opened {
+    left: 42px;
+}
+
+@media (max-width: 991px) {
+    .collapse:not(.show) {
+        display: none;
+    }
+}
+
+.main-header.sticky.nav.side-header {
+    background: $primary-gradient;
+}
+
+#checkoutsteps .item {
+    display: flex;
+    // justify-content: center;
+}
+
+
+
+//rtl section
+.rtl {
+    .breadcrumb-header .breadcrumb-item+.breadcrumb-item::before {
+        float: right;
+    }
+
+    .ngx-colors-overlay .opened {
+        left: 42px;
+    }
+
+    .iti--allow-dropdown input,
+    .iti--allow-dropdown input[type=text] {
+        padding-right: 50px;
+        padding-left: 51px;
+        margin-left: 10px;
+    }
+
+    .iti--allow-dropdown .iti__flag-container {
+        right: auto;
+        left: 80%;
+    }
+
+    .dropdown-item {
+        padding: 8px 20px !important;
+        font-size: 13px;
+        // transform: translate3d(14px, 21px, 0px) !important;
+    }
+
+    .pe-4 {
+        padding-left: 1.5rem !important;
+    }
+
+    .ms-auto {
+        margin-right: auto
+    }
+
+
+}
+
+
+
+//Dark theme 
+
+
+.dark-theme {
+
+    .btn-primary {
+            color: #fff !important;
+            background-color: var(--primary-bg-color);
+            border-color: var(--primary-bg-color);
+        }
+
+    accordion-button {
+        color: var(--white) !important;
+        background: rgba(185, 183, 183, 0.1) !important;
+    }
+
+    .accordion-button {
+        color: #f5f6ff;
+        background: rgba(185, 183, 183, 0.1) !important;
+    }
+
+    .accordion-item {
+        border-color: rgb(255 255 255 / 30%) !important;
+    }
+
+
+
+    .contact-info a:hover {
+        background: $dark-theme !important;
+        color: var(--white) !important;
+    }
+
+    .mat-tree-node,
+    .mat-nested-tree-node {
+        color: #ffffff !important;
+        background-color: var(--dark-body);
+    }
+
+    .mat-tree {
+        background-color: var(--dark-body);
+    }
+
+    .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked {
+        background-color: var(--primary-bg-color);
+        color: #f7f7f7;
+
+    }
+
+    .ng-dropdown-panel {
+        color: #dde3ea;
+        background-color: var(--dark-theme);
+        border-color: rgb(190 201 215 / 7%);
+    }
+
+    .ng-select .ng-select-container {
+        background-color: var(--dark-body);
+        border-color: rgb(190 201 215 / 7%);
+        color: #f7f7f7;
+    }
+
+    .ng-dropdown-panel .ng-dropdown-panel-items .ng-option,
+    .ng-dropdown-panel .ng-dropdown-panel-items .ng-optgroup.ng-option-selected,
+    .ng-dropdown-panel .ng-dropdown-panel-items .ng-optgroup.ng-option-selected.ng-option-marked,
+    .mat-calendar-body-cell-content,
+    .mat-date-range-input-separator,
+    .mat-calendar-table-header,
+    .mat-calendar-body-label {
+        color: #d0d2d5;
+        background-color: var(--dark-theme);
+        border-color: rgba(222, 228, 236, 0.07);
+    }
+
+          .rtl {
+              .ngb-dp-arrow.right .ngb-dp-navigation-chevron {
+                  transform: rotate(220deg) !important;
+              }
+    
+              .ngb-dp-navigation-chevron {
+                  transform: rotate(45deg) !important;
+              }
+          }
+
+
+
+   
+    .card-header {
+        background-color: var(--dark-theme);
+    }
+
+    .mat-stepper-vertical,
+    .mat-stepper-horizontal {
+        background-color: var(--dark-body);
+    }
+
+    
+
+    .card-pay .tabs-menu.nav {
+        background: var(--dark-body) !important;
+    }
+
+    .mat-mdc-table .mat-mdc-header-cell {
+        background: inherit !important;
+        background-color: var(--dark-body) !important;
+        color: var(--body-color) !important;
+    }
+
+    .mat-mdc-cell {
+        background-color: var(--dark-theme) !important;
+        color: var(--body-color) !important;
+    }
+
+}
+
+.ks-modal-gallery-backdrop {
+    background: #000 !important;
+
+    opacity: 0.85 !important;
+    ;
+   
+}
+
+
+
+//sidebar arrow button
+.slide.is-expanded .angle {
+    transform: rotate(90deg);
+}
+
+.iti-mobile .iti__country-list {
+    max-height: 40% !important;
+    width: 20% !important;
+}
+
+// checkout //
+.tab-content i,
+.tabs-menu2 ul li .active {
+    color: #fff !important;
+}
+
+.sub-slide.is-expanded .sub-angle {
+    transform: rotate(90deg);
+}
+
+.app-sidebar .slide-menu a:before {
+    inset-inline-start: 28px;
+}
+
+.slide.is-expanded .sub-slide-item:hover {
+    color: #4c516d;
+}
+
+.mat-elevation-z8,
+.mat-mdc-elevation-specific.mat-elevation-z8 {
+    box-shadow: none;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 85%;
+    }
+}
+
+   
+
+@media (min-width: 992px) {
+    .horizontal .hor-header .logo-1 {
+        display: block !important;
+    }
+}
+
+.horizontal .hor-header .responsive-logo img {
+    height: 3rem;
+    text-align: center;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+
+
+@media (min-width:576px) {
+
+    .main-header-notification.show>a::after,
+    .main-header-cart.show>a::after,
+    .main-header-message.show>a::after,
+    .main-header-grid.show>a::after,
+    .drop-flag.show>a::after {
+        display: none;
+    }
+}
+
+.modal-header .close {
+    background-color: transparent;
+    border: none;
+    margin: 0;
+}
+
+.dark-theme {
+    .cal-month-view {
+        background-color: $dark-theme;
+    }
+
+    .cal-month-view .cal-cell-row:hover {
+        background-color: $dark-theme;
+    }
+
+    .external {
+        background-color: $dark-theme !important;
+    }
+
+    .cal-month-view .cal-day-cell.cal-weekend .cal-day-number {
+        color: #fff;
+    }
+
+    .cal-month-view .cal-day-number {
+        color: #fff;
+    }
+
+    .cal-month-view .cal-cell {
+        border-color: $dark-border;
+    }
+
+    .cal-month-view .cal-days .cal-cell-row {
+        border-color: $dark-border;
+    }
+
+    .cal-month-view .cal-day-cell:not(:last-child) {
+        border-color: $dark-border;
+    }
+
+    .cal-header {
+        border-top: $dark-border;
+        border-left: $dark-border;
+        border-right: $dark-border;
+    }
+
+    .cal-month-view .cal-days {
+        border-color: $dark-border;
+    }
+
+    .NgxEditor__MenuBar {
+        background-color: $dark-theme;
+        border-color: $dark-border;
+    }
+
+    .NgxEditor {
+        background-color: $dark-theme;
+    }
+
+    .ngb-dp-header {
+        background-color: $dark-theme;
+    }
+
+    .form-select {
+        background-color: $dark-theme;
+    }
+
+    .ngb-dp-weekdays {
+        border-bottom: 1px solid $dark-border;
+        background-color: $dark-theme;
+    }
+
+    input,
+    button,
+    select,
+    optgroup,
+    textarea {
+   
+        color: #fff;
+    }
+
+    .mat-mdc-form-field-has-icon-suffix .mat-mdc-text-field-wrapper {
+        background-color: $dark-theme;
+    }
+
+    .mat-datepicker-content .mat-calendar {
+        background-color: $dark-theme;
+    }
+
+    .main-header.sticky.nav.side-header {
+        background-color: $dark-theme;
+    }
+}
+
+.layout-boxed {
+    .breadcrumb-header .content-title {
+        color: #000;
+    }
+
+    .breadcrumb-item a {
+        color: #000;
+    }
+
+    .breadcrumb-item.active {
+        color: #f66b46;
+    }
+}
+
+@media (min-width: 320px) {
+    .main-contacts-list {
+        overflow: scroll;
+    }
+}
+
+.ngb-dp-navigation-select .form-select {
+    padding: 0 1.4rem;
+}
+
+.main-img-user {
+    flex: none;
+}
+
+.avatar-md {
+    flex: none;
+}
+
+.pagination {
+    flex-wrap: wrap;
+}
+
+
+
+.buynow .money-bag,
+.free-img {
+    margin: 0 auto;
+    display: block;
+    margin-top: -20px;
+}
+
+
+@media (min-width: 992px) and (min-width: 576px) {
+    .modal-dialog {
+        max-width: 800px;
+        margin: 1.75rem auto;
+    }
+}
+
+.buynow .modal-content {
+    background-color: transparent;
+    border: 0px solid;
+}
+
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0;
+    border-radius: 16px;
+    outline: 0;
+    box-shadow: 0 5px 20px rgb(0 0 0 / 8%);
+}
+
+.buynow .card {
+    background-color: transparent;
+}
+
+.buynow .dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 0.45rem .80rem;
+    clear: both;
+    font-weight: 400;
+    color: #576074;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+    font-size: 15px;
+}
+
+.buynow .dropdown-item:hover {
+    background-color: #f5f4ff !important;
+}
+
+.buynow .btn {
+    padding: 0.375rem 0.75rem;
+}
+
+.buynow .dropdown-menu {
+    border-radius: 5px !important;
+    background-color: #ffffff;
+    border: 1px solid #ffffff8a;
+    box-shadow: 0 0px 90px rgb(155 153 153 / 48%) !important;
+}
+
+.buynow .card-block {
+    border: 1px solid rgb(231 229 245 / 11%) !important;
+    box-shadow: 0 0.15rem 1.75rem 0 rgb(255 255 255 / 6%);
+    top: 0;
+    bottom: 0;
+    background: #6a1cbb69;
+    left: 0;
+    border-radius: 7px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset-inline-end: 0;
+    bottom: 0;
+    inset-inline-start: 0;
+}
+
+@media (max-width: 480px) {
+    .buynow .card .btn {
+        display: initial !important;
+    }
+}
+
+.buynow.modal .btn-close:focus {
+    box-shadow: none;
+}
+.buynow .buynow-bg {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #000000a8;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 1rem;
+    outline: 0;
+    background-size: cover !important;
+}
+
+.buynow .modal-dialog .image-top {
+    margin-top: -10px !important;
+}
+
+.buynow .modal-dialog .card-block {
+    background: #6a1cbbbf;
+}
+
+.buynow .regular-license {
+    z-index: 9;
+}
+
+.border-0 {
+    border: 0px !important;
+}
+
+.modal {
+    z-index: 99998 !important;
+}
+
+.modal .modal-header {
+    padding: 10px 20px;
+}
+
+@media (max-width: 480px) {
+    .buynow .modal-dialog .modal-body {
+        margin: 15px;
+    }
+}
+
+
+
+
+.lh-xs {
+    line-height: 0.75 !important;
+    margin-top: 6px;
+}
+
+.buynow .license-view {
+    text-align: center;
+    text-decoration: underline;
+}
+
+.buynow .license-view a {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.buynow .license-view a:hover {
+    padding: 10px;
+    background-color: rgb(255 255 255 / 12%);
+    border-radius: 5px;
+}
+
+.bg-image-style {
+    background-image: url(./assets/switcher/img/bg3.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
+    position: relative;
+    border-radius: 0px;
+}
+
+.bg-image-style::before {
+    content: "";
+    background-color: #ffffffa6;
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 0;
+    position: absolute;
+}
+
+.buynow .modal-backdrop {
+    background-color: #000000b8;
+}
+
+.buynow .card-body.imag-list {
+    overflow: visible;
+}
+
+.buynow .imag-list {
+    position: relative;
+    content: "";
+    left: 0;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: cover !important;
+    width: 100%;
+    height: 100%;
+    border-radius: 7px;
+    overflow: hidden;
+    z-index: 1;
+
+}
+
+.buynow .imag-list::before {
+    content: "";
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-radius: 7px;
+    position: absolute;
+    background: #6a1cbb82;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.buynow .buynow-bg {
+    z-index: 0;
+    border: 0px #000 solid !important;
+
+    .btn-close {
+        right: 30px;
+        background: none;
+    }
+}
+
+.buynow .buynow-bg::before {
+    content: "";
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-radius: 1rem;
+    position: absolute;
+    background: #000000b3;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.buynow .Licenses-img {
+    border:1px solid #ffffff2e;
+    border-radius: 7px;
+}
+
+.modal.buynow .modal-body .card {
+    background: transparent;
+
+}
+.buynow .buynow-bg .btn-close{
+   
+        top: 45px;
+        color: #ffffff47;
+        font-size: 24px;
+        padding: 9px 10px;
+        border: 1px solid #ffffff47;
+        border-radius: 5px;
+        line-height: 0.4;
+        position: absolute ;
+}
+.buynow .modal-dialog .btn-close span {
+    color: #fff;
+    position: absolute;
+    top: 1px;
+    left: 9px;
+}
+
+// .buynow .modal-dialog .btn-close {
+//     right: 37px;
+//     top: 45px;
+//     color: #fff;
+//     font-size: 24px;
+//     padding: 9px 10px;
+//     border: 1px solid #ffffff47;
+//     border-radius: 5px;
+//     line-height: 1;
+// }
+// .buynow .modal-dialog .btn-close {
+//     position: absolute;
+//     float: right;
+//     margin-right: auto;
+//     background-image: none;
+// }
+
+ 
+// .btn-close{
+//     position: absolute !important;
+//         box-sizing: content-box;
+//             width: 10px;
+//             height: 10px;
+//             padding: 0.25em 0.25em;
+//             color: #e8e8e8;
+//             border-radius: 0.25rem;
+//             opacity: 0.4;
+//             float: var(--float-right);
+//             background-image: none;
+//             margin-block-start: -14px;
+//             font-size: 25px;
+//             box-shadow: none;
+// }
+ 
+// .buynow .modal-dialog .btn-close {
+  
+//     right: 37px;
+//     top: 45px;
+//     color: #fff;
+//     font-size: 24px;
+//     padding: 9px 10px;
+//     border: 1px solid #ffffff47;
+//     border-radius: 5px;
+//     line-height: 1;
+// }
+
+// .buynow .modal-dialog .btn-close span {
+//     color: #fff;
+//     position: absolute !important;
+//     top: 1px !important;
+//     left: 9px;
+// }
+
+.dropdown-menu.show{
+    z-index: 1;
+        position: absolute;
+            inset: 0px auto auto 0px;
+            margin: 0px;
+            transform: translate3d(0px, 46px, 0px);
+}
+.ng-dropdown-panel{
+    z-index: 1 !important;
+}
+// .ng-select{
+//     z-index: 1 !important;
+// }
+
+.horizontal .app-sidebar .ng-scroll-viewport-wrapper{
+ overflow: hidden !important;
+}
+
+.app-sidebar .slide-menu a.active:before{
+    color: var(--dark-body);
+}
+
+
+ .dark-theme {
+    
+     .NgxEditor__Dropdown .NgxEditor__Dropdown--DropdownMenu {
+         background-color: var(--dark-body) !important;
+         z-index: 1 !important;
+         color: var(--text-color);
+     }
+
+     .NgxEditor__Dropdown .NgxEditor__Dropdown--Item:hover {
+         background-color: var(--primary-bg-color) !important;
+
+     }
+
+     ngx-dropzone {
+         background-color: var(--dark-body) !important;
+     }
+    
+ }
+ .contact-btn{
+     position: absolute;
+     top: 10px;
+     right: 10px;
+ }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

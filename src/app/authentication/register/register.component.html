@@ -1,0 +1,70 @@
+<!-- page -->
+<div class="square-box">
+			<div></div>	<div></div>	<div></div>	<div></div>	<div></div>	<div></div>	<div></div>
+				<div></div>	<div></div>	<div></div>	<div></div>
+		</div>
+<div class="page login-img">
+  <!-- main-signin-wrapper -->
+  <div class=""> 
+    <div class="my-auto page page-h">
+      <div class="main-signin-wrapper">
+        <div class="col-xl-3 col-lg-4 col-md-5 col-sm-8">
+          <div class="text-center mb-3">
+            <img src="./assets/img/brand/logo-white.png" class="h-8" alt="" />
+          </div>
+          <div class="card">
+            <div class="card-body p-5">
+              <div class="main-signin-header">
+                <div class="">
+                  <h2>Welcome back!</h2>
+                  <h4 class="text-start">Reset Your Password</h4>
+                   <form  class="login100-form validate-form">
+                        <h3 class="login100-form-title">
+                                Registration
+                            </h3>
+                             
+                        <div class="wrap-input100 form-group text-start validate-input input-group" data-bs-validate="Valid email is required: ex@abc.xyz">
+                            <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
+                                <i class="zmdi zmdi-email" aria-hidden="true"></i>
+                            </a>
+                            <input class="input100 border-start-0 ms-0 form-control" type="email" name="email" [(ngModel)]="email" placeholder="Enter email Id" required>
+                        </div>
+                        <div class="wrap-input100 validate-input input-group" id="Password-toggle">
+                            <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
+                                <i class="zmdi zmdi-eye" (click)="TogglePassword()" aria-hidden="true"></i>
+                            </a>
+                            <input class="input100 border-start-0 ms-0 form-control" name="password" [type]="showPassword ? 'text' : 'password'"  [(ngModel)]="password" placeholder="Enter Password" required>
+                        </div>
+                        <div class="form-group">
+                            <p *ngIf="errorMessage.length > 0" class="text-danger">
+                                {{errorMessage}}</p>
+                            
+                            <p *ngIf="error.message.length > 0" class="text-danger">
+                                {{error.message}} </p>
+            
+                                <p *ngIf="message.length > 0" class="text-info">
+                                    {{message}} </p>
+                        </div>
+                        <label class="custom-control custom-checkbox mt-4">
+                                <input type="checkbox" class="custom-control-input">
+                                <span class="custom-control-label">Agree the <a routerLink="/pages/extension/faqs">terms and policy</a></span>
+                            </label>
+                        <div class="container-login100-form-btn">
+                            <button type="submit" class="btn ripple btn-primary btn-block">
+                                    Register
+                                </button>
+                        </div>
+                    </form>
+                </div>
+              </div>
+              <div class="main-signup-footer mg-t-10">
+                <p>Already have an account? <a routerLink="/custompages/login">Sign In</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- page closed -->

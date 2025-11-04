@@ -1,0 +1,260 @@
+<app-page-header
+  [title]="'Toast'"
+  [items]="['Elements']"
+  [active_item]="'Toast'"
+></app-page-header>
+<!-- Row -->
+<div class="row">
+  <div class="col-xl-12 col-lg-12">
+    <div class="card custom-card" id="basic">
+      <div class="card-header">
+        <h3 class="card-title">Basic Example</h3>
+        <p class="mb-0 text-muted card-sub-title">
+          Toasts are as flexible as you need and have very little required
+          markup. At a minimum, we require a single element to contain your
+          “toasted” content and strongly encourage a dismiss button.
+        </p>
+      </div>
+      <div class="card-body">
+        <div class="text-wrap">
+          <div class="example">
+            <div class="demo-static-toast" *ngIf="styleAlertClosed">
+              <div
+                aria-atomic="true"
+                aria-live="assertive"
+                class="toast fade show"
+                role="alert"
+              >
+                <div class="toast-header">
+                  <h6 class="tx-14 mg-b-0 mg-e-auto">Notification</h6>
+                  <small class="text-muted">11 mins ago</small>
+                  <button
+                    aria-label="Close"
+                    (click)="styleAlertClosed = false"
+                    class="ms-2 mb-1 btn-close tx-normal"
+                    data-bs-dismiss="toast"
+                    type="button"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="toast-body">
+                  Hello, world! This is a toast message.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card custom-card" id="tarns">
+      <div class="card-header">
+        <h3 class="card-title">Translucente</h3>
+        <p class="mb-0 text-muted card-sub-title">
+          Toasts are slightly translucent, too, so they blend over whatever they
+          might appear over.
+        </p>
+      </div>
+      <div class="card-body">
+        <div class="text-wrap">
+          <div class="example">
+            <div class="demo-static-toast" *ngIf="styleAlertClosed1">
+              <div
+                aria-atomic="true"
+                aria-live="assertive"
+                class="toast fade show"
+                role="alert"
+              >
+                <div class="toast-header">
+                  <h6 class="tx-14 mg-b-0 mg-e-auto">Notification</h6>
+                  <small class="text-muted">11 mins ago</small>
+                  <button
+                    (click)="styleAlertClosed1 = false"
+                    class="ms-2 mb-1 btn-close tx-normal"
+                    type="button"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="toast-body">
+                  Hello, world! This is a toast message.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card custom-card" id="stacking">
+      <div class="card-header">
+        <h3 class="card-title">Stacking</h3>
+        <p class="mb-0 text-muted card-sub-title">
+          When you have multiple toasts, we default to vertiaclly stacking them
+          in a readable manner.
+        </p>
+      </div>
+      <div class="card-body">
+        <div class="text-wrap">
+          <div class="example">
+            <div class="demo-static-toast">
+              <div
+                aria-atomic="true"
+                aria-live="assertive"
+                class="toast fade show"
+                role="alert"
+                *ngIf="styleAlertClosed2"
+              >
+                <div class="toast-header">
+                  <h6 class="tx-14 mg-b-0 mg-e-auto">Notification</h6>
+                  <small class="text-muted">Just now</small>
+                  <button
+                    aria-label="Close"
+                    (click)="styleAlertClosed2 = false"
+                    class="ms-2 mb-1 btn-close"
+                    data-bs-dismiss="toast"
+                    type="button"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="toast-body">See? Just like this.</div>
+              </div>
+              <div
+                aria-atomic="true"
+                aria-live="assertive"
+                class="toast fade show"
+                role="alert"
+                *ngIf="styleAlertClosed3"
+              >
+                <div class="toast-header">
+                  <h6 class="tx-14 mg-b-0 mg-e-auto">Notification</h6>
+                  <small class="text-muted">11 mins ago</small>
+                  <button
+                    aria-label="Close"
+                    (click)="styleAlertClosed3 = false"
+                    class="ms-2 mb-1 btn-close tx-normal"
+                    data-bs-dismiss="toast"
+                    type="button"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="toast-body">
+                  Hello, world! This is a toast message.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card custom-card" id="place">
+      <div class="card-header">
+        <h3 class="card-title">Placement</h3>
+        <p class="mb-0 text-muted card-sub-title">
+          Place toasts with custom CSS as you need them. The top right is often
+          used for notifications, as is the top middle.
+        </p>
+      </div>
+      <div class="card-body">
+        <div class="text-wrap mb-3">
+          <div class="example">
+            <div class="ht-150 pos-relative mb-3">
+              <div class="demo-static-toast pos-absolute t-10 r-10">
+                <div
+                  aria-atomic="true"
+                  aria-live="assertive"
+                  class="toast fade show"
+                  role="alert"
+                  *ngIf="styleAlertClosed4"
+                >
+                  <div class="toast-header">
+                    <h6 class="tx-14 mg-b-0 mg-e-auto">Notification</h6>
+                    <small class="text-muted">just now</small>
+                    <button
+                      aria-label="Close"
+                      (click)="styleAlertClosed4 = false"
+                      class="ms-2 mb-1 btn-close tx-normal"
+                      data-bs-dismiss="toast"
+                      type="button"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="toast-body">
+                    Hello, world! This is a toast message.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-wrap mb-3">
+          <div class="example">
+            <div
+              class="demo-static-toast d-flex justify-content-center align-items-center"
+            >
+              <div
+                aria-atomic="true"
+                aria-live="assertive"
+                class="toast fade show"
+                role="alert"
+                *ngIf="styleAlertClosed5"
+              >
+                <div class="toast-header">
+                  <h6 class="tx-14 mg-b-0 mg-e-auto">Notification</h6>
+                  <small class="text-muted">11 mins ago</small>
+                  <button
+                    aria-label="Close"
+                    (click)="styleAlertClosed5 = false"
+                    class="ms-2 mb-1 btn-close tx-normal"
+                    data-bs-dismiss="toast"
+                    type="button"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="toast-body">
+                  Hello, world! This is a toast message.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-wrap">
+          <div class="example">
+            <div class="ht-150 pos-relative">
+              <div class="demo-static-toast pos-absolute b-10 r-10">
+                <div
+                  aria-atomic="true"
+                  aria-live="assertive"
+                  class="toast fade show"
+                  role="alert"
+                  *ngIf="styleAlertClosed6"
+                >
+                  <div class="toast-header">
+                    <h6 class="tx-14 mg-b-0 mg-e-auto">Notification</h6>
+                    <small class="text-muted">just now</small>
+                    <button
+                      aria-label="Close"
+                      (click)="styleAlertClosed6 = false"
+                      class="ms-2 mb-1 btn-close tx-normal"
+                      data-bs-dismiss="toast"
+                      type="button"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="toast-body">
+                    Hello, world! This is a toast message.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /row -->

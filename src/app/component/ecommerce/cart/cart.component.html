@@ -1,0 +1,476 @@
+<app-page-header
+  [title]="'Cart'"
+  [items]="['E-Commerce']"
+  [active_item]="'Cart '"
+></app-page-header>
+<!-- row opened -->
+<div class="row">
+  <div class="col-md-12 col-xl-8">
+    <div class="card">
+      <div class="card-body">
+        <div class="product-details table-responsive text-nowrap">
+          <table class="table table-bordered table-hover mb-0 text-nowrap">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th class="w-150">Quantity</th>
+                <th>Price</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="media">
+                    <div class="card-aside-img">
+                      <img
+                        src="./assets/img/ecommerce/01.jpg"
+                        alt="img"
+                      />
+                    </div>
+                    <div class="media-body">
+                      <div class="card-item-desc mt-0">
+                        <h6 class="font-weight-semibold mb-1 text-uppercase">
+                          Flower Pot
+                        </h6>
+                        <dl class="card-item-desc-1 mb-1">
+                          <dt>Size:</dt>
+                          <dd>XXL</dd>
+                        </dl>
+                        <dl class="card-item-desc-1">
+                          <dt>Color:</dt>
+                          <dd>Green and Black color</dd>
+                        </dl>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group my-auto">
+                    <ng-select
+                      name="quantity"
+                      id="select-countries9"
+                      class="select2"
+                    >
+                      <ng-option value="1" selected>1</ng-option>
+                      <ng-option value="2">2</ng-option>
+                      <ng-option value="3">3</ng-option>
+                      <ng-option value="4">4</ng-option>
+                    </ng-select>
+                  </div>
+                </td>
+                <td class="text-center">USD 45</td>
+                <td class="text-center">
+                  <a
+                    href="javascript:void(0);"
+                    class="btn btn-danger btn-sm text-white me-1"
+                    ngbTooltip="Delete"
+                    placement="top"
+                    ><i class="fe fe-trash"></i
+                  ></a>
+                  <a
+                    href="javascript:void(0);"
+                    class="btn btn-info btn-sm text-white me-1"
+                    ngbTooltip="Save to Wishlist"
+                    placement="top"
+                    ><i class="fe fe-heart"></i
+                  ></a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="media">
+                    <div class="card-aside-img">
+                      <img
+                        src="./assets/img/ecommerce/04.jpg"
+                        alt="img"
+                      />
+                    </div>
+                    <div class="media-body">
+                      <div class="card-item-desc mt-0">
+                        <h6 class="font-weight-semibold mb-1 text-uppercase">
+                          Wrist-Watch
+                        </h6>
+                        <dl class="card-item-desc-1 mb-1">
+                          <dt>Size:</dt>
+                          <dd>XXL</dd>
+                        </dl>
+                        <dl class="card-item-desc-1">
+                          <dt>Color:</dt>
+                          <dd>Green and Black color</dd>
+                        </dl>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group my-auto">
+                    <ng-select
+                      name="quantity"
+                      id="select-countries8"
+                      class="select2"
+                    >
+                      <ng-option value="1" selected>1</ng-option>
+                      <ng-option value="2">2</ng-option>
+                      <ng-option value="3">3</ng-option>
+                      <ng-option value="4">4</ng-option>
+                    </ng-select>
+                  </div>
+                </td>
+                <td class="text-center">USD 45</td>
+                <td class="text-center">
+                  <a
+                    href="javascript:void(0);"
+                    class="btn btn-danger btn-sm text-white me-1"
+                    ngbTooltip="Delete"
+                    placement="top"
+                    ><i class="fe fe-trash"></i
+                  ></a>
+                  <a
+                    href="javascript:void(0);"
+                    class="btn btn-info btn-sm text-white me-1"
+                    ngbTooltip="Save to Wishlist"
+                    placement="top"
+                    ><i class="fe fe-heart"></i
+                  ></a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="media">
+                    <div class="card-aside-img">
+                      <img
+                        src="./assets/img/ecommerce/06.jpg"
+                        alt="img"
+                      />
+                    </div>
+                    <div class="media-body">
+                      <div class="card-item-desc mt-0">
+                        <h6 class="font-weight-semibold mb-1 text-uppercase">
+                          Long Stool
+                        </h6>
+                        <dl class="card-item-desc-1 mb-1">
+                          <dt>Size:</dt>
+                          <dd>XL</dd>
+                        </dl>
+                        <dl class="card-item-desc-1">
+                          <dt>Color:</dt>
+                          <dd>Black color</dd>
+                        </dl>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group my-auto">
+                    <ng-select
+                      name="quantity"
+                      id="select-countries1"
+                      class="select2"
+                    >
+                      <ng-option value="1" selected>1</ng-option>
+                      <ng-option value="2">2</ng-option>
+                      <ng-option value="3">3</ng-option>
+                      <ng-option value="4">4</ng-option>
+                    </ng-select>
+                  </div>
+                </td>
+                <td class="text-center">USD 15</td>
+                <td class="text-center">
+                  <a
+                    href="javascript:void(0);"
+                    class="btn btn-danger btn-sm text-white me-1"
+                    ngbTooltip="Delete"
+                    placement="top"
+                    ><i class="fe fe-trash"></i
+                  ></a>
+                  <a
+                    href="javascript:void(0);"
+                    class="btn btn-info btn-sm text-white me-1"
+                    ngbTooltip="Save to Wishlist"
+                    placement="top"
+                    ><i class="fe fe-heart"></i
+                  ></a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="media">
+                    <div class="card-aside-img">
+                      <img
+                        src="./assets/img/ecommerce/08.jpg"
+                        alt="img"
+                      />
+                    </div>
+                    <div class="media-body">
+                      <div class="card-item-desc mt-0">
+                        <h6 class="font-weight-semibold mb-1 text-uppercase">
+                          Money Plant
+                        </h6>
+                        <dl class="card-item-desc-1 mb-1">
+                          <dt>Size:</dt>
+                          <dd>XL</dd>
+                        </dl>
+                        <dl class="card-item-desc-1">
+                          <dt>Color:</dt>
+                          <dd>LightPink color</dd>
+                        </dl>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group my-auto">
+                    <ng-select
+                      name="quantity"
+                      id="select-countries2"
+                      class="select2"
+                    >
+                      <ng-option value="1" selected>1</ng-option>
+                      <ng-option value="2">2</ng-option>
+                      <ng-option value="3">3</ng-option>
+                      <ng-option value="4">4</ng-option>
+                    </ng-select>
+                  </div>
+                </td>
+                <td class="text-center">USD 136</td>
+                <td class="text-center">
+                  <a
+                    href="javascript:void(0);"
+                    class="btn btn-danger btn-sm text-white me-1"
+                    ngbTooltip="Delete"
+                    placement="top"
+                    ><i class="fe fe-trash"></i
+                  ></a>
+                  <a
+                    href="javascript:void(0);"
+                    class="btn btn-info btn-sm text-white me-1"
+                    ngbTooltip="Save to Wishlist"
+                    placement="top"
+                    ><i class="fe fe-heart"></i
+                  ></a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="media">
+                    <div class="card-aside-img">
+                      <img
+                        src="./assets/img/ecommerce/02.jpg"
+                        alt="img"
+                      />
+                    </div>
+                    <div class="media-body">
+                      <div class="card-item-desc mt-0">
+                        <h6 class="font-weight-semibold mb-1 text-uppercase">
+                          Morden Chair
+                        </h6>
+                        <dl class="card-item-desc-1 mb-1">
+                          <dt>Size:</dt>
+                          <dd>11-12 inches</dd>
+                        </dl>
+                        <dl class="card-item-desc-1">
+                          <dt>Color:</dt>
+                          <dd>LightGray color</dd>
+                        </dl>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group my-auto">
+                    <ng-select
+                      name="quantity"
+                      id="select-countries3"
+                      class="select2"
+                    >
+                      <ng-option value="1" selected>1</ng-option>
+                      <ng-option value="2">2</ng-option>
+                      <ng-option value="3">3</ng-option>
+                      <ng-option value="4">4</ng-option>
+                    </ng-select>
+                  </div>
+                </td>
+                <td class="text-center">USD 274</td>
+                <td class="text-center">
+                  <a
+                    href="javascript:void(0);"
+                    class="btn btn-danger btn-sm text-white me-1"
+                    ngbTooltip="Delete"
+                    placement="top"
+                    ><i class="fe fe-trash"></i
+                  ></a>
+                  <a
+                    href="javascript:void(0);"
+                    class="btn btn-info btn-sm text-white me-1"
+                    ngbTooltip="Save to Wishlist"
+                    placement="top"
+                    ><i class="fe fe-heart"></i
+                  ></a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="media">
+                    <div class="card-aside-img">
+                      <img
+                        src="./assets/img/ecommerce/07.jpg"
+                        alt="img"
+                      />
+                    </div>
+                    <div class="media-body">
+                      <div class="card-item-desc mt-0">
+                        <h6 class="font-weight-semibold mb-1 text-uppercase">
+                          Blue Colored Cup
+                        </h6>
+                        <dl class="card-item-desc-1 mb-1">
+                          <dt>Size:</dt>
+                          <dd>XXL</dd>
+                        </dl>
+                        <dl class="card-item-desc-1">
+                          <dt>Color:</dt>
+                          <dd>Green and Black color</dd>
+                        </dl>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group my-auto">
+                    <ng-select
+                      name="quantity"
+                      id="select-countries"
+                      class="select2"
+                    >
+                      <ng-option value="1" selected>1</ng-option>
+                      <ng-option value="2">2</ng-option>
+                      <ng-option value="3">3</ng-option>
+                      <ng-option value="4">4</ng-option>
+                    </ng-select>
+                  </div>
+                </td>
+                <td class="text-center">USD 45</td>
+                <td class="text-center">
+                  <a
+                    href="javascript:void(0);"
+                    class="btn btn-danger btn-sm text-white me-1"
+                    ngbTooltip="Delete"
+                    placement="top"
+                    ><i class="fe fe-trash"></i
+                  ></a>
+                  <a
+                    href="javascript:void(0);"
+                    class="btn btn-info btn-sm text-white me-1"
+                    ngbTooltip="Save to Wishlist"
+                    placement="top"
+                    ><i class="fe fe-heart"></i
+                  ></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12 col-xl-4">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Estimate Shipping and tax</h3>
+      </div>
+      <div class="card-body">
+        <div class="form-group mb-4">
+          <div class="gutters-xs">
+            <label class="form-label mt-4 fs-15">Country</label>
+            <ng-select [multiple]="true" [(ngModel)]="SelectCountry">
+              <ng-option *ngFor="let Country of Countries">{{
+                Country.name
+              }}</ng-option>
+            </ng-select>
+          </div>
+          <label class="form-label mt-4 fs-15">Expiration Date</label>
+          <div class="gutters-xs">
+            <ng-select [multiple]="true" [(ngModel)]="SelectExpirationDate">
+              <ng-option *ngFor="let ExpirationDate of ExpirationDates">{{
+                ExpirationDate.Date
+              }}</ng-option>
+            </ng-select>
+          </div>
+          <label class="form-label mt-4 fs-15">Zip/Postal Code</label>
+          <div class="form-group mb-0">
+            <div class="form-group">
+              <input
+                type="number"
+                class="form-control"
+                id="postal"
+                placeholder="Zip/Postal"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="form-footer mt-2">
+          <a href="javascript:void(0);" class="btn btn-primary">GET A QUOTE</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Order Summery</div>
+      </div>
+      <div class="card-body">
+        <div class="row mb-4">
+          <div class="col-6">
+            <input
+              class="productcart form-control"
+              type="text"
+              placeholder="Coupon Code"
+            />
+          </div>
+          <div class="col-6">
+            <a href="javascript:void(0);" class="btn btn-primary btn-md"
+              >Apply</a
+            >
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <td>Cart Subtotal</td>
+                <td class="text-end">$792.00</td>
+              </tr>
+              <tr>
+                <td><span>Totals</span></td>
+                <td class="text-end text-muted"><span>$792.00</span></td>
+              </tr>
+              <tr>
+                <td><span>Order Total</span></td>
+                <td><h2 class="price text-end mb-0">$792.00</h2></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <form class="text-center">
+          <button
+            class="btn btn-secondary float-start mt-2 m-b-20"
+            type="submit"
+            value="Proceed To Checkout"
+            routerLink="/ecommerce/check-out"
+          >
+            Proceed To Checkout
+          </button>
+          <button
+            class="btn btn-success mt-2 float-end"
+            type="submit"
+            value="Continue Shopping"
+            routerLink="/ecommerce/products"
+          >
+            Continue Shopping
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- row closed -->

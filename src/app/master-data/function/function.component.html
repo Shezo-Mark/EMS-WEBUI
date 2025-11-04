@@ -1,0 +1,134 @@
+<app-page-header [title]="'Function'" [items]="['Function']" [active_item]="'Function'"></app-page-header>
+
+<div class="row row-sm">
+    <div class="col-sm-12 col-lg-12 col-xl-12">
+        <div class="card custom-card">
+            <div class="">
+                <div class="p-3 border-bottom">
+                    <div class="d-flex align-items-center mb-3">
+                        <h5 class="mb-0">Function</h5>
+                        <div class="ms-auto d-flex align-items-center">
+                            <div class="btn-list radiobtns">
+                                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                    <input type="radio" class="btn-check" name="btnradio" id="Add" (click)="changeCurdView(false)" [checked]="!curdBtnIsList">
+                                    <label ngbTooltip="Add" class="btn btn-outline-primary" for="Add"><i
+                                            class="fa fa-plus"> Add</i></label>
+                                    <input type="radio" class="btn-check" name="btnradio" id="List" (click)="changeCurdView(true)" [checked]="curdBtnIsList">
+                                    <label ngbTooltip="List" class="btn btn-outline-primary" for="List"><i
+                                            class="fa fa-list-ul"> List</i></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-0" *ngIf="curdBtnIsList">
+                        <input type="text" class="form-control" [(ngModel)]="pagination.searchText" (keyup.enter)="onSearchText()" placeholder="Search..." />
+                        <span class="input-group-append">
+                            <button class="btn ripple btn-info" (click)="onSearchText()" type="button">
+                                <i class="fe fe-search me-2"></i> Search
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="!curdBtnIsList">
+    <div class="col-lg-12 col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Please {{ isEdit ? 'Edit' : 'Add' }} here</div>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="functionForm" novalidate (ngSubmit)="formSubmit()">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 col-md-6 my-1">
+                            <div class="parsley-input col-md-12" id="lnWrapper">
+                                <label>Function Name: <span class="tx-danger">*</span></label>
+                                <input class="form-control" formControlName="FunctionName" placeholder="Enter Function name"
+                                    [ngClass]="{'has-success': basicFormControl['FunctionName'].valid}">
+                                <div *ngIf="(basicFormControl['FunctionName'].touched || submitted) && (basicFormControl['FunctionName'].errors?.['required'])"
+                                    class="tx-danger">
+                                    <small>Function Name is <strong>required</strong></small>
+                                </div>
+                            </div>
+                          </div>
+                            <div class="col-md-6 col-sm-12 col-md-6 my-1">
+                              <div class="form-group">
+                                <label>Group: </label>
+                                <ng-select #select [items]="groupList"  formControlName="GroupId"
+                                  bindLabel="name" bindValue="id">
+                                </ng-select>
+                                <div
+                                  *ngIf="(basicFormControl['GroupId'].invalid) && submitted&& (basicFormControl['GroupId'].errors?.['required'])"
+                                  class="tx-danger">
+                                  <small>Group is <strong>required</strong></small>
+                                </div>
+                              </div>
+                            </div> 
+                        </div>
+                    
+                    <div class="mg-t-30">
+                        <button class="btn btn-primary pd-x-20" type="submit">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="curdBtnIsList">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Manage the all Functions</h3>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered border text-nowrap mb-0" id="new-edit">
+                <thead>
+                  <tr>
+                    <th>Function Name</th>
+                    <th>Group Name</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of functionList;let ndx = index">
+                    <td>{{item.functionName}}</td>
+                    <td>{{item.groupName}}</td>
+                    <td>
+                      <button type="button" (click)="setValueToForm(item)" class="btn btn-sm btn-primary">
+                        <span class="fe fe-edit"> </span>
+                        <!-- Edit -->
+                      </button>
+                      <button (click)="deleteRow(item)" id="bDel" type="button" class="btn mx-3 btn-sm btn-danger">
+                        <span class="fe fe-trash-2"> </span>
+                        <!-- trash -->
+                      </button>
+                      <label>
+                        <input (click)="IsActive(item)" type="checkbox" [checked]="item.isActive"
+                          name="form-switch-checkbox1" class="form-switch-input">
+                        <span class="form-switch-indicator"></span>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="d-flex justify-content-between p-2">
+              <ngb-pagination [collectionSize]="pagination.totalCount" [(page)]="pagination.pageNo" [pageSize]="pagination.pageSize" (pageChange)="onPageChange($event)" [maxSize]="pagination.maxSize" [boundaryLinks]="true" [ellipses]="true"></ngb-pagination>
+
+              
+              <ng-select class="" style="min-width: 100px" name="pageSize" (change)="getfunctions()" [(ngModel)]="pagination.pageSize">
+                <ng-option value="5">5</ng-option>
+                <ng-option value="10" selected>10</ng-option>
+                <ng-option value="50">50</ng-option>
+                <ng-option value="100">100</ng-option>
+              </ng-select>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>

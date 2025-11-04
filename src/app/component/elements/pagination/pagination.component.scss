@@ -1,0 +1,9 @@
+::ng-deep{
+    .pagination-dark .page-link{
+        color:#fff !important;
+    }
+        .page-item.disabled .page-link{
+            color: var(--dark-body) !important;
+        }
+    
+}

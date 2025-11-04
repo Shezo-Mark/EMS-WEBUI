@@ -1,0 +1,48 @@
+ <app-page-header  [title]="'Image Campare'" [items]="['Apps']" [active_item]="'Image Campare'" ></app-page-header> 
+<div class="row">
+					<div class="col-sm-12 col-md-12 col-lg-12">
+						<div class="card mg-b-20">
+							<div class="card-header">
+								<div class="card-title">
+									Horizontal Image Comparision
+									<p class="mb-0 tx-13 text-muted">Example of Redash Horizontal Image Comparision.</p>
+								</div>
+							</div>
+							<div class="card-body">
+								<div class="twentytwenty-container">
+									<img-comparison-slider>
+            <figure slot="first" class="before">
+              <img width="100%" src="./assets/img/photos/36.jpg">
+              <figcaption>Before</figcaption>
+            </figure>
+            <figure slot="second" class="after">
+              <img width="100%" src="./assets/img/photos/37.jpg">
+              <figcaption>After</figcaption>
+            </figure>
+          </img-comparison-slider>
+									
+								</div>
+							</div>
+						</div>
+						<!-- div -->
+
+						<!-- div -->
+						<div class="card">
+							<div class="card-header">
+								<div class="card-title">
+									Vertical Image Comparision
+									<p class="mb-0 tx-13 text-muted">Example of Redash Vertical Image Comparision.</p>
+								</div>
+							</div>
+							<div class="card-body">
+								<div class="twentytwenty-container" data-orientation="Vertical">
+									  <img-comparison-slider hover="hover">
+          <img slot="first" width="100%" src="./assets/img/photos/36.jpg">
+          <img slot="second" width="100%" src="./assets/img/photos/37.jpg">
+        </img-comparison-slider>
+								</div>
+							</div>
+						</div>
+						<!-- div -->
+					</div>
+				</div>

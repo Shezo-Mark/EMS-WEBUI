@@ -1,0 +1,12 @@
+::ng-deep{
+    .tags-input__tag {
+            font-size: 16px !important;
+            color: black;
+        }
+                          .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected,
+                          .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected.ng-option-marked{
+                         background-color: var(--primary08) !important;
+                         color: #fff;
+
+                }
+}

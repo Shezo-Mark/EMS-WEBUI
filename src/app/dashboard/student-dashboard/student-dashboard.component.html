@@ -1,0 +1,262 @@
+<app-page-header
+  [title]="'Dashboard'"
+  [items]="['Home']"
+  [active_item]="'Sales Dashboard'"
+></app-page-header>
+<!-- main-content-body -->
+<div class="main-content-body">
+  <div class="row row-cards">
+    <div class="col-xl-6 col-xxl-3 col-sm-12 col-lg-6 col-md-6">
+      <div class="card card-img-holder text-default bg-color"> 
+        <div class="card-body">
+          <div class="d-flex">
+            <div class="my-auto">
+              <div
+                class="circle-icon bg-primary text-center align-self-center shadow-primary"
+              >
+                <img
+                  src="./assets/img/svgicons/circle.svg"
+                  alt="circle"
+                  class="card-img-absolute"
+                /><i class="bx bx-user tx-30 icon-user-bx text-white"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="mb-0 tx-18">Followers</h3>
+              <div class="">
+                <span class="badge bg-success-transparent tx-success fs-10"
+                  >65%</span
+                >
+                <span class="px-2 text-muted">last month</span>
+              </div>
+            </div>
+            <h2 class="mt-2 ms-auto">10,257</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-6 col-xxl-3 col-sm-12 col-lg-6 col-md-6">
+      <div class="card card-img-holder text-default bg-color">
+        <div class="card-body">
+          <div class="d-flex">
+            <div class="my-auto">
+              <div
+                class="circle-icon bg-secondary text-center align-self-center shadow-secondary"
+              >
+                <img
+                  src="./assets/img/svgicons/circle.svg"
+                  alt="circle"
+                  class="card-img-absolute"
+                /><i class="bx bx-user tx-30 icon-user-bx text-white"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="mb-0 tx-18">Likes</h3>
+              <div class="">
+                <span class="badge bg-success-transparent tx-success fs-10"
+                  >65%</span
+                >
+                <span class="px-2 text-muted">last month</span>
+              </div>
+            </div>
+            <h2 class="mt-2 ms-auto">17,257</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-6 col-xxl-3 col-sm-12 col-lg-6 col-md-6">
+      <div class="card card-img-holder text-default bg-color">
+        <div class="card-body">
+          <div class="d-flex">
+            <div class="my-auto">
+              <div
+                class="circle-icon bg-info text-center align-self-center shadow-info"
+              >
+                <img
+                  src="./assets/img/svgicons/circle.svg"
+                  alt="circle"
+                  class="card-img-absolute"
+                /><i class="bx bx-user tx-30 icon-user-bx text-white"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="mb-0 tx-18">Comments</h3>
+              <div class="">
+                <span class="badge bg-secondary-transparent tx-secondary fs-10"
+                  >65%</span
+                >
+                <span class="px-2 text-muted"> last month</span>
+              </div>
+            </div>
+            <h2 class="mt-2 ms-auto">157</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-6 col-xxl-3 col-sm-12 col-lg-6 col-md-6">
+      <div class="card card-img-holder text-default bg-color">
+        <div class="card-body">
+          <div class="d-flex">
+            <div class="my-auto">
+              <div
+                class="circle-icon bg-success text-center align-self-center shadow-success"
+              >
+                <img
+                  src="./assets/img/svgicons/circle.svg"
+                  alt="circle"
+                  class="card-img-absolute"
+                /><i class="bx bx-user tx-30 icon-user-bx text-white"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="mb-0 tx-18">Posts</h3>
+              <div class="">
+                <span class="badge bg-secondary-transparent tx-secondary fs-10"
+                  >65%</span
+                >
+                <span class="px-2 text-muted">last month</span>
+              </div>
+            </div>
+            <h2 class="mt-2 ms-auto">1403</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row row-sm">
+    <div class="col-xl-8 col-md-12 col-lg-12">
+      <div class="card overflow-hidden">
+        <div class="card-header bg-transparent pd-b-0 pd-t-20 bd-b-0">
+          <div class="d-flex justify-content-between">
+            <h4 class="card-title mg-b-10">Sales Report</h4>
+            <div class="dropdown" ngbDropdown>
+              <a
+                ngbDropdownToggle
+                ngb
+                href="javascript:void(0);"
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="px-2 py-1 rounded-1 tx-medium tx-12 bg-primary-gradient text-white"
+                data-bs-toggle="dropdown"
+                id="dropdownMenuButton"
+                >Yearly <i class="fe fe-chevron-down mx-1"></i
+              ></a>
+              <div ngbDropdownMenu class="dropdown-menu tx-13">
+                <a
+                  ngbDropdownItem
+                  class="dropdown-item"
+                  href="javascript:void(0);"
+                  >Daily</a
+                >
+                <a
+                  ngbDropdownItem
+                  class="dropdown-item"
+                  href="javascript:void(0);"
+                  >Monthly</a
+                >
+              </div>
+            </div>
+          </div>
+          <p class="tx-13 text-muted mb-2">
+            The Project Budget is a tool used by project managers to estimate
+            the total cost of a project.
+            <a href="javascript:void(0)">Learn more</a>
+          </p>
+        </div>
+        <div class="card-body pd-y-7">
+          <div id="project-budget">
+            <canvas
+              baseChart
+              [data]="AreaChartData"
+              height="330"
+              [options]="AreaChartOptions"
+              [type]="AreaChartType"
+            >
+            </canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-4 col-md-6 col-lg-6">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">All Tasks</div>
+        </div>
+        <div class="card-body p-4">
+          <div class="chats-wrap">
+            <div class="chat-details mb-3">
+              <h4 class="mb-0">
+                <span class="h5 font-weight-normal">Sales Report</span>
+                <span class="float-end mt-1 tx-14 btn btn-sm text-default"
+                  >95%</span
+                >
+              </h4>
+              <div class="progress progress-md mt-3">
+                <div
+                  class="progress-bar progress-bar-striped bg-flat-primary progress-bar-animated"
+                  style="width: 70%"
+                ></div>
+              </div>
+            </div>
+            <div class="chat-details mb-3">
+              <h4 class="mb-0">
+                <span class="h5 font-weight-normal">List Completion</span>
+                <span class="float-end mt-1 tx-14 btn btn-sm text-default"
+                  >84%</span
+                >
+              </h4>
+              <div class="progress progress-md mt-3">
+                <div
+                  class="progress-bar progress-bar-striped bg-flat-info progress-bar-animated"
+                  style="width: 60%"
+                ></div>
+              </div>
+            </div>
+            <div class="chat-details mb-3">
+              <h4 class="mb-0">
+                <span class="h5 font-weight-normal">Purchase Report</span>
+                <span class="float-end mt-1 tx-14 btn btn-sm text-default"
+                  >44%</span
+                >
+              </h4>
+              <div class="progress progress-md mt-3">
+                <div
+                  class="progress-bar progress-bar-striped progress-bar-animated bg-flat-warning"
+                  style="width: 47%"
+                ></div>
+              </div>
+            </div>
+            <div class="chat-details mb-3">
+              <h4 class="mb-0">
+                <span class="h5 font-weight-normal">Revert Messages</span>
+                <span class="float-end mt-1 tx-14 btn btn-sm text-default"
+                  >64%</span
+                >
+              </h4>
+              <div class="progress progress-md mt-3">
+                <div
+                  class="progress-bar progress-bar-striped progress-bar-animated bg-flat-success"
+                  style="width: 75%"
+                ></div>
+              </div>
+            </div>
+            <div class="chat-details mb-3">
+              <h4 class="mb-0">
+                <span class="h5 font-weight-normal">Revert Messages</span>
+                <span class="float-end mt-1 tx-14 btn btn-sm text-default"
+                  >34%</span
+                >
+              </h4>
+              <div class="progress progress-md mt-3">
+                <div
+                  class="progress-bar progress-bar-striped progress-bar-animated bg-flat-danger"
+                  style="width: 45%"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,451 @@
+<app-page-header
+  [title]="'Form-Layouts'"
+  [items]="['Forms']"
+  [active_item]="'Form-Layouts'"
+></app-page-header>
+<!-- row -->
+<div class="row">
+  <div class="col-lg-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Horizontal Alignment</div>
+        <p class="mb-0 text-muted tx-13">
+          It is Very Easy to Customize and it uses in your website apllication.
+        </p>
+      </div>
+      <div class="card-body">
+        <div class="pd-30 pd-sm-40 bg-gray-100">
+          <div class="row row-xs">
+            <div class="col-md-5">
+              <input
+                class="form-control"
+                placeholder="Enter your username"
+                type="text"
+              />
+            </div>
+            <div class="col-md-5 mg-t-10 mg-md-t-0">
+              <input
+                class="form-control"
+                placeholder="Enter your password"
+                type="password"
+              />
+            </div>
+            <div class="col-md mg-t-10 mg-md-t-0">
+              <button class="btn btn-primary btn-block">Sign In</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Vertical Alignment</div>
+        <p class="mb-0 text-muted tx-13">
+          It is Very Easy to Customize and it uses in your website apllication.
+        </p>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="bg-gray-100 p-4">
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  placeholder="Enter your username"
+                  type="text"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  placeholder="Enter your password"
+                  type="password"
+                />
+              </div>
+              <button class="btn btn-primary pd-x-20">Sign In</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /row -->
+
+<!-- row -->
+<div class="row">
+  <div class="col-lg-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Left Label Alignment</div>
+        <p class="mb-0 text-muted tx-13">
+          It is Very Easy to Customize and it uses in your website apllication.
+        </p>
+      </div>
+      <div class="card-body">
+        <div class="pd-30 pd-sm-40 bg-gray-100">
+          <div class="row row-xs align-items-center mg-b-20">
+            <div class="col-md-4">
+              <label class="form-label mg-b-0">Firstname</label>
+            </div>
+            <div class="col-md-8 mg-t-5 mg-md-t-0">
+              <input
+                class="form-control"
+                placeholder="Enter your firstname"
+                type="text"
+              />
+            </div>
+          </div>
+          <div class="row row-xs align-items-center mg-b-20">
+            <div class="col-md-4">
+              <label class="form-label mg-b-0">Lastnane</label>
+            </div>
+            <div class="col-md-8 mg-t-5 mg-md-t-0">
+              <input
+                class="form-control"
+                placeholder="Enter your lastname"
+                type="text"
+              />
+            </div>
+          </div>
+          <div class="row row-xs align-items-center mg-b-20">
+            <div class="col-md-4">
+              <label class="form-label mg-b-0">Email</label>
+            </div>
+            <div class="col-md-8 mg-t-5 mg-md-t-0">
+              <input
+                class="form-control"
+                placeholder="Enter your email"
+                type="email"
+              />
+            </div>
+          </div>
+          <button class="btn btn-primary pd-x-30 mg-e-5 mg-t-5">
+            Register
+          </button>
+          <button class="btn btn-dark pd-x-30 mg-t-5">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /row -->
+
+<!-- row -->
+<div class="row">
+  <div class="col-lg-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Form Group Wrapper</div>
+        <p class="mb-0 text-muted tx-13">
+          It is Very Easy to Customize and it uses in your website apllication.
+        </p>
+      </div>
+      <div class="card-body">
+        <div class="">
+          <div class="row row-xs formgroup-wrapper">
+            <div class="col-md-6">
+              <div class="main-form-group">
+                <label class="form-label">Email</label>
+                <input
+                  class="form-control"
+                  placeholder="Enter your email"
+                  type="email"
+                  value="me@sprukotechnologies.com"
+                />
+              </div>
+              <!-- main-form-group -->
+            </div>
+            <div class="col-md-6 mg-t-20 mg-md-t-0">
+              <div class="main-form-group">
+                <label class="form-label">Password</label>
+                <input
+                  class="form-control"
+                  placeholder="Enter your password"
+                  type="password"
+                  value="thisismypassword"
+                />
+              </div>
+              <!-- main-form-group -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /row -->
+
+<!-- row -->
+<div class="row">
+  <div class="col-lg-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Form in Dropdown</div>
+        <p class="mb-0 text-muted tx-13">
+          It is Very Easy to Customize and it uses in your website apllication.
+        </p>
+      </div>
+      <div class="card-body">
+        <div ngbDropdown class="main-dropdown-form-demo">
+          <div class="mg-t-20">
+            <button
+              ngbDropdownToggle
+              class="btn btn-primary pd-x-20"
+              data-bs-toggle="dropdown"
+            >
+              Live Example <i class="icon ion-ios-arrow-down mg-s-5 tx-12"></i>
+            </button>
+            <div ngbDropdownMenu class="dropdown-menu">
+              <h6 class="dropdown-title">Subscribe</h6>
+              <p class="mg-b-20">Don't miss any update from us.</p>
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  placeholder="Enter your fullname"
+                  type="text"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  placeholder="Enter your email"
+                  type="email"
+                />
+              </div>
+              <button class="btn btn-primary btn-block">Subscribe</button>
+            </div>
+          </div>
+        </div>
+        <!-- main-dropdown-demo -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /row -->
+
+<!-- row -->
+<div class="row">
+  <div class="col-lg-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Form in Modal</div>
+        <p class="mb-0 text-muted tx-13">
+          It is Very Easy to Customize and it uses in your website apllication.
+        </p>
+      </div>
+      <div class="card-body">
+        <div class="tx-center pd-y-20 bg-gray-100">
+          <a class="btn btn-primary text-white" (click)="open(content)"
+            >View Live Demo</a
+          >
+        </div>
+        <!-- pd-y-30 -->
+        <div class="modal">
+          <div class="modal-dialog wd-xl-400" role="document">
+            <div class="modal-content">
+              <div class="modal-body pd-sm-40">
+                <button
+                  aria-label="Close"
+                  class="close pos-absolute t-15 r-20 tx-26"
+                  data-bs-dismiss="modal"
+                  type="button"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title mg-b-5">Create New Account</h5>
+                <p class="mg-b-20">
+                  Let's get you all setup so you can begin using our app.
+                </p>
+                <div class="form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Firstname"
+                    type="text"
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    class="form-control"
+                    placeholder="Lastname"
+                    type="text"
+                  />
+                </div>
+                <div class="form-group">
+                  <input class="form-control" placeholder="Phone" type="text" />
+                </div>
+                <div class="form-group">
+                  <input class="form-control" placeholder="Email" type="text" />
+                </div>
+                <div class="form-group mg-b-25">
+                  <label class="ckbox mg-b-5"
+                    ><input type="checkbox" /><span class="tx-13"
+                      >I agree to <a href="">Terms</a> and
+                      <a href="">Privacy Policy</a></span
+                    ></label
+                  >
+                  <label class="ckbox"
+                    ><input checked type="checkbox" /><span class="tx-13"
+                      >Yes, I want to receive email from your newsletter.</span
+                    ></label
+                  >
+                </div>
+                <button class="btn btn-primary btn-block">Continue</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Payment Details</div>
+        <p class="mb-0 text-muted tx-13">
+          It is Very Easy to Customize and it uses in your website apllication.
+        </p>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-10 col-lg-8 col-xl-6 mx-auto d-block">
+            <div class="card card-body pd-20 pd-md-40 border shadow-none">
+              <h5 class="card-title mg-b-20">Your Payment Details</h5>
+              <div class="form-group">
+                <label class="main-content-label tx-11 tx-medium tx-gray-600"
+                  >Name on Card</label
+                >
+                <input class="form-control" required="" type="text" />
+              </div>
+              <div class="form-group">
+                <label class="main-content-label tx-11 tx-medium tx-gray-600"
+                  >Card Number</label
+                >
+                <div class="pos-relative">
+                  <input class="form-control pd-e-80" required="" type="text" />
+                  <div class="d-flex pos-absolute t-5 r-10">
+                    <img
+                      alt=""
+                      class="wd-30 mg-e-5"
+                      src="./assets/img/media/18.png"
+                    />
+                    <img alt="" class="wd-30" src="./assets/img/media/19.png" />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row row-sm">
+                  <div class="col-sm-9">
+                    <label
+                      class="main-content-label tx-11 tx-medium tx-gray-600"
+                      >Expiration Date</label
+                    >
+                    <div class="row row-sm">
+                      <div class="col-sm-7">
+                        <ng-select class="select2-no-search">
+                          <ng-option value="January"> January </ng-option>
+                          <ng-option value="February"> February </ng-option>
+                          <ng-option value="March"> March </ng-option>
+                          <ng-option value="April"> April </ng-option>
+                          <ng-option value="May"> May </ng-option>
+                        </ng-select>
+                      </div>
+                      <div class="col-sm-5 mg-t-10 mg-sm-t-0">
+                        <ng-select class="select2-no-search">
+                          <ng-option value="2018"> 2018 </ng-option>
+                          <ng-option value="2019"> 2019 </ng-option>
+                          <ng-option value="2020"> 2020 </ng-option>
+                          <ng-option value="2021"> 2021 </ng-option>
+                          <ng-option value="2022"> 2022 </ng-option>
+                        </ng-select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-3 mg-t-20 mg-sm-t-0">
+                    <label
+                      class="main-content-label tx-11 tx-medium tx-gray-600"
+                      >CVC</label
+                    >
+                    <input class="form-control" required="" type="text" />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group mg-b-20">
+                <label class="ckbox"
+                  ><input checked type="checkbox" /><span class="tx-13"
+                    >Save my card for future purchases</span
+                  ></label
+                >
+              </div>
+              <button class="btn btn-primary btn-block">
+                Complete Payment
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /row -->
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <div class="d-block">
+      <h5 class="modal-title mg-b-5">Create New Account</h5>
+      <p class="mg-b-5">
+        Let's get you all setup so you can begin using our app.
+      </p>
+    </div>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Firstname" />
+    </div>
+    <!-- form-group -->
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Lastname" />
+    </div>
+    <!-- form-group -->
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Phone" />
+    </div>
+    <!-- form-group -->
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Email" />
+    </div>
+    <!-- form-group -->
+    <div class="form-group mg-b-25">
+      <label class="ckbox mg-b-5">
+        <input type="checkbox" />
+        <span class="tx-13"
+          >I agree to <a href="javascript:void(0);">Terms</a> and
+          <a href="javascript:void(0);">Privacy Policy</a></span
+        >
+      </label>
+      <label class="ckbox">
+        <input type="checkbox" checked />
+        <span class="tx-13"
+          >Yes, I want to receive email from your newsletter.</span
+        >
+      </label>
+    </div>
+    <!-- form-group -->
+    <button
+      class="btn btn-primary btn-block"
+      (click)="modal.close('Save click')"
+    >
+      Continue
+    </button>
+  </div>
+</ng-template>

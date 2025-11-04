@@ -1,0 +1,44 @@
+::ng-deep {
+    .rtl .ngx-colors-overlay .opened {
+        left: 1079px;
+    }
+
+    .ngx-colors-overlay {
+        z-index: 1 !important;
+    }
+
+    .dark-theme .mat-step-header .mat-step-label {
+        color: #ffff !important;
+    }
+
+    .dark-theme .mdc-text-field .mdc-floating-label {
+        color: #fff !important;
+    }
+
+    .dark-theme .mat-mdc-button:not(:disabled) {
+        color: #fff;
+    }
+
+    .dark-theme button {
+        color: #fff !important;
+    }
+
+    .dark-theme .btn-light {
+        color: #dde3ea;
+        background-color: rgba(255, 255, 255, 0);
+        border-color: rgba(222, 228, 236, 0.07);
+    }
+
+    [ngbDatepickerDayView]:hover:not(.bg-primary) {
+        background-color: #192939ba !important;
+        outline: 1px solid var(--bs-border-color);
+    }
+    .rtl{
+    .ngb-dp-arrow.right .ngb-dp-navigation-chevron{
+            transform: rotate(220deg) !important;
+    }
+          .ngb-dp-navigation-chevron{
+                transform: rotate(45deg) !important;
+        }
+    }
+}

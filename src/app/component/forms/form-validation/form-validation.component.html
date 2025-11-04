@@ -1,0 +1,293 @@
+<app-page-header
+  [title]="'Form-Validation'"
+  [items]="['Forms']"
+  [active_item]="'Form-Validation'"
+></app-page-header>
+<!-- row -->
+<div class="row">
+  <div class="col-lg-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Required Input Validation</div>
+        <p class="mb-0 text-muted tx-13">
+          It is Very Easy to Customize and it uses in your website apllication.
+        </p>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="inputForm" (ngSubmit)="Submit()" novalidate >
+          <div class="row row-sm">
+            <div class="col-6">
+              <div class="col-lg-6 form-group">
+                <label class="form-label"
+                  >Text validation: <span class="tx-danger">*</span>
+                  <input
+                    class="form-control"
+                    formControlName="text"
+                    placeholder="Enter text"
+                    [ngClass]="{
+                      'has-success': inputFormControl['text'].valid
+                    }"
+                  />
+                </label>
+                <div
+                  *ngIf="(inputFormControl['text'].touched || submitted) && (inputFormControl['text'].errors?.['required'])"
+                  class="tx-danger"
+                >
+                  <small>Text is required</small>
+                </div>
+                <div
+                  *ngIf="inputFormControl['text'].errors?.['pattern']"
+                  class="tx-danger"
+                >
+                  <small>Enter only characters</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="col-lg-6 form-group">
+                <label class="form-label"
+                  >Number validation: <span class="tx-danger">*</span>
+                  <input
+                    class="form-control"
+                    formControlName="number"
+                    placeholder="Enter Number"
+                    [ngClass]="{
+                      'has-success': inputFormControl['number'].valid
+                    }"
+                  />
+                </label>
+                <div
+                  *ngIf="(inputFormControl['number'].touched || submitted) && (inputFormControl['number'].errors?.['required'])"
+                  class="tx-danger"
+                >
+                  <small>Number is required</small>
+                </div>
+                <div
+                  *ngIf="inputFormControl['number'].errors?.['pattern']"
+                  class="tx-danger"
+                >
+                  <small>Enter only numbers</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <button
+                type="submit"
+                class="btn ripple btn-primary btn-block"
+                [disabled]="inputForm.pristine || inputForm.invalid"
+              >
+                Validate Form
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Email Validation</div>
+        <p class="mb-0 text-muted tx-13">
+          It is Very Easy to Customize and it uses in your website apllication.
+        </p>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="emailForm" novalidate (ngSubmit)="emailSubmit()">
+          <div class="row">
+            <div class="col-lg-9 col-md-8 form-group mg-b-0">
+              <label class="form-label"
+                >Email: <span class="tx-danger">*</span></label
+              >
+             <input class="form-control " formControlName="email"
+                                  placeholder="Enter Email Id" [ngClass]="{'has-success': emailFormControl['email'].valid}">
+            </div>
+            <div class="col-lg-3 col-md-4 mg-t-10 mg-sm-t-25">
+              <button class="btn btn-primary pd-x-20" type="submit">
+                Validate Email
+              </button>
+            </div>
+          </div>
+		  <div *ngIf="(emailFormControl['email'].touched || submitted1) && (emailFormControl['email'].errors?.['required'])"
+                            class="tx-danger">
+                            <small>Email Id is required</small>
+                        </div>
+                        <div *ngIf="emailFormControl['email'].errors?.['pattern']" class="tx-danger">
+                            <small>Enter a valid mail id</small>
+                        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /row -->
+
+<!-- row -->
+<div class="row">
+  <div class="col-lg-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Custom Checkbox/Radio Validation</div>
+        <p class="mb-0 text-muted tx-13">
+          It is Very Easy to Customize and it uses in your website apllication.
+        </p>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="checkboxForm" (ngSubmit)="checkboxSubmit()" novalidate>
+          <p class="mg-b-10">
+            What is your favorite browser? <span class="tx-danger">*</span>
+          </p>
+          <div class="parsley-checkbox" id="cbWrapper" formGroupName="myCheckboxGroup">
+            <label class="ckbox mg-b-5"
+              > <input type="checkbox" formControlName="checkBox1" id="checkBox1"><span>Firefox</span></label
+            >
+            <label class="ckbox mg-b-5"
+              > <input type="checkbox" formControlName="checkBox2" id="checkBox2"><span>Chrome</span></label
+            >
+            <label class="ckbox mg-b-5"
+              ><input type="checkbox" formControlName="checkBox3" id="checkBox3"><span>Safari</span></label
+            >
+            <label class="ckbox"
+              ><input type="checkbox" formControlName="checkBox4" id="checkBox4"><span>Edge</span></label
+            >
+          </div>
+          <div class="tx-danger" *ngIf="(checkboxForm.controls['myCheckboxGroup'].errors) && 
+                             checkboxForm.controls['myCheckboxGroup'].errors?.['requireOneCheckboxToBeChecked']">
+                      <small>At least two checkbox is required to check</small>
+                  </div>
+          <div class="mg-t-20">
+            <button class="btn btn-primary pd-x-20" type="submit" value="5">
+              Validate Form
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Select2 Box Validation</div>
+        <p class="mb-0 text-muted tx-13">
+          It is Very Easy to Customize and it uses in your website apllication.
+        </p>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="selectForm" novalidate (ngSubmit)="selectSubmit()">
+          <div class="row">
+            <div class="parsley-select col-lg-9 col-md-8" id="slWrapper">
+               <ng-select placeholder="Choose one" formControlName="selectform">
+                              <ng-option value="Firefox">Firefox</ng-option>
+                              <ng-option value="Chrome">Chrome</ng-option>
+                              <ng-option value="Safari">Safari</ng-option>
+                              <ng-option value="Opera">Opera</ng-option>
+                              <ng-option value="Internet Explorer">Internet Explorer</ng-option>
+                          </ng-select>
+              <div id="slErrorContainer"></div>
+            </div>
+            <div class="col-lg-3 col-md-4 mg-t-10 mg-sm-t-0">
+              <button class="btn btn-primary pd-x-20" type="submit" value="5">
+                Validate Form
+              </button>
+            </div>
+          </div>
+		   <div *ngIf="(selectForm.controls['selectform'].touched || submitted) && (selectForm.controls['selectform'].errors?.['required'])"
+                      class="tx-danger">
+                      <small>Select is required</small>
+                  </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /row -->
+
+<!-- row -->
+<div class="row">
+  <div class="col-lg-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Custom Style Invalid Messages</div>
+        <p class="mb-0 text-muted tx-13">
+          It is Very Easy to Customize and it uses in your website apllication.
+        </p>
+      </div>
+      <div class="card-body">
+        <form
+          [formGroup]="basicForm" novalidate (ngSubmit)="formSubmit()"
+        >
+          <div class="">
+            <div class="row mg-b-20">
+              <div class="parsley-input col-md-6" id="fnWrapper">
+                 <label>Full Name: <span class="tx-danger">*</span></label>
+                              <input class="form-control" formControlName="fullName"
+                                  placeholder="Enter Full name"
+                                  [ngClass]="{'has-success': basicFormControl['fullName'].valid}">
+                              <div *ngIf="(basicFormControl['fullName'].touched || submitted) && (basicFormControl['fullName'].errors?.['required'])"
+                                  class="tx-danger">
+                                  <small>Name is required</small>
+                              </div>
+                              <div *ngIf="basicFormControl['fullName'].errors?.['pattern']" class="tx-danger">
+                                  <small>Enter only characters</small>
+                              </div>
+              </div>
+              <div
+                class="parsley-input col-md-6 mg-t-20 mg-md-t-0"
+                id="lnWrapper"
+              >
+                <label>Contact: <span class="tx-danger">*</span></label>
+                              <input class="form-control" formControlName="contact"
+                                  placeholder="Enter Contact"
+                                  [ngClass]="{'has-success': basicFormControl['contact'].valid}">
+                              <div *ngIf="(basicFormControl['contact'].touched || submitted) && (basicFormControl['contact'].errors?.['required'])"
+                                  class="tx-danger">
+                                  <small>Contact is required</small>
+                              </div>
+                              <div *ngIf="basicFormControl['contact'].errors?.['pattern']" class="tx-danger">
+                                  <small>Enter only numbers</small>
+                              </div>
+              </div>
+            </div>
+          </div>
+          <p class="mg-b-10">
+            What is your favorite browser? <span class="tx-danger">*</span>
+          </p>
+         <div class="parsley-checkbox" id="cbWrapper" formGroupName="myCheckboxGroup">
+            <label class="ckbox mg-b-5"
+              > <input type="checkbox" formControlName="checkBox1" id="checkBox1"><span>Firefox</span></label
+            >
+            <label class="ckbox mg-b-5"
+              > <input type="checkbox" formControlName="checkBox2" id="checkBox2"><span>Chrome</span></label
+            >
+            <label class="ckbox mg-b-5"
+              ><input type="checkbox" formControlName="checkBox3" id="checkBox3"><span>Safari</span></label
+            >
+            <label class="ckbox"
+              ><input type="checkbox" formControlName="checkBox4" id="checkBox4"><span>Edge</span></label
+            >
+          </div>
+          <!-- parsley-checkbox -->
+          <div class="row" id="cbErrorContainer2"></div>
+          <div class="parsley-select mg-t-30" id="slWrapper2">
+                                  <ng-select placeholder="Choose one" >
+                          <ng-option value="Firefox">Firefox</ng-option>
+                          <ng-option value="Chrome">Chrome</ng-option>
+                          <ng-option value="Safari">Safari</ng-option>
+                          <ng-option value="Opera">Opera</ng-option>
+                          <ng-option value="Internet Explorer">Internet Explorer</ng-option>
+                      </ng-select>
+            <div id="slErrorContainer2"></div>
+          </div>
+          <div class="mg-t-30">
+            <button class="btn btn-primary pd-x-20" type="submit">
+              Validate Form
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- row closed -->

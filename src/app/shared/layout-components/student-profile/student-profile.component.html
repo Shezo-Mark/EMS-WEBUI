@@ -1,0 +1,590 @@
+<div class="row row-sm">
+    <div class="col-xl-4">
+        <div class="card mg-b-20">
+            <div class="card-body">
+                <div class="ps-0">
+                    <div class="main-profile-overview">
+                        <div class="d-flex">
+                            <div class="main-img-user profile-user">
+                                <img alt="" src="{{studentDetails?.picture ? baseUrl+FilePath.ProfilePictures+'/'+studentDetails?.picture : 'https://www.w3schools.com/howto/img_avatar.png'}}" />
+                            </div>
+                            <div class="d-flex justify-content-between mg-b-20 mt-5 ms-3">
+                                <div>
+                                    <h5 class="main-profile-name">{{studentDetails?.firstName}}</h5>
+                                    <p class="main-profile-name-text">{{studentDetails?.levelName}} {{studentDetails?.group}} {{studentDetails?.grade}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- main-profile-bio -->
+                        <div class="main-profile-work-list">
+                            <div class="media">
+                                <div class="media-logo bg-success-transparent text-success">
+                                    <i class="icon ion-md-globe"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h6>Student Code</h6>
+                                    <span>{{studentDetails?.hCode}}</span>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-logo bg-primary-transparent text-primary">
+                                    <i class="icon ion-ios-contact"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h6>Full Name</h6>
+                                    <span>{{studentDetails?.fullName}}</span>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-logo bg-primary-transparent text-primary">
+                                    <i class="icon ion-ios-contacts"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h6>Contact</h6>
+                                    <span>{{studentDetails?.studentPhoneNo}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- main-profile-overview -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-8">
+        <div class="main-content-body main-content-body-profile">
+            <div class="">
+                <div class="wideget-user-tab">
+                    <div class="tab-menu-heading">
+                        <div class="tabs-menu1">
+                            <nav ngbNav #nav="ngbNav"
+                                class="main-nav-line p-0 tabs-menu profile-nav-line border-0 br-5 mb-0">
+                                <ng-container ngbNavItem>
+                                    <a ngbNavLink class="mb-2 mt-2">Personal Information</a>
+                                    <ng-template ngbNavContent class="tab-content">
+                                        <div class="tab-pane active">
+                                            <div id="profile-log-switch">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="mb-4 main-content-label">Personal Information</div>
+                                                        <form class="form-horizontal">
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <label class="form-label">First Name</label>
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" readonly value="{{studentDetails?.firstName}}" class="form-control txt-black"
+                                                                            placeholder="First Name" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <label class="form-label">Middle Name</label>
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" readonly class="form-control txt-black"
+                                                                            placeholder="Middle Name" value="{{studentDetails?.middleName}}" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <label class="form-label">last Name</label>
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" readonly class="form-control txt-black"
+                                                                            placeholder="Last Name" value="{{studentDetails?.lastName}}" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <label class="form-label">Full Name</label>
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" readonly class="form-control txt-black"
+                                                                            placeholder="Full Name" value="{{studentDetails?.fullName}}" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <label class="form-label">Nationality</label>
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" readonly class="form-control txt-black"
+                                                                            placeholder="Nationality" value="{{studentDetails?.nationality}}" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <label class="form-label">Place Of Birth</label>
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" readonly class="form-control txt-black"
+                                                                            placeholder="Place Of Birth" value="{{studentDetails?.placeOfBirth}}" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <label class="form-label">Date Of Birth</label>
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" readonly class="form-control txt-black"
+                                                                            placeholder="Date Of Birth" value="{{studentDetails?.dateOfBirth}}" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <label class="form-label"> Passport / ID No</label>
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" readonly class="form-control txt-black"
+                                                                            placeholder="Passport No" value="{{studentDetails?.passportNo}}" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <label class="form-label">Mother Tongue</label>
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" readonly class="form-control txt-black"
+                                                                            placeholder="Mother Tongue" value="{{studentDetails?.motherTongue}}" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <label class="form-label">Date Of Joining</label>
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" readonly class="form-control txt-black"
+                                                                            placeholder="Date Of Joining" value="{{studentDetails?.dateOfJoining}}" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <label class="form-label">Religion</label>
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" readonly class="form-control txt-black"
+                                                                            placeholder="Religion" value="{{studentDetails?.religion}}" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <label class="form-label">Gender</label>
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" readonly class="form-control txt-black"
+                                                                            placeholder="Gender" value="{{studentDetails?.genderName}}" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <label
+                                                                            class="form-label">Email</label>
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" readonly class="form-control txt-black"
+                                                                            placeholder="Email"
+                                                                            value="{{studentDetails?.studentEmail}}" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <label class="form-label">Student Phone No</label>
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" readonly class="form-control txt-black"
+                                                                            placeholder="phone number"
+                                                                            value="{{studentDetails?.studentPhoneNo}}" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <label class="form-label">Year</label>
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" readonly class="form-control txt-black"
+                                                                            placeholder="phone number"
+                                                                            value="{{studentDetails?.year}}" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <label class="form-label">Academic Year</label>
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" readonly class="form-control txt-black"
+                                                                            placeholder="phone number"
+                                                                            value="{{studentDetails?.acadmicYear}}" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <label class="form-label">where did you hear about BISK?</label>
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" readonly class="form-control txt-black"
+                                                                            placeholder="where did you hear about BISK"
+                                                                            value="{{studentDetails?.whereHearAboutSchool}}" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <label class="form-label">Branch</label>
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" readonly class="form-control txt-black"
+                                                                            placeholder="where did you hear about BISK"
+                                                                            value="{{studentDetails?.branchName}}" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-md-2">
+                                                                        <label class="form-label">Bus Services</label>
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <span [ngClass]="studentDetails?.isBusServices == true ?'txt-black':'txt-red'">{{studentDetails?.isBusServices == true ?'Yes':'No'}}</span>
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <label class="form-label">Uniform</label>
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <span [ngClass]="studentDetails?.isUniform == true ?'txt-black':'txt-red'">{{studentDetails?.isUniform == true ?'Yes':'No'}}</span>
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <label class="form-label">Lunch  Services</label>
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <span [ngClass]="studentDetails?.isLunchServices == true ?'txt-black':'txt-red'">{{studentDetails?.isLunchServices == true ?'Yes':'No'}}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-md-2">
+                                                                        <label class="form-label">Books</label>
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <span [ngClass]="studentDetails?.isBooks == true ?'txt-black':'txt-red'">{{studentDetails?.isBooks == true ?'Yes':'No'}}</span>
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <label class="form-label">Vaacination</label>
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <span [ngClass]="studentDetails?.isVaacination == true ?'txt-black':'txt-red'">{{studentDetails?.isVaacination == true ?'Yes':'No'}}</span>
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <label class="form-label">Picture Permission</label>
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <span [ngClass]="studentDetails?.isPicturePermission == true ?'txt-black':'txt-red'">{{studentDetails?.isPicturePermission == true ?'Yes':'No'}}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </ng-template>
+                                </ng-container>
+                                <ng-container ngbNavItem>
+                                    <a ngbNavLink class="mb-2 mt-2">Parents Information</a>
+                                    <ng-template ngbNavContent>
+                                        <div class="tab-pane" id="tab-61">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="mb-4 main-content-label">Parents Information</div>
+                                                    <form class="form-horizontal">
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label class="form-label">Father's Name</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" readonly value="{{studentDetails?.fatherName}}" class="form-control txt-black"
+                                                                        placeholder="Father's Name" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label class="form-label">Father Contact No</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" readonly class="form-control txt-black"
+                                                                        placeholder="Father Contact No" value="{{studentDetails?.fatherContactNo}}" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label class="form-label">Father Occupation</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" readonly class="form-control txt-black"
+                                                                        placeholder="Father Occupation" value="{{studentDetails?.fatherOccupation}}" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label class="form-label">Father Email</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" readonly class="form-control txt-black"
+                                                                        placeholder="Father Email" value="{{studentDetails?.fatherEmail}}" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label class="form-label">Father Company</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" readonly class="form-control txt-black"
+                                                                        placeholder="Father Company" value="{{studentDetails?.fatherCompany}}" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label class="form-label">Mother's Name</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" readonly class="form-control txt-black"
+                                                                        placeholder="Mother's Name" value="{{studentDetails?.motherName}}" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label class="form-label">Mother Contact No</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" readonly class="form-control txt-black"
+                                                                        placeholder="Mother Contact No" value="{{studentDetails?.motherContactNo}}" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label class="form-label">Mother Occupation</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" readonly class="form-control txt-black"
+                                                                        placeholder="Mother Occupation" value="{{studentDetails?.motherOccupation}}" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label class="form-label">Mother Email</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" readonly class="form-control txt-black"
+                                                                        placeholder="Mother Email" value="{{studentDetails?.motherEmail}}" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label class="form-label">Mother Company</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" readonly class="form-control txt-black"
+                                                                        placeholder="Mother Company" value="{{studentDetails?.motherCompany}}" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label class="form-label">Alternative Name First</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" readonly class="form-control txt-black"
+                                                                        placeholder="Alternative Name First" value="{{studentDetails?.alternativeName}}" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label class="form-label">Alternative Relation First</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" readonly class="form-control txt-black"
+                                                                        placeholder="Alternative Relation First" value="{{studentDetails?.alternativeRelation}}" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label class="form-label">Alternative Contact First</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" readonly class="form-control txt-black"
+                                                                        placeholder="Alternative Contact First" value="{{studentDetails?.alternativeContact}}" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+  
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label class="form-label">Alternative Contact Second</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" readonly class="form-control txt-black"
+                                                                        placeholder="Alternative Contact Second" value="{{studentDetails?.alternativeNameSecond}}" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label class="form-label">Alternative Contact Second</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" readonly class="form-control txt-black"
+                                                                        placeholder="Alternative Contact Second" value="{{studentDetails?.alternativeRelationSecond}}" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label class="form-label">Alternative Contact Second</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" readonly class="form-control txt-black"
+                                                                        placeholder="Alternative Contact Second" value="{{studentDetails?.alternativeContactNoSecond}}" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </ng-template>
+                                </ng-container>
+                                <ng-container ngbNavItem>
+                                    <a ngbNavLink class="mb-2 mt-2">Address Details</a>
+                                    <ng-template ngbNavContent>
+                                        <div class="tab-pane" id="tab-71">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="mb-4 main-content-label">Parents Information</div>
+                                                    <form class="form-horizontal">
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label class="form-label">Street Name</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" readonly value="{{studentDetails?.streetName}}" class="form-control txt-black"
+                                                                        placeholder="Street Name" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label class="form-label">HouseNo</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" readonly class="form-control txt-black"
+                                                                        placeholder="HouseNo" value="{{studentDetails?.houseNo}}" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label class="form-label">Area</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" readonly class="form-control txt-black"
+                                                                        placeholder="Area" value="{{studentDetails?.area}}" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label class="form-label">Zone</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" readonly class="form-control txt-black"
+                                                                        placeholder="Zone" value="{{studentDetails?.zone}}" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </ng-template>
+                                </ng-container>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-sm">
+                <div class="col-lg-12 col-md-12">
+                    <div class="custom-card main-content-body-profile">
+                        <div [ngbNavOutlet]="nav"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>

@@ -1,0 +1,135 @@
+<form [formGroup]="form" novalidate (ngSubmit)="FormSubmit()">
+    <section>
+      <div class="row">
+        <div class="col-md-6 col-sm-12 col-md-6 my-1">
+          <label>Year of Experience</label>
+          <input type="text" name="name" formControlName="YearOfExperience" placeholder="Year of Experience"
+            class="form-control" />
+          <div
+            *ngIf="(basicFormControl['YearOfExperience'].invalid) && submitted&& (basicFormControl['YearOfExperience'].errors?.['required'])"
+            class="tx-danger">
+            <small>Year of Experience is <strong>required</strong></small>
+          </div>
+        </div>
+        <!-- <div class="col-md-4 col-sm-12 col-md-4 my-1">
+          <label>Industry</label>
+          <input type="text" name="name" formControlName="Industry" placeholder="Industry"
+            class="form-control" />
+          <div
+            *ngIf="(basicFormControl['Industry'].invalid) && submitted&& (basicFormControl['Industry'].errors?.['required'])"
+            class="tx-danger">
+            <small>Industry is <strong>required</strong></small>
+          </div>
+        </div> -->
+        <div class="col-md-6 col-sm-12 col-md-6 my-1">
+          <label>Previous Employer Address</label>
+          <input type="text" name="name" formControlName="PreviousEmployerAdress"
+            placeholder="Previous  Employer Address" class="form-control" />
+            <div
+            *ngIf="(basicFormControl['PreviousEmployerAdress'].invalid) && submitted&& (basicFormControl['PreviousEmployerAdress'].errors?.['required'])"
+            class="tx-danger">
+            <small>Previous Employer Address is <strong>required</strong></small>
+          </div>
+        </div>
+         <div class="col-md-6 col-sm-12 col-md-6 my-1">
+          <label> Name Of Previous Employer </label>
+          <input type="text" name="name" formControlName="PreviousEmployerAdress"
+            placeholder="Previous  Employer Name" class="form-control" />
+            <div
+            *ngIf="(basicFormControl['PreviousEmployerAdress'].invalid) && submitted&& (basicFormControl['PreviousEmployerAdress'].errors?.['required'])"
+            class="tx-danger">
+            <small>Previous Employer Name is <strong>required</strong></small>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12 col-md-6 my-1">
+          <label>Reason For Leaving</label>
+          <input type="email" name="name" formControlName="ReasonForLeaving" placeholder="Reason For Leaving"
+            class="form-control" />
+          <div
+            *ngIf="(basicFormControl['ReasonForLeaving'].invalid) && submitted&& (basicFormControl['ReasonForLeaving'].errors?.['required'])"
+            class="tx-danger">
+            <small>Reason For Leaving is <strong>required</strong></small>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+       
+        <div class="col-md-4 col-sm-12 col-md-4 my-1">
+          <label>Reference Name</label>
+          <input type="text" name="name" formControlName="ReferenceName" placeholder="Reference Name"
+            class="form-control" />
+          <div
+            *ngIf="(basicFormControl['ReferenceName'].invalid) && submitted&& (basicFormControl['ReferenceName'].errors?.['required'])"
+            class="tx-danger">
+            <small>Reference Name is <strong>required</strong></small>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12 col-md-4 my-1">
+          <label> Previous Employer Contact</label>
+          <input type="text" name="name" formControlName="Contact" placeholder="Contact"
+            class="form-control" />
+          <div
+            *ngIf="(basicFormControl['Contact'].invalid) && submitted&& (basicFormControl['Contact'].errors?.['required'])"
+            class="tx-danger">
+            <small>Contact is <strong>required</strong></small>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12 col-md-4 my-1">
+          <label>Email: </label>
+          <input class="form-control" formControlName="Email" placeholder="Enter Email"
+            [ngClass]="{'has-success': basicFormControl['Email'].valid}">
+          <div
+            *ngIf="submitted && (basicFormControl['Email'].errors?.['required'])"
+            class="tx-danger">
+            <small>Email is <strong>required</strong></small>
+          </div>
+          <div
+            *ngIf="submitted && (basicFormControl['Email'].errors?.['pattern'])"
+            class="tx-danger">
+            <small>Email is not <strong>correct</strong></small>
+          </div>
+        </div>
+       
+      </div>
+    </section>
+    <br><br>
+    <button type="submit" class="btn btn-success me-2">
+      Save Details
+    </button>
+  </form>
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Year of Experience</th>
+       
+        <th scope="col">Previous Employer Address</th>
+        <th scope="col">Reason for Leaving</th>
+        <th scope="col">Reference Name</th>
+        <th scope="col"> Previous Employer Contact</th>
+        <th scope="col">Email</th>
+        <th scope="col">Ations</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr *ngFor="let item of previousExperienceList;index as i">
+          <th scope="row">{{i+1}}</th>
+          <td>{{item.yearOfExperience}}</td>
+      
+          <td>{{item.previousEmployerAdress}}</td>
+          <td>{{item.reasonForLeaving}}</td>
+          <td>{{item.referenceName}}</td>
+          <td>{{item.previousEmployercontact}}</td>
+          <td>{{item.email}}</td>
+          <td>   
+            <button type="button"  class="btn me-3 btn-sm btn-primary" (click)="Edit(item)">
+            <span class="fe fe-edit"> </span>
+            <!-- Edit -->
+          </button>
+         </td>
+        </tr>
+      
+    </tbody>
+  </table>

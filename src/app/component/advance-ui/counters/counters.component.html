@@ -1,0 +1,102 @@
+ <app-page-header  [title]="'Counter'" [items]="['Advance-ui']" [active_item]="'Counter'" ></app-page-header> 
+	<!-- row -->
+				<div class="row">
+					<div class="col-sm-12 col-md-12 col-xl-4">
+						<div class="card custom-card">
+							<div class="card-body text-center">
+								<div>
+									<h6 class="card-title">Time Counting From 0</h6>
+								</div>
+								<div class="p-3 mx-5 mt-3 rounded-3 bg-success text-white">
+									<span id="timer-countup" class="h4 mb-0 ">
+		                      <cd-timer id="timer-countup" class="h3" format="dhms"> [hours] hours [minutes] minutes [seconds] seconds</cd-timer>
+									</span> 	
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-12 col-xl-4">
+						<div class="card custom-card">
+							<div class="card-body text-center">
+								<div>
+									<h6 class="card-title">Time Counting From 60 to 20</h6>
+								</div>
+								<div class="p-3 mx-5 mt-3 rounded-3 bg-info text-white">
+									<span id="timer-countinbetween" class="h4 mb-0">
+								  <cd-timer id="timer-countinbetween" class="h3" format="dhms" [startTime]="60" [endTime]="20" [countdown]="true" ></cd-timer>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-12 col-xl-4">
+						<div class="card custom-card">
+							<div class="card-body text-center">
+								<div>
+									<h6 class="card-title">Time 1 minute counter</h6>
+								</div>
+								<div class="p-3 mx-5 mt-3 rounded-3 bg-secondary text-white">
+									<span id="timer-countercallback" class="h4 mb-0 ">
+										<cd-timer id="timer-countercallback" class="h3" format="dhms" [startTime]="60" [countdown]="true"(onComplete)="onComplete($event)"
+                                          (onTick)="onTick($event)" (onStart)="onStart($event)"></cd-timer>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /row -->
+
+				<!-- row -->
+				<div class="row">
+					<div class="col-sm-12 col-md-12">
+						<div class="card custom-card">
+							<div class="card-body text-center">
+								<div>
+									<h6 class="card-title">Time Counting days Limit</h6>
+								</div>
+								<div class="p-3 rounded-5 border border-info mt-3 mx-5">
+									<span id="timer-outputpattern" class="h3 mb-0 text-info">
+										<cd-timer format="user">[days] days [hours] hours [minutes] minutes [seconds] seconds</cd-timer>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /row -->
+
+				<!-- row -->
+				<div class="row">
+					<div class="col-sm-12 col-md-4">
+						<div class="card custom-card">
+							<div class="card-body text-center">
+								<div>
+									<h6 class="card-title">Numbers counter</h6>
+								</div>
+								<h2 class="counter number-font mb-0 border rounded-5 text-primary border-primary p-3 mx-5  mt-3" numberCount [thousandSeparator]="true">{{2569}}</h2>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-4">
+						<div class="card custom-card">
+							<div class="card-body text-center">
+								<div>
+									<h6 class="card-title">Floating counter</h6>
+								</div>
+								<h2 class="counter number-font mb-0 border rounded-5 text-success border-success p-3 mx-5  mt-3"  numberCount [thousandSeparator]="true">{{25698932}}</h2>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-4">
+						<div class="card custom-card">
+							<div class="card-body text-center">
+								<div>
+									<h6 class="card-title">Numbers counter</h6>
+								</div>
+								<h2 class="counter number-font mb-0 border rounded-5 text-warning border-warning p-3 mx-5  mt-3"  numberCount [thousandSeparator]="true">{{0.88989}}</h2>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- row closed -->

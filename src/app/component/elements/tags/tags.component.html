@@ -1,0 +1,134 @@
+ <app-page-header  [title]="'Tags'" [items]="['Elements']" [active_item]="'Tags'"></app-page-header>
+<!-- row -->
+				<div class="row">
+					<div class="col-xl-12 col-lg-12">
+						<!-- div -->
+						<div class="card">
+							<div class="card-header">
+								<h3 class="card-title">DEFAULT TAG</h3>
+								<p class="mb-0 text-muted tx-13">It is Very Easy to Customize and it uses in your website aplication.</p>
+							</div>
+							<div class="card-body">
+								<div class="text-wrap">
+									<div class="example">
+										<div class="tags">
+											<span class="tag">First tag</span>
+											<span class="tag">Second tag</span>
+											<span class="tag">Third tag</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--/div-->
+
+						<!--div-->
+						<div class="card">
+							<div class="card-header">
+								<h3 class="card-title">Link Tag</h3>
+								<p class="mb-0 text-muted tx-13">It is Very Easy to Customize and it uses in your website aplication.</p>
+							</div>
+							<div class="card-body">
+								<div class="text-wrap">
+									<div class="example">
+										<div class="tags">
+											<span class="tag tag-rounded">First tag</span>
+											<span class="tag tag-rounded">Second tag</span>
+											<span class="tag tag-rounded">Third tag</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--/div-->
+
+						<!--div-->
+						<div class="card">
+							<div class="card-header">
+								<h3 class="card-title">Default Tags Addon</h3>
+								<p class="mb-0 text-muted tx-13">It is Very Easy to Customize and it uses in your website aplication.</p>
+							</div>
+							<div class="card-body">
+								<div class="text-wrap">
+									<div class="example">
+										<div class="tags">
+											<span class="tag tag-default">
+												One
+												<a href="javascript:void(0)" class="tag-addon"><i class="fe fe-x"></i></a>
+											</span>
+											<span class="tag tag-default">
+												Two
+												<a href="javascript:void(0)" class="tag-addon"><i class="fe fe-x"></i></a>
+											</span>
+											<span class="tag tag-default">
+												Three
+												<a href="javascript:void(0)" class="tag-addon"><i class="fe fe-x"></i></a>
+											</span>
+											<span class="tag tag-default">
+												Four
+												<a href="javascript:void(0)" class="tag-addon"><i class="fe fe-x"></i></a>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--/div-->
+
+						<!--div-->
+						<div class="card">
+							<div class="card-header">
+								<h3 class="card-title">Colored tags</h3>
+								<p class="mb-0 text-muted tx-13">It is Very Easy to Customize and it uses in your website aplication.</p>
+							</div>
+							<div class="card-body">
+								<div class="text-wrap">
+									<div class="example">
+										<div class="tags">
+											<span class="tag tag-blue">Blue tag</span>
+											<span class="tag tag-azure">Azure tag</span>
+											<span class="tag tag-indigo">Indigo tag</span>
+											<span class="tag tag-purple">Purple tag</span>
+											<span class="tag tag-pink">Pink tag</span>
+											<span class="tag tag-red">Red tag</span>
+											<span class="tag tag-orange">Orange tag</span>
+											<span class="tag tag-yellow">Yellow tag</span>
+											<span class="tag tag-lime">Lime tag</span>
+											<span class="tag tag-green">Green tag</span>
+											<span class="tag tag-teal">Teal tag</span>
+											<span class="tag tag-cyan">Cyan tag</span>
+											<span class="tag tag-gray">Gray tag</span>
+											<span class="tag tag-gray-dark">Dark gray tag</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--/div-->
+
+						<!--div-->
+						<div class="card">
+							<div class="card-header">
+								<h3 class="card-title">Input Tags</h3>
+								<p class="mb-0 text-muted tx-13">It is Very Easy to Customize and it uses in your website aplication.</p>
+							</div>
+							<div class="card-body">
+								<div class="text-wrap">
+									<div class="example">
+										<div class="form-group">
+											 <ng-select [items]="companies" [addTag]="addTagPromise" [multiple]="true" bindLabel="name"
+                [loading]="loading" [(ngModel)]="selectedCompanies">
+                <ng-template ng-tag-tmp let-search="searchTerm">
+                  <b>create new</b>: {{search}}
+                </ng-template>
+              </ng-select>
+										</div>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--/div-->
+				</div>
+				<!-- /row --> 

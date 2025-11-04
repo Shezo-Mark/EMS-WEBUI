@@ -1,0 +1,925 @@
+<app-page-header
+  [title]="'TodoTask'"
+  [items]="['Tables']"
+  [active_item]="'TodoTask'"
+></app-page-header>
+<!-- row -->
+<div class="row row-sm">
+  <div class="col-xl-9 col-md-12">
+    <div class="row row-sm">
+      <!-- col -->
+      <div class="col-lg-12">
+        <div class="card mg-b-20">
+          <div class="card-body d-flex p-3">
+            <div class="main-content-label mb-0 mg-t-8">User Today Tasks</div>
+            <div class="ms-auto">
+              <a class="d-block tx-20" placement="top" ngbTooltip="Add New User"
+                ><i class="si si-plus text-muted"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /col -->
+
+      <!-- col -->
+      <div class="col-xl-4 col-md-6">
+        <div class="card mg-b-20">
+          <div class="card-body p-0">
+            <div class="todo-widget-header d-flex pb-2 pd-20" ngbDropdown>
+              <div
+                class="drop-down-profile"
+                data-bs-toggle="dropdown"
+                ngbDropdownToggle
+              >
+                <img
+                  alt=""
+                  class="rounded-circle avatar avatar-md"
+                  src="./assets/img/users/1.jpg"
+                /><span class="assigned-task bg-purple">9</span>
+              </div>
+              <div class="dropdown-menu tx-13" ngbDropdownMenu>
+                <div
+                  ngbDropdownItem
+                  class="main-header-profile border-bottom mb-2 mt-2"
+                >
+                  <div class="tx-16 h5 mg-b-0">Redashna Pechon</div>
+                  <span class="mb-1 text-muted">Web Designer</span>
+                </div>
+                <a
+                  ngbDropdownItem
+                  class="dropdown-item"
+                  href="javascript:void(0);"
+                  >View Total Tasks</a
+                >
+                <a
+                  ngbDropdownItem
+                  class="dropdown-item"
+                  href="javascript:void(0);"
+                  >Completed Tasks</a
+                >
+                <a
+                  ngbDropdownItem
+                  class="dropdown-item"
+                  href="javascript:void(0);"
+                  >Settings</a
+                >
+              </div>
+              <div class="ms-auto">
+                <div ngbDropdown class="">
+                  <a
+                    href="javascript:void(0);"
+                    ngbTooltip="archive"
+                    placement="top"
+                    class="p-2 text-muted"
+                    ><i class="fas fa-envelope-open-text"></i
+                  ></a>
+                  <a
+                    href="javascript:void(0);"
+                    ngbTooltip="Move to spam"
+                    placement="top"
+                    class="p-2 text-muted"
+                    ><i class="fas fa-exclamation-circle"></i
+                  ></a>
+                  <a
+                    ngbDropdownToggle
+                    href="javascript:void(0);"
+                    class="p-2 text-muted"
+                    data-bs-toggle="dropdown"
+                    ><i class="fas fa-ellipsis-v"></i
+                  ></a>
+                  <div ngbDropdownMenu class="dropdown-menu tx-13">
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Mark As Unread</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Mark As Important</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Add to Tasks</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Add Star</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Move to</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);">Mute</a>
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Move to Trash</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4">
+              <span class="badge bg-info-transparent text-info float-end"
+                >New task</span
+              ><span class="tx-12 text-muted">10.54am</span>
+              <h5 class="tx-14 mb-0 mg-t-5 text-capitalize">
+                Work Assigned by Clients ,try to get new work
+              </h5>
+            </div>
+            <div class="p-4 border-top">
+              <span class="tx-12 text-muted">10.54am</span
+              ><span class="badge bg-danger-transparent text-danger float-end"
+                >Pending task</span
+              >
+              <h5 class="tx-14 mb-0 mg-t-5 text-capitalize">
+                Sed ut perspiciatis unde omnis iste natus
+              </h5>
+            </div>
+          </div>
+          <div class="card-footer bg-white">
+            <a
+              class="btn btn-primary disabled"
+              href="javascript:void(0);"
+              title="Assign Task"
+              >Assign</a
+            >
+            <a
+              class="btn btn-outline-primary float-end"
+              ngbTooltip="View Task"
+              placement="top"
+              >View All</a
+            >
+          </div>
+        </div>
+      </div>
+      <!-- /col -->
+
+      <!-- col -->
+      <div class="col-xl-4 col-md-6">
+        <div class="card mg-b-20">
+          <div class="card-body p-0">
+            <div class="todo-widget-header d-flex pb-2 pd-20" ngbDropdown>
+              <div
+                class="drop-down-profile"
+                data-bs-toggle="dropdown"
+                ngbDropdownToggle
+              >
+                <img
+                  alt=""
+                  class="rounded-circle avatar avatar-md"
+                  src="./assets/img/users/14.jpg"
+                /><span class="assigned-task bg-purple">9</span>
+              </div>
+              <div class="dropdown-menu tx-13" ngbDropdownMenu>
+                <div
+                  ngbDropdownItem
+                  class="main-header-profile border-bottom mb-2 mt-2"
+                >
+                  <div class="tx-16 h5 mg-b-0">Redashna Pechon</div>
+                  <span class="mb-1 text-muted">Web Designer</span>
+                </div>
+                <a
+                  ngbDropdownItem
+                  class="dropdown-item"
+                  href="javascript:void(0);"
+                  >View Total Tasks</a
+                >
+                <a
+                  ngbDropdownItem
+                  class="dropdown-item"
+                  href="javascript:void(0);"
+                  >Completed Tasks</a
+                >
+                <a
+                  ngbDropdownItem
+                  class="dropdown-item"
+                  href="javascript:void(0);"
+                  >Settings</a
+                >
+              </div>
+              <div class="ms-auto">
+                <div ngbDropdown class="">
+                  <a
+                    href="javascript:void(0);"
+                    ngbTooltip="archive"
+                    placement="top"
+                    class="p-2 text-muted"
+                    ><i class="fas fa-envelope-open-text"></i
+                  ></a>
+                  <a
+                    href="javascript:void(0);"
+                    ngbTooltip="Move to spam"
+                    placement="top"
+                    class="p-2 text-muted"
+                    ><i class="fas fa-exclamation-circle"></i
+                  ></a>
+                  <a
+                    ngbDropdownToggle
+                    href="javascript:void(0);"
+                    class="p-2 text-muted"
+                    data-bs-toggle="dropdown"
+                    ><i class="fas fa-ellipsis-v"></i
+                  ></a>
+                  <div ngbDropdownMenu class="dropdown-menu tx-13">
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Mark As Unread</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Mark As Important</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Add to Tasks</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Add Star</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Move to</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);">Mute</a>
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Move to Trash</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4">
+              <span class="tx-12 text-muted">10.54am</span
+              ><span class="badge bg-info-transparent text-info float-end"
+                >New task</span
+              >
+              <h5 class="tx-14 mb-0 mg-t-5 text-capitalize">
+                voluptatem accusantium dolo laudantium
+              </h5>
+            </div>
+            <div class="p-4 border-top">
+              <span class="tx-12 text-muted">10.54am</span
+              ><span class="badge bg-danger-transparent text-danger float-end"
+                >Pending task</span
+              >
+              <h5 class="tx-14 mb-0 mg-t-5 text-capitalize">
+                inventore veritatis et quasi architecto
+              </h5>
+            </div>
+          </div>
+          <div class="card-footer bg-white">
+            <a
+              class="btn btn-primary"
+              href="javascript:void(0);"
+              ngbTooltip="Assign Task"
+              placement="top"
+              >Assign</a
+            >
+            <a
+              class="btn btn-outline-primary float-end"
+              ngbTooltip="View Task"
+              placement="top"
+              >View All</a
+            >
+          </div>
+        </div>
+      </div>
+      <!-- /col -->
+
+      <!-- col -->
+      <div class="col-xl-4 col-md-6">
+        <div class="card mg-b-20">
+          <div class="card-body p-0">
+            <div class="todo-widget-header d-flex pb-2 pd-20" ngbDropdown>
+              <div
+                class="drop-down-profile"
+                data-bs-toggle="dropdown"
+                ngbDropdownToggle
+              >
+                <img
+                  alt=""
+                  class="rounded-circle avatar avatar-md"
+                  src="./assets/img/users/14.jpg"
+                /><span class="assigned-task bg-purple">9</span>
+              </div>
+              <div class="dropdown-menu tx-13" ngbDropdownMenu>
+                <div
+                  ngbDropdownItem
+                  class="main-header-profile border-bottom mb-2 mt-2"
+                >
+                  <div class="tx-16 h5 mg-b-0">Redashna Pechon</div>
+                  <span class="mb-1 text-muted">Web Designer</span>
+                </div>
+                <a
+                  ngbDropdownItem
+                  class="dropdown-item"
+                  href="javascript:void(0);"
+                  >View Total Tasks</a
+                >
+                <a
+                  ngbDropdownItem
+                  class="dropdown-item"
+                  href="javascript:void(0);"
+                  >Completed Tasks</a
+                >
+                <a
+                  ngbDropdownItem
+                  class="dropdown-item"
+                  href="javascript:void(0);"
+                  >Settings</a
+                >
+              </div>
+              <div class="ms-auto">
+                <div ngbDropdown class="">
+                  <a
+                    href="javascript:void(0);"
+                    ngbTooltip="archive"
+                    placement="top"
+                    class="p-2 text-muted"
+                    ><i class="fas fa-envelope-open-text"></i
+                  ></a>
+                  <a
+                    href="javascript:void(0);"
+                    ngbTooltip="Move to spam"
+                    placement="top"
+                    class="p-2 text-muted"
+                    ><i class="fas fa-exclamation-circle"></i
+                  ></a>
+                  <a
+                    ngbDropdownToggle
+                    href="javascript:void(0);"
+                    class="p-2 text-muted"
+                    data-bs-toggle="dropdown"
+                    ><i class="fas fa-ellipsis-v"></i
+                  ></a>
+                  <div ngbDropdownMenu class="dropdown-menu tx-13">
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Mark As Unread</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Mark As Important</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Add to Tasks</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Add Star</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Move to</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);">Mute</a>
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Move to Trash</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4">
+              <span class="tx-12 text-muted">10.54am</span
+              ><span class="badge bg-info-transparent text-info float-end"
+                >New task</span
+              >
+              <h5 class="tx-14 mb-0 mg-t-5 text-capitalize">
+                Nemo enim ipsam voluptatem quia voluptas
+              </h5>
+            </div>
+            <div class="p-4 border-top">
+              <span class="tx-12 text-muted">10.54am</span
+              ><span class="badge bg-danger-transparent text-danger float-end"
+                >Pending task</span
+              >
+              <h5 class="tx-14 mb-0 mg-t-5 text-capitalize">
+                vero eos et accusamus et iusto odio dignissimos
+              </h5>
+            </div>
+          </div>
+          <div class="card-footer bg-white">
+            <a
+              class="btn btn-primary"
+              href="javascript:void(0);"
+              ngbTooltip="Assign Task"
+              placement="top"
+              >Assign</a
+            >
+            <a
+              class="btn btn-outline-primary float-end"
+              ngbTooltip="View Task"
+              placement="top"
+              >View All</a
+            >
+          </div>
+        </div>
+      </div>
+      <!-- /col -->
+
+      <!-- col -->
+      <div class="col-xl-4 col-md-6">
+        <div class="card mg-b-20 mg-lg-b-0">
+          <div class="card-body p-0">
+            <div class="todo-widget-header d-flex pb-2 pd-20" ngbDropdown>
+              <div
+                class="drop-down-profile"
+                data-bs-toggle="dropdown"
+                ngbDropdownToggle
+              >
+                <img
+                  alt=""
+                  class="rounded-circle avatar avatar-md"
+                  src="./assets/img/users/14.jpg"
+                /><span class="assigned-task bg-purple">9</span>
+              </div>
+              <div class="dropdown-menu tx-13" ngbDropdownMenu>
+                <div
+                  ngbDropdownItem
+                  class="main-header-profile border-bottom mb-2 mt-2"
+                >
+                  <div class="tx-16 h5 mg-b-0">Redashna Pechon</div>
+                  <span class="mb-1 text-muted">Web Designer</span>
+                </div>
+                <a
+                  ngbDropdownItem
+                  class="dropdown-item"
+                  href="javascript:void(0);"
+                  >View Total Tasks</a
+                >
+                <a
+                  ngbDropdownItem
+                  class="dropdown-item"
+                  href="javascript:void(0);"
+                  >Completed Tasks</a
+                >
+                <a
+                  ngbDropdownItem
+                  class="dropdown-item"
+                  href="javascript:void(0);"
+                  >Settings</a
+                >
+              </div>
+              <div class="ms-auto">
+                <div ngbDropdown class="">
+                  <a
+                    href="javascript:void(0);"
+                    ngbTooltip="archive"
+                    placement="top"
+                    class="p-2 text-muted"
+                    ><i class="fas fa-envelope-open-text"></i
+                  ></a>
+                  <a
+                    href="javascript:void(0);"
+                    ngbTooltip="Move to spam"
+                    placement="top"
+                    class="p-2 text-muted"
+                    ><i class="fas fa-exclamation-circle"></i
+                  ></a>
+                  <a
+                    ngbDropdownToggle
+                    href="javascript:void(0);"
+                    class="p-2 text-muted"
+                    data-bs-toggle="dropdown"
+                    ><i class="fas fa-ellipsis-v"></i
+                  ></a>
+                  <div ngbDropdownMenu class="dropdown-menu tx-13">
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Mark As Unread</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Mark As Important</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Add to Tasks</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Add Star</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Move to</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);">Mute</a>
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Move to Trash</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4">
+              <span class="tx-12 text-muted">10.54am</span
+              ><span class="badge bg-info-transparent text-info float-end"
+                >New task</span
+              >
+              <h5 class="tx-14 mb-0 mg-t-5 text-capitalize">
+                Ut enim ad minima veniam nostrum exercitationem
+              </h5>
+            </div>
+            <div class="p-4 border-top">
+              <span class="tx-12 text-muted">10.54am</span
+              ><span class="badge bg-danger-transparent text-danger float-end"
+                >Pending task</span
+              >
+              <h5 class="tx-14 mb-0 mg-t-5 text-capitalize">
+                Quis autem vel eum iure reprehenderit qui
+              </h5>
+            </div>
+          </div>
+          <div class="card-footer bg-white">
+            <a
+              class="btn btn-primary disabled"
+              href="javascript:void(0);"
+              data-bs-placement="top"
+              data-bs-toggle="tooltip"
+              title="Assign Task"
+              >Assign</a
+            >
+            <a
+              class="btn btn-outline-primary float-end"
+              ngbTooltip="View Task"
+              placement="top"
+              >View All</a
+            >
+          </div>
+        </div>
+      </div>
+      <!-- /col -->
+
+      <!-- col -->
+      <div class="col-xl-4 col-md-6">
+        <div class="card mg-b-20 mg-lg-b-0">
+          <div class="card-body p-0">
+            <div class="todo-widget-header d-flex pb-2 pd-20" ngbDropdown>
+              <div
+                class="drop-down-profile"
+                data-bs-toggle="dropdown"
+                ngbDropdownToggle
+              >
+                <img
+                  alt=""
+                  class="rounded-circle avatar avatar-md"
+                  src="./assets/img/users/14.jpg"
+                /><span class="assigned-task bg-purple">9</span>
+              </div>
+              <div class="dropdown-menu tx-13" ngbDropdownMenu>
+                <div
+                  ngbDropdownItem
+                  class="main-header-profile border-bottom mb-2 mt-2"
+                >
+                  <div class="tx-16 h5 mg-b-0">Redashna Pechon</div>
+                  <span class="mb-1 text-muted">Web Designer</span>
+                </div>
+                <a
+                  ngbDropdownItem
+                  class="dropdown-item"
+                  href="javascript:void(0);"
+                  >View Total Tasks</a
+                >
+                <a
+                  ngbDropdownItem
+                  class="dropdown-item"
+                  href="javascript:void(0);"
+                  >Completed Tasks</a
+                >
+                <a
+                  ngbDropdownItem
+                  class="dropdown-item"
+                  href="javascript:void(0);"
+                  >Settings</a
+                >
+              </div>
+              <div class="ms-auto">
+                <div ngbDropdown class="">
+                  <a
+                    href="javascript:void(0);"
+                    ngbTooltip="archive"
+                    placement="top"
+                    class="p-2 text-muted"
+                    ><i class="fas fa-envelope-open-text"></i
+                  ></a>
+                  <a
+                    href="javascript:void(0);"
+                    ngbTooltip="Move to spam"
+                    placement="top"
+                    class="p-2 text-muted"
+                    ><i class="fas fa-exclamation-circle"></i
+                  ></a>
+                  <a
+                    ngbDropdownToggle
+                    href="javascript:void(0);"
+                    class="p-2 text-muted"
+                    data-bs-toggle="dropdown"
+                    ><i class="fas fa-ellipsis-v"></i
+                  ></a>
+                  <div ngbDropdownMenu class="dropdown-menu tx-13">
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Mark As Unread</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Mark As Important</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Add to Tasks</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Add Star</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Move to</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);">Mute</a>
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Move to Trash</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4">
+              <span class="tx-12 text-muted">10.54am</span
+              ><span class="badge bg-info-transparent text-info float-end"
+                >New task</span
+              >
+              <h5 class="tx-14 mb-0 mg-t-5 text-capitalize">
+                I must explain to you how all this mistaken
+              </h5>
+            </div>
+            <div class="p-4 border-top">
+              <span class="tx-12 text-muted">10.54am</span
+              ><span class="badge bg-danger-transparent text-danger float-end"
+                >Pending task</span
+              >
+              <h5 class="tx-14 mb-0 mg-t-5 text-capitalize">
+                I will give you a complete account of the system
+              </h5>
+            </div>
+          </div>
+          <div class="card-footer bg-white">
+            <a class="btn btn-primary" ngbTooltip="Assign Task" placement="top"
+              >Assign</a
+            >
+            <a
+              class="btn btn-outline-primary float-end"
+              ngbTooltip="View Task"
+              placement="top"
+              >View All</a
+            >
+          </div>
+        </div>
+      </div>
+      <!-- /col -->
+
+      <!-- col -->
+      <div class="col-xl-4 col-md-6">
+        <div class="card mg-b-20">
+          <div class="card-body p-0">
+            <div class="todo-widget-header d-flex pb-2 pd-20" ngbDropdown>
+              <div
+                class="drop-down-profile"
+                data-bs-toggle="dropdown"
+                ngbDropdownToggle
+              >
+                <img
+                  alt=""
+                  class="rounded-circle avatar avatar-md"
+                  src="./assets/img/users/14.jpg"
+                /><span class="assigned-task bg-purple">9</span>
+              </div>
+              <div class="dropdown-menu tx-13" ngbDropdownMenu>
+                <div
+                  ngbDropdownItem
+                  class="main-header-profile border-bottom mb-2 mt-2"
+                >
+                  <div class="tx-16 h5 mg-b-0">Redashna Pechon</div>
+                  <span class="mb-1 text-muted">Web Designer</span>
+                </div>
+                <a
+                  ngbDropdownItem
+                  class="dropdown-item"
+                  href="javascript:void(0);"
+                  >View Total Tasks</a
+                >
+                <a
+                  ngbDropdownItem
+                  class="dropdown-item"
+                  href="javascript:void(0);"
+                  >Completed Tasks</a
+                >
+                <a
+                  ngbDropdownItem
+                  class="dropdown-item"
+                  href="javascript:void(0);"
+                  >Settings</a
+                >
+              </div>
+              <div class="ms-auto">
+                <div ngbDropdown class="">
+                  <a
+                    href="javascript:void(0);"
+                    ngbTooltip="archive"
+                    placement="top"
+                    class="p-2 text-muted"
+                    ><i class="fas fa-envelope-open-text"></i
+                  ></a>
+                  <a
+                    href="javascript:void(0);"
+                    ngbTooltip="Move to spam"
+                    placement="top"
+                    class="p-2 text-muted"
+                    ><i class="fas fa-exclamation-circle"></i
+                  ></a>
+                  <a
+                    ngbDropdownToggle
+                    href="javascript:void(0);"
+                    class="p-2 text-muted"
+                    data-bs-toggle="dropdown"
+                    ><i class="fas fa-ellipsis-v"></i
+                  ></a>
+                  <div ngbDropdownMenu class="dropdown-menu tx-13">
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Mark As Unread</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Mark As Important</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Add to Tasks</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Add Star</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Move to</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);">Mute</a>
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Move to Trash</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4">
+              <span class="tx-12 text-muted">10.54am</span
+              ><span class="badge bg-info-transparent text-info float-end"
+                >New task</span
+              >
+              <h5 class="tx-14 mb-0 mg-t-5 text-capitalize">
+                Rationally encounter quences extremely painful
+              </h5>
+            </div>
+            <div class="p-4 border-top">
+              <span class="tx-12 text-muted">10.54am</span
+              ><span class="badge bg-danger-transparent text-danger float-end"
+                >Pending task</span
+              >
+              <h5 class="tx-14 mb-0 mg-t-5 text-capitalize">
+                Which of us ever undertakes laborious physical
+              </h5>
+            </div>
+          </div>
+          <div class="card-footer bg-white">
+            <a class="btn btn-primary" ngbTooltip="Assign Task" placement="top"
+              >Assign</a
+            >
+            <a
+              class="btn btn-outline-primary float-end"
+              ngbTooltip="View Task"
+              placement="top"
+              >View All</a
+            >
+          </div>
+        </div>
+      </div>
+      <!-- /col -->
+    </div>
+  </div>
+  <!-- /col -->
+
+  <!-- col -->
+  <div class="col-lg-12 col-xl-3">
+    <div class="card card--events mg-b-20">
+      <div class="card-body">
+        <div class="pd-20">
+          <div class="main-content-label">Tasks</div>
+          <p class="mg-b-0 text-muted tx-13">
+            It is Very Easy to Customize and it uses in website apllication.
+          </p>
+        </div>
+        <div class="list-group to-do-tasks">
+          <a class="list-group-item" href="javascript:void(0);">
+            <div class="event-indicator bg-info"></div>
+            <div class="d-flex justify-content-between align-items-center">
+              <h6 class="mg-t-5">Today Tasks</h6>
+              <span class="badge bg-info shadow">Completed</span>
+            </div>
+          </a>
+          <a class="list-group-item" href="javascript:void(0);">
+            <div class="event-indicator bg-primary"></div>
+            <div class="d-flex justify-content-between align-items-center">
+              <h6 class="mg-t-5">Yesterday Tasks</h6>
+              <span class="badge bg-warning text-white shadow">Pending</span>
+            </div>
+          </a>
+          <a class="list-group-item" href="javascript:void(0);">
+            <div class="event-indicator bg-success"></div>
+            <div class="d-flex justify-content-between align-items-center">
+              <h6 class="mg-t-5">Weakly Tasks</h6>
+              <span class="badge bg-success shadow">Completed</span>
+            </div>
+          </a>
+          <a class="list-group-item" href="javascript:void(0);">
+            <div class="event-indicator bg-danger"></div>
+            <div class="d-flex justify-content-between align-items-center">
+              <h6 class="mg-t-5">Mothly Tasks</h6>
+              <span class="badge bg-danger shadow">On Going</span>
+            </div>
+          </a>
+          <a
+            class="list-group-item border-bottom-0 mb-1"
+            href="javascript:void(0);"
+          >
+            <div class="event-indicator bg-warning"></div>
+            <div class="d-flex justify-content-between align-items-center">
+              <h6 class="mg-t-5">User Tasks</h6>
+              <span class="badge bg-purple shadow">Removed</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body p-0">
+        <div class="pd-t-20 pd-s-20 pd-e-20">
+          <div class="main-content-label">Recent Tasks</div>
+          <p class="mg-b-20 text-muted tx-13">
+            It is Very Easy to Customize and it uses in website apllication.
+          </p>
+        </div>
+        <div class="d-flex p-3 border-top">
+          <label class="ckbox"
+            ><input checked="" type="checkbox" /><span
+              >Do something more</span
+            ></label
+          >
+          <span class="ms-auto">
+            <i
+              class="si si-pencil text-primary me-2"
+              ngbTooltip="Edit"
+              placement="top"
+            ></i>
+            <i
+              class="si si-trash text-danger me-2"
+              ngbTooltip="Delete"
+              placement="top"
+            ></i>
+          </span>
+        </div>
+        <div class="d-flex p-3 border-top">
+          <label class="ckbox"
+            ><input checked="" type="checkbox" /><span
+              >Update More Files</span
+            ></label
+          >
+          <span class="ms-auto">
+            <i
+              class="si si-pencil text-primary me-2"
+              ngbTooltip="Edit"
+              placement="top"
+            ></i>
+            <i
+              class="si si-trash text-danger me-2"
+              ngbTooltip="Delete"
+              placement="top"
+            ></i>
+          </span>
+        </div>
+        <div class="d-flex p-3 border-top">
+          <label class="ckbox"
+            ><input checked="" type="checkbox" /><span
+              >System Updated</span
+            ></label
+          >
+          <span class="ms-auto">
+            <i
+              class="si si-pencil text-primary me-2"
+              ngbTooltip="Edit"
+              placement="top"
+            ></i>
+            <i
+              class="si si-trash text-danger me-2"
+              ngbTooltip="Delete"
+              placement="top"
+            ></i>
+          </span>
+        </div>
+        <div class="d-flex p-3 border-top">
+          <label class="ckbox"
+            ><input type="checkbox" /><span>Change Settings</span></label
+          >
+          <span class="ms-auto">
+            <i
+              class="si si-pencil text-primary me-2"
+              ngbTooltip="Edit"
+              placement="top"
+            ></i>
+            <i
+              class="si si-trash text-danger me-2"
+              ngbTooltip="Delete"
+              placement="top"
+            ></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- row closed -->

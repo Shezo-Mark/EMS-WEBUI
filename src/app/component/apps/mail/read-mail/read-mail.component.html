@@ -1,0 +1,315 @@
+<app-page-header
+  [title]="' Read-Mail'"
+  [items]="['Apps']"
+  [active_item]="' Read-Mail'"
+></app-page-header>
+
+<!-- row opened -->
+<div class="row row-sm">
+  <!-- Col -->
+  <div class="col-lg-4 col-xl-3 col-md-12">
+    <div class="card mg-b-20">
+      <div class="main-content-left main-content-left-mail card-body">
+        <a class="btn btn-primary btn-compose" (click)="open(content)"
+          >Compose</a
+        >
+        <div class="main-mail-menu">
+          <nav class="nav main-nav-column mg-b-20">
+            <a class="nav-link active" href=""
+              ><i class="ri-mail-download-line"></i> Inbox
+              <span class="badge bg-primary me-2">20</span></a
+            >
+            <a class="nav-link" href=""
+              ><i class="ri-star-line"></i> Starred
+              <span class="badge bg-secondary me-2">3</span></a
+            >
+            <a class="nav-link" href=""
+              ><i class="ri-bookmark-2-line"></i> Important
+              <span class="badge bg-warning me-2">10</span></a
+            >
+            <a class="nav-link" href=""
+              ><i class="ri-share-forward-line"></i> Sent Mail
+              <span class="badge bg-info me-2">8</span></a
+            >
+            <a class="nav-link" href=""
+              ><i class="ri-edit-line"></i> Drafts
+              <span class="badge bg-primary me-2">15</span></a
+            >
+            <a class="nav-link" href=""
+              ><i class="ri-spam-line"></i> Spam
+              <span class="badge bg-danger me-2">128</span></a
+            >
+            <a class="nav-link" href=""
+              ><i class="ri-delete-bin-5-line"></i> Trash
+              <span class="badge bg-success me-2">6</span></a
+            >
+          </nav>
+          <label class="main-content-label main-content-label-sm">Label</label>
+          <nav class="nav main-nav-column mg-b-20">
+            <a class="nav-link" href="javascript:void(0);"
+              ><i class="ri-folder-shared-line"></i> Social
+              <span class="badge bg-secondary me-2">10</span></a
+            >
+            <a class="nav-link" href="javascript:void(0);"
+              ><i class="ri-folder-shared-line"></i> Promotions
+              <span class="badge bg-info me-2">22</span></a
+            >
+            <a class="nav-link" href="javascript:void(0);"
+              ><i class="ri-folder-shared-line"></i> Updates
+              <span class="badge bg-warning me-2">17</span></a
+            >
+          </nav>
+        </div>
+        <!-- main-mail-menu -->
+      </div>
+    </div>
+  </div>
+  <!-- /Col -->
+  <div class="col-lg-8 col-xl-9 col-md-12">
+    <div class="card">
+      <div class="card-header border-bottom">
+        <h3 class="card-title mb-0">Mail Read</h3>
+      </div>
+      <div class="card-body">
+        <div class="email-media">
+          <div class="mt-0 d-sm-flex">
+            <img
+              class="me-3 rounded-circle avatar-xl"
+              src="./assets/img/users/6.jpg"
+              alt="avatar"
+            />
+            <div class="media-body d-md-flex">
+              <div>
+                <div class="media-title text-dark font-weight-semiblod mt-3">
+                  Alica Nestle
+                  <span class="text-muted">( alicnestle@gmail.com )</span>
+                </div>
+                <p class="mb-0 tx-12">
+                  to Adam Cotter ( adamcotter@gmail.com )
+                </p>
+              </div>
+              <div class="ms-auto mt-md-4">
+                <small class="me-2 tx-13 mt-1">Sep 13 , 2019 12:45 pm</small>
+                <small
+                  class="me-2 btn btn-sm btn-primary-light text-primary p-1"
+                  ><i class="fe fe-star" ngbTooltip="Rated" placement="top"></i
+                ></small>
+                <small
+                  class="me-2 btn btn-sm btn-success-light text-success p-1"
+                  ><i class="fa fa-reply" ngbTooltip="Reply" placement="top"></i
+                ></small>
+                <div
+                  ngbDropdown
+                  class="me-2 btn btn-sm btn-warning-light text-warning p-1"
+                >
+                  <a
+                    ngbDropdownToggle
+                    href="javascript:void(0);"
+                    data-bs-toggle="dropdown"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    ><i
+                      class="fe fe-more-horizontal text-dark"
+                      ngbTooltip="View More"
+                      placement="top"
+                    ></i
+                  ></a>
+                  <div ngbDropdownMenu class="dropdown-menu">
+                    <a
+                      ngbDropdownItem
+                      class="dropdown-item"
+                      href="javascript:void(0);"
+                      >Reply</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Report Spam</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Delete</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Show Original</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Print</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Filter</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="eamil-body mt-4">
+          <h6>Hi Sir/Madam</h6>
+          <p>
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+            quae ab illo inventore veritatis et quasi architecto beatae vitae
+            dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
+            eos qui ratione voluptatem sequi nesciunt.
+          </p>
+          <p>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia.
+          </p>
+          <p>
+            Nor again is there anyone who loves or pursues or desires to obtain
+            pain of itself, because it is pain, but because occasionally
+            circumstances occur in which toil and pain can procure him some
+            great pleasure. To take a trivial example, which of us ever
+            undertakes laborious physical exercise, except to obtain some
+            advantage from it?
+          </p>
+          <p class="mb-0">Thanking you Sir/Madam</p>
+          <hr />
+          <div class="email-attch">
+            <div class="float-end">
+              <a href="javascript:void(0);"
+                ><i
+                  class="fa fa-download text-dark"
+                  ngbTooltip="Download"
+                  placement="top"
+                ></i
+              ></a>
+            </div>
+            <p class="text-muted">
+              3 Attachments<a href="javascript:void(0);"> View All Images</a>
+            </p>
+            <div class="emai-img">
+              <div class="d-sm-flex">
+                <div class="m-2">
+                  <a href="javascript:void(0);"
+                    ><img
+                      class="wd-150 mb-2"
+                      src="./assets/img/photos/1.jpg"
+                      alt="placeholder image"
+                  /></a>
+                  <h6 class="mb-3 mb-lg-0">
+                    1.jpg <small class="text-muted">12kb</small>
+                  </h6>
+                </div>
+                <div class="m-2">
+                  <a href="javascript:void(0);"
+                    ><img
+                      class="wd-150 mb-2"
+                      src="./assets/img/photos/2.jpg"
+                      alt="placeholder image"
+                  /></a>
+                  <h6 class="mb-3 mb-lg-0">
+                    2.jpg <small class="text-muted">18kb</small>
+                  </h6>
+                </div>
+                <div class="m-2">
+                  <a href="javascript:void(0);"
+                    ><img
+                      class="wd-150 mb-2"
+                      src="./assets/img/photos/3.jpg"
+                      alt="placeholder image"
+                  /></a>
+                  <h6>3.jpg <small class="text-muted">21kb</small></h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <a class="btn btn-primary mt-1 mb-1 me-2" href="javascript:void(0);"
+          ><i class="fa fa-reply"></i> Reply</a
+        >
+        <a class="btn btn-info mt-1 mb-1" href="javascript:void(0);"
+          ><i class="fa fa-share"></i> Forward</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+<!-- row closed -->
+<ng-template #content let-modal>
+  <div class="main-mail-compose-box">
+    <div class="main-mail-compose-header">
+      <span>New Message</span>
+      <nav class="nav">
+        <a class="nav-link"
+          ><i (click)="modal.dismiss('Cross click')" class="fas fa-times"></i
+        ></a>
+      </nav>
+    </div>
+    <div class="main-mail-compose-body">
+      <div class="form-group">
+        <label class="form-label">To</label>
+        <div>
+          <input
+            class="form-control"
+            placeholder="Enter recipient's email address"
+            type="text"
+          />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Subject</label>
+        <div>
+          <input class="form-control" type="text" />
+        </div>
+      </div>
+      <div class="form-group">
+        <textarea
+          class="form-control"
+          placeholder="Write your message here..."
+          rows="8"
+        ></textarea>
+      </div>
+      <div class="form-group mg-b-0">
+        <nav class="nav">
+          <a
+            class="nav-link"
+            data-bs-toggle="tooltip"
+            href=""
+            aria-label="Add attachment"
+            data-bs-original-title="Add attachment"
+            ><i class="fas fa-paperclip"></i
+          ></a>
+          <a
+            class="nav-link"
+            data-bs-toggle="tooltip"
+            href=""
+            aria-label="Add photo"
+            data-bs-original-title="Add photo"
+            ><i class="far fa-image"></i
+          ></a>
+          <a
+            class="nav-link"
+            data-bs-toggle="tooltip"
+            href=""
+            aria-label="Add link"
+            data-bs-original-title="Add link"
+            ><i class="fas fa-link"></i
+          ></a>
+          <a
+            class="nav-link"
+            data-bs-toggle="tooltip"
+            href=""
+            aria-label="Emoticons"
+            data-bs-original-title="Emoticons"
+            ><i class="far fa-smile"></i
+          ></a>
+          <a
+            class="nav-link"
+            data-bs-toggle="tooltip"
+            href=""
+            aria-label="Discard"
+            data-bs-original-title="Discard"
+            ><i class="far fa-trash-alt"></i
+          ></a>
+        </nav>
+        <button class="btn btn-primary">Send</button>
+      </div>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,201 @@
+<app-page-header [title]="'Users'" [items]="['Forms']" [active_item]="'User'"></app-page-header>
+
+<div class="row row-sm">
+    <div class="col-sm-12 col-lg-12 col-xl-12">
+        <div class="card custom-card">
+            <div class="">
+                <div class="p-3 border-bottom">
+                    <div class="d-flex align-items-center mb-3">
+                        <h5 class="mb-0">User</h5>
+                        <div class="ms-auto d-flex align-items-center">
+                            <div class="btn-list radiobtns">
+                                <div class="btn-group" User="group" aria-label="Basic radio toggle button group">
+                                    <input type="radio" class="btn-check" name="btnradio" id="Add" (click)="changeCurdView(false)" [checked]="!curdBtnIsList">
+                                    <label ngbTooltip="Add" class="btn btn-outline-primary" for="Add"><i
+                                            class="fa fa-plus"> Add</i></label>
+                                    <input type="radio" class="btn-check" name="btnradio" id="List" (click)="changeCurdView(true)" [checked]="curdBtnIsList">
+                                    <label ngbTooltip="List" class="btn btn-outline-primary" for="List"><i
+                                            class="fa fa-list-ul"> List</i></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-0" *ngIf="curdBtnIsList">
+                        <input type="text" class="form-control" [(ngModel)]="searchText" (keyup.enter)="onSearchText()" placeholder="Search..." />
+                        <span class="input-group-append">
+                            <button class="btn ripple btn-info" (click)="onSearchText()" type="button">
+                                <i class="fe fe-search me-2"></i> Search
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="!curdBtnIsList">
+    <div class="col-lg-12 col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Please add User here</div>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="userForm" novalidate (ngSubmit)="formSubmit()">
+                        <div class="row mg-b-20">
+                            <div class="parsley-input col-md-6" id="fnWrapper">
+                                <label>Email: <span class="tx-danger">*</span></label>
+                                <input class="form-control" formControlName="Email" [readonly]=" isEdit" (ngModelChange)="this.isRecordExist()" placeholder="Enter Email"
+                                    [ngClass]="{'has-success': basicFormControl['Email'].valid}">
+                                <div *ngIf="(basicFormControl['Email'].touched || isSubmitted) && (basicFormControl['Email'].errors?.['required'])"
+                                    class="tx-danger">
+                                    <small> Email is <strong>required</strong></small>
+                                </div>
+                            </div>
+                            <div class="parsley-input col-md-6" id="fnWrapper">
+                              <label>Full Name: <span class="tx-danger">*</span></label>
+                              <input class="form-control" formControlName="fullName" (ngModelChange)="this.isRecordExist()" placeholder="Enter Full Name"
+                                  [ngClass]="{'has-success': basicFormControl['fullName'].valid}">
+                              <div *ngIf="(basicFormControl['fullName'].touched || isSubmitted) && (basicFormControl['fullName'].errors?.['required'])"
+                                  class="tx-danger">
+                                  <small> Full Name is <strong>required</strong></small>
+                              </div>
+                          </div>
+                           
+                        </div>
+                        <div class="row mg-b-20" *ngIf="!isEdit">
+                            <div class="parsley-input col-md-6" id="fnWrapper">
+                                <label>Password: <span class="tx-danger">*</span></label>
+                                <input type="password" class="form-control" formControlName="Password" placeholder="Password"
+                                    [ngClass]="{'has-success': basicFormControl['Password'].valid}">
+                                <div *ngIf="(basicFormControl['Password'].touched || isSubmitted) && (basicFormControl['Password'].errors?.['required'])"
+                                    class="tx-danger">
+                                    <small>Password is <strong>required</strong></small>
+                                </div>
+                            </div>
+                            <div class="parsley-input col-md-6" id="fnWrapper">
+                                <label>Confirm Password: <span class="tx-danger">*</span></label>
+                                <input type="password" class="form-control" formControlName="ConfirmPassword" placeholder="Confirm Password"
+                                    [ngClass]="{'has-success': basicFormControl['ConfirmPassword'].valid}">
+                                <div *ngIf="(basicFormControl['ConfirmPassword'].touched || isSubmitted) && (basicFormControl['ConfirmPassword'].errors?.['required'])"
+                                    class="tx-danger">
+                                    <small>Confirm Password is <strong>required</strong></small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mg b-20">
+                            <!-- <div class="parsley-input col-md-6">
+                                <label>Branch: <span class="tx-danger">*</span></label>
+                                <ng-select #select [items]="branches" [searchable]="false" bindLabel="branchName" bindValue="branchId"
+                                  value="branchId" formControlName="branchId">
+                                  <ng-template ng-header-tmp>
+                                    <input style="width: 100%; line-height: 24px" type="text"
+                                      (input)="select.filter($any($event.target).value)" />
+                                  </ng-template>
+                                </ng-select>
+                                <div
+                                  *ngIf="(basicFormControl['branchId'].touched || isSubmitted) && (basicFormControl['branchId'].errors?.['required'])"
+                                  class="tx-danger">
+                                  <small>Branch is <strong>required</strong></small>
+                                </div>
+                              </div> -->
+                              <div class="parsley-input col-md-6">
+                                <div class="form-group">
+                                  <label>Role: <span class="tx-danger">*</span></label>
+                                  <ng-select #select [items]="roleList" [searchable]="false" formControlName="RoleId"
+                                    bindLabel="roleName" bindValue="roleId" value="" roleId>
+                                    <ng-template ng-header-tmp>
+                                      <input style="width: 100%; line-height: 24px" type="text"
+                                        (input)="select.filter($any($event.target).value)" />
+                                    </ng-template>
+                                  </ng-select>
+                                  <div
+                                    *ngIf="(basicFormControl['RoleId'].touched || isSubmitted) && (basicFormControl['RoleId'].errors?.['required'])"
+                                    class="tx-danger">
+                                    <small>Role is <strong>required</strong></small>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="parsley-input col-md-4">
+                              <div class="row align-items-center" style="float: left;;">
+                                <!-- <div class="col-sm-12 my-2 align-items-left">
+                                  <div>
+                                  <input type="checkbox" id="sameAsCurrent" formControlName="IsJobCreator">
+                                  <label for="sameAsCurrent" style="padding-left: 10px;"><b>Job Creator</b></label>
+                                  </div>
+                                  <div>
+                                  <input type="checkbox" id="sameAsCurrent" formControlName="IsJobApprover">
+                                  <label for="sameAsCurrent" style="padding-left: 10px;"><b>Job Approver</b></label>
+                                </div>
+                                <div>
+                                  <input type="checkbox" id="sameAsCurrent" formControlName="IsJobPublisher">
+                                  <label for="sameAsCurrent" style="padding-left: 10px;"><b>Job Publisher</b></label>
+                              </div>
+                                </div> -->
+                              </div>
+                              </div>
+                            </div>
+                    <div class="mg-t-30">
+                        <button class="btn btn-primary pd-x-20" type="submit">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="curdBtnIsList">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Manage the all User</h3>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered border text-nowrap mb-0" id="new-edit">
+                <thead>
+                  <tr>
+                    <th>Email</th>
+                    <th>Full Name</th>
+                    <th>Role</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of userList;let ndx = index">
+                    <td>{{item.email}}</td>
+                    <td>{{item.fullName}}</td>
+                    <td> {{item.roleName}} </td>
+                    <td>
+                      <button (click)="update(item)" type="button" class="btn btn-sm btn-primary">
+                          <span class="fe fe-edit"> </span>
+                          <!-- Edit -->
+                      </button>
+                      <button (click)="deleteRow(item)" id="bDel" type="button" class="btn mx-3 btn-sm btn-danger">
+                          <span class="fe fe-trash-2"> </span>
+                          <!-- trash -->
+                      </button>
+                      <!-- <label>
+                          <input (click)="IsActive(item)" type="checkbox" [checked]="item.isActive" name="form-switch-checkbox1" class="form-switch-input">
+                          <span class="form-switch-indicator"></span>
+                      </label> -->
+                  </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="d-flex justify-content-between p-2">
+                <ngb-pagination [collectionSize]="pagination.totalCount" [(page)]="pagination.pageNo" [pageSize]="pagination.pageSize" (pageChange)="onPageChange($event)" [maxSize]="pagination.maxSize" [boundaryLinks]="true" [ellipses]="true"></ngb-pagination>
+      
+                
+                <ng-select class="" style="min-width: 100px" name="pageSize" (change)="getUserList()" [(ngModel)]="pagination.pageSize">
+                  <ng-option value="5">5</ng-option>
+                  <ng-option value="10" selected>10</ng-option>
+                  <ng-option value="50">50</ng-option>
+                  <ng-option value="100">100</ng-option>
+                </ng-select>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>

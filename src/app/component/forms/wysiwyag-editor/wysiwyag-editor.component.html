@@ -1,0 +1,179 @@
+<app-page-header
+  [title]="'Wysiwyag-Editor'"
+  [items]="['Forms']"
+  [active_item]="'Wysiwyag-Editor'"
+></app-page-header>
+<!-- Row -->
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Summernote Editor</div>
+      </div>
+      <div class="card-body">
+        <angular-editor
+          [placeholder]="'Enter text here...'"
+          [config]="config"
+        ></angular-editor>
+      </div>
+    </div>
+  </div>
+</div>
+<!--End Row-->
+
+<!-- Row -->
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Wysiwyag Form Editor</h3>
+      </div>
+      <div class="card-body NgxEditor__Wrapper">
+        <angular-editor
+          [placeholder]="'Enter text here...'"
+          [config]="config"
+        ></angular-editor>
+      </div>
+    </div>
+  </div>
+</div>
+<!--End Row-->
+<!-- Row -->
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Form Editor in Modal</div>
+      </div>
+      <div class="card-body">
+        <div class="text-center p-4 border">
+          <a
+            class="btn btn-primary"
+            data-bs-target="#modalQuill"
+            data-bs-toggle="modal"
+            (click)="OpenEditor(editormodal)"
+            >View Live Demo</a
+          >
+        </div>
+        <!-- pd-y-30 -->
+        <div class="modal">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header pd-20">
+                <h6 class="modal-title">Create New Document</h6>
+                <button
+                  aria-label="Close"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body p-0">
+                <div class="ql-wrapper ql-wrapper-modal ht-250">
+                  <div class="flex-1" id="quillEditorModal">
+                    <p>
+                      <strong>Quill</strong> is a free, open source
+                      <a href="https://github.com/quilljs/quill/"
+                        >WYSIWYG editor</a
+                      >
+                      built for the modern web. With its
+                      <a href="https://quilljs.com/docs/modules/"
+                        >modular architecture</a
+                      >
+                      and expressive API, it is completely customizable to fit
+                      any need.
+                    </p>
+                    <br />
+                    <p>
+                      The icons use here as a replacement to default svg icons
+                      are from
+                      <a href="https://icons8.com/line-awesome"
+                        >Line Awesome Icons</a
+                      >.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer pd-20">
+                <button class="btn btn-primary">Save changes</button>
+                <button
+                  class="btn btn-light"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Row -->
+
+<!-- Row -->
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Ngx Editor</div>
+      </div>
+      <div class="card-body">
+        <div class="wd-xl-100p ht-200">
+          <div class="ql-scrolling-demo p-4 border" id="scrolling-container">
+            <form [formGroup]="form">
+              <div class="editor">
+                <ngx-editor-menu
+                  class="border-1"
+                  [editor]="editor"
+                  [toolbar]="toolbar"
+                >
+                </ngx-editor-menu>
+                <ngx-editor [editor]="editor" formControlName="editorContent">
+                </ngx-editor>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Row -->
+
+<!--Modal-->
+
+<ng-template #editormodal let-modal>
+  <div class="modal-header d-flex align-items-center">
+    <h6 class="modal-title">Create New Document</h6>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <angular-editor
+      [placeholder]="'Enter text here...'"
+      [config]="config"
+    ></angular-editor>
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn btn-primary" type="button">Save changes</button>
+    <button
+      class="btn btn-secondary"
+      type="button"
+      (click)="modal.close('Close click')"
+    >
+      Cancel
+    </button>
+  </div>
+</ng-template>
+<!--/Modal-->

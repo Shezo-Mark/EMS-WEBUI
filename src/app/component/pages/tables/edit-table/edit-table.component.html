@@ -1,0 +1,371 @@
+<app-page-header
+  [title]="'Edit-Table'"
+  [items]="['Tables']"
+  [active_item]="'Edit-Table'"
+></app-page-header>
+<!-- Row -->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Basic Edit Table</h3>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table
+            class="table table-bordered border text-nowrap mb-0"
+            id="basic-edit"
+          >
+            <thead>
+              <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Position</th>
+                <th>Start date</th>
+                <th>Salary</th>
+                <th>E-mail</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of user">
+                <td>
+                  <div *ngIf="item.editable">
+                    <input
+                      type="text"
+                      [(ngModel)]="item.firstName"
+                      class="form-control"
+                    />
+                  </div>
+                  <div *ngIf="!item.editable">
+                    {{ item.firstName }}
+                  </div>
+                </td>
+                <td>
+                  <div *ngIf="item.editable">
+                    <input
+                      type="text"
+                      [(ngModel)]="item.lastName"
+                      class="form-control"
+                    />
+                  </div>
+                  <div *ngIf="!item.editable">
+                    {{ item.lastName }}
+                  </div>
+                </td>
+                <td>
+                  <div *ngIf="item.editable">
+                    <input
+                      type="text"
+                      [(ngModel)]="item.position"
+                      class="form-control"
+                    />
+                  </div>
+                  <div *ngIf="!item.editable">
+                    {{ item.position }}
+                  </div>
+                </td>
+                <td>
+                  <div *ngIf="item.editable">
+                    <input
+                      type="text"
+                      [(ngModel)]="item.startData"
+                      class="form-control"
+                    />
+                  </div>
+                  <div *ngIf="!item.editable">
+                    {{ item.startData }}
+                  </div>
+                </td>
+                <td>
+                  <div *ngIf="item.editable">
+                    <input
+                      type="text"
+                      [(ngModel)]="item.salary"
+                      class="form-control"
+                    />
+                  </div>
+                  <div *ngIf="!item.editable">
+                    {{ item.salary }}
+                  </div>
+                </td>
+                <td>
+                  <div *ngIf="item.editable">
+                    <input
+                      type="text"
+                      [(ngModel)]="item.email"
+                      class="form-control"
+                    />
+                  </div>
+                  <div *ngIf="!item.editable">
+                    {{ item.email }}
+                  </div>
+                </td>
+                <td>
+                  <button
+                    *ngIf="item.editable"
+                    (click)="item.editable = false; update(item)"
+                    type="button"
+                    class="btn btn-sm btn-primary"
+                  >
+                    <span class="fe fe-check-circle"> </span>
+                  </button>
+                  <button
+                    id="bEdit"
+                    type="button"
+                    class="btn btn-sm btn-primary"
+                    *ngIf="!item.editable"
+                    (click)="edit(item)"
+                  >
+                    <span class="fe fe-edit"> </span>
+                  </button>
+                  <button
+                    *ngIf="item.editable"
+                    (click)="item.editable = false"
+                    type="button"
+                    class="btn mx-2 btn-sm btn-danger"
+                  >
+                    <span class="fe fe-x-circle"> </span>
+                  </button>
+                  <button
+                    id="bDel"
+                    type="button"
+                    class="btn mx-3 btn-sm btn-danger"
+                    *ngIf="!item.editable"
+                    (click)="trash(item.id)"
+                  >
+                    <span class="fe fe-trash-2"> </span>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Row -->
+
+<!-- Row -->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Add New Row with Edit Table</h3>
+      </div>
+      <div class="card-body">
+		<div class="table-responsive" *ngFor="let item of addRow">
+            <button id="table2-new-row-button" class="btn btn-primary mb-4" (click)="item.editable = true" >
+              Add New Row
+            </button>
+            <table *ngIf="item.editable" class="table table-bordered border text-nowrap mb-0 my-4" id="new-edit">
+              <thead>
+                  <tr>
+                      <th>First name</th>
+                      <th>Last name</th>
+                      <th>Position</th>
+                      <th>Start date</th>
+                      <th>Salary</th>
+                      <th>E-mail</th>
+                      <th>Actions</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td><input type="text" [(ngModel)]="item.firstName" class="form-control" /></td>
+                      <td><input type="text" [(ngModel)]="item.lastName" class="form-control" /></td>
+                      <td><input type="text" [(ngModel)]="item.position" class="form-control" /></td>
+                      <td><input type="text" [(ngModel)]="item.startData" class="form-control" /></td>
+                      <td><input type="text" [(ngModel)]="item.salary" class="form-control" /></td>
+                      <td><input type="text" [(ngModel)]="item.email" class="form-control" /></td>
+                      <td>
+                        <button _ngcontent-cpj-c276="" type="button" class="btn btn-sm btn-primary" (click)="item.editable = false ; add(item)">
+                          <!-- update -->
+                          <span _ngcontent-cpj-c276="" class="fe fe-check-circle"></span>
+                        </button>
+                        <button _ngcontent-ljd-c276="" type="button" class="btn mx-2 btn-sm btn-danger" (click)="item.editable = false">
+                          <!-- cancel -->
+                          <span _ngcontent-ljd-c276="" class="fe fe-x-circle"></span>
+                        </button>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+          </div>
+  
+          <div class="table-responsive">
+            <table class="table table-bordered border text-nowrap mb-0" id="new-edit">
+              <thead>
+                <tr>
+                  <th>First name</th>
+                  <th>Last name</th>
+                  <th>Position</th>
+                  <th>Start date</th>
+                  <th>Salary</th>
+                  <th>E-mail</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of user1">
+                  <td>
+                    <div *ngIf="item.editable">
+                      <input type="text" [(ngModel)]="item.firstName" class="form-control" />
+                    </div>
+                    <div *ngIf="!item.editable">
+                      {{ item.firstName }}
+                    </div>
+                  </td>
+                  <td>
+                    <div *ngIf="item.editable">
+                      <input type="text" [(ngModel)]="item.lastName" class="form-control" />
+                    </div>
+                    <div *ngIf="!item.editable">
+                      {{ item.lastName }}
+                    </div>
+                  </td>
+                  <td>
+                    <div *ngIf="item.editable">
+                      <input type="text" [(ngModel)]="item.position" class="form-control" />
+                    </div>
+                    <div *ngIf="!item.editable">
+                      {{ item.position }}
+                    </div>
+                  </td>
+                  <td>
+                    <div *ngIf="item.editable">
+                      <input type="text" [(ngModel)]="item.startData" class="form-control" />
+                    </div>
+                    <div *ngIf="!item.editable">
+                      {{ item.startData }}
+                    </div>
+                  </td>
+                  <td>
+                    <div *ngIf="item.editable">
+                      <input type="text" [(ngModel)]="item.salary" class="form-control" />
+                    </div>
+                    <div *ngIf="!item.editable">
+                      {{ item.salary }}
+                    </div>
+                  </td>
+                  <td>
+                    <div *ngIf="item.editable">
+                      <input type="text" [(ngModel)]="item.email" class="form-control" />
+                    </div>
+                    <div *ngIf="!item.editable">
+                      {{ item.email }}
+                    </div>
+                  </td>
+                  <td>
+                    <button *ngIf="item.editable" (click)="item.editable = false; update1(item)" type="button"
+                      class="btn btn-sm btn-primary">
+                      <span class="fe fe-check-circle"> </span>
+                      <!-- update -->
+                    </button>
+                    <button type="button" class="btn btn-sm btn-primary" *ngIf="!item.editable" (click)="edit1(item)">
+                      <span class="fe fe-edit"> </span>
+                      <!-- Edit -->
+                    </button>
+                    <button *ngIf="item.editable" (click)="item.editable = false" type="button"
+                      class="btn mx-2 btn-sm btn-danger">
+                      <span class="fe fe-x-circle"> </span>
+                      <!-- cancel -->
+                    </button>
+                    <button id="bDel" type="button" class="btn mx-3 btn-sm btn-danger" *ngIf="!item.editable"
+                      (click)="trash1(item.id)">
+                      <span class="fe fe-trash-2"> </span>
+                      <!-- trash -->
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Row -->
+
+<!-- Row -->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">
+          Removed action label, and only some columns are editable
+        </h3>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table
+            class="table table-bordered border text-nowrap mb-0"
+            id="removecolumns-edit"
+          >
+            <thead>
+              <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Position</th>
+                <th>Start date</th>
+                <th>Salary</th>
+                <th>E-mail</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Bella</td>
+                <td>Chloe</td>
+                <td>System Developer</td>
+                <td>2018/03/12</td>
+                <td>$654,765</td>
+                <td>b.Chloe@datatables.net</td>
+              </tr>
+              <tr>
+                <td>Donna</td>
+                <td>Bond</td>
+                <td>Account Manager</td>
+                <td>2012/02/21</td>
+                <td>$543,654</td>
+                <td>d.bond@datatables.net</td>
+              </tr>
+              <tr>
+                <td>Harry</td>
+                <td>Carr</td>
+                <td>Technical Manager</td>
+                <td>20011/02/87</td>
+                <td>$86,000</td>
+                <td>h.carr@datatables.net</td>
+              </tr>
+              <tr>
+                <td>Lucas</td>
+                <td>Dyer</td>
+                <td>Javascript Developer</td>
+                <td>2014/08/23</td>
+                <td>$456,123</td>
+                <td>l.dyer@datatables.net</td>
+              </tr>
+              <tr>
+                <td>Karen</td>
+                <td>Hill</td>
+                <td>Sales Manager</td>
+                <td>2010/7/14</td>
+                <td>$432,230</td>
+                <td>k.hill@datatables.net</td>
+              </tr>
+              <tr>
+                <td>Dominic</td>
+                <td>Hudson</td>
+                <td>Sales Assistant</td>
+                <td>2015/10/16</td>
+                <td>$654,300</td>
+                <td>d.hudson@datatables.net</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Row -->

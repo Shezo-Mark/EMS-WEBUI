@@ -1,0 +1,218 @@
+<app-page-header
+  [title]="'Advanced-forms'"
+  [items]="['Forms']"
+  [active_item]="'Advanced-forms'"
+></app-page-header>
+<!-- row -->
+<div class="row">
+  <div class="col-lg-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Telephone Input</div>
+        <p class="text-muted card-sub-title mb-0">
+          A JavaScript plugin for entering and validating international
+          telephone numbers. It adds a flag dropdown to any input, detects the
+          user's country, displays a relevant placeholder and provides
+          formatting/validation methods.
+        </p>
+      </div>
+      <div class="card-body">
+        <div class="input-group telephone-input">
+          <input
+            class="form-control form-group"
+            type="text"
+            ng2TelInput
+            [ng2TelInputOptions]="{ initialCountry: 'in' }"
+            (hasError)="hasError($event)"
+            (ng2TelOutput)="getNumber($event)"
+            (intlTelInputObject)="telInputObject($event)"
+            (countryChange)="onCountryChange($event)"
+          />
+          <span class="input-group-btn">
+            <button class="btn ripple btn-primary" type="button">Submit</button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /row -->
+
+<!-- row -->
+<div class="row">
+  <div class="col-lg-6 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Single Select Style</div>
+        <p class="text-muted card-sub-title mb-0">
+          First import a latest version of jquery in your page. Then the
+          jquery.sumoselect.min.js and its css (sumoselect.css)
+        </p>
+      </div>
+      <div class="card-body">
+        <div class="mb-4">
+          <p class="mg-b-10">Single Select</p>
+          <ng-select [items]="toppingList" [(ngModel)]="toppings">
+              </ng-select>
+        </div>
+        <div class="mb-4">
+           <p class="mg-b-10">Disable Select</p>
+		 <ng-select [items]="toppingList" [(ngModel)]="toppings" disabled="true">
+              </ng-select>
+        </div>
+        <div>
+          <p class="mg-b-10"> Type to Add Multiple items </p>
+            <ng-select
+                class="multi-select"
+                [items]="[]"
+                [addTag]="true"
+                disabled="disabled"
+              >
+              </ng-select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Multiple Select Styles</div>
+        <p class="mb-0 text-muted card-sub-title">
+          First import a latest version of jquery in your page. Then the
+          jquery.sumoselect.min.js and its css (sumoselect.css)
+        </p>
+      </div>
+      <div class="card-body">
+         <div class="mb-4">
+									<p class="mg-b-10">Multiple Select</p>
+									 <ng-select [multiple]="true" [(ngModel)]="selectedCars">
+                <ng-option
+                  *ngFor="let car of cars"
+                  [value]="car.id"
+                  >{{ car.name }}</ng-option
+                >
+              </ng-select>
+								</div>
+								<div class="mb-4">
+									<p class="mg-b-10">Disable All Select</p>
+								          <ng-select [items]="toppingList" [(ngModel)]="toppings" disabled="true">
+              </ng-select>
+								</div>
+								<div>
+									<p class="mg-b-10">Custom selected item label using</p>
+								<ng-select
+                [items]="cities"
+                [(ngModel)]="selectedCity"
+                bindLabel="name"
+                bindValue="name"
+              >
+                <ng-template ng-label-tmp let-item="item">
+                  <img height="15" width="15" [src]="item.avatar" />
+                  {{ item.name }}
+                </ng-template>
+              </ng-select>
+								</div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Multiple Select Styles</div>
+        <p class="mb-0 text-muted card-sub-title">
+          First import a latest version of jquery in your page. Then the
+          jquery.sumoselect.min.js and its css (sumoselect.css)
+        </p>
+      </div>
+      <div class="card-body">
+        <div class="mb-4">
+          <p class="mg-b-10">Items with already grouped children array</p>
+           <ng-select
+                [items]="projects"
+                bindLabel="title"
+                bindValue="id"
+                groupBy="subprojects"
+                [multiple]="true"
+                [(ngModel)]="selectedProjects"
+              >
+                <ng-template ng-optgroup-tmp let-item="item">
+                  {{ item.title }}
+                </ng-template>
+                <ng-template ng-option-tmp let-item="item">
+                  {{ item.title }}
+                </ng-template>
+              </ng-select>
+        </div>
+        <div>
+          <p class="mg-b-10">Selectable groups</p>
+          <ng-select
+                [items]="accounts"
+                bindLabel="name"
+                groupBy="country"
+                [multiple]="true"
+                [compareWith]="compareAccounts"
+                [selectableGroup]="true"
+                [(ngModel)]="selectedAccount"
+              >
+                <ng-template ng-optgroup-tmp let-item="item">
+                  {{ item.country || "Unnamed group" }}
+                </ng-template>
+              </ng-select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /row -->
+
+<!-- row -->
+<div class="row">
+  <div class="col-lg-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">File Upload</div>
+        <p class="mb-0 text-muted card-sub-title">
+          Dropify is a jQuery plugin to create a beautiful file uploader that
+          converts a standard <code>input type="file"</code> into a nice drag &
+          drop zone with previews and custom styles.
+        </p>
+      </div>
+      <div class="card-body">
+        <div class="row mb-4">
+          <div class="col-sm-12 col-md-4 my-1">
+         <ngx-dropzone (change)="onSelect($event)">
+              <ngx-dropzone-label>Drop it!</ngx-dropzone-label>
+              <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+              </ngx-dropzone-preview>
+            </ngx-dropzone>
+          </div>
+          <div class="col-sm-12 col-md-4 my-1">
+              <ngx-dropzone (change)="onSelect($event)">
+          <ngx-dropzone-label class="ff_fileupload_dropzone">
+            <img [src]="imgdata" height="150px" />
+          </ngx-dropzone-label>
+          <ngx-dropzone-preview
+            *ngFor="let f of files"
+            [removable]="false"
+            (removed)="onRemove(f)"
+          >
+            <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+          </ngx-dropzone-preview>
+        </ngx-dropzone>
+          </div>
+          <div class="col-sm-12 col-md-4 my-1">
+            <ngx-dropzone (change)="onSelect($event)" [disabled]="true" [expandable]="true">
+              <ngx-dropzone-label>Disabled</ngx-dropzone-label>
+              <ngx-dropzone-preview *ngFor="let f of filesDisabled">
+                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+              </ngx-dropzone-preview>
+            </ngx-dropzone>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- row closed -->

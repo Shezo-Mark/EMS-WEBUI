@@ -1,0 +1,408 @@
+<app-page-header [title]="'Client Onboarding'" [items]="['Forms']" [active_item]="'Employee Registration'"></app-page-header>
+<div class="row row-sm">
+  <div class="col-sm-12 col-lg-12 col-xl-12">
+    <div class="card custom-card">
+      <div class="">
+        <div class="p-3 border-bottom">
+          <div class="d-flex align-items-center mb-3">
+            <h5 class="mb-0"></h5>
+            <div class="ms-auto d-flex align-items-center">
+              <div class="btn-list radiobtns">
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                  <input type="radio" class="btn-check" name="btnradio" id="Add" (click)="changeCurdView(false);getClientCode()"
+                    [checked]="!curdBtnIsList">
+                  <label ngbTooltip="Add" class="btn btn-primary" for="Add"><i class="fa fa-plus">
+                      Add</i></label>
+                  <input type="radio" class="btn-check" name="btnradio" id="List" (click)="changeCurdView(true)"
+                    [checked]="curdBtnIsList">
+                  <label ngbTooltip="List" class="btn btn-outline-primary" for="List"><i class="fa fa-list-ul">
+                      List</i></label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-0" *ngIf="curdBtnIsList">
+            <input type="text" class="form-control" [(ngModel)]="pagination.searchText" (keyup.enter)="onSearchText()"
+              placeholder="Search..." />
+            <span class="input-group-append">
+              <button class="btn ripple btn-info" (click)="onSearchText()" type="button">
+                <i class="fe fe-search me-2"></i> Search
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row" *ngIf="!curdBtnIsList">
+  <div class="col-lg-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Client Onboarding</div>
+        
+      </div>
+      <div class="card-body">
+        <div id="wizard3">        
+                  <form [formGroup]="registrationForm" novalidate (ngSubmit)="formSubmit()">
+                  <section>
+                    <div class="row">
+                      <div class="col-md-6 col-sm-12 col-md-6 my-1">
+                        <div class="form-group">
+                          <label>Client Id: </label>
+                          <input type="text" name="name" readonly formControlName="ClientId"
+                            placeholder="Client Code" class="form-control" />
+                        </div>
+
+                      </div>
+                      
+                      <div class="col-md-6 col-sm-12 col-md-4 my-1">
+                        <label>Company Name
+                            : </label>
+                        <input class="form-control" formControlName="CompanyName" placeholder="company name"
+                          [ngClass]="{'has-success': basicFormControl['CompanyName'].valid}">
+                        <div
+                          *ngIf="(basicFormControl['CompanyName'].invalid) && submitted && (basicFormControl['CompanyName'].errors?.['required'])"
+                          class="tx-danger">
+                          <small>Company Name
+                            is <strong>required</strong></small>
+                        </div>
+                      </div>
+                           <div class="row">
+                                <form [formGroup]="registrationForm" >
+                                      <div formArrayName="ContactPersonInfo">
+  <div *ngFor="let contact of contactPersonInfoArray.controls; let i = index" [formGroupName]="i" class="row mb-2">
+        
+         <div class="col-md-6">
+          <div class="form-group">
+            <label>Point Of Contact(POC) </label>
+      <input type="text" class="form-control" formControlName="name" placeholder="Contact Person Name">
+   </div>
+     </div>
+      <div class="col-md-6">
+       <div class="form-group">
+           <label>POC Designation
+                            </label>
+      <input type="text" class="form-control" formControlName="Designation" placeholder="POC Designation">
+    </div>
+    </div>
+ 
+    <div class="col-md-6">
+        <div class="form-group">
+                <label>Contact Email Address: </label>
+      <input type="text" class="form-control" formControlName="ContactEmailAddress" placeholder="">
+   </div>
+    </div>
+   
+    <div class="col-md-6">
+        <div class="form-group">
+             <label>Contact Phone Number: </label>
+      <input type="text" class="form-control" formControlName="ContactPhoneNumber" placeholder="">
+    </div>
+    </div>  
+
+
+
+    <div class="col-md-2">
+      <button type="button" class="btn btn-success" (click)="addContactPersonName()" *ngIf="i === contactPersonInfoArray.length - 1">
+        +
+      </button>
+      <button type="button" class="btn btn-danger" (click)="removeContactPersonName(i)" *ngIf="contactPersonInfoArray.length > 1">
+        -
+      </button>
+    </div>
+
+                                   </div>
+                                      </div>
+                                </form>
+                           </div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div  formArrayName="ContactPersonName">
+  <div *ngFor="let contact of contactPersonNameArray.controls; let i = index" [formGroupName]="i" class="row mb-2">
+    <label>Point Of Contact(POC)
+                            </label>
+    <div class="col-md-3">
+      <input type="text" class="form-control" formControlName="name" placeholder="Contact Person Name">
+    </div>
+ 
+
+  </div>
+
+
+</div> -->
+                      <!-- <div class="col-md-6 col-sm-12 col-md-4 my-1">
+                        <label>Point Of Contact(POC)
+                            </label>
+                        <input class="form-control" formControlName="ContactPersonName" placeholder="point of contact"
+                          [ngClass]="{'has-success': basicFormControl['ContactPersonName'].valid}">
+                        <div
+                          *ngIf="(basicFormControl['ContactPersonName'].invalid) && submitted && (basicFormControl['ContactPersonName'].errors?.['required'])"
+                          class="tx-danger">
+                          <small>Contact Person Name
+                            is <strong>required</strong></small>
+                        </div>
+                      </div> -->
+                       <!-- <div class="col-md-6 col-sm-12 col-md-4 my-1">
+                        <label>POC Designation
+                            </label>
+                        <input class="form-control" formControlName="Designation" placeholder="poc designation"
+                          [ngClass]="{'has-success': basicFormControl['Designation'].valid}">
+                        <div
+                          *ngIf="(basicFormControl['Designation'].invalid) && submitted && (basicFormControl['Designation'].errors?.['required'])"
+                          class="tx-danger">
+                          <small>Designation
+                            is <strong>required</strong></small>
+                        </div>
+                      </div>
+                      <div class="col-md-6 col-sm-12 col-md-4 my-1">
+                        <label>Contact Email Address: </label>
+                        <input class="form-control" formControlName="ContactEmailAddress" placeholder=""
+                          [ngClass]="{'has-success': basicFormControl['ContactEmailAddress'].valid}">
+                        <div
+                          *ngIf="submitted && (basicFormControl['ContactEmailAddress'].errors?.['required'])"
+                          class="tx-danger">
+                          <small>Contact Email Address is <strong>required</strong></small>
+                        </div>
+                        <div
+                          *ngIf="submitted && (basicFormControl['ContactEmailAddress'].errors?.['pattern'])"
+                          class="tx-danger">
+                          <small>Email is not <strong>correct</strong></small>
+                        </div>
+                      </div>
+                      <div class="col-md-6 col-sm-12 col-md-4 my-1">
+                        <label>Contact Phone Number: </label>
+                        <input class="form-control" formControlName="ContactPhoneNumber" placeholder=""
+                          [ngClass]="{'has-success': basicFormControl['ContactPhoneNumber'].valid}">
+                        <div
+                          *ngIf="(basicFormControl['ContactPhoneNumber'].invalid) && submitted && (basicFormControl['ContactPhoneNumber'].errors?.['required'])"
+                          class="tx-danger">
+                          <small>Contact Phone Number is <strong>required</strong></small>
+
+                      </div>
+                      </div> -->
+                      <div  class="col-md-6 col-sm-12 col-md-4 my-1">
+                        <label>Client Type
+                        </label>
+                        <select class="form-control select2" formControlName="ClientType"  style="width: 100%;">
+                          <option value="Select Option">Select Option</option>
+                          <option value="BPO">BPO</option>
+                          <option value="Back Office" >Back Office</option>
+                          <option value="Industry">Industry</option>
+                         
+                        </select>
+                          
+                          
+                        
+                      <!-- /.form-group -->
+                      </div>
+                      <div class="col-md-6 col-sm-12 col-md-4 my-1">
+                        <label>Company Address:</label>
+                        <input class="form-control" formControlName="CompanyAddress" placeholder="   ">
+                      </div>
+                      <div class="col-md-6 col-sm-12 col-md-4 my-1">
+                        <label>Number Of Employees: </label>
+                        <input class="form-control" formControlName="NumberOfEmployee" placeholder=""
+                          [ngClass]="{'has-success': basicFormControl['NumberOfEmployee'].valid}">
+                        <div
+                          *ngIf="(basicFormControl['NumberOfEmployee'].invalid) && submitted && (basicFormControl['NumberOfEmployee'].errors?.['required'])"
+                          class="tx-danger">
+                          <small>Number is <strong>required</strong></small>
+
+                      </div>
+                      </div>
+                      <div class="col-md-6 col-sm-12 col-md-4 my-1">
+                        <label>Contract Date: </label>
+                        <div class="form-input">
+                          <div class="input-group">
+                            <input  formControlName="ContractDate" class="form-control" placeholder="dd/mm/yyyy"
+                              name="d2" [(ngModel)]="contractDatePicker" ngbDatepicker #d2="ngbDatepicker" />
+                            <button  class="btn btn-outline-secondary bi bi-calendar3" (click)="d2.toggle()"
+                              type="button"></button>
+                          </div>
+                        </div>
+                        <div
+                          *ngIf="(basicFormControl['ContractDate'].invalid) && submitted&& (basicFormControl['ContractDate'].errors?.['required'])"
+                          class="tx-danger">
+                          <small>Date is <strong>required</strong></small>
+                        </div>
+                      </div>
+                        <div class="col-md-6 col-sm-12 col-md-4 my-1">
+                        <label>GoLive Date: </label>
+                        <div class="form-input">
+                          <div class="input-group">
+                            <input  formControlName="OnboardingStartDate" class="form-control" placeholder="dd/mm/yyyy"
+                              name="d3" [(ngModel)]="onboardingStartDatePicker" ngbDatepicker #d3="ngbDatepicker" />
+                            <button  class="btn btn-outline-secondary bi bi-calendar3" (click)="d3.toggle()"
+                              type="button"></button>
+                          </div>
+                        </div>
+                        <div
+                          *ngIf="(basicFormControl['OnboardingStartDate'].invalid) && submitted&& (basicFormControl['OnboardingStartDate'].errors?.['required'])"
+                          class="tx-danger">
+                          <small>Date is <strong>required</strong></small>
+                        </div>
+                      </div>
+                      <br><br>
+                      <div class="col-md-6 col-sm-12 col-md-4 my-1">
+                        
+                          <label>Services Required:
+                          </label>
+                          <select multiple class="form-control" formControlName="ServicesRequired"  >
+                            <option value="">select option</option>
+                            <option value="B-form ">Call Centre Service
+                            </option>
+                            <option value="Benazir Income support card">Medical Billing
+                            </option>
+                            <option value="CNIC ">Back Office
+                            </option>
+                            <option value="Court documents">Software Development
+                            </option>
+                            <option value="Divorce certificate">IT Services
+                            </option>
+                            <option value="Driving license">Backend Services
+                            </option>
+                            
+                          </select>
+                        
+                      </div>
+                  
+                    </div>
+
+                    <br>
+                      <div  class="row">
+                        
+                          <label>Special Requirements or Notes:
+                          </label>
+                          <textarea formControlName="SpecialRequirmentOrNotes" class="form-control"  rows="2"></textarea>
+                        
+                      </div>
+                    
+                     
+                      
+                    
+                    
+                  
+                  
+                  
+                  
+      
+                
+                 
+                  
+      
+               
+
+                 
+                  
+                        
+                        
+                       
+                     
+                     
+                  </section>
+                  <br><br>
+                  <button  type="submit" class="btn btn-success me-2" mat-button>
+                    Save & Next
+                  </button>
+                </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="curdBtnIsList">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Manage the all Client Onboarding</h3>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered border text-nowrap mb-0" id="new-edit">
+            <thead>
+              <tr>
+                <!-- <th>ID</th> -->
+               <th>Client Id</th>
+                <th>Company Name</th>
+                <th>Point Of Contact/POC</th>
+                <!-- <th>Contact Email</th> -->
+                
+                <th>Contract Date</th>
+                <th>Actions</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of onboardingList;let ndx = index">
+                <!-- <td>{{item.onboardingId}}</td> -->
+                   <td>{{item.clientId}}</td>
+                <td>{{item.companyName}}</td>
+                 <td>
+                <div *ngFor="let contact of getFormattedData(item.contactPersonInfo)" class="mb-2 p-2 border rounded bg-light shadow-sm">
+    <div><strong>Name:</strong> {{ contact.name }}</div>
+    <div><strong>Designation:</strong> {{ contact.Designation }}</div>
+    <div><strong>Email:</strong> <a href="mailto:{{ contact.ContactEmailAddress }}">{{ contact.ContactEmailAddress }}</a></div>
+    <div><strong>Phone:</strong> <a href="tel:{{ contact.ContactPhoneNumber }}">{{ contact.ContactPhoneNumber }}</a></div>
+  </div>
+                </td>
+<!-- <td>{{item.contactPersonName}}</td> -->
+                <!-- <td>{{item.contactEmailAddress}}</td> -->
+                
+                <td>{{item.contractDate | date: 'yyyy-MM-dd'}}</td>
+                <td>
+                  <button type="button" (click)="setRegistrationValuesForupdate(item)" class="btn btn-sm btn-primary">
+                    <span class="fe fe-edit"> </span>
+                    <!-- Edit -->
+                  </button>
+                      <button type="button" class="btn mx-3 btn-sm btn-danger" (click)="onDelete(item.onboardingId)">
+                      <span class="fe fe-trash-2"></span>
+                    </button>
+                  <!-- <button (click)="deleteRow(item)" id="bDel" type="button" class="btn mx-3 btn-sm btn-danger">
+                    <span class="fe fe-trash-2"> </span>
+                    
+                  </button> -->
+                  <!-- <label>
+                    <input (click)="IsActive(item)" type="checkbox" [checked]="item.isActive"
+                      name="form-switch-checkbox1" class="form-switch-input">
+                    <span class="form-switch-indicator"></span>
+                  </label> -->
+                </td>
+
+
+
+              
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="d-flex justify-content-between p-2">
+          <ngb-pagination [collectionSize]="pagination.totalCount" [(page)]="pagination.pageNo"
+            [pageSize]="pagination.pageSize" (pageChange)="onPageChange($event)" [maxSize]="pagination.maxSize"
+            [boundaryLinks]="true" [ellipses]="true"></ngb-pagination>
+
+<!-- 
+          <ng-select class="" style="min-width: 100px" name="pageSize" (change)="getdepartments()"
+            [(ngModel)]="pagination.pageSize">
+            <ng-option value="5">5</ng-option>
+            <ng-option value="10" selected>10</ng-option>
+            <ng-option value="50">50</ng-option>
+            <ng-option value="100">100</ng-option>
+          </ng-select> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

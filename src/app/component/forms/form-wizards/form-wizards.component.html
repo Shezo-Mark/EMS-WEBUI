@@ -1,0 +1,481 @@
+<app-page-header
+  [title]="'Form-Wizard'"
+  [items]="['Forms']"
+  [active_item]="'Form-Wizard'"
+></app-page-header>
+<!-- row -->
+<div class="row">
+  <div class="col-lg-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Basic Content Wizard</div>
+        <p class="mb-0 text-muted tx-13">
+          It is Very Easy to Customize and it uses in your website apllication.
+        </p>
+      </div>
+      <div class="card-body">
+        <app-basic-content></app-basic-content>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Basic Wizard With Validation</div>
+        <p class="mb-0 text-muted tx-13">
+          It is Very Easy to Customize and it uses in your website apllication.
+        </p>
+      </div>
+      <div class="card-body">
+        <aw-wizard #wizard>
+          <aw-wizard-step [stepTitle]="'Step 1'">
+            <form #firstStep="ngForm" novalidate>
+              <div class="form-group">
+                <label class="form-control-label" for="firstname"
+                  >First Name</label
+                >
+                <input
+                  class="form-control"
+                  ngModel
+                  #firstname="ngModel"
+                  required
+                  id="firstname"
+                  name="firstname"
+                  type="text"
+                  placeholder="Johan"
+                />
+                <small
+                  class="form-text text-danger"
+                  *ngIf="
+                    !firstname.valid && (firstname.dirty || firstname.touched)
+                  "
+                  >This field is required!</small
+                >
+              </div>
+              <div class="form-group">
+                <label class="form-control-label" for="lastname"
+                  >Last Name</label
+                >
+                <input
+                  class="form-control input-md"
+                  ngModel
+                  #lastname="ngModel"
+                  required
+                  id="lastname"
+                  name="lastname"
+                  type="text"
+                  placeholder="Deo"
+                />
+                <small
+                  class="form-text text-danger"
+                  *ngIf="
+                    !lastname.valid && (lastname.dirty || lastname.touched)
+                  "
+                  >This field is required!</small
+                >
+              </div>
+              <div class="form-group">
+                <label class="form-control-label" for="contact">Contact</label>
+                <input
+                  class="form-control input-md"
+                  ngModel
+                  #contact="ngModel"
+                  required
+                  contact
+                  id="contact"
+                  name="contact"
+                  type="number"
+                  placeholder="123456789"
+                />
+                <small
+                  class="form-text text-danger"
+                  *ngIf="!contact.valid && (contact.dirty || contact.touched)"
+                  >This field is required!</small
+                >
+              </div>
+              <div class="form-group">
+                <button
+                  type="button"
+                  class="btn btn-primary pull-end"
+                  [disabled]="!firstStep.valid"
+                  awNextStep
+                >
+                  Next
+                </button>
+              </div>
+            </form>
+          </aw-wizard-step>
+          <aw-wizard-step [stepTitle]="'Step 2'">
+            <form #secondStep="ngForm" novalidate>
+              <div class="form-group m-t-15">
+                <label class="form-control-label" for="email">Email</label>
+                <input
+                  class="form-control input-md"
+                  ngModel
+                  #email="ngModel"
+                  required
+                  email
+                  id="email"
+                  name="email"
+                  type="email"
+                />
+                <small
+                  class="form-text text-danger"
+                  *ngIf="!email.valid && (email.dirty || email.touched)"
+                  >Please enter a valid email!</small
+                >
+              </div>
+
+              <div class="form-group">
+                <label class="form-control-label" for="password"
+                  >Password</label
+                >
+                <input
+                  class="form-control"
+                  ngModel
+                  #password="ngModel"
+                  required
+                  id="password"
+                  name="password"
+                  type="password"
+                />
+                <small
+                  class="form-text text-danger"
+                  *ngIf="
+                    !password.valid && (password.dirty || password.touched)
+                  "
+                  >This field is required!</small
+                >
+              </div>
+
+              <div class="form-group">
+                <button
+                  type="button"
+                  class="btn btn-secondary me-1 pull-end"
+                  awPreviousStep
+                >
+                  Previous
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary pull-right me-2"
+                  [disabled]="!secondStep.valid"
+                  awNextStep
+                >
+                  Next
+                </button>
+              </div>
+            </form>
+          </aw-wizard-step>
+          <aw-wizard-step [stepTitle]="'Step 3'">
+            <form #thirdStep="ngForm" novalidate>
+              <div
+                class="form-group custom-datepicker-dropdown custom-datepicker"
+              >
+                <label for="birthdate">Birthday</label>
+                <input
+                  type="text"
+                  name="birthdate"
+                  id="birthdate"
+                  ngModel
+                  #birthdate="ngModel"
+                  class="form-control digits"
+                  ngbDatepicker
+                  #dob="ngbDatepicker"
+                  [maxDate]="maxDate"
+                  (click)="dob.toggle()"
+                />
+                <small
+                  class="form-text text-danger"
+                  *ngIf="
+                    !birthdate.valid && (birthdate.dirty || birthdate.touched)
+                  "
+                  >This field is required!</small
+                >
+              </div>
+              <div class="form-group">
+                <label for="age">Age</label>
+                <input
+                  class="form-control digits"
+                  placeholder="Age"
+                  type="number"
+                  name="age"
+                  id="age"
+                />
+              </div>
+              <div class="form-group">
+                <label for="passport">Have Passport</label>
+                <input
+                  class="form-control"
+                  ngModel
+                  #passport="ngModel"
+                  placeholder="Yes/No"
+                  required
+                  type="text"
+                  name="passport"
+                  id="passport"
+                />
+                <small
+                  class="form-text text-danger"
+                  *ngIf="
+                    !passport.valid && (passport.dirty || passport.touched)
+                  "
+                  >This field is required!</small
+                >
+              </div>
+              <div class="form-group">
+                <button
+                  type="button"
+                  class="btn btn-secondary me-1 pull-end"
+                  awPreviousStep
+                >
+                  Previous
+                </button>
+                <button
+                type="button"
+                class="btn btn-primary pull-right me-2"
+                [disabled]="!thirdStep.valid"
+                awNextStep
+              >
+                Next
+              </button>
+              </div>
+            </form>
+          </aw-wizard-step>
+          <aw-wizard-completion-step stepTitle="Step 4" awEnableBackLinks>
+            <form #fourthStep="ngForm" novalidate>
+              <div class="form-group">
+                <label for="country">Country</label>
+                <input
+                  class="form-control mt-1"
+                  type="text"
+                  placeholder="Country"
+                  name="country"
+                  id="country"
+                  required
+                  ngModel
+                  #country="ngModel"
+                />
+                <small
+                  class="form-text text-danger"
+                  *ngIf="!country.valid && (country.dirty || country.touched)"
+                  >This field is required!</small
+                >
+              </div>
+              <div class="form-group">
+                <label for="state">State</label>
+                <input
+                  class="form-control mt-1"
+                  type="text"
+                  placeholder="State"
+                  required
+                  id="state"
+                  name="state"
+                  ngModel
+                  #state="ngModel"
+                />
+                <small
+                  class="form-text text-danger"
+                  *ngIf="!state.valid && (state.dirty || state.touched)"
+                  >This field is required!</small
+                >
+              </div>
+              <div class="form-group">
+                <label for="city">City</label>
+                <input
+                  class="form-control mt-1"
+                  type="text"
+                  placeholder="City"
+                  required
+                  id="city"
+                  name="city"
+                  ngModel
+                  #city="ngModel"
+                />
+                <small
+                  class="form-text text-danger"
+                  *ngIf="!city.valid && (city.dirty || city.touched)"
+                  >This field is required!</small
+                >
+              </div>
+              <button
+                class="btn btn-secondary pull-end me-2"
+                type="button"
+                awPreviousStep
+              >
+                Previous
+              </button>
+              <button
+                class="btn btn-success pull-right me-2"
+                type="button"
+                (click)="finish()"
+                [disabled]="!fourthStep.valid"
+              >
+                Finish
+              </button>
+            </form>
+          </aw-wizard-completion-step>
+        </aw-wizard>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /row -->
+
+<!-- row -->
+<div class="row">
+  <div class="col-lg-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Vertical Orientation Wizard</div>
+        <p class="mb-0 text-muted tx-13">
+          It is Very Easy to Customize and it uses in your website apllication.
+        </p>
+      </div>
+      <div class="card-body">
+        <div id="wizard3">
+          <mat-stepper orientation="vertical">
+            <mat-step>
+              <ng-template matStepLabel>Personal Information</ng-template>
+              <ng-template matStepContent>
+                <section>
+                  <div class="form-group">
+                    <label>Name:</label>
+                    <input type="text" name="name" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                    <label>Email:</label>
+                    <input type="text" name="email" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                    <label>Phone Number:</label>
+                    <input
+                      type="text"
+                      name="Phone Number"
+                      class="form-control"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label>Address:</label>
+                    <input type="text" name="Address" class="form-control" />
+                  </div>
+                </section>
+                <button class="btn btn-primary mt-2" mat-button matStepperNext>
+                  Next
+                </button>
+              </ng-template>
+            </mat-step>
+            <mat-step>
+              <ng-template matStepLabel>Billing Information</ng-template>
+              <ng-template matStepContent>
+                <section>
+                  <div class="table-responsive mg-t-20">
+                    <table class="table table-bordered">
+                      <tbody>
+                        <tr>
+                          <td>Cart Subtotal</td>
+                          <td class="text-end">$792.00</td>
+                        </tr>
+                        <tr>
+                          <td><span>Totals</span></td>
+                          <td class="text-end text-muted">
+                            <span>$792.00</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span>Order Total</span></td>
+                          <td><h2 class="price text-end mb-0">$792.00</h2></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
+                <button
+                  class="btn btn-danger me-2"
+                  mat-button
+                  matStepperPrevious
+                >
+                  Back
+                </button>
+                <button class="btn btn-primary me-2" mat-button matStepperNext>
+                  Next
+                </button>
+              </ng-template>
+            </mat-step>
+            <mat-step>
+              <ng-template matStepLabel>Payment Details</ng-template>
+              <section>
+                <div class="form-group">
+                  <label class="form-label">CardHolder Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name12"
+                    placeholder="First Name"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Card number</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Search for..."
+                    />
+                    <span class="input-group-append">
+                      <button class="btn btn-info" type="button">
+                        <i class="fab fa-cc-visa"></i> &nbsp;
+                        <i class="fab fa-cc-amex"></i> &nbsp;
+                        <i class="fab fa-cc-mastercard"></i>
+                      </button>
+                    </span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-8">
+                    <div class="form-group mb-sm-0">
+                      <label class="form-label">Expiration</label>
+                      <div class="input-group">
+                        <input
+                          type="number"
+                          class="form-control"
+                          placeholder="MM"
+                          name="expiremonth"
+                        />
+                        <input
+                          type="number"
+                          class="form-control"
+                          placeholder="YY"
+                          name="expireyear"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group mb-0">
+                      <label class="form-label"
+                        >CVV <i class="fa fa-question-circle"></i
+                      ></label>
+                      <input type="number" class="form-control" required="" />
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <button
+                class="btn btn-danger me-2 mt-4"
+                mat-button-end
+                matStepperPrevious
+              >
+                Back
+              </button>
+              <button class="btn btn-primary mt-4" mat-button matStepperNext>
+                Submit
+              </button>
+            </mat-step>
+          </mat-stepper>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- row closed -->

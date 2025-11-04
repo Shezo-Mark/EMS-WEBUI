@@ -1,0 +1,422 @@
+<app-page-header [title]="'Employees'" [items]="['Forms']" [active_item]="'employee-list'"></app-page-header>
+
+<div class="row row-sm">
+  <div class="col-sm-12 col-lg-12 col-xl-12">
+    <div class="card custom-card">
+      <div class="">
+        <div class="p-3 border-bottom">
+          <div class="d-flex align-items-center mb-3">
+            <h5 class="mb-0">Employee</h5>
+            <div class="ms-auto d-flex align-items-center">
+              <!-- <div class="btn-list radiobtns">
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                  <input type="radio" class="btn-check" name="btnradio" id="Add" (click)="changeCurdView(false)"
+                    [checked]="!curdBtnIsList">
+                  <label ngbTooltip="Add" class="btn btn-outline-primary" for="Add"><i class="fa fa-plus">
+                      Add</i></label>
+                  <input type="radio" class="btn-check" name="btnradio" id="List" (click)="changeCurdView(true)"
+                    [checked]="curdBtnIsList">
+                  <label ngbTooltip="List" class="btn btn-outline-primary" for="List"><i class="fa fa-list-ul">
+                      List</i></label>
+                </div>
+              </div> -->
+            </div>
+          </div>
+          <div class="input-group mb-0" *ngIf="curdBtnIsList">
+            <input type="text" [(ngModel)]="searchText" (keyup.enter)="onSearchText()" class="form-control"
+              placeholder="Search..." />
+            <span class="input-group-append">
+              <button class="btn ripple btn-info" (click)="onSearchText()" type="button">
+                <i class="fe fe-search me-2"></i> Search
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="!curdBtnIsList">
+  <div class="col-lg-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Please {{ isEdit ? 'Edit' : 'Add' }} Teacher here</div>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="teacherForm" novalidate (ngSubmit)="formSubmit()">
+          <div class="">
+            <div class="row mg-b-20">
+              <!-- <div class="parsley-input col-md-4" style="display:none">
+                            <label>Branch: <span class="tx-danger">*</span></label>
+                            <ng-select #select [items]="branchList" [searchable]="false" bindLabel="branchName" bindValue="branchId" value="branchId" formControlName="branchId">
+                                <ng-template ng-header-tmp>
+                                    <input style="width: 100%; line-height: 24px" type="text" (input)="select.filter($any($event.target).value)"/>
+                                </ng-template>
+                            </ng-select>
+                            <div *ngIf="(basicFormControl['branchId'].touched || submitted) && (basicFormControl['branchId'].errors?.['required'])"
+                                class="tx-danger">
+                                <small>Branch is <strong>required</strong></small>
+                            </div>
+                        </div> -->
+              <div class="parsley-input col-md-4">
+                <label>First Name: <span class="tx-danger">*</span></label>
+                <input class="form-control" formControlName="firstName" placeholder="Enter First name"
+                  [ngClass]="{'has-success': basicFormControl['firstName'].valid}">
+                <div
+                  *ngIf="(basicFormControl['firstName'].touched || submitted) && (basicFormControl['firstName'].errors?.['required'])"
+                  class="tx-danger">
+                  <small>First Name is <strong>required</strong></small>
+                </div>
+              </div>
+              <div class="parsley-input col-md-4">
+                <label>Middle Name: <span class="tx-danger">*</span></label>
+                <input class="form-control" formControlName="middleName" placeholder="Enter Middle name">
+              </div>
+              <div class="parsley-input col-md-4">
+                <label>Last Name: <span class="tx-danger">*</span></label>
+                <input class="form-control" formControlName="lastName" placeholder="Enter Last name"
+                  [ngClass]="{'has-success': basicFormControl['lastName'].valid}">
+                <div
+                  *ngIf="(basicFormControl['lastName'].touched || submitted) && (basicFormControl['lastName'].errors?.['required'])"
+                  class="tx-danger">
+                  <small>Last Name is <strong>required</strong></small>
+                </div>
+              </div>
+            </div>
+            <div class="row mg-b-20">
+
+              <div class="parsley-input col-md-4">
+                <label>Teacher Email: <span class="tx-danger">*</span></label>
+                <input class="form-control" formControlName="teacherEmail" placeholder="Enter Teacher Email"
+                  [ngClass]="{'has-success': basicFormControl['teacherEmail'].valid}">
+                <div
+                  *ngIf="(basicFormControl['teacherEmail'].touched || submitted) && (basicFormControl['teacherEmail'].errors?.['required'])"
+                  class="tx-danger">
+                  <small>Teacher Email is <strong>required</strong></small>
+                </div>
+              </div>
+              <!-- <div class="parsley-input col-md-4">
+                                  <label>Nationality: <span class="tx-danger">*</span></label>
+                                  <input class="form-control" formControlName="nationality"  placeholder="Enter Nationality"
+                                      [ngClass]="{'has-success': basicFormControl['nationality'].valid}">
+                                  <div *ngIf="(basicFormControl['nationality'].touched || submitted) && (basicFormControl['nationality'].errors?.['required'])"
+                                      class="tx-danger">
+                                      <small>Nationality is <strong>required</strong></small>
+                                  </div>
+                              </div> -->
+              <div class="parsley-input col-md-4">
+                <label>Teacher Phone No: <span class="tx-danger">*</span></label>
+                <input class="form-control" formControlName="teacherPhoneNo" placeholder="Enter Teacher Phone No"
+                  placeholder="123456789"
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                  [ngClass]="{'has-success': basicFormControl['teacherPhoneNo'].valid}">
+                <div
+                  *ngIf="(basicFormControl['teacherPhoneNo'].touched || submitted) && (basicFormControl['teacherPhoneNo'].errors?.['required'])"
+                  class="tx-danger">
+                  <small>Teacher Phone No is <strong>required</strong></small>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="row mg-b-20">
+                            <div class="col-md-4 col-sm-12 col-md-4 my-1">
+                                <label>Date Of Birth: <span class="tx-danger">*</span></label>
+                                <div class="form-input">
+                                  <div class="input-group">
+                                    <input formControlName="dateOfBirth" class="form-control" placeholder="dd/mm/yyyy" name="d22"
+                                      [(ngModel)]="dateofBirthDatePicker" ngbDatepicker #d22="ngbDatepicker" />
+                                    <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d22.toggle()"
+                                      type="button"></button>
+                                  </div>
+                                </div>
+                                <div
+                                  *ngIf="(basicFormControl['dateOfBirth'].touched || submitted) && (basicFormControl['dateOfBirth'].errors?.['required'])"
+                                  class="tx-danger">
+                                  <small>Date Of Birth is <strong>required</strong></small>
+                                </div>
+                              </div>
+                              <div class="col-md-4 col-sm-12 col-md-4 my-1">
+                                <label>Date Of Joining <span class="tx-danger">*</span></label>
+                                <div class="form-input">
+                                  <div class="input-group">
+                                    <input formControlName="dateOfJoining" class="form-control" placeholder="dd/mm/yyyy" name="d23"
+                                      [(ngModel)]="dateofJoiningDatePicker" ngbDatepicker #d23="ngbDatepicker" />
+                                    <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d23.toggle()"
+                                      type="button"></button>
+                                  </div>
+                                </div>
+                                <div
+                                  *ngIf="(basicFormControl['dateOfJoining'].touched || submitted) && (basicFormControl['dateOfJoining'].errors?.['required'])"
+                                  class="tx-danger">
+                                  <small>Date Of Joining is <strong>required</strong></small>
+                                </div>
+                              </div>
+                              <div class="parsley-input col-md-4">
+                                <label>Religion: <span class="tx-danger">*</span></label>
+                                <input class="form-control" formControlName="religion"  placeholder="Enter Religion"
+                                    [ngClass]="{'has-success': basicFormControl['religion'].valid}">
+                                <div *ngIf="(basicFormControl['religion'].touched || submitted) && (basicFormControl['religion'].errors?.['required'])"
+                                    class="tx-danger">
+                                    <small>Religion is <strong>required</strong></small>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="row mg-b-20">
+                            
+                            <div class="parsley-input col-md-4">
+                                <label>Gender: <span class="tx-danger">*</span></label>
+                                <ng-select #select [items]="genderList" [searchable]="false" bindLabel="text" bindValue="id" value="id" formControlName="genderId">
+                                    <ng-template ng-header-tmp>
+                                        <input style="width: 100%; line-height: 24px" type="text" (input)="select.filter($any($event.target).value)"/>
+                                    </ng-template>
+                                </ng-select>
+                                <div *ngIf="(basicFormControl['genderId'].touched || submitted) && (basicFormControl['genderId'].errors?.['required'])"
+                                    class="tx-danger">
+                                    <small>Gender is <strong>required</strong></small>
+                                </div>
+                            </div>
+                            <div class="parsley-input col-md-4">
+                                <label>Street Name: <span class="tx-danger">*</span></label>
+                                <input class="form-control" formControlName="streetName"  placeholder="Enter Street Name"
+                                    [ngClass]="{'has-success': basicFormControl['streetName'].valid}">
+                                <div *ngIf="(basicFormControl['streetName'].touched || submitted) && (basicFormControl['streetName'].errors?.['required'])"
+                                    class="tx-danger">
+                                    <small>Street Name is <strong>required</strong></small>
+                                </div>
+                            </div>
+                            <div class="parsley-input col-md-4">
+                              <label>House No: <span class="tx-danger">*</span></label>
+                              <input class="form-control" formControlName="houseNo"  placeholder="Enter House No"
+                                  [ngClass]="{'has-success': basicFormControl['houseNo'].valid}">
+                              <div *ngIf="(basicFormControl['houseNo'].touched || submitted) && (basicFormControl['houseNo'].errors?.['required'])"
+                                  class="tx-danger">
+                                  <small>House No is <strong>required</strong></small>
+                              </div>
+                          </div>                          
+                          </div>
+                          <div class="row mg-b-20">
+
+                            <div class="parsley-input col-md-12">
+                                <label>Address: <span class="tx-danger">*</span></label>
+                                <textarea class="form-control" formControlName="address"  placeholder="Enter Address"
+                                    [ngClass]="{'has-success': basicFormControl['address'].valid}"></textarea>
+                                <div *ngIf="(basicFormControl['address'].touched || submitted) && (basicFormControl['address'].errors?.['required'])"
+                                    class="tx-danger">
+                                    <small>Address is <strong>required</strong></small>
+                                </div>
+                            </div>
+                         
+                          </div> -->
+          </div>
+          <div class="mg-t-30">
+            <button class="btn btn-primary pd-x-20" type="submit">
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="curdBtnIsList">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="parsley-input col-md-8">
+            <h3 class="card-title">Manage all Employees</h3>
+          </div>
+          <!-- <div class="parsley-input col-md-4" style="display:none">
+            <label>Branch: <span class="tx-danger">*</span></label>
+            <ng-select #select [items]="branchList" [(ngModel)]="FilterBranchId" (change)="getTeachers()"
+              bindLabel="branchName" bindValue="branchId">
+            </ng-select>
+          </div> -->
+
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered border text-nowrap mb-0" id="new-edit">
+            <thead>
+              <tr>
+                <th>Employee CODE</th>
+                <th>Full Name</th>
+                <th>CNIC</th>
+                <th>Contact</th>
+                <th>Personal Email</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- <tr *ngFor="let item of gridList;let ndx = index">
+                <td>{{item.firstName}} {{item.middleName}} {{item.lastName}}</td>
+                <td>{{item.teacherPhoneNo}}</td>
+                <td>{{item.teacherEmail}}</td>
+                <td>
+                  <a class="btn me-3 btn-sm btn-primary" [routerLink]="['/teacher/teacher-courses']"
+                    [queryParams]="{tid:item.teacherId}">
+                    Add Courses
+                  </a>
+                  <a class="btn me-3 btn-sm btn-success" [routerLink]="['/teacher/teacher-classes']"
+                    [queryParams]="{tid:item.teacherId}">
+                    Add Classes
+                  </a>
+                  <button type="button" (click)="setValueToForm(item)" class="btn me-3 btn-sm btn-primary">
+                    <span class="fe fe-edit"> </span>
+                  </button>
+                  <button (click)="deleteRow(item)" id="bDel" type="button" class="btn me-3 btn-sm btn-danger">
+                    <span class="fe fe-trash-2"> </span>
+                  </button>
+                  <label>
+                    <input (click)="IsActive(item)" type="checkbox" [checked]="item.isActive"
+                      name="form-switch-checkbox1" class="form-switch-input">
+                    <span class="form-switch-indicator"></span>
+                  </label>
+                </td>
+              </tr> -->
+              <tr *ngFor="let item of employeesList;index as i">
+                <td>{{item.employeeCode}}</td>
+                <td>{{item.firstName}} {{item.middleName}} {{item.lastName}}</td>
+                <td>{{item.cnic}}</td>
+                <td>{{item.contact}}</td>
+                <td>{{item.personalEmail}}</td>
+                <td>
+                  <a title="Upload Attachments" href="javascript:void(0);"
+                     (click)="openScrollableContentMd(uploadDocumentsModal, item.employeeId)"
+                     class="btn me-3 btn-sm btn-success">
+                    Upload Documents
+                  </a>
+                
+                  <!-- <a title="Given Accessories" href="javascript:void(0);"
+                     (click)="openScrollableContentMd(givenAccessoriesModal, item.employeeId)"
+                     class="btn me-3 btn-sm btn-info">
+                    Given Accessories
+                  </a> -->
+                
+                  <a title="Download Attachments" href="javascript:void(0);"
+                     (click)="openScrollableContentMd(AttachmerntList, item.employeeId)"
+                     class="dropdown-item">
+                    Documents
+                  </a>
+                
+                  <button type="button" class="btn me-3 btn-sm btn-primary"
+                          [routerLink]="['/register/employee']"
+                          [queryParams]="{id:item.employeeId}">
+                    <span class="fe fe-edit"> </span>
+                  </button>
+                
+                  <label>
+                    <input (click)="IsActive(item)" type="checkbox"
+                           [checked]="item.isActive" class="form-switch-input">
+                    <span class="form-switch-indicator"></span>
+                  </label>
+                </td>
+                
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="d-flex justify-content-between p-2">
+          <ngb-pagination [collectionSize]="pagination.totalCount" [(page)]="pagination.pageNo"
+            [pageSize]="pagination.pageSize" (pageChange)="onPageChange($event)" [maxSize]="pagination.maxSize"
+            [boundaryLinks]="true" [ellipses]="true"></ngb-pagination>
+
+
+          <ng-select class="" style="min-width: 100px" name="pageSize" (change)="getEmployees()"
+            [(ngModel)]="pagination.pageSize">
+            <ng-option value="5">5</ng-option>
+            <ng-option value="10" selected>10</ng-option>
+            <ng-option value="50">50</ng-option>
+            <ng-option value="100">100</ng-option>
+          </ng-select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #uploadDocumentsModal let-modal>
+  <div class="modal-header">
+    <h6 class="modal-title">Upload Documents</h6>
+    <button type="button" (click)="modal.dismiss('Cross click')" class="btn btn-danger me-2">
+      Close
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group row" *ngFor="let item of attachmentList; let ndx = index">
+      <div class="col-md-10">
+        <label for="file-{{ndx}}" style="font-weight: bold;">{{item.documentName}}</label>
+        <input accept="application/pdf" id="file-{{ndx}}" type="file" 
+               (change)="onSelectAttachment($event, item.employeeDocumentId)" class="form-control">
+      </div>
+      <div class="col-md-2" style="margin-top: 30px;">
+        <label class="ckbox mg-b-5">
+          <input type="checkbox" id="BusServices-{{ndx}}" disabled [checked]="item.isRequired">
+          <span>Required</span>
+        </label>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #givenAccessoriesModal let-modal>
+  <div class="modal-header">
+    <h6 class="modal-title">Given Accessories</h6>
+    <button type="button" (click)="modal.dismiss('Cross click')" class="btn btn-danger me-2">
+      Close
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group row" *ngFor="let item of attachmentList; let ndx = index">
+      <div class="col-md-10">
+        <label for="accessory-{{ndx}}" style="font-weight: bold;">{{item.documentName}}</label>
+
+        <input accept="application/pdf" id="accessory-{{ndx}}" type="file"
+               (change)="onSelectAttachment($event, item.employeeDocumentId)" class="form-control">
+      </div>
+      <div class="col-md-2" style="margin-top: 30px;">
+        <label class="ckbox mg-b-5">
+          <input type="checkbox" id="GivenAccessories-{{ndx}}" [checked]="item.isRequired">
+          <span>Required</span>
+        </label>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+
+<ng-template #AttachmerntList let-modal>
+  <div class="modal-header">
+      <h6 class="modal-title">Attachments</h6>
+      <button type="button" (click)="modal.dismiss('Cross click')" class="btn btn-danger me-2">
+          Close
+      </button>
+  </div>
+  <div class="modal-body">
+      <div class="form-group row">
+          <div class="row">
+              <div class="col-lg-12">
+                  <div class="card custom-card">
+                      <div class="card-body p-4 pt-0">
+                          <div class="text-wrap">
+                              <div class="file-image-btn" *ngFor="let item of getAttachment;let ndx = index">
+                                  <div class="product-image"><a
+                                          routerlink="/apps/file-manager/file-manager-details"><img
+                                              src="../../../assets/Files/2.png" alt=""></a>
+                                      <ul class="image-icons">
+                                          <li><a download target="_blank"
+                                                  href="{{baseUrl+FilePath.EmployeeDocuments+'/'+item.documentGuid}}"
+                                                  class="btn btn-secondary"><i class="fe fe-download"></i></a>
+                                              <a (click)="deleteDocument(item.documentId)" class="btn btn-secondary"><i class="fe fe-trash"></i></a>
+                                          </li>
+                                      </ul><span class="file-name-1">{{item.lovName}}</span>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</ng-template>

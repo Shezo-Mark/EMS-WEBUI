@@ -1,0 +1,6 @@
+
+export enum StudentData {
+  DISCOUNT = 'DISCOUNT',
+  INSTALMENTS = 'INSTALMENTS',
+  PAYMENTADDED = 'PAYMENTADDED',
+}

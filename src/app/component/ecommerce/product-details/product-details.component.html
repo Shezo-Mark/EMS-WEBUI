@@ -1,0 +1,515 @@
+<app-page-header
+  [title]="'Product-Details'"
+  [items]="['E-Commerce']"
+  [active_item]="'Product-Details'"
+></app-page-header>
+<!-- row -->
+<div class="row row-sm">
+  <div class="col-xl-12">
+    <div class="card">
+      <div class="card-body h-100">
+        <div class="row row-sm">
+          <div class="col-xl-5 col-lg-12 col-md-12">
+            <div class="preview-pic tab-content" id="pills-tabContent">
+              <div [ngbNavOutlet]="nav1" class="product-carousel  border br-5"></div>
+            </div>
+            <ul
+              ngbNav
+              #nav1="ngbNav"
+              [activeId]="1"
+              class="nav nav-pills mb-3 preview-thumbnail nav nav-tabs"
+              id="pills-tabContent"
+              role="tablist"
+            >
+              <li [ngbNavItem]="1" class="nav-item" role="presentation">
+                <a
+                  ngbNavLink
+                  class="nav-link active"
+                  id="pills-home-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-home"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-home"
+                  aria-selected="true"
+                >
+                  <img
+                    src="./assets/img/ecommerce/product-details/4.png"
+                    alt="image"
+                  />
+                </a>
+                <ng-template ngbNavContent>
+                  <div id="Slider" class="carousel slide">
+                    <div class="carousel-inner">
+                      <div class="">
+                        <img
+                          src="./assets/img/ecommerce/product-details/4.png"
+                          alt="img"
+                          class="img-fluid mx-auto d-block"
+                        />
+                        <div class="text-center mt-5 mb-5 btn-list"></div>
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>
+              </li>
+              <li [ngbNavItem]="2" class="nav-item" role="presentation">
+                <a
+                  ngbNavLink
+                  class="nav-link"
+                  id="pills-profile-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-profile"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-profile"
+                  aria-selected="false"
+                >
+                  <img
+                    src="./assets/img/ecommerce/product-details/1.png"
+                    alt="image"
+                  />
+                </a>
+                <ng-template ngbNavContent>
+                  <div id="Slider" class="carousel slide">
+                    <div class="carousel-inner">
+                      <div class="">
+                        <img
+                          src="./assets/img/ecommerce/product-details/1.png"
+                          alt="img"
+                          class="img-fluid mx-auto d-block"
+                        />
+                        <div class="text-center mt-5 mb-5 btn-list"></div>
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>
+              </li>
+              <li [ngbNavItem]="3" class="nav-item" role="presentation">
+                <a
+                  ngbNavLink
+                  class="nav-link"
+                  id="pills-contact-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-contact"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-contact"
+                  aria-selected="false"
+                >
+                  <img
+                    src="./assets/img/ecommerce/product-details/2.png"
+                    alt="image"
+                  />
+                </a>
+                <ng-template ngbNavContent>
+                  <div id="Slider" class="carousel slide">
+                    <div class="carousel-inner">
+                      <div class="">
+                        <img
+                          src="./assets/img/ecommerce/product-details/2.png"
+                          alt="img"
+                          class="img-fluid mx-auto d-block"
+                        />
+                        <div class="text-center mt-5 mb-5 btn-list"></div>
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>
+              </li>
+              <li [ngbNavItem]="4" class="nav-item" role="presentation">
+                <a
+                  ngbNavLink
+                  class="nav-link"
+                  id="pills-disabled-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-disabled"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-disabled"
+                  aria-selected="false"
+                >
+                  <img
+                    src="./assets/img/ecommerce/product-details/3.png"
+                    alt="image"
+                  />
+                </a>
+                <ng-template ngbNavContent>
+                  <div id="Slider" class="carousel slide">
+                    <div class="carousel-inner">
+                      <div class="">
+                        <img
+                          src="./assets/img/ecommerce/product-details/3.png"
+                          alt="img"
+                          class="img-fluid mx-auto d-block"
+                        />
+                        <div class="text-center mt-5 mb-5 btn-list"></div>
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>
+              </li>
+              <li [ngbNavItem]="5" class="nav-item" role="presentation">
+                <a
+                  ngbNavLink
+                  class="nav-link"
+                  id="pills-disabled1-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-disabled1"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-disabled1"
+                  aria-selected="false"
+                >
+                  <img
+                    src="./assets/img/ecommerce/product-details/5.png"
+                    alt="image"
+                  />
+                </a>
+                <ng-template ngbNavContent>
+                  <div id="Slider" class="carousel slide">
+                    <div class="carousel-inner">
+                      <div class="">
+                        <img
+                          src="./assets/img/ecommerce/product-details/5.png"
+                          alt="img"
+                          class="img-fluid mx-auto d-block"
+                        />
+                        <div class="text-center mt-5 mb-5 btn-list"></div>
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>
+              </li>
+            </ul>
+          </div>
+          <div class="details col-xl-7 col-lg-12 col-md-12 mt-4 mt-xl-0">
+            <h4 class="product-title">Fabric Sofa</h4>
+            <div class="rating">
+              <div class="stars">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star text-muted"></span>
+                <span class="fa fa-star text-muted"></span>
+              </div>
+              <span class="review-no">41 reviews</span>
+            </div>
+            <p class="product-description">
+              Suspendisse quos? Tempus cras iure temporibus? Eu laudantium
+              cubilia sem sem! Repudiandae et! Massa senectus enim minim
+              sociosqu delectus posuere.
+            </p>
+            <h6 class="price">
+              current price: <span class="h3 ms-2">$180</span>
+            </h6>
+            <p class="vote">
+              <strong>91%</strong> of buyers enjoyed this product!
+              <strong>(87 votes)</strong>
+            </p>
+            <div class="sizes d-flex">
+              sizes:
+              <span class="size d-flex" data-bs-toggle="tooltip" title="small"
+                ><label class="rdiobox mb-0"
+                  ><input checked="" name="rdio" type="radio" />
+                  <span class="font-weight-bold">s</span></label
+                ></span
+              >
+              <span class="size d-flex" data-bs-toggle="tooltip" title="medium"
+                ><label class="rdiobox mb-0"
+                  ><input name="rdio" type="radio" /> <span>m</span></label
+                ></span
+              >
+              <span class="size d-flex" data-bs-toggle="tooltip" title="large"
+                ><label class="rdiobox mb-0"
+                  ><input name="rdio" type="radio" /> <span>l</span></label
+                ></span
+              >
+              <span
+                class="size d-flex"
+                data-bs-toggle="tooltip"
+                title="extra-large"
+                ><label class="rdiobox mb-0"
+                  ><input name="rdio" type="radio" /> <span>xl</span></label
+                ></span
+              >
+            </div>
+            <div class="colors d-flex me-3 mt-2">
+              <span class="mt-2">colors:</span>
+              <div class="row gutters-xs ms-4">
+                <div class="me-2">
+                  <label class="colorinput">
+                    <input
+                      name="color"
+                      type="radio"
+                      value="azure"
+                      class="colorinput-input"
+                      checked=""
+                    />
+                    <span class="colorinput-color bg-danger"></span>
+                  </label>
+                </div>
+                <div class="me-2">
+                  <label class="colorinput">
+                    <input
+                      name="color"
+                      type="radio"
+                      value="indigo"
+                      class="colorinput-input"
+                    />
+                    <span class="colorinput-color bg-secondary"></span>
+                  </label>
+                </div>
+                <div class="me-2">
+                  <label class="colorinput">
+                    <input
+                      name="color"
+                      type="radio"
+                      value="purple"
+                      class="colorinput-input"
+                    />
+                    <span class="colorinput-color bg-dark"></span>
+                  </label>
+                </div>
+                <div class="me-2">
+                  <label class="colorinput">
+                    <input
+                      name="color"
+                      type="radio"
+                      value="pink"
+                      class="colorinput-input"
+                    />
+                    <span class="colorinput-color bg-pink"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex mt-2">
+              <div class="mt-2 product-title">Quantity:</div>
+              <div class="d-flex ms-2">
+                <ul class="mb-0 qunatity-list">
+                  <li>
+                    <div class="form-group">
+                      <ng-select
+                        name="quantity"
+                        id="select-countries17"
+                        class="nice-select wd-100"
+                      >
+                        <ng-option value="1" selected="">1</ng-option>
+                        <ng-option value="2">2</ng-option>
+                        <ng-option value="3">3</ng-option>
+                        <ng-option value="4">4</ng-option>
+                      </ng-select>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="action">
+              <a
+                class="add-to-cart btn btn-danger my-1 me-1"
+                routerLink="/ecommerce/wish-list"
+                >Add To Wishlist</a
+              >
+              <a
+                class="add-to-cart btn btn-success my-1 me-1 me-2"
+                routerLink="/ecommerce/cart"
+                >Add To Cart</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /row -->
+
+<!-- row -->
+<div class="row">
+  <div class="col-md-6 col-xl-3">
+    <div class="card item-card">
+      <div class="card-body pb-0 h-100">
+        <div class="text-center">
+          <img
+            src="./assets/img/ecommerce/01.jpg"
+            alt="img"
+            class="img-fluid w-100"
+          />
+        </div>
+        <div class="card-body cardbody relative">
+          <div class="cardtitle">
+            <span>Items</span>
+            <a>Flower Pot</a>
+          </div>
+          <div class="cardprice">
+            <span class="type--strikethrough">$999</span>
+            <span>$799</span>
+          </div>
+        </div>
+      </div>
+      <div class="text-center border-top p-3">
+        <a routerLink="/ecommerce/product-details" class="btn btn-primary my-1 me-1">
+          View More</a
+        >
+        <a class="add-to-cart btn btn-success my-1 me-1" routerLink="/ecommerce/cart"
+          >Add To Cart</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-xl-3">
+    <div class="card item-card">
+      <div class="card-body pb-0 h-100">
+        <div class="text-center">
+          <img
+            src="./assets/img/ecommerce/04.jpg"
+            alt="img"
+            class="img-fluid w-100"
+          />
+        </div>
+        <div class="card-body cardbody relative">
+          <div class="cardtitle">
+            <span>Fashion</span>
+            <a>Wrist Watch</a>
+          </div>
+          <div class="cardprice">
+            <span class="type--strikethrough">$999</span>
+            <span>$799</span>
+          </div>
+        </div>
+      </div>
+      <div class="text-center border-top p-3">
+        <a routerLink="/ecommerce/product-details" class="btn btn-primary my-1 me-1">
+          View More</a
+        >
+        <a class="add-to-cart btn btn-success my-1 me-1" routerLink="/ecommerce/cart"
+          >Add To Cart</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-xl-3">
+    <div class="card item-card">
+      <div class="card-body pb-0 h-100">
+        <div class="text-center">
+          <img
+            src="./assets/img/ecommerce/07.jpg"
+            alt="img"
+            class="img-fluid w-100"
+          />
+        </div>
+        <div class="card-body cardbody relative">
+          <div class="cardtitle">
+            <span>Accessories</span>
+            <a>COFFEE CUP</a>
+          </div>
+          <div class="cardprice">
+            <span class="type--strikethrough">$999</span>
+            <span>$799</span>
+          </div>
+        </div>
+      </div>
+      <div class="text-center border-top p-3">
+        <a routerLink="/ecommerce/product-details" class="btn btn-primary my-1 me-1">
+          View More</a
+        >
+        <a class="add-to-cart btn btn-success my-1 me-1" routerLink="/ecommerce/cart"
+          >Add To Cart</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-xl-3">
+    <div class="card item-card">
+      <div class="card-body pb-0 h-100">
+        <div class="text-center">
+          <img
+            src="./assets/img/ecommerce/08.jpg"
+            alt="img"
+            class="img-fluid w-100"
+          />
+        </div>
+        <div class="card-body cardbody relative">
+          <div class="cardtitle">
+            <span>Accessories</span>
+            <a>CACTUS PLANT</a>
+          </div>
+          <div class="cardprice">
+            <span class="type--strikethrough">$999</span>
+            <span>$799</span>
+          </div>
+        </div>
+      </div>
+      <div class="text-center border-top p-3">
+        <a routerLink="/ecommerce/product-details" class="btn btn-primary my-1 me-1">
+          View More</a
+        >
+        <a class="add-to-cart btn btn-success my-1 me-1" routerLink="/ecommerce/cart"
+          >Add To Cart</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /row -->
+
+<!-- row -->
+<div class="row row-sm">
+  <div class="col-md-12 col-xl-4 col-xs-12 col-sm-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="feature2">
+          <i
+            class="fa fa-plane bg-purple ht-50 wd-50 text-center brround text-white"
+          ></i>
+          <i class="ri-check-double-line text-purple float-end"></i>
+        </div>
+        <h5 class="mb-2 tx-16">Free Shipping</h5>
+        <span class="fs-14 text-muted"
+          >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua domenus
+          orioneu.</span
+        >
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12 col-xl-4 col-xs-12 col-sm-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="feature2">
+          <i
+            class="fa fa-phone bg-pink  ht-50 wd-50 text-center brround text-white"
+          ></i>
+          <i class="ri-check-double-line text-pink float-end"></i>
+        </div>
+        <h5 class="mb-2 tx-16">Customer Support</h5>
+        <span class="fs-14 text-muted"
+          >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua domenus
+          orioneu.</span
+        >
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12 col-xl-4 col-xs-12 col-sm-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="feature2">
+          <i
+            class="fa fa-undo bg-teal ht-50 wd-50 text-center brround text-white"
+          ></i>
+          <i class="ri-check-double-line text-teal float-end"></i>
+        </div>
+        <div class="icon-return"></div>
+        <h5 class="mb-2 tx-16">30 days money back</h5>
+        <span class="fs-14 text-muted"
+          >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua domenus
+          orioneu.</span
+        >
+      </div>
+    </div>
+  </div>
+</div>
+<!-- row closed -->

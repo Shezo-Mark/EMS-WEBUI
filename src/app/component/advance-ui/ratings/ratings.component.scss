@@ -1,0 +1,107 @@
+::ng-deep {
+    .fa.fa-heart,
+
+    .fa.fa-star {
+        letter-spacing: 5px;
+    }
+
+    .ng-rating:focus,
+    .rating-size:focus {
+        outline: 0;
+    }
+
+    .star {
+        position: relative;
+        display: inline-block;
+        font-size: 3rem;
+        color: #f0f0f2;
+    }
+
+    .full {
+        color: #ff9b21;
+    }
+
+    .half {
+        position: absolute;
+        display: inline-block;
+        overflow: hidden;
+        color: #ff9b21;
+    }
+
+    .heartHalf {
+        position: absolute;
+        display: inline-block;
+        overflow: hidden;
+        color: #f16d75;
+    }
+
+    .filled {
+        color: #ff9b21;
+    }
+
+    .bad {
+        color: #deb0b0;
+    }
+
+    .filled.bad {
+        color: #f16d75;
+    }
+
+    @media (max-width:768px) {
+        .star {
+            font-size: 1.7rem;
+        }
+    }
+
+    .dark-mode {
+        .star {
+            color: rgba(255, 255, 255, 0.2);
+
+            &.filled {
+                color: #ff9b21;
+
+                &.bad {
+                    color: #f16d75;
+                }
+            }
+        }
+    }
+
+    .transparent-mode {
+        .star {
+            color: rgba(255, 255, 255, 0.2);
+        }
+    }
+
+    .br-horizontal .br-text {
+        width: 40px;
+        margin: 15px;
+        font-size: 20px;
+        padding: 16px;
+        color: var(--br-active-color);
+
+    }
+
+    .br-horizontal {
+        display: inline;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .br-movie .br-unit-inner {
+        display: flex;
+        width: 50px;
+        height: 8px;
+        float: left;
+        background-color: var(--br-active-color);
+        opacity: 0.25;
+    }
+
+    .d-inline-flex {
+        display: inline !important;
+    }
+}
+
+.ng-untouched.ng-pristine.ng-valid {
+    display: none;
+}

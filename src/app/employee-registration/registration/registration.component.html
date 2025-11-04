@@ -1,0 +1,401 @@
+<app-page-header [title]="'Employee Registration'" [items]="['Forms']" [active_item]="'Employee Registration'"></app-page-header>
+<div class="row">
+  <div class="col-lg-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Employee Registration</div>
+        <p class="mb-0 text-muted tx-13">
+          Employee Registration and Employee Updation
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Employee Registration</div>
+        
+      </div>
+      <div class="card-body">
+        <div id="wizard3">
+          <mat-stepper #stepper>
+              <mat-step>
+                <ng-template matStepLabel>Personal Information</ng-template>
+                <ng-template matStepContent>
+                  <form [formGroup]="registrationForm" novalidate (ngSubmit)="formSubmit()">
+                  <section>
+                    <div class="row">
+                      <div class="col-md-4 col-sm-12 col-md-4 my-1">
+                        <div class="form-group">
+                          <label>Employee Code: </label>
+                          <input type="text" name="name" readonly formControlName="EmployeeCode"
+                            placeholder="Employee Code" class="form-control" />
+                        </div>
+
+                      </div>
+                      <div class="col-md-4 col-sm-12 col-md-4 my-1">
+                        <label>First Name: </label>
+                        <input class="form-control" formControlName="FirstName" placeholder="Enter First name"
+                          [ngClass]="{'has-success': basicFormControl['FirstName'].valid}">
+                        <div
+                          *ngIf="(basicFormControl['FirstName'].invalid) && submitted && (basicFormControl['FirstName'].errors?.['required'])"
+                          class="tx-danger">
+                          <small>First Name is <strong>required</strong></small>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-12 col-md-4 my-1">
+                        <label>Middle Name: </label>
+                        <input class="form-control" formControlName="MiddleName" placeholder="Enter Middle Name "
+                          [ngClass]="{'has-success': basicFormControl['MiddleName'].valid}">
+                        <div
+                          *ngIf="(basicFormControl['MiddleName'].invalid) && submitted && (basicFormControl['MiddleName'].errors?.['required'])"
+                          class="tx-danger">
+                          <small>Middle Name is <strong>required</strong></small>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-12 col-md-4 my-1">
+                        <label>Last Name: </label>
+                        <input class="form-control" formControlName="LastName" placeholder="Enter Last name"
+                          [ngClass]="{'has-success': basicFormControl['LastName'].valid}">
+                        <div
+                          *ngIf="(basicFormControl['LastName'].invalid) && submitted&& (basicFormControl['LastName'].errors?.['required'])"
+                          class="tx-danger">
+                          <small>Last Name is <strong>required</strong></small>
+                        </div>
+                      </div>
+                     
+                      
+                    </div>
+                    <div class="row">
+                     
+                      <div class="col-md-4 col-sm-12 col-md-4 my-1">
+                        <label>Contact: </label>
+                        <input class="form-control" formControlName="Contact" placeholder="Enter Contact"
+                          [ngClass]="{'has-success': basicFormControl['Contact'].valid}">
+                        <div
+                          *ngIf="(basicFormControl['Contact'].invalid) && submitted && (basicFormControl['Contact'].errors?.['required'])"
+                          class="tx-danger">
+                          <small>Contact is <strong>required</strong></small>
+
+                      </div>
+                      </div>
+                      <div class="col-md-4 col-sm-12 col-md-4 my-1">
+                        <label>Personal Email: </label>
+                        <input class="form-control" formControlName="PersonalEmail" placeholder="Enter Personal Email"
+                          [ngClass]="{'has-success': basicFormControl['PersonalEmail'].valid}">
+                        <div
+                          *ngIf="submitted && (basicFormControl['PersonalEmail'].errors?.['required'])"
+                          class="tx-danger">
+                          <small>Personal Email is <strong>required</strong></small>
+                        </div>
+                        <div
+                          *ngIf="submitted && (basicFormControl['PersonalEmail'].errors?.['pattern'])"
+                          class="tx-danger">
+                          <small>Email is not <strong>correct</strong></small>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-12 col-md-4 my-1">
+                        <div class="form-group">
+                          <label>Gender: </label> 
+                          <ng-select #select [items]="genderList"  formControlName="GenderId"
+                            bindLabel="text" bindValue="id">
+                          </ng-select>
+                          <div
+                            *ngIf="(basicFormControl['GenderId'].invalid) && submitted&& (basicFormControl['GenderId'].errors?.['required'])"
+                            class="tx-danger">
+                            <small>Gender is <strong>required</strong></small>
+                          </div>
+                        </div>
+                      </div>
+                        
+                        
+                    </div>
+                    <div class="row">
+                      
+                      <!-- <div class="col-md-4 col-sm-12 col-md-4 my-1">
+                        <div class="form-group">
+                          <label>Employee Type: </label>
+                          <ng-select #select [items]="employeetypeList"  formControlName="EmployeeTypeId"
+                            bindLabel="text" bindValue="id">
+                          </ng-select>
+                          <div
+                            *ngIf="(basicFormControl['EmployeeTypeId'].invalid) && submitted&& (basicFormControl['EmployeeTypeId'].errors?.['required'])"
+                            class="tx-danger">
+                            <small>Employee Type is <strong>required</strong></small>
+                          </div>
+                        </div>
+                      </div> -->
+                      
+                      <div class="col-md-4 col-sm-12 col-md-4 my-1">
+                        <label> CNIC No: </label>
+                        <input class="form-control" formControlName="Cnic" placeholder="Enter CNIC No"
+                          [ngClass]="{'has-success': basicFormControl['Cnic'].valid}">
+                        <div
+                          *ngIf="(basicFormControl['Cnic'].invalid) && submitted&& (basicFormControl['Cnic'].errors?.['required'])"
+                          class="tx-danger">
+                          <small> CNIC No is <strong>required</strong></small>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-12 col-md-4 my-1">
+                        <label>Date Of Birth: </label>
+                        <div class="form-input">
+                          <div class="input-group">
+                            <input formControlName="DateOfBirth" class="form-control" placeholder="dd/mm/yyyy" name="d22"
+                              [(ngModel)]="dateofbirthPicker" ngbDatepicker #d22="ngbDatepicker" />
+                            <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d22.toggle()"
+                              type="button"></button>
+                          </div>
+                        </div>
+                        <div
+                          *ngIf="(basicFormControl['DateOfBirth'].invalid) && submitted&& (basicFormControl['DateOfBirth'].errors?.['required'])"
+                          class="tx-danger">
+                          <small>Date Of Birth is <strong>required</strong></small>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-12 col-md-4 my-1">
+                        <label>Date Of Joining: </label>
+                        <div class="form-input">
+                          <div class="input-group">
+                            <input  formControlName="DateOfJoining" class="form-control" placeholder="dd/mm/yyyy"
+                              name="d2" [(ngModel)]="dateOfJoiningPicker" ngbDatepicker #d2="ngbDatepicker" />
+                            <button  class="btn btn-outline-secondary bi bi-calendar3" (click)="d2.toggle()"
+                              type="button"></button>
+                          </div>
+                        </div>
+                        <div
+                          *ngIf="(basicFormControl['DateOfJoining'].invalid) && submitted&& (basicFormControl['DateOfJoining'].errors?.['required'])"
+                          class="tx-danger">
+                          <small>Date Of Joining is <strong>required</strong></small>
+                        </div>
+                      </div>
+                     
+                     <div class="row">
+                     </div>
+                     <div class="col-md-4 col-sm-12 col-md-4 my-1"> 
+                      <div class="form-group">
+                        <label>Employee Designation: </label>
+                        <ng-select #select [items]="emplyeeDesignationList"  formControlName="EmployeeDesignationId"
+                          bindLabel="text" bindValue="id">
+                        </ng-select>
+                        <div
+                          *ngIf="(basicFormControl['EmployeeDesignationId'].invalid) && submitted&& (basicFormControl['EmployeeDesignationId'].errors?.['required'])"
+                          class="tx-danger">
+                          <small>Employee Designation is <strong>required</strong></small>
+                        </div>
+                      </div>
+                    </div> 
+                    <div class="col-md-4 col-sm-12 col-md-4 my-1" *ngIf="!isEdit">
+                      <div class="form-group">
+                        <label>Job Description: </label>
+                        <ng-select #select [items]="jobDescriptionList"  formControlName="JobDescriptionId"
+                          bindLabel="name" bindValue="id">
+                        </ng-select>
+                        <div
+                          *ngIf="(basicFormControl['JobDescriptionId'].invalid) && submitted&& (basicFormControl['JobDescriptionId'].errors?.['required'])"
+                          class="tx-danger">
+                          <small>Job Description is <strong>required</strong></small>
+                        </div>
+                      </div>
+                    </div> 
+                    <div class="col-md-4 col-sm-12 col-md-4 my-1">
+                      <div class="form-group">
+                        <label>Employment Type: </label>
+                        <ng-select #select [items]="employmenttypeList"  formControlName="EmploymentTypeId"
+                          bindLabel="text" bindValue="id">
+                        </ng-select>
+                        <div
+                          *ngIf="(basicFormControl['EmploymentTypeId'].invalid) && submitted&& (basicFormControl['EmploymentTypeId'].errors?.['required'])"
+                          class="tx-danger">
+                          <small>Employment Type is <strong>required</strong></small>
+                        </div>
+                      </div>
+                    </div>
+
+                 
+                  
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 col-sm-12 col-md-4 my-1">
+                      <div class="form-group">
+                        <label>Group: </label>
+                        <ng-select #select [items]="groupList"  formControlName="GroupId" (change)="onGroupChange($event)"
+                          bindLabel="name" bindValue="id">
+                        </ng-select>
+                        <div
+                          *ngIf="(basicFormControl['GroupId'].invalid) && submitted&& (basicFormControl['GroupId'].errors?.['required'])"
+                          class="tx-danger">
+                          <small>Group is <strong>required</strong></small>
+                        </div>
+                      </div>
+                    </div> 
+                    <div class="col-md-4 col-sm-12 col-md-4 my-1">
+                      <div class="form-group">
+                        <label>Department: </label>
+                        <ng-select #select [items]="departmentList"  formControlName="DepartmentId"
+                          bindLabel="departmentName" bindValue="departmentId">
+                        </ng-select>
+                        <div
+                          *ngIf="(basicFormControl['DepartmentId'].invalid) && submitted&& (basicFormControl['DepartmentId'].errors?.['required'])"
+                          class="tx-danger">
+                          <small>Department is <strong>required</strong></small>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-md-4 my-1">
+                      <div class="form-group">
+                        <label>Function: </label>
+                        <ng-select #select [items]="functionList"  formControlName="FunctionId"
+                          bindLabel="functionName" bindValue="functionId">
+                        </ng-select>
+                        <div
+                          *ngIf="(basicFormControl['FunctionId'].invalid) && submitted&& (basicFormControl['FunctionId'].errors?.['required'])"
+                          class="tx-danger">
+                          <small>Function is <strong>required</strong></small>
+                        </div>
+                      </div>
+                    </div>
+                 
+                  </div>
+                  <div class="row">
+                  <div class="col-md-4 col-sm-12 col-md-4 my-1">
+                    <div class="form-group">
+                      <label>Level: </label>
+                      <ng-select #select [items]="levelList"  formControlName="LevelId"
+                        bindLabel="levelName" bindValue="levelId">
+                      </ng-select>
+                      <div
+                        *ngIf="(basicFormControl['LevelId'].invalid) && submitted&& (basicFormControl['LevelId'].errors?.['required'])"
+                        class="tx-danger">
+                        <small>Level is <strong>required</strong></small>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+      
+                  <div class="row mt-3 mb-3">
+                    <b> Current Address</b>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12 col-md-4 my-1">
+                      <label>Current Street Address:</label>
+                      <input class="form-control" formControlName="CurrentStreetAddress" placeholder="Enter Current Street Address">
+                    </div>
+                    <div class="col-sm-12 col-md-4 my-1">
+                      <label>Current Mohallah:</label>
+                      <input class="form-control" formControlName="CurrentMohallah" placeholder="Enter Current Mohallah">
+                    </div>
+                    <div class="col-sm-12 col-md-4 my-1">
+                      <label>Current Tehsil:</label>
+                      <input class="form-control" formControlName="CurrentTehsil" placeholder="Enter Current Tehsil">
+                    </div>
+                    <div class="col-sm-12 col-md-4 my-1">
+                      <label>Current District:</label>
+                      <input class="form-control" formControlName="CurrentDistrict" placeholder="Enter Current District">
+                    </div>
+                    <div class="col-sm-12 col-md-4 my-1">
+                      <label>Current City:</label>
+                      <input class="form-control" formControlName="CurrentCity" placeholder="Enter Current City">
+                    </div>
+                    <div class="col-sm-12 col-md-4 my-1">
+                      <label>Current State:</label>
+                      <input class="form-control" formControlName="CurrentState" placeholder="Enter Current State">
+                    </div>
+                  </div>
+                  
+      
+                  
+                  <div class="row mt-2 mb-3">
+                    <b> Permanent Address</b>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12 col-md-4 my-1">
+                      <label>Permanent Street Address:</label>
+                      <input class="form-control" formControlName="PermanentStreetAddress" placeholder="Enter Permanent Street Address">
+                    </div>
+                    <div class="col-sm-12 col-md-4 my-1">
+                      <label>Permanent Mohallah:</label>
+                      <input class="form-control" formControlName="PermanentMohallah" placeholder="Enter Permanent Mohallah">
+                    </div>
+                    <div class="col-sm-12 col-md-4 my-1">
+                      <label>Permanent Tehsil:</label>
+                      <input class="form-control" formControlName="PermanentTehsil" placeholder="Enter Permanent Tehsil">
+                    </div>
+                    <div class="col-sm-12 col-md-4 my-1">
+                      <label>Permanent District:</label>
+                      <input class="form-control" formControlName="PermanentDistrict" placeholder="Enter Permanent District">
+                    </div>
+                    <div class="col-sm-12 col-md-4 my-1">
+                      <label>Permanent City:</label>
+                      <input class="form-control" formControlName="PermanentCity" placeholder="Enter Permanent City">
+                    </div>
+                    <div class="col-sm-12 col-md-4 my-1">
+                      <label>Permanent State:</label>
+                      <input class="form-control" formControlName="PermanentState" placeholder="Enter Permanent State">
+                    </div>
+                  </div>
+
+                  <div class="row align-items-center" style="float: right;">
+                    <div class="col-sm-12 my-2 align-items-center">
+                      <input type="checkbox" id="sameAsCurrent" (change)="copyCurrentToPermanent($event)">
+                      <label for="sameAsCurrent" style="padding-left: 10px;"><b>Same as Current Address</b></label>
+                    </div>
+                  </div>
+                  
+                        
+                        
+                       
+                     
+                      <div class="row pt-5">
+                        <div class="col-sm-12 col-md-4 my-1 p-0"
+                          *ngIf="registrationForm.controls['IsPicturePermission'].value">
+                          <ngx-dropzone (change)="onSelectFile($event)">
+                            <ngx-dropzone-label class="ff_fileupload_dropzone">
+                              <img [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'"
+                                height="150px" />
+                            </ngx-dropzone-label>
+                            <button type="button" class="btn btn-danger mt-2" (click)="onRemove()">X</button>
+                          </ngx-dropzone>
+                        </div>
+                        
+                      </div>
+                  </section>
+                  <button [disabled]="working" type="submit" class="btn btn-success me-2" mat-button>
+                    Save & Next
+                  </button>
+                </form>
+                </ng-template>
+              </mat-step>
+              <mat-step>
+                <ng-template matStepLabel>Family Information</ng-template>
+                <ng-template matStepContent>
+                  <app-marital-details [employeeId]="employeeId"></app-marital-details>
+                </ng-template>
+              </mat-step>
+              <mat-step>
+                <ng-template matStepLabel>Education Information</ng-template>
+                <ng-template matStepContent>
+                  <app-educational-details [employeeId]="employeeId"></app-educational-details>
+                </ng-template>
+              </mat-step>
+                <mat-step>
+                <ng-template matStepLabel>specialization and certification</ng-template>
+                <!-- <ng-template matStepContent>
+                  <app-educational-details [employeeId]="employeeId"></app-educational-details>
+                </ng-template> -->
+              </mat-step>
+              <mat-step>
+                <ng-template matStepLabel>Previous Experience Details</ng-template>
+                <ng-template matStepContent>
+                 <app-previous-experience-details [employeeId]="employeeId"></app-previous-experience-details>
+                </ng-template>
+              </mat-step>
+          </mat-stepper>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- row closed -->

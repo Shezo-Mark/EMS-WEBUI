@@ -1,0 +1,184 @@
+<!-- main-sidebar -->
+
+<div class="sticky" [ngClass]="{ 'sticky-pin': scrolled }">
+  <div class="app-sidebar__overlay" data-bs-toggle="sidebar"></div>
+  <aside class="app-sidebar sidebar-scroll">
+    <div class="main-sidebar-header active">
+      <a class="desktop-logo logo-light active"
+        ><img src="../../../../assets/logo/logo.jpg" class="main-logo" alt="logo"
+      /></a>
+      <a class="desktop-logo logo-dark active"
+        ><img
+          src="../../../../assets/logo/logo.jpg"
+          class="main-logo"
+          alt="logo"
+      /></a>
+      <a class="logo-icon mobile-logo icon-light active"
+        ><img src="../../../../assets/logo/logo.jpg" alt="logo"
+      /></a>
+      <a class="logo-icon mobile-logo icon-dark active"
+        ><img src="./assets/img/brand/favicon-white.png" alt="logo"
+      /></a>
+    </div>
+    <ng-scrollbar>
+      <div class="main-sidemenu">
+        <div class="main-sidebar-loggedin">
+          <div class="app-sidebar__user">
+            <div class="dropdown user-pro-body text-center">
+              <div class="user-pic">
+                <img
+                  src="https://www.w3schools.com/howto/img_avatar.png"
+                  alt="user-img"
+                  class="rounded-circle mCS_img_loaded"
+                />
+              </div>
+              <div class="user-info mb-4">
+                <h6 class="mb-0 text-dark">Bilal</h6>
+                <span class="text-muted app-sidebar__user-name text-sm">Admin</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-left disabled" id="slide-left">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="#7b8191"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
+            />
+          </svg>
+        </div>
+        <ul class="side-menu" style="margin-right: 0px; margin-left: 0px; flex-wrap: nowrap">
+          <!-- *ngFor="let Item of permisssionArray" -->
+          <ng-container>
+            <!-- *ngIf="Item.children.length == 0" -->
+            <ng-container>
+              <li class="slide">
+                <a  routerLink="dashboard" class="side-menu__item"><span class="shape1"></span><span class="shape2"></span><span class="side-menu__icon">
+                  <i class="fe fe-home"></i></span><span class="side-menu__label">Dashboard</span>
+                </a>
+              </li>
+             </ng-container>
+           
+          
+             <!-- *ngIf="Item.children.length > 0" -->
+             <!-- <li class="slide" [class]="selectedItem=='1' ? 'show is-expanded' : ''">
+              <a class="side-menu__item" (click)="toggleSlide('1')"><span class="shape1"></span><span class="shape2"></span><span class="side-menu__icon">
+                <i class="fe fe-home"></i></span><span class="side-menu__label">Student</span>
+                  <i class="angle fe fe-chevron-right"></i>
+              </a>
+              <ul class="slide-menu open">
+               *ngFor="let item1 of Item.children 
+                <li><a routerLinkActive="active" class="slide-item"
+                  routerLink="registration/student">Registration </a>
+                </li>
+              </ul>
+        </li> -->
+        <li class="slide" [class]="selectedItem=='1' ? 'show is-expanded' : ''">
+          <a class="side-menu__item" (click)="toggleSlide('1')"><span class="shape1"></span><span class="shape2"></span><span class="side-menu__icon">
+            <i class="fe fe-home"></i></span><span class="side-menu__label"> Client Onboarding</span>
+              <i class="angle fe fe-chevron-right"></i>
+          </a>
+          <ul class="slide-menu open">
+            <!-- *ngFor="let item1 of Item.children -->
+            <li><a routerLinkActive="active" class="slide-item"
+              routerLink="boarding/onboarding">Onboarding </a>
+            </li>
+ 
+          </ul>
+    </li>
+        <li class="slide" [class]="selectedItem=='2' ? 'show is-expanded' : ''">
+          <a class="side-menu__item" (click)="toggleSlide('2')"><span class="shape1"></span><span class="shape2"></span><span class="side-menu__icon">
+            <i class="fe fe-home"></i></span><span class="side-menu__label">Employee</span>
+              <i class="angle fe fe-chevron-right"></i>
+          </a>
+          <ul class="slide-menu open">
+            <!-- *ngFor="let item1 of Item.children -->
+            <li><a routerLinkActive="active" class="slide-item"
+              routerLink="register/employee">Registration </a>
+            </li>
+            <li><a routerLinkActive="active" class="slide-item"
+              routerLink="register/employee-list">Employee List </a>
+            </li>
+            <!-- <li><a routerLinkActive="active" class="slide-item"
+              routerLink="register/employee-accessories">Accessories</a>
+            </li> -->
+          </ul>
+    </li>
+    <li class="slide" [class]="selectedItem=='3' ? 'show is-expanded' : ''">
+      <a class="side-menu__item" (click)="toggleSlide('3')"><span class="shape1"></span><span class="shape2"></span><span class="side-menu__icon">
+        <i class="fe fe-home"></i></span><span class="side-menu__label">Master Data</span>
+          <i class="angle fe fe-chevron-right"></i>
+      </a>
+      <ul class="slide-menu open">
+        <!-- *ngFor="let item1 of Item.children -->
+        <li><a routerLinkActive="active" class="slide-item"
+          routerLink="master-data/departments">Departments </a>
+        </li>
+        <li><a routerLinkActive="active" class="slide-item"
+          routerLink="master-data/functions">Functions </a>
+        </li>
+        <li><a routerLinkActive="active" class="slide-item"
+          routerLink="master-data/groups">Groups </a>
+        </li>
+        <li><a routerLinkActive="active" class="slide-item"
+          routerLink="master-data/levels">Levels </a>
+        </li>
+        <li><a routerLinkActive="active" class="slide-item"
+          routerLink="master-data/posthosts">Post Host </a>
+        </li>
+      </ul>
+</li>
+<li class="slide" [class]="selectedItem=='4' ? 'show is-expanded' : ''">
+  <a class="side-menu__item" (click)="toggleSlide('4')"><span class="shape1"></span><span class="shape2"></span><span class="side-menu__icon">
+    <i class="fe fe-home"></i></span><span class="side-menu__label">Create JD</span>
+      <i class="angle fe fe-chevron-right"></i>
+  </a>
+  <ul class="slide-menu open">
+    <!-- *ngFor="let item1 of Item.children -->
+    <li><a routerLinkActive="active" class="slide-item"
+      (click)="openJobDescription()">Add Job Description </a>
+    </li>
+     <li><a routerLinkActive="active" class="slide-item"
+      routerLink="/job-description/company">Company List</a>
+    </li>
+    <li><a routerLinkActive="active" class="slide-item"
+      routerLink="/job-description/cv">CVs</a>
+    </li>
+  </ul>
+</li>
+    <li class="slide" [class]="selectedItem=='5' ? 'show is-expanded' : ''">
+      <a class="side-menu__item" (click)="toggleSlide('5')"><span class="shape1"></span><span class="shape2"></span><span class="side-menu__icon">
+        <i class="fe fe-home"></i></span><span class="side-menu__label">User Management</span>
+          <i class="angle fe fe-chevron-right"></i>
+      </a>
+      <ul class="slide-menu open">
+        <!-- *ngFor="let item1 of Item.children -->
+        <li><a routerLinkActive="active" class="slide-item"
+          routerLink="user-management/user">Users </a>
+        </li>
+        <li><a routerLinkActive="active" class="slide-item"
+          routerLink="user-management/role">Roles </a>
+        </li>
+        <li><a routerLinkActive="active" class="slide-item"
+          routerLink="user-management/permission">Role Permissions </a>
+        </li>
+        <li><a routerLinkActive="active" class="slide-item"
+          routerLink="user-management/setting">Settings </a>
+        </li>
+        <li><a routerLinkActive="active" class="slide-item"
+          routerLink="user-management/role-department">Role Department</a>
+        </li>
+      </ul>
+</li>
+          </ng-container>
+        </ul>
+      </div>
+    </ng-scrollbar>
+  </aside>
+</div>
+<!-- main-sidebar -->

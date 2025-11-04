@@ -1,0 +1,5 @@
+::ng-deep{
+    .dark-theme .apexcharts-tooltip.apexcharts-theme-light{
+        background: var(--dark-theme) !important;
+    }
+}

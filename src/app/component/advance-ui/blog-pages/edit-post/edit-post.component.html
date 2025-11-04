@@ -1,0 +1,201 @@
+<app-page-header
+  [title]="'Edit-Post'"
+  [items]="['Advance Ui']"
+  [active_item]="'Edit-Post'"
+></app-page-header>
+
+<!-- row -->   
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-md-12">
+    <div class="card blog-edit">
+      <div class="card-header">
+        <div class="card-title">Edit-post</div>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <label class="form-label text-dark">Course Title</label>
+          <input
+            type="text"
+            class="form-control"
+            value="Advanced Web Develpment"
+          />
+        </div>
+        <div class="form-group">
+          <label class="form-label text-dark">Category</label>
+          <ng-select class="">
+            <ng-option>Select</ng-option>
+            <ng-option value="1" selected>IT</ng-option>
+            <ng-option value="2">Language</ng-option>
+            <ng-option value="3">Science</ng-option>
+            <ng-option value="4">Health</ng-option>
+            <ng-option value="5">Humanities</ng-option>
+            <ng-option value="6">Business</ng-option>
+            <ng-option value="7">Maths</ng-option>
+            <ng-option value="8">Marketing</ng-option>
+          </ng-select>
+        </div>
+        <div class="form-group">
+          <label class="form-label text-dark">Instructor</label>
+          <ng-select class="">
+            <ng-option>Select</ng-option>
+            <ng-option value="1" selected>Pedro Cox</ng-option>
+            <ng-option value="2">Vera Guzman</ng-option>
+            <ng-option value="3">Glenda Long</ng-option>
+            <ng-option value="4">Joel Anderson</ng-option>
+            <ng-option value="5">Blanche Henderson</ng-option>
+          </ng-select>
+        </div>
+        <div class="form-group">
+          <label class="form-label text-dark">Type of mode</label>
+          <div class="d-md-flex ad-post-details">
+            <label class="custom-control form-radio mb-2 me-4">
+              <input
+                type="radio"
+                class="custom-control-input"
+                name="radios2"
+                value="option1"
+                checked=""
+              />
+              <span class="custom-control-label"
+                ><a href="javascript:void(0)" class="">Online </a></span
+              >
+            </label>
+            <label class="custom-control form-radio mb-2">
+              <input
+                type="radio"
+                class="custom-control-input"
+                name="radios2"
+                value="option2"
+              />
+              <span class="custom-control-label"
+                ><a href="javascript:void(0)" class="">Offline</a></span
+              >
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <ngx-editor-menu
+            class="border-1"
+            [editor]="editor"
+            [toolbar]="toolbar"
+          >
+          </ngx-editor-menu>
+          <ngx-editor [editor]="editor" >
+          </ngx-editor>
+        </div>
+        <div class="form-group">
+          <label class="form-label text-dark">Course Type</label>
+          <div class="d-md-flex ad-post-details">
+            <label class="custom-control form-radio mb-2 me-4">
+              <input
+                type="radio"
+                class="custom-control-input"
+                name="radios12"
+                value="option1"
+                checked=""
+              />
+              <span class="custom-control-label"
+                ><a href="javascript:void(0)" class="">Free </a></span
+              >
+            </label>
+            <label class="custom-control form-radio mb-2">
+              <input
+                type="radio"
+                class="custom-control-input"
+                name="radios12"
+                value="option2"
+              />
+              <span class="custom-control-label"
+                ><a href="javascript:void(0)" class="">Paid</a></span
+              >
+            </label>
+          </div>
+        </div>
+        <div class="p-4 border mb-4 form-group">
+          <div>
+            <ngx-dropzone (change)="onSelect($event)">
+              <ngx-dropzone-label class="ff_fileupload_dropzone">
+                Click here to Upload file</ngx-dropzone-label
+              >
+              <ngx-dropzone-preview
+                *ngFor="let f of files"
+                [removable]="false"
+                (removed)="onRemove(f)"
+              >
+                <ngx-dropzone-label
+                  >{{ f.name }} ({{ f.type }})</ngx-dropzone-label
+                >
+              </ngx-dropzone-preview>
+            </ngx-dropzone>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Upload Video URL</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="https://videos.com"
+            value="https://www.youtube.com/embed/tMWkeBIohBs"
+          />
+        </div>
+        <div class="control-group form-group mb-0">
+          <label class="form-label text-dark">Course Post Package</label>
+          <div class="border p-3 rounded-7">
+            <div class="d-md-flex ad-post-details">
+              <label class="custom-control form-radio mb-0 me-5">
+                <input
+                  type="radio"
+                  class="custom-control-input"
+                  name="radios1"
+                  value="option7"
+                />
+                <span class="custom-control-label">30 Days Free</span>
+              </label>
+              <label class="custom-control form-radio mb-0 me-4">
+                <input
+                  type="radio"
+                  class="custom-control-input"
+                  name="radios1"
+                  value="option8"
+                  checked=""
+                />
+                <span class="custom-control-label"
+                  >60 days / <span class="font-weight-bold">$20</span></span
+                >
+              </label>
+              <label class="custom-control form-radio mb-0 me-4">
+                <input
+                  type="radio"
+                  class="custom-control-input"
+                  name="radios1"
+                  value="option9"
+                />
+                <span class="custom-control-label"
+                  >6months /<span class="font-weight-bold">$50</span></span
+                >
+              </label>
+              <label class="custom-control form-radio mb-0">
+                <input
+                  type="radio"
+                  class="custom-control-input"
+                  name="radios1"
+                  value="option10"
+                />
+                <span class="custom-control-label"
+                  >1 year / <span class="font-weight-bold">$80</span></span
+                >
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <a href="javascript:void(0)" class="btn btn-secondary">Save to Draft</a>
+        <a href="javascript:void(0)" class="btn btn-primary float-end"
+          >Publish Now</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /row -->

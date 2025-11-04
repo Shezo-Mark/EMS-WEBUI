@@ -1,0 +1,338 @@
+<!-- main-header -->
+
+<div class="main-header sticky nav nav-item side-header">
+  <div class="container-fluid main-container">
+    <div class="main-header-left">
+      <div
+        class="app-sidebar__toggle mobile-toggle"
+        data-bs-toggle="sidebar"
+        (click)="toggleSidebar()"
+      >
+        <a class="open-toggle" href="javascript:void(0);">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            class="eva eva-menu-outline header-icons"
+          >
+            <g data-name="Layer 2">
+              <g data-name="menu">
+                <rect
+                  width="24"
+                  height="24"
+                  transform="rotate(180 12 12)"
+                  opacity="0"
+                ></rect>
+                <rect
+                  x="3"
+                  y="11"
+                  width="18"
+                  height="2"
+                  rx=".95"
+                  ry=".95"
+                ></rect>
+                <rect
+                  x="3"
+                  y="16"
+                  width="18"
+                  height="2"
+                  rx=".95"
+                  ry=".95"
+                ></rect>
+                <rect
+                  x="3"
+                  y="6"
+                  width="18"
+                  height="2"
+                  rx=".95"
+                  ry=".95"
+                ></rect>
+              </g>
+            </g></svg ></a>
+      
+
+        <a class="close-toggle" href="javascript:void(0);">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            class="eva eva-close-outline header-icons"
+          >
+            <g data-name="Layer 2">
+              <g data-name="close">
+                <rect
+                  width="24"
+                  height="24"
+                  transform="rotate(180 12 12)"
+                  opacity="0"
+                ></rect>
+                <path
+                  d="M13.41 12l4.3-4.29a1 1 0 1 0-1.42-1.42L12 10.59l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.29-4.3 4.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l4.29-4.3 4.29 4.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"
+                ></path>
+              </g>
+            </g></svg></a>
+       
+      </div>
+     <div class="responsive-logo">
+							<a href="index.html" class="header-logo"><img src="./assets/img/brand/logo.png" class="logo-11" alt="logo"></a>
+							<a href="index.html" class="header-logo"><img src="./assets/img/brand/logo-white.png" class="logo-1" alt="logo"></a>
+						</div>
+    </div>
+    <button
+      class="navbar-toggler nav-link icon navresponsive-toggler vertical-icon ms-auto"
+      type="button"
+      data-bs-toggle="collapse"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      (click)="collapse.toggle()"
+      [attr.aria-expanded]="!isCollapsed"
+    >
+      <i class="fe fe-more-vertical header-icons navbar-toggler-icon"></i>
+    </button>
+    <div
+      class="mb-0 navbar navbar-expand-lg navbar-nav-right responsive-navbar navbar-dark p-0 mg-lg-s-auto"
+    >
+      <div
+        class="collapse navbar-collapse"
+        id="navbarSupportedContent-4"
+        #collapse="ngbCollapse"
+        [(ngbCollapse)]="isCollapsed"
+        [horizontal]="false"
+      >
+        <div class="main-header-right">
+          <!-- <div *ngIf="userDetails.user.keyCode == 'STUDENT'"  class="nav-item full-screen">
+            <a (click)="openScrollableContent(ScroleContent)"
+              class="new nav-link full-screen-link"
+              ><i class="fe fe-user"></i
+            ></a>
+          </div> -->
+          <div class="dropdown nav-item main-layout">
+            <a
+            class="new theme-layout nav-link-bg layout-setting"
+            appToggleTheme  href="javascript:void(0)"
+          >
+            <span class="dark-layout"><i class="fe fe-moon"></i></span>
+            <span class="light-layout"><i class="fe fe-sun"></i></span>
+          </a>
+          </div>
+          <div class="nav nav-item navbar-nav-right mg-lg-s-auto">
+            <div class="nav-item full-screen fullscreen-button">
+              <a
+                class="new nav-link full-screen-link"
+                href="javascript:void(0);"
+                appFullscreen
+                ><i class="fe fe-maximize"></i
+              ></a>
+            </div>
+            <div class="dropdown nav-item main-header-notification" ngbDropdown>
+              <a
+                ngbDropdownToggle
+                class="new nav-link"
+                ><i class="fe fe-user"></i>
+              </a>
+              <div ngbDropdownMenu class="dropdown-menu">
+                <div
+                  class="menu-header-content bg-primary text-start d-flex rounded-top-5"
+                >
+                  <div class="">
+                    <h6 class="menu-header-title text-white mb-0">
+                      Muhammad Bilal Rafique
+                    </h6>
+                  </div>
+                  <div class="my-auto ms-auto">
+                    <a
+                      class="badge bg-pill bg-success float-end"
+                      href="javascript:void(0);"
+                      >Admin</a
+                    >
+                  </div>
+                </div>
+                <a style="cursor: pointer;" (click)="openModal(PasswordChange)"
+                  class="d-flex p-3 border-bottom">
+                  <div class="ms-3">
+                    <h5 class="notification-label mb-1">Change Password</h5>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="dropdown nav-item main-header-notification" ngbDropdown>
+              <a
+                ngbDropdownToggle
+                class="new nav-link"
+                href="javascript:void(0);"
+                ><i class="fe fe-bell"></i><span class="pulse"></span
+              ></a>
+              <div ngbDropdownMenu class="dropdown-menu">
+                <div
+                  class="menu-header-content bg-primary text-start d-flex rounded-top-5"
+                >
+                  <div class="">
+                    <h6 class="menu-header-title text-white mb-0">
+                      4 New Notifications
+                    </h6>
+                  </div>
+                  <div class="my-auto ms-auto">
+                    <a
+                      class="badge bg-pill bg-success float-end"
+                      href="javascript:void(0);"
+                      >Mark All Read</a
+                    >
+                  </div>
+                </div>
+                <a
+                  class="d-flex p-3 border-bottom"
+                  routerLink="/apps/mail/mail">
+                  <div class="notifyimg bg-warning-transparent">
+                    <i class="fe fe-mail text-warning"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="notification-label mb-1">New review received</h5>
+                    <div class="notification-subtext">1 day ago</div>
+                  </div>
+                </a>
+                <a
+                  class="d-flex p-3 border-bottom"
+                  routerLink="/apps/mail/mail">
+                  <div class="notifyimg bg-primary-transparent">
+                    <i class="fe fe-check-circle text-primary"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="notification-label mb-1">Project approved</h5>
+                    <div class="notification-subtext">4 hour ago</div>
+                  </div>
+                </a>
+                <a
+                  class="d-flex p-3 border-bottom"
+                  routerLink="/apps/mail/mail">
+                  <div class="notifyimg bg-purple-transparent">
+                    <i class="fe fe-upload-cloud text-purple"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="notification-label mb-1">Updates Available</h5>
+                    <div class="notification-subtext">2 days ago</div>
+                  </div>
+                </a>
+                <a
+                  class="d-flex p-3 border-bottom"
+                  routerLink="/apps/mail/mail">
+                  <div class="notifyimg bg-pink-transparent">
+                    <i class="fe fe-file-text text-pink"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="notification-label mb-1">New files available</h5>
+                    <div class="notification-subtext">10 hour ago</div>
+                  </div>
+                </a>
+                <div class="dropdown-footer text-center">
+                  <a
+                    routerLink="/apps/notification"
+                    class="btn btn-primary w-md tx-13"
+                    >View All<i class="fe fe-arrow-right tx-12 ms-2 lh-1"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <div class="nav-item full-screen fullscreen-button">
+              <a (click)="logout()"
+                class="new nav-link full-screen-link"
+                ><i class="fe fe-log-out"></i
+              ></a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex header-setting-icon" (click)="toggleSwitcher()">
+      <a class="nav-link icon demo-icon">
+        <i class="fe fe-settings"></i>
+      </a>
+    </div>
+  </div>
+</div>
+<!-- /main-header -->  
+
+<ng-template #ScroleContent let-modal>
+  <div class="modal-header">
+      <h6 class="modal-title">Student Details</h6>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+      <!-- row -->
+    <app-student-profile></app-student-profile>
+  </div>
+</ng-template>
+
+<ng-template #PasswordChange let-modal>
+  <div class="modal-header">
+      <h6 class="modal-title">Reset Password</h6>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-section">
+      <form [formGroup]="changepasswordformown" (submit)="SubmitPassword()">
+        <div class="form-group mb-2">
+          <div class="row">
+            <div class="col-sm-3">
+              <label>Old Password<sup class="required"></sup>:</label>
+            </div>
+            <div class="col-sm-9">
+              <div class="form-input">
+                <input type="password" formControlName="OldPassword" (blur)="onBlurEvent()"  class="form-control"
+                  [ngClass]="{ 'is-invalid': isSubmitted && (basicFormControl['OldPassword'].errors?.['required']) }" />
+              </div>
+              <span class="text-danger" *ngIf="(basicFormControl['OldPassword'].errors?.['Invalid'])">Invalid Old Password.</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group mb-2">
+          <div class="row">
+            <div class="col-sm-3">
+              <label>New Password<sup class="required"></sup>:</label>
+            </div>
+            <div class="col-sm-9">
+              <div class="form-input">
+                <input type="password" formControlName="NewPassword" class="form-control"
+                [ngClass]="{ 'is-invalid': isSubmitted && (basicFormControl['NewPassword'].errors?.['required']) }" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group mb-2">
+          <div class="row">
+            <div class="col-sm-3">
+              <label>Confirm Password<sup class="required"></sup>:</label>
+            </div>
+            <div class="col-sm-9">
+              <div class="form-input">
+                <input type="password" formControlName="ConfirmPassword" class="form-control"
+                [ngClass]="{ 'is-invalid': isSubmitted && (basicFormControl['ConfirmPassword'].errors?.['required']) }" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">
+            </div>
+            <div class="col-sm-9">
+              <span class="text-danger" *ngIf="(basicFormControl['ConfirmPassword']).hasError('mismatch')">
+                New and confirm password does not match
+              </span>
+            </div>
+
+          </div>
+        </div>
+        <div class="form-group mb-2">
+          <div class="form-btn">
+            <button type="submit" class="btn btn-primary">Change Password</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</ng-template>

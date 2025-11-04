@@ -1,0 +1,133 @@
+<app-page-header
+  [title]="'E-Charts'"
+  [items]="['Charts']"
+  [active_item]="'E-Charts'"
+></app-page-header>
+
+<!-- row -->
+<div class="row row-sm">
+  <div class="col-lg-6 col-md-12">
+    <div class="card mg-b-20">
+      <div class="card-body">
+        <div class="main-content-label mg-b-5">Bar Chart</div>
+        <p class="mg-b-20 tx-13 text-muted">
+          It is Very Easy to Customize and it uses in website apllication.
+        </p>
+        <div echarts class="ht-250" [options]="echartHorizontalLineChart"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-12">
+    <div class="card mg-b-20">
+      <div class="card-body">
+        <div class="main-content-label mg-b-5">Vertical Bar Chart</div>
+        <p class="mg-b-20 tx-13 text-muted">
+          It is Very Easy to Customize and it uses in website apllication.
+        </p>
+        <div echarts class="ht-250" [options]="echartStackedBarChart"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /row -->
+
+<!-- row -->
+<div class="row row-sm">
+  <div class="col-lg-6 col-md-12">
+    <div class="card mg-b-20">
+      <div class="card-body">
+        <div class="main-content-label mg-b-5">Line Chart</div>
+        <p class="mg-b-20 tx-13 text-muted">
+          It is Very Easy to Customize and it uses in website apllication.
+        </p>
+        <div
+          echarts
+          class="ht-300"
+          [options]="echartHorizontalLineBarChart"
+        ></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-12">
+    <div class="card mg-b-20">
+      <div class="card-body">
+        <div class="main-content-label mg-b-5">Vertical Line Chart</div>
+        <p class="mg-b-20 tx-13 text-muted">
+          It is Very Easy to Customize and it uses in website apllication.
+        </p>
+        <div echarts class="ht-300" [options]="echartHoriStackedBarChart"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- row -->
+
+<!-- row -->
+<div class="row row-sm">
+  <div class="col-lg-6 col-md-12">
+    <div class="card mg-b-20">
+      <div class="card-body">
+        <div class="main-content-label mg-b-5">Data Attributes</div>
+        <p class="mg-b-20 tx-13 text-muted">
+          It is Very Easy to Customize and it uses in website apllication.
+        </p>
+        <div echarts class="ht-300" [options]="echartLineBarOption"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-12">
+    <div class="card mg-b-20">
+      <div class="card-body">
+        <div class="main-content-label mg-b-5">Data Attributes</div>
+        <p class="mg-b-20 tx-13 text-muted">
+          It is Very Easy to Customize and it uses in website apllication.
+        </p>
+        <div echarts class="ht-300" [options]="echartLineOption"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- row -->
+
+<!-- row -->
+<div class="row row-sm">
+  <div class="col-lg-6 col-md-12">
+    <div class="card mg-b-20">
+      <div class="card-body">
+        <div class="main-content-label mg-b-5">Data Attributes</div>
+        <p class="mg-b-20 tx-13 text-muted">
+          It is Very Easy to Customize and it uses in website apllication.
+        </p>
+        <div echarts class="ht-300" [options]="echartLineBarOption"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-12">
+    <div class="card mg-b-20">
+      <div class="card-body">
+        <div class="main-content-label mg-b-5">Data Attributes</div>
+        <p class="mg-b-20 tx-13 text-muted">
+          It is Very Easy to Customize and it uses in website apllication.
+        </p>
+        <div echarts class="ht-300" [options]="dataAttributes2"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- row -->
+
+<!-- row -->
+<div class="row row-sm">
+  <div class="col-lg-12 col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="main-content-label mg-b-5">Data Attributes</div>
+        <p class="mg-b-20 tx-13 text-muted">
+          It is Very Easy to Customize and it uses in website apllication.
+        </p>
+        <div echarts class="ht-400" [options]="dataAttributes3"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- row closed -->

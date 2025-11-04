@@ -1,0 +1,129 @@
+<app-page-header [title]="'Role Department'" [items]="['Role Department']" [active_item]="'Role Department'"></app-page-header>
+
+<div class="row row-sm">
+  <div class="col-12">
+    <div class="card custom-card">
+      <div class="p-3 border-bottom">
+        <div class="d-flex align-items-center mb-3">
+          <h5 class="mb-0">Role Department</h5>
+          <div class="ms-auto">
+            <div class="btn-group" role="group">
+              <input type="radio" class="btn-check" name="btnradio" id="Add" (click)="changeCurdView(false)" [checked]="!curdBtnIsList">
+              <label ngbTooltip="Add" class="btn btn-outline-primary" for="Add">
+                <i class="fa fa-plus"></i> Add
+              </label>
+              <input type="radio" class="btn-check" name="btnradio" id="List" (click)="changeCurdView(true)" [checked]="curdBtnIsList">
+              <label ngbTooltip="List" class="btn btn-outline-primary" for="List">
+                <i class="fa fa-list-ul"></i> List
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group mb-0" *ngIf="curdBtnIsList">
+          <input type="text" class="form-control" [(ngModel)]="pagination.searchText" (keyup.enter)="onSearchText()" placeholder="Search Role Department..." />
+          <button class="btn ripple btn-info" (click)="onSearchText()" type="button">
+            <i class="fe fe-search me-2"></i> Search
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row" *ngIf="!curdBtnIsList">
+    <div class="col-lg-12 col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Please {{ isEdit ? 'Edit' : 'Add' }} Role Department</div>
+        </div>
+        <div class="card-body">
+            <form (ngSubmit)="onSubmit()" [formGroup]="roleDepartmentForm">
+                <div class="row">
+                  <div class="col-md-6 my-1">
+                    <label>Department: *</label>
+                    <select class="form-control" formControlName="departmentId">
+                      <option value="">Select Department</option>
+                      <option *ngFor="let dept of departments" [value]="dept.departmentId">{{ dept.departmentName }}</option>
+                    </select>
+                  </div>
+              
+                  <div class="col-md-6 my-1">
+                    <label>Role: *</label>
+                    <select class="form-control" formControlName="roleId">
+                      <option value="">Select Role</option>
+                      <option *ngFor="let role of roles" [value]="role.roleId">{{ role.roleName }}</option>
+                    </select>
+                  </div>
+                </div>
+              
+                <button type="submit" class="btn btn-primary mt-3" [disabled]="roleDepartmentForm.invalid">
+                  {{ isEdit ? 'Update' : 'Save' }}
+                </button>
+              </form>
+              
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+
+  <div class="row" *ngIf="curdBtnIsList">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Manage all Role Departments</h3>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered text-nowrap mb-0">
+              <thead>
+                <tr>
+                  <th>Role Name</th>
+                  <th>Department Name</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Static row -->
+                <tr *ngFor="let roleDepartment of roleDepartmentList">
+                    <td>{{ roleDepartment.roleName }}</td>
+                    <td>{{ roleDepartment.departmentName }}</td>
+                  <td>
+                    <button type="button" class="btn btn-sm btn-danger me-1" (click)="onDelete(roleDepartment.departmentId, roleDepartment.roleId)">
+                      <span class="fe fe-trash-2"></span>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+  
+          <!-- Pagination and Page Size -->
+          <div class="d-flex justify-content-between p-2">
+            <ngb-pagination
+            [collectionSize]="pagination.totalCount"
+            [(page)]="pagination.pageNo"
+            [pageSize]="pagination.pageSize"
+            [maxSize]="pagination.maxSize"
+            [boundaryLinks]="true"
+            [ellipses]="true"
+            (pageChange)="onPageChange($event)">
+          </ngb-pagination>
+          
+  
+            <ng-select [(ngModel)]="pagination.pageSize" (change)="onSearchText()" style="min-width: 100px;">
+                <ng-option [value]="5">5</ng-option>
+                <ng-option [value]="10">10</ng-option>
+                <ng-option [value]="50">50</ng-option>
+                <ng-option [value]="100">100</ng-option>
+              </ng-select>              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
