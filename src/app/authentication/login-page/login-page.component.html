@@ -1,4 +1,4 @@
-<div class="square-box">
+<!-- <div class="square-box">
   <div></div>
   <div></div>
   <div></div>
@@ -48,6 +48,71 @@
               </div>
               <div class="main-signin-footer mt-3 mg-t-5">
                 <p><a routerLink="/custompages/forgot-password">Forgot password?</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+<div class="square-box">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+<div class="page login-img">
+  <div class="">
+    <div class="my-auto page page-h">
+      <div class="main-signin-wrapper">
+        <div class="col-xl-3 col-lg-4 col-md-5 col-sm-8">
+          <div class="text-center mb-3">
+            <h2 style="color:white" class="mb-4">{{projectTitle}}</h2>
+          </div>
+          <div class="card" style="border-radius: 15px !important;">
+            <div class="card-body px-5 py-4">
+              <div class="main-signin-header">
+                <h2 class="text-center mb-5">Login!</h2>
+                <!-- <h4 class="text-center">Please sign in to continue</h4> -->
+                <form [formGroup]="loginForm" novalidate (ngSubmit)="login()">
+                  <div class="form-group base_input">
+                    <label>Email</label><input formControlName="Email" class="form-control" placeholder="Email"
+                      type="text" />
+                    <div
+                      *ngIf="(basicFormControl['Email'].touched || isSubmitted) && (basicFormControl['Email'].errors?.['required'])"
+                      class="tx-danger">
+                      <small>Email is <strong>required</strong></small>
+                    </div>
+                  </div>
+                  <div class="form-group base_input">
+                    <label>Password</label>
+                    <input formControlName="Password" class="form-control" placeholder="password" type="password" />
+                    <div
+                      *ngIf="(basicFormControl['Password'].touched || isSubmitted) && (basicFormControl['Password'].errors?.['required'])"
+                      class="tx-danger">
+                      <small>Password is <strong>required</strong></small>
+                    </div>
+                  </div>
+                    <div class="main-signin-footer mt-3 mg-t-5">
+                      <div class="form-group save_logins">
+                        <input type="checkbox" id="html">
+                        <label for="html">Save Logins</label>
+                      </div>
+                    <p><a routerLink="/custompages/forgot-password">Forgot password?</a></p>
+                  </div>
+                  <button class="btn site_btn d-block w-100">Sign In</button>
+                </form>
               </div>
             </div>
           </div>

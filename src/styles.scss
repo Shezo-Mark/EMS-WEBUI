@@ -900,3 +900,83 @@
  }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+form{
+  .form-group{
+    &.base_input{
+       text-align: left;
+      input{
+        padding: 13px;
+        border-radius: 15px;
+      }
+    }
+  }
+}
+.site_btn{
+    text-transform: uppercase !important;
+    font-weight: 500 !important;
+    letter-spacing: 1px !important;
+    padding: 10px 20px !important;
+    border-radius: 100px !important;
+  background: linear-gradient(45deg, var(--primary-bg-color), #9853af) !important;
+  color: white;
+}
+ 
+ 
+ 
+ 
+ 
+ 
+.save_logins{
+ display: block;
+ margin-bottom: 0;
+  input {
+    padding: 0;
+    height: initial;
+    width: initial;
+    margin-bottom: 0;
+    display: none;
+    cursor: pointer;
+  }
+ 
+  label {
+    position: relative;
+    cursor: pointer;
+     margin-bottom: 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: #14112d;
+ 
+    &::before {
+      content: '';
+      border: 2px solid #9853af;
+      padding: 8px;
+      display: inline-block;
+      position: relative;
+      vertical-align: middle;
+      cursor: pointer;
+      margin-right: 5px;
+      border-radius: 4px;
+    }
+  }
+  input:checked + label::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 7px;
+    width: 6px;
+    height: 14px;
+    border: solid #9853af;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+ 
+}
+ 
+.main-signin-footer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
