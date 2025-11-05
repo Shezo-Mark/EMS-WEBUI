@@ -311,11 +311,11 @@
           <table class="table table-bordered border text-nowrap mb-0" id="new-edit">
             <thead>
               <tr>
-               <th>Client Id</th>
-                <th>Company Name</th>
+               <th width="5%">Client Id</th>
+                <th width="15%">Company Name</th>
                 <th>Point Of Contact/POC</th>
-                <th>Contract Date</th>
-                <th width="5%">Actions</th>
+                <th width="8%">Contract Date</th>
+                <th width="5%" class="text-center">Actions</th>
 
               </tr>
             </thead>
@@ -325,11 +325,17 @@
                 <td>{{item.companyName}}</td>
                  <td >
 
-                <div *ngFor="let contact of getFormattedData(item.contactPersonInfo)" class="mb-2 p-2 border rounded bg-light shadow-sm">
-                    <div><strong>Name:</strong> {{ contact.name }}</div>
-                    <div><strong>Designation:</strong> {{ contact.Designation }}</div>
-                    <div><strong>Email:</strong> <a href="mailto:{{ contact.ContactEmailAddress }}">{{ contact.ContactEmailAddress }}</a></div>
-                    <div><strong>Phone:</strong> <a href="tel:{{ contact.ContactPhoneNumber }}">{{ contact.ContactPhoneNumber }}</a></div>
+                  <div class="d-flex">
+                      <div *ngFor="let contact of getFormattedData(item.contactPersonInfo)" class="flex-1 d-flex justify-content-between mx-2 p-2 border rounded bg-light shadow-sm">
+                         <div class="flex">
+                           <div><strong>Name:</strong> {{ contact.name }}</div>
+                        <div><strong>Designation:</strong> {{ contact.Designation }}</div>
+                         </div>
+                          <div class="flex">
+                             <div><strong>Email:</strong> <a href="mailto:{{ contact.ContactEmailAddress }}">{{ contact.ContactEmailAddress }}</a></div>
+                        <div><strong>Phone:</strong> <a href="tel:{{ contact.ContactPhoneNumber }}">{{ contact.ContactPhoneNumber }}</a></div>
+                          </div>
+                    </div>
                   </div>
                 </td>
                 <td>{{item.contractDate | date: 'yyyy-MM-dd'}}</td>
