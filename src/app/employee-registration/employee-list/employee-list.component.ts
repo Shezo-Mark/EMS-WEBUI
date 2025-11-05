@@ -98,6 +98,20 @@ export class EmployeeListComponent {
       },
     });
   }
+    getUploadDocumentbyId(employeeId:any): void {
+    //debugger;
+    this.documentService
+      .getEmployeeDocument(DocumentTableNameEnum.Employee, employeeId)
+      .subscribe({
+        next: (result) => {
+          //debugger;
+          this.getAttachment = result.data;
+        },
+        error: (err: any) => {
+          this.toast.error(err?.error?.message);
+        },
+      });
+  }
   getUploadDocument(): void {
     //debugger;
     this.documentService
@@ -263,6 +277,9 @@ export class EmployeeListComponent {
         this.uploadEmployeeDocument(this.model);
       };
     }
+  }
+  submitForm(data:any){
+
   }
 
   deleteDocument(documentId: string) {

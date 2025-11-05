@@ -155,8 +155,13 @@
                 <td>
                   <a title="Upload Attachments" href="javascript:void(0);"
                      (click)="openScrollableContentMd(uploadDocumentsModal, item.employeeId)"
-                     class="btn me-3 btn-sm btn-success">
+                     class="btn btn-sm btn-success w-100">
                     Upload Documents
+                  </a>
+                    <a title="Download Attachments" href="javascript:void(0);"
+                     (click)="this.getUploadDocumentbyId(item.employeeId);openScrollableContentMd(AttachmerntList, item.employeeId)"
+                     class="btn mt-1 btn-sm btn-primary d-block w-100">
+                    Documents List
                   </a>
                 </td>
                 <td>
@@ -172,18 +177,14 @@
                     Given Accessories
                   </a> -->
 
-                  <!-- <a title="Download Attachments" href="javascript:void(0);"
-                     (click)="openScrollableContentMd(AttachmerntList, item.employeeId)"
-                     class="dropdown-item">
-                    Documents
-                  </a> -->
+
 
                   <button type="button" class="btn me-2 btn-sm d_action_edit"
                           [routerLink]="['/register/employee']"
                           [queryParams]="{id:item.employeeId}">
                     <span class="fe fe-edit"> </span>
                   </button>
-                         <button type="button" class="btn btn-sm d_action_delete" (click)="onDelete(item.employeeId)"> <span class="fe fe-trash-2"></span></button>
+                  <button type="button" class="btn btn-sm d_action_delete" (click)="onDelete(item.employeeId)"> <span class="fe fe-trash-2"></span></button>
 
                   <!-- <label>
                     <input (click)="IsActive(item)" type="checkbox"
@@ -223,6 +224,7 @@
     </button>
   </div>
   <div class="modal-body">
+    <form action="" #file="ngForm" (ngSubmit)="submitForm(file.value)"></form>
     <div class="form-group row" *ngFor="let item of attachmentList; let ndx = index">
       <div class="col-md-10">
         <label for="file-{{ndx}}" style="font-weight: bold;">{{item.documentName}}</label>
@@ -239,7 +241,7 @@
   </div>
 </ng-template>
 
-<ng-template #givenAccessoriesModal let-modal>
+<!-- <ng-template #givenAccessoriesModal let-modal>
   <div class="modal-header">
     <h6 class="modal-title">Given Accessories</h6>
     <button type="button" (click)="modal.dismiss('Cross click')" class="btn btn-danger me-2">
@@ -262,7 +264,7 @@
       </div>
     </div>
   </div>
-</ng-template>
+</ng-template> -->
 
 
 <ng-template #AttachmerntList let-modal>
@@ -284,12 +286,12 @@
                                           routerlink="/apps/file-manager/file-manager-details"><img
                                               src="../../../assets/Files/2.png" alt=""></a>
                                       <ul class="image-icons">
-                                          <li><a download target="_blank"
-                                                  href="{{baseUrl+FilePath.EmployeeDocuments+'/'+item.documentGuid}}"
-                                                  class="btn btn-secondary"><i class="fe fe-download"></i></a>
+                                          <li>
+                                            <a download target="_blank" [href]="baseUrl+FilePath.EmployeeDocuments+'/'+item.documentGuid" class="btn btn-secondary"><i class="fe fe-download"></i></a>
                                               <a (click)="deleteDocument(item.documentId)" class="btn btn-secondary"><i class="fe fe-trash"></i></a>
                                           </li>
-                                      </ul><span class="file-name-1">{{item.lovName}}</span>
+                                      </ul>
+                                      <span class="file-name-1">{{item.documentName}}</span>
                                   </div>
                               </div>
                           </div>

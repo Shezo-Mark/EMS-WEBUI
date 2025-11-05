@@ -17,7 +17,7 @@
     <div class="card">
       <div class="card-header">
         <div class="card-title">Employee Registration</div>
-        
+
       </div>
       <div class="card-body">
         <div id="wizard3">
@@ -66,11 +66,11 @@
                           <small>Last Name is <strong>required</strong></small>
                         </div>
                       </div>
-                     
-                      
+
+
                     </div>
                     <div class="row">
-                     
+
                       <div class="col-md-4 col-sm-12 col-md-4 my-1">
                         <label>Contact: </label>
                         <input class="form-control" formControlName="Contact" placeholder="Enter Contact"
@@ -99,7 +99,7 @@
                       </div>
                       <div class="col-md-4 col-sm-12 col-md-4 my-1">
                         <div class="form-group">
-                          <label>Gender: </label> 
+                          <label>Gender: </label>
                           <ng-select #select [items]="genderList"  formControlName="GenderId"
                             bindLabel="text" bindValue="id">
                           </ng-select>
@@ -110,11 +110,11 @@
                           </div>
                         </div>
                       </div>
-                        
-                        
+
+
                     </div>
                     <div class="row">
-                      
+
                       <!-- <div class="col-md-4 col-sm-12 col-md-4 my-1">
                         <div class="form-group">
                           <label>Employee Type: </label>
@@ -128,7 +128,7 @@
                           </div>
                         </div>
                       </div> -->
-                      
+
                       <div class="col-md-4 col-sm-12 col-md-4 my-1">
                         <label> CNIC No: </label>
                         <input class="form-control" formControlName="Cnic" placeholder="Enter CNIC No"
@@ -171,10 +171,10 @@
                           <small>Date Of Joining is <strong>required</strong></small>
                         </div>
                       </div>
-                     
+
                      <div class="row">
                      </div>
-                     <div class="col-md-4 col-sm-12 col-md-4 my-1"> 
+                     <div class="col-md-4 col-sm-12 col-md-4 my-1">
                       <div class="form-group">
                         <label>Employee Designation: </label>
                         <ng-select #select [items]="emplyeeDesignationList"  formControlName="EmployeeDesignationId"
@@ -186,7 +186,7 @@
                           <small>Employee Designation is <strong>required</strong></small>
                         </div>
                       </div>
-                    </div> 
+                    </div>
                     <div class="col-md-4 col-sm-12 col-md-4 my-1" *ngIf="!isEdit">
                       <div class="form-group">
                         <label>Job Description: </label>
@@ -199,7 +199,7 @@
                           <small>Job Description is <strong>required</strong></small>
                         </div>
                       </div>
-                    </div> 
+                    </div>
                     <div class="col-md-4 col-sm-12 col-md-4 my-1">
                       <div class="form-group">
                         <label>Employment Type: </label>
@@ -214,8 +214,8 @@
                       </div>
                     </div>
 
-                 
-                  
+
+
                   </div>
                   <div class="row">
                     <div class="col-md-4 col-sm-12 col-md-4 my-1">
@@ -230,7 +230,7 @@
                           <small>Group is <strong>required</strong></small>
                         </div>
                       </div>
-                    </div> 
+                    </div>
                     <div class="col-md-4 col-sm-12 col-md-4 my-1">
                       <div class="form-group">
                         <label>Department: </label>
@@ -250,14 +250,14 @@
                         <ng-select #select [items]="functionList"  formControlName="FunctionId"
                           bindLabel="functionName" bindValue="functionId">
                         </ng-select>
-                        <div
+                        <!-- <div
                           *ngIf="(basicFormControl['FunctionId'].invalid) && submitted&& (basicFormControl['FunctionId'].errors?.['required'])"
                           class="tx-danger">
                           <small>Function is <strong>required</strong></small>
-                        </div>
+                        </div> -->
                       </div>
                     </div>
-                 
+
                   </div>
                   <div class="row">
                   <div class="col-md-4 col-sm-12 col-md-4 my-1">
@@ -274,7 +274,7 @@
                     </div>
                   </div>
                   </div>
-      
+
                   <div class="row mt-3 mb-3">
                     <b> Current Address</b>
                   </div>
@@ -304,9 +304,9 @@
                       <input class="form-control" formControlName="CurrentState" placeholder="Enter Current State">
                     </div>
                   </div>
-                  
-      
-                  
+
+
+
                   <div class="row mt-2 mb-3">
                     <b> Permanent Address</b>
                   </div>
@@ -343,11 +343,11 @@
                       <label for="sameAsCurrent" style="padding-left: 10px;"><b>Same as Current Address</b></label>
                     </div>
                   </div>
-                  
-                        
-                        
-                       
-                     
+
+
+
+
+
                       <div class="row pt-5">
                         <div class="col-sm-12 col-md-4 my-1 p-0"
                           *ngIf="registrationForm.controls['IsPicturePermission'].value">
@@ -359,7 +359,7 @@
                             <button type="button" class="btn btn-danger mt-2" (click)="onRemove()">X</button>
                           </ngx-dropzone>
                         </div>
-                        
+
                       </div>
                   </section>
                   <button [disabled]="working" type="submit" class="btn btn-success me-2" mat-button>

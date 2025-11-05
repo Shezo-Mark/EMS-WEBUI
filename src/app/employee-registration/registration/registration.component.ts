@@ -11,7 +11,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DepartmentService } from 'src/app/domain/services/department.service';
 import { FunctionService } from 'src/app/domain/services/function.service';
 import { GroupService } from 'src/app/domain/services/group.service';
-import { ToastrService } from 'ngx-toastr';                                             
+import { ToastrService } from 'ngx-toastr';
 import { LovService } from 'src/app/domain/services/Lov.service';
 import { AcadmicYearService } from 'src/app/domain/services/acadmic-year.service';
 import { AreaService } from 'src/app/domain/services/area.service';
@@ -54,7 +54,7 @@ export class RegistrationComponent implements OnInit {
   levelList: any[] = [];
   departmentList: any[] = [];
   functionList: any[] = [];
-  
+
   groupList: any[] = [];
   employeeDetails: any;
   baseUrl: any = this.configService.baseApiUrl;
@@ -71,12 +71,12 @@ export class RegistrationComponent implements OnInit {
     private readonly toast: ToastrService,
     private readonly LovServ: LovService,
     private readonly modalService: NgbModal,
-    private departmentService: DepartmentService, 
-    private functionService: FunctionService, 
-    private groupService: GroupService, 
+    private departmentService: DepartmentService,
+    private functionService: FunctionService,
+    private groupService: GroupService,
     private readonly employeeService: EmployeeService,
     private readonly common: CommonService,
-    private jobService: JobService, 
+    private jobService: JobService,
     private levelService: LevelService,
     private readonly datePipe: DatePipe,
     private readonly configService: ConfigService
@@ -93,9 +93,9 @@ export class RegistrationComponent implements OnInit {
       DateOfBirth: ['', Validators.required],
       LevelId: ['',Validators.required],
       DepartmentId: ['',Validators.required],
-      FunctionId: ['',Validators.required],
+      FunctionId: [''],
       GroupId: ['',Validators.required],
-      
+
       Cnic: ['', Validators.required],
       GenderId: ['', Validators.required],
       EmployeeDesignationId: ['',Validators.required],
@@ -122,7 +122,7 @@ export class RegistrationComponent implements OnInit {
       PermanentState: [''],
       IsPicturePermission: [true],
       Picture: [''],
-      Base64: [''], 
+      Base64: [''],
       ImagePath: [FilePathEnum.ProfilePictures],
       IsActive: [true],
       IsDeleted: [false],
@@ -157,7 +157,7 @@ export class RegistrationComponent implements OnInit {
     this.getEmployeeCode();
      this.getGenderByLovCode();
      this.getgroups();
-   
+
     //this.getdepartments();
    // this.getfunctions();
     // this.getlevels();
@@ -198,7 +198,7 @@ export class RegistrationComponent implements OnInit {
 
       this.departmentService.getdepartmentsbyGroupId(groupId).subscribe({
         next: result => {
-          
+
           this.departmentList=[];
           this.departmentList = result.data;
         },
@@ -220,7 +220,7 @@ export class RegistrationComponent implements OnInit {
 
       this.functionService.getfunctionsbyGroupId(groupId).subscribe({
         next: result => {
-          
+
           this.functionList=[];
           this.functionList = result.data;
         },
@@ -232,14 +232,14 @@ export class RegistrationComponent implements OnInit {
 
       this.groupService.getall().subscribe({
         next: result => {
-          
+
           this.groupList=[];
           this.groupList = result.data;
         },
         error: (err: any) => { this.toast.error(err.message) },
       });
     }
-  
+
   setRegistrationValuesForupdate(item: any) {
     this.registrationForm.controls['EmployeeId'].setValue(item.employeeId);
     if (!item.employeeCode) {
@@ -282,7 +282,7 @@ export class RegistrationComponent implements OnInit {
     this.registrationForm.controls['GenderId'].setValue(item.genderId);
     this.registrationForm.controls['DepartmentId'].setValue(item.departmentId);
     this.registrationForm.controls['FunctionId'].setValue(item.functionId);
-    
+
     this.registrationForm.controls['GroupId'].setValue(item.groupId);
     this.registrationForm.controls['EmployeeDesignationId'].setValue(item.employeeDesignationId);
     this.registrationForm.controls['EmployeeTypeId'].setValue(item.employeeTypeId);
@@ -310,23 +310,23 @@ export class RegistrationComponent implements OnInit {
       this.url =
         this.baseUrl + this.FilePath.ProfilePictures + '/' + item.picture;
   }
-  getEmployeeTypeByLovCode(): void { 
+  getEmployeeTypeByLovCode(): void {
     this.LovServ.getLevelByCode(LovCode.EMPLOYMENT_TYPE).subscribe({
       next: (result) => {
         this.employeetypeList = result.data;
-      },     
+      },
       error: (err: any) => {
         this.toast.error(err?.error?.message);
       },
     });
   }
   getEmployeeCode(): void {
-    this.employeeService.getEmployeeCode().subscribe({ 
+    this.employeeService.getEmployeeCode().subscribe({
       next: (result) => {
         this.registrationForm.controls['EmployeeCode'].setValue(result.data);
       },
       error: (err: any) => {
-        this.toast.error(err?.error?.message);   
+        this.toast.error(err?.error?.message);
       },
     });
   }
@@ -342,7 +342,7 @@ export class RegistrationComponent implements OnInit {
     });
   }
   getGenderByLovCode(): void {
-    this.LovServ.getLevelByCode(LovCode.GENDER).subscribe({ 
+    this.LovServ.getLevelByCode(LovCode.GENDER).subscribe({
       next: (result) => {
         this.genderList = result.data;
       },
@@ -363,7 +363,7 @@ export class RegistrationComponent implements OnInit {
     });
   }
     getEmployeeDesignationByLovCode(): void {
-    this.LovServ.getLevelByCode(LovCode.EMPLOYEE_DESIGNATION).subscribe({ 
+    this.LovServ.getLevelByCode(LovCode.EMPLOYEE_DESIGNATION).subscribe({
      next: (result) => {
       this.emplyeeDesignationList = result.data;
    },
@@ -494,5 +494,5 @@ export class RegistrationComponent implements OnInit {
       });
     }
   }
-  
+
 }
