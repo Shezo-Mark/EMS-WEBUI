@@ -51,7 +51,7 @@
               <div class="form-group">
                 <label>Company Name: </label>
                 <ng-select #select [items]="CompainesList" formControlName="OnboardingId" bindLabel="companyName"
-                  bindValue="onboardingId" [readonly]="isOpenedFromCompany">
+                  bindValue="onboardingId" [readonly]="isOpenedFromCompany ||isEdit">
                 </ng-select>
                 <div
                   *ngIf="(basicFormControl['OnboardingId'].invalid) && submitted&& (basicFormControl['OnboardingId'].errors?.['required'])"
