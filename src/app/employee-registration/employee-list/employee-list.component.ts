@@ -99,12 +99,12 @@ export class EmployeeListComponent {
     });
   }
   getUploadDocument(): void {
-    debugger;
+    //debugger;
     this.documentService
       .getEmployeeDocument(DocumentTableNameEnum.Employee, this.tempEmployeeId)
       .subscribe({
         next: (result) => {
-          debugger;
+          //debugger;
           this.getAttachment = result.data;
         },
         error: (err: any) => {
@@ -115,6 +115,7 @@ export class EmployeeListComponent {
   getEmployeeDocument(): void {
     this.employeeDocumentService.getDocuments().subscribe({
       next: (result) => {
+        //debugger
         this.attachmentList = result.data;
       },
       error: (err: any) => {
@@ -280,12 +281,14 @@ export class EmployeeListComponent {
   onDelete(id: any){
       this.employeeService.deleteemployee(id).subscribe({
     next: (res) => {
-      debugger
-      console.log('Employee deleted successfully', res);
+      this.toast.success('Employee deleted successfully');
+      this.getEmployees();
+      // console.log('Employee deleted successfully', res);
       // optionally refresh your list
     },
     error: (err) => {
-      console.error('Delete failed', err);
+      this.toast.error("Delete failed", err)
+      // console.error('Delete failed', err);
     }
   });
   }

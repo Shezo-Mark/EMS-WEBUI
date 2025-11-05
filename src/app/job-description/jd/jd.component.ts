@@ -66,7 +66,7 @@ export class JDComponent {
     { id: 8, text: '8' },
     { id: 9, text: '9' },
     { id: 10, text: '10' }
-  ]; 
+  ];
 isOpenedFromCompany= false;
 selectedCompanyId= '';
 
@@ -89,7 +89,7 @@ loginUser:any={};
       const storedData = localStorage.getItem(environment.AuthToken);
   if (storedData) {
     this.loginUser = JSON.parse(atob(storedData));
-    debugger;
+    //debugger;
   }
 
     this.jobForm = this.fb.group({
@@ -111,7 +111,7 @@ loginUser:any={};
       month: today.getMonth() + 1,
       day: today.getDate(),
     };
-   
+
   }
 
 
@@ -121,7 +121,7 @@ loginUser:any={};
   ngOnInit(): void {
     this.editor = new Editor();
     this.getgroups();
-    
+
     this.getdepartments();
     this.getposthosts();
     this.getHiringManagers();
@@ -238,7 +238,7 @@ loginUser:any={};
     this.isEdit = false;
   }
   setValueToForm(row: any) {
-    
+//debugger
     this.jobForm.controls['JobDescriptionId'].setValue(row.jobDescriptionId);
     this.jobForm.controls['DepartmentId'].setValue(row.departmentId);
     this.jobForm.controls['OnboardingId'].setValue(row.onboardingId);
@@ -266,7 +266,7 @@ loginUser:any={};
   }
   deleteRow(row: any) {
 
-    
+
 
     console.log(row);
 
@@ -311,7 +311,7 @@ loginUser:any={};
     });
   }
   Approved(row: any) {
-    
+
     this.jobService.approve(row.jobDescriptionId).subscribe({
       next: result => {
         if (result.status) {
@@ -323,7 +323,7 @@ loginUser:any={};
     });
   }
   Published(row: any) {
-    debugger
+    //debugger
     this.jobService.publish(row.jobDescriptionId).subscribe({
       next: result => {
         if (result.status) {
@@ -344,7 +344,7 @@ loginUser:any={};
     const files: FileList = event.target.files;
     console.log(files);
     if (files) {
-      this.selectedFiles = Array.from(files); 
+      this.selectedFiles = Array.from(files);
       console.log(this.selectedFiles);
     }
   }
@@ -368,7 +368,7 @@ loginUser:any={};
 
   this.jobService.saveUpdate(this.jobForm.value).subscribe({
     next: (data: any) => {
-      
+
       console.log("data",data)
       this.toast.success('Job Description has been saved.');
       this.jobForm.reset();
@@ -387,6 +387,7 @@ loginUser:any={};
   getjobdescriptions() {
     this.jobService.get(1, 10, '').subscribe({
       next: (result) => {
+        //debugger
         this.jobList = result.data;
         console.log( "Check Data" ,this.jobList);
       },

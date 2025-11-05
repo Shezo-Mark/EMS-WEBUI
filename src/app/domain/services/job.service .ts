@@ -28,7 +28,6 @@ export class JobService {
     return this.http.get(`job-description/approve/${id}`);
   }
   saveUpdate(formValues: any): Observable<any> {
-    debugger;
     console.log(formValues);
     return this.http.post(`job-description`, formValues);
   }

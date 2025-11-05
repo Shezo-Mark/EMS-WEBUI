@@ -60,28 +60,6 @@
                 </div>
               </div>
             </div>
-
-             <!-- <div class="col-md-6 col-sm-12 my-1">
-              <div class="form-group">
-                <label>Selected Company:</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  [value]="selectedCompany"
-                  readonly
-                />
-
-                <div
-                  *ngIf="basicFormControl['OnboardingId'].invalid && submitted && basicFormControl['OnboardingId'].errors?.['required']"
-                  class="tx-danger"
-                >
-                  <small>Company Name is <strong>required</strong></small>
-                </div>
-              </div>
-            </div> -->
-
-            
-
             <div class="col-md-6 col-sm-12 col-md-6 my-1">
               <label>Title: </label>
               <input class="form-control" formControlName="Title" placeholder="Enter Title"
@@ -253,7 +231,7 @@
                 <th>Opening Date</th>
                 <th>Approved</th>
                 <th>Published</th>
-                <th>Actions</th>
+                <th width="5%" class="">Actions</th>
                 <!-- <th>CV'S</th> -->
               </tr>
             </thead>
@@ -273,11 +251,11 @@
                 <td>{{item.isPublished?'Published':'Not Published'}}
                 </td>
                 <td>
-                  <button type="button" (click)="setValueToForm(item)" class="btn btn-sm btn-primary">
+                  <button type="button" (click)="setValueToForm(item)" class="btn btn-sm d_action_edit">
                     <span class="fe fe-edit"> </span>
                     <!-- Edit -->
                   </button>
-                  <button (click)="deleteRow(item)" id="bDel" type="button" class="btn mx-3 btn-sm btn-danger">
+                  <button (click)="deleteRow(item)" id="bDel" type="button" class="btn ms-1 btn-sm d_action_delete">
                     <span class="fe fe-trash-2"> </span>
                     <!-- trash -->
                   </button>
@@ -290,7 +268,7 @@
                   <button *ngIf="!item.isApproved && loginUser?.user?.isJobApprover" type="button" class="btn btn-sm btn-success" (click)="openFile(item.fileId)">
                     <a class="setBg" (click)="Approved(item)">Approve</a>
                   </button>
-  
+
                   <button *ngIf="item.isApproved && !item.isPublished && loginUser?.user?.isJobPublisher" type="button" class="btn btn-sm btn-success" (click)="openFile(item.fileId)">
                     <a class="setBg" (click)="Published(item)">Publish</a>
                   </button>
@@ -303,7 +281,7 @@
                     </button>
                   </td> -->
 
-              
+
               </tr>
             </tbody>
           </table>
