@@ -45,10 +45,7 @@ export class EducationalDetailsComponent {
   }
   ngOnInit(): void {
     this.getEducationTypeByLovCode();
-    if (this.employeeId != '' && this.employeeId != null) {
-      this.getEmployeeById();
-    this.getEducationByEmployeeId();
-    }
+
   }
   SaveInformal(){
     this.employeeService.SaveEducationType(this.employeeId,this.selectedEducationType?.id).subscribe({
@@ -80,6 +77,10 @@ export class EducationalDetailsComponent {
     this.LovServ.getLevelByCode(LovCode.EDUCATION_TYPE).subscribe({
       next: (result) => {
         this.educationTypesList = result.data;
+            if (this.employeeId != '' && this.employeeId != null) {
+     // this.getEmployeeById();
+    this.getEducationByEmployeeId();
+    }
       },
       error: (err: any) => {
         this.toast.error(err?.error?.message);
@@ -127,6 +128,7 @@ export class EducationalDetailsComponent {
   getEducationByEmployeeId() {
     this.employeeService.getEducationByEmployeeId(this.employeeId).subscribe({
       next: result => {
+        debugger;
         this.educationList = result.data;
         if(this.educationList.length>0){
           this.Edit(this.educationList[0])
@@ -144,6 +146,7 @@ export class EducationalDetailsComponent {
     this.form.controls['PassingYear'].setValue(item.passingYear);
     this.form.controls['EducationTypeId'].setValue(item.educationTypeId);
     this.EducationTypeId=item.educationTypeId;
+              this.selectedEducationType=this.educationTypesList.find(obj => obj.id === item.educationTypeId);
 
   }
   ClearForm(){
