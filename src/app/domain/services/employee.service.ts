@@ -13,6 +13,9 @@ export class EmployeeService {
   save(employee:any): Observable<any> {
     return this.http.post(`employee`,employee);
   }
+  Employee_Update_Family(family:any): Observable<any> {
+    return this.http.post(`employee/update-family`,family);
+  }
   getEmployeeCode(): Observable<any> {
     return this.http.get('employee/get-empcode');
   }

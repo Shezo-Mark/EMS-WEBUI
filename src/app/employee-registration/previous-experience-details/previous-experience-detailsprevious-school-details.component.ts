@@ -31,8 +31,8 @@ export class PreviousExperienceDetailsComponent {
   this.form = this.fb.group({
     PreviousExperienceId :uuidv4(),
     EmployeeId:['', Validators.required] ,
-    YearOfExperience: ['', Validators.required], 
-    Industry : ['', Validators.required],
+    YearOfExperience: ['', Validators.required],
+    Industry : [null],
     PreviousEmployerAdress: ['', Validators.required],
     ReasonForLeaving: ['',Validators.required ],
     ReferenceName: ['',Validators.required ],

@@ -84,7 +84,7 @@
                       </div>
                       <div class="col-md-4 col-sm-12 col-md-4 my-1">
                         <label>Personal Email: </label>
-                        <input class="form-control" formControlName="PersonalEmail" placeholder="Enter Personal Email"
+                        <input type="email" class="form-control" formControlName="PersonalEmail" placeholder="Enter Personal Email"
                           [ngClass]="{'has-success': basicFormControl['PersonalEmail'].valid}">
                         <div
                           *ngIf="submitted && (basicFormControl['PersonalEmail'].errors?.['required'])"

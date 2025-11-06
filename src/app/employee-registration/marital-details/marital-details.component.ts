@@ -20,7 +20,7 @@ import { v4 as uuidv4 } from 'uuid';
 export class MaritalDetailsComponent  {
   @Input() employeeId: any = '';
   formfamily:FormGroup;
-  formchild:FormGroup; 
+  formchild:FormGroup;
   submitted = false;
   @ViewChild('stepper') stepper!: MatStepper;
   maritalList: any[]=[];
@@ -34,11 +34,12 @@ export class MaritalDetailsComponent  {
   selectedMaritalStatus: any={};
   childrenList: any[]=[];
   MaritalStatusId:any;
+
   constructor(
     private readonly fb: FormBuilder,
     private readonly fbc: FormBuilder,
     private readonly toast: ToastrService,
-    private readonly http: HttpRequestService, 
+    private readonly http: HttpRequestService,
     private readonly datePipe: DatePipe,
     private readonly studentService: StudentService,
     private readonly LovServ: LovService,
@@ -51,19 +52,19 @@ export class MaritalDetailsComponent  {
       EmployeeId: ['', Validators.required],
       NameOfSpouse: [''],
       NoOfDependents: [''],
-      SpouseAliveStatusId: [''],
+      SpouseAliveStatusId: [null],
       SpouseDateOfBirth: [''],
       NameOfFather: [''],
-      FatherAliveStatusId: [''],
+      FatherAliveStatusId: [null],
       FatherContact: [''],
       NameOfMother: [''],
-      MotherAliveStatusId: [''],
+      MotherAliveStatusId: [null],
       MotherContact: [''],
       NoOfSisters: [''],
       NoOfBrothers: [''],
       EmergencyContact: [''],
       EmergencyContactName: [''],
-     
+
     });
     this.formchild = this.fbc.group({
       ChildrenId:uuidv4(),
@@ -71,7 +72,7 @@ export class MaritalDetailsComponent  {
       NameOfChild: ['',Validators.required ],
       ChildGenderId: ['',Validators.required ],
       ChildDateOfBirth: ['',Validators.required ],
-     
+
     });
     const today = new Date();
     this.dateofbirthPicker = { day: 1, month: 1, year: 2000 };
@@ -93,28 +94,37 @@ export class MaritalDetailsComponent  {
   FamilyFormSubmit() {
     debugger;
     if (this.employeeId == '' || this.employeeId == null) {
-      this.toast.error('Please Edit employee first'); 
+      this.toast.error('Please Edit employee first');
       return;
     }
     this.formfamily.controls['EmployeeId'].setValue(this.employeeId);
     this.formfamily.controls['MaritalStatusId'].setValue(this.selectedMaritalStatus.id);
     if(this.selectedMaritalStatus?.code=='MARRIED'){
-      let SpouseDateOfBirth =
-      this.dateofbirthPicker.year +
-      '-' +
-      this.dateofbirthPicker.month +
-      '-' +
-      this.dateofbirthPicker.day;
-    this.formfamily.value['SpouseDateOfBirth'] = SpouseDateOfBirth;
+
+      let year = this.dateofbirthPicker.year;
+      let month = String(this.dateofbirthPicker.month).padStart(2, '0');
+      let day = String(this.dateofbirthPicker.day).padStart(2, '0');
+
+      let SpouseDateOfBirth = `${year}-${month}-${day}`;
+       this.formfamily.value['SpouseDateOfBirth'] = SpouseDateOfBirth;
+    //   let SpouseDateOfBirth =
+    //   this.dateofbirthPicker.year +
+    //   '-' +
+    //   this.dateofbirthPicker.month +
+    //   '-' +
+    //   this.dateofbirthPicker.day;
+    // this.formfamily.value['SpouseDateOfBirth'] = SpouseDateOfBirth;
+
+    }else{
+      this.formfamily.value['SpouseDateOfBirth']=null;
     }
-   
+
     this.submitted = true;
     if (!this.formfamily.valid) return;
-    this.http
-      .post('employee/update-family', this.formfamily.value)
-      .subscribe({
-        next: (result) => {
+    this.employeeService.Employee_Update_Family(this.formfamily.value).subscribe({
+           next: (result) => {
           if (result) {
+            debugger
             this.toast.success(result.message);
             //this.formfamily.controls['EducationId'].setValue(uuidv4());
           } else this.toast.error('Somethings went wrong...');
@@ -122,22 +132,43 @@ export class MaritalDetailsComponent  {
         error: (err: any) => {
           this.toast.error(err?.error?.message);
         },
-      });
+    })
+    // this.http.post('employee/update-family', this.formfamily.value)
+    //   .subscribe({
+    //     next: (result) => {
+    //       if (result) {
+    //         this.toast.success(result.message);
+    //         //this.formfamily.controls['EducationId'].setValue(uuidv4());
+    //       } else this.toast.error('Somethings went wrong...');
+    //     },
+    //     error: (err: any) => {
+    //       this.toast.error(err?.error?.message);
+    //     },
+    //   });
   }
   ChildrenFormSubmit() {
     debugger;
     if (this.employeeId == '' || this.employeeId == null) {
-      this.toast.error('Please Edit employee first'); 
+      this.toast.error('Please Edit employee first');
       return;
     }
     this.formchild.controls['EmployeeId'].setValue(this.employeeId);
-    let ChildDateOfBirth =
-      this.childdateofbirthPicker.year +
-      '-' +
-      this.childdateofbirthPicker.month +
-      '-' +
-      this.childdateofbirthPicker.day;
-    this.formchild.value['ChildDateOfBirth'] = ChildDateOfBirth;
+
+      let year = this.childdateofbirthPicker.year;
+      let month = String(this.childdateofbirthPicker.month).padStart(2, '0');
+      let day = String(this.childdateofbirthPicker.day).padStart(2, '0');
+
+      let ChildDateOfBirth = `${year}-${month}-${day}`;
+      this.formchild.value['ChildDateOfBirth'] = ChildDateOfBirth;
+
+
+    // let ChildDateOfBirth =
+    //   this.childdateofbirthPicker.year +
+    //   '-' +
+    //   this.childdateofbirthPicker.month +
+    //   '-' +
+    //   this.childdateofbirthPicker.day;
+    // this.formchild.value['ChildDateOfBirth'] = ChildDateOfBirth;
     this.submitted = true;
     if (!this.formchild.valid) return;
     this.http
@@ -178,7 +209,7 @@ export class MaritalDetailsComponent  {
     });
   }
   getGenderByLovCode(): void {
-    this.LovServ.getLevelByCode(LovCode.GENDER).subscribe({ 
+    this.LovServ.getLevelByCode(LovCode.GENDER).subscribe({
       next: (result) => {
         this.genderList = result.data;
       },

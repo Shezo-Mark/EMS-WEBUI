@@ -3,7 +3,7 @@
   <div class="col-md-4 col-sm-12 col-md-4 my-1">
       <div class="form-group">
         <label>Marital Status: </label>
-        <ng-select #select [items]="maritalList" 
+        <ng-select #select [items]="maritalList"
           bindLabel="text" bindValue="id" [(ngModel)]="MaritalStatusId" (change)="onSelectChange($event)">
         </ng-select>
         <!-- <div
@@ -15,7 +15,7 @@
     </div>
 
 </div>
-    <section *ngIf="selectedMaritalStatus?.code=='MARRIED'">
+  <section *ngIf="selectedMaritalStatus?.code=='MARRIED'">
       <form [formGroup]="formfamily" novalidate (ngSubmit)="FamilyFormSubmit()">
       <div class="row">
         <!-- <div class="col-md-4 col-sm-12 col-md-4 my-1">
@@ -83,8 +83,8 @@
             class="tx-danger">
             <small>Spouse Date Of Birth is <strong>required</strong></small>
           </div>
-        </div> 
-       
+        </div>
+
       </div>
 
       <button type="submit" class="btn btn-success mt-2 mb-2 ">
@@ -135,13 +135,13 @@
               <small>Child Date Of Birth is <strong>required</strong></small>
             </div>
           </div>
-        
-       
+
+
       </div>
 
 
-     
-    
+
+
     <button type="submit" class="btn btn-success me-2">
       Save Children
     </button>
@@ -159,23 +159,23 @@
       </tr>
     </thead>
     <tbody>
-      
+
         <tr *ngFor="let item of childrenList;index as i">
           <th scope="row">{{i+1}}</th>
           <td>{{item.nameOfChild}}</td>
           <!-- <td>{{item.childGender}}</td> -->
           <td>{{item.childDateOfBirth | date: 'yyyy-MM-dd'}}</td>
-         
+
           <td>
             <button type="button"  class="btn me-3 btn-sm btn-primary" (click)="Edit(item)">
             <span class="fe fe-edit"> </span>
             <!-- Edit -->
           </button>
           </td>
-          
-          
+
+
         </tr>
-      
+
     </tbody>
   </table>
 <br><br>
@@ -217,7 +217,7 @@
           <small>Father Contact is <strong>required</strong></small>
         </div>
       </div>
-     
+
   </div>
   <div class="row">
     <div class="col-md-4 col-sm-12 col-md-4 my-1">
@@ -254,7 +254,7 @@
         </div>
       </div>
   </div>
-  <div class="row"> 
+  <div class="row">
     <div class="col-md-4 col-sm-12 col-md-4 my-1">
         <label>No. of Sisters: </label>
         <input class="form-control" formControlName="NoOfSisters" placeholder="Enter No. of Sisters"
@@ -264,7 +264,7 @@
           class="tx-danger">
           <small>No. of Sisters is <strong>required</strong></small>
         </div>
-      </div>    
+      </div>
       <div class="col-md-4 col-sm-12 col-md-4 my-1">
         <label>No. of Brothers: </label>
         <input class="form-control" formControlName="NoOfBrothers" placeholder="Enter No. of Brothers"
@@ -283,10 +283,10 @@
           class="tx-danger">
           <small>Emergency Contact is <strong>required</strong></small>
         </div>
-      </div> 
+      </div>
     </div>
     <div class="row">
-     
+
           <div class="col-md-4 col-sm-12 col-md-4 my-1">
             <label>Emergency Contact Name: </label>
             <input class="form-control" formControlName="EmergencyContactName" placeholder="Enter Emergency Contact Name"
@@ -296,7 +296,7 @@
               class="tx-danger">
               <small>Emergency Contact Name is <strong>required</strong></small>
             </div>
-          </div> 
+          </div>
     </div>
     <button type="submit" class="btn btn-success mt-2 mb-2 ">
       Save

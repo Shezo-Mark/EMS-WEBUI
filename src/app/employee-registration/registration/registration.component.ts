@@ -86,7 +86,7 @@ export class RegistrationComponent implements OnInit {
       EmployeeId: uuidv4(),
       EmployeeCode: [''],
       FirstName: ['', Validators.required],
-      MiddleName: ['', Validators.required],
+      MiddleName: [''],
       LastName: ['', Validators.required],
       Contact:['', Validators.required],
       PersonalEmail: ['', [Validators.pattern(this.common.emailPatteren)]], //Validators.required,
@@ -94,17 +94,17 @@ export class RegistrationComponent implements OnInit {
       DateOfBirth: ['', Validators.required],
       LevelId: ['',Validators.required],
       DepartmentId: ['',Validators.required],
-      FunctionId: [''],
+      FunctionId: [null],
       GroupId: ['',Validators.required],
 
       Cnic: ['', Validators.required],
       GenderId: ['', Validators.required],
       EmployeeDesignationId: ['',Validators.required],
       EmploymentTypeId: ['',Validators.required],
-      MaritalStatusId: [''],
-      JobDescriptionId: [''],
-      EducationTypeId: [''],
-      EmployeeTypeId: [''],
+      // MaritalStatusId: null,
+      JobDescriptionId: [null],
+      // EducationTypeId: null,
+      // EmployeeTypeId: null,
       StreetAddress: [''],
       Mohallah: [''],
       City: [''],
@@ -216,6 +216,7 @@ export class RegistrationComponent implements OnInit {
     getEmploymentTypeByLovCode(): void {
       this.LovServ.getLevelByCode(LovCode.EMPLOYMENT_TYPE).subscribe({
         next: (result) => {
+          debugger
           this.employmenttypeList = result.data;
         },
         error: (err: any) => {
@@ -321,8 +322,8 @@ export class RegistrationComponent implements OnInit {
     this.registrationForm.controls['EmployeeTypeId'].setValue(item.employeeTypeId);
     this.registrationForm.controls['MaritalStatusId'].setValue(item.maritalStatusId);
     this.registrationForm.controls['EducationTypeId'].setValue(item.educationTypeId);
-   this.registrationForm.controls['JobDescriptionId'].setValue(item.jobDescriptionId);
-   this.registrationForm.controls['EmploymentTypeId'].setValue(item.employmentTypeId);
+    this.registrationForm.controls['JobDescriptionId'].setValue(item.jobDescriptionId);
+    this.registrationForm.controls['EmploymentTypeId'].setValue(item.employmentTypeId);
 
 
     this.registrationForm.controls['IsPicturePermission'].setValue(item.isPicturePermission);
@@ -388,7 +389,7 @@ export class RegistrationComponent implements OnInit {
 
     this.jobService.getall().subscribe({
       next: result => {
-
+       debugger
         this.jobDescriptionList=[];
         this.jobDescriptionList = result.data;
       },
@@ -468,10 +469,10 @@ export class RegistrationComponent implements OnInit {
     //   '-' +
     //   this.dateofbirthPicker.day;
       let yeard = this.dateofbirthPicker.year;
-let monthd = String(this.dateofbirthPicker.month).padStart(2, '0');
-let dayd = String(this.dateofbirthPicker.day).padStart(2, '0');
+      let monthd = String(this.dateofbirthPicker.month).padStart(2, '0');
+      let dayd = String(this.dateofbirthPicker.day).padStart(2, '0');
 
-let DateOfBirth = `${yeard}-${monthd}-${dayd}`;
+      let DateOfBirth = `${yeard}-${monthd}-${dayd}`;
     // if(this.RenewPicker!=null || this.RenewPicker!=undefined){
     //   let RenewPicker = this.RenewPicker.year + '-' + this.RenewPicker.month + '-' + this.RenewPicker.day;
     //   this.registrationForm.value['RenewDate'] = RenewPicker;
@@ -483,11 +484,11 @@ let DateOfBirth = `${yeard}-${monthd}-${dayd}`;
     //   '-' +
     //   this.dateOfJoiningPicker.day;
       let year = this.dateOfJoiningPicker.year;
-let month = String(this.dateOfJoiningPicker.month).padStart(2, '0');
-let day = String(this.dateOfJoiningPicker.day).padStart(2, '0');
+      let month = String(this.dateOfJoiningPicker.month).padStart(2, '0');
+      let day = String(this.dateOfJoiningPicker.day).padStart(2, '0');
 
-let DateOfJoining = `${year}-${month}-${day}`;
-    this.registrationForm.value['DateOfBirth'] = DateOfBirth;
+      let DateOfJoining = `${year}-${month}-${day}`;
+      this.registrationForm.value['DateOfBirth'] = DateOfBirth;
 
     this.registrationForm.value['DateOfJoining'] = DateOfJoining;
     if (
@@ -502,6 +503,7 @@ let DateOfJoining = `${year}-${month}-${day}`;
 
     this.employeeService.save(this.registrationForm.value).subscribe({
       next: (result: any) => {
+        debugger
         if (result) {
           this.employeeId = result.data;
           this.toast.success("Your details have been saved.");
@@ -510,6 +512,7 @@ let DateOfJoining = `${year}-${month}-${day}`;
         this.working = false;
       },
       error: (err: any) => {
+        debugger
         this.toast.error(err?.error?.message);
         this.working = false;
       },
