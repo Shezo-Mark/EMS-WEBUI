@@ -142,18 +142,11 @@ export class RegistrationComponent implements OnInit {
     //   'EMP-01'
     // );
   }
-
+  goToNextStep() {
+    this.stepper.next();
+  }
   ngOnInit(): void {
     this.employeeId = this.route.snapshot.queryParamMap.get('id');
-
-
-
-
-
-
-
-
-
 // Use forkJoin for these specific API calls
   forkJoin({
     gender: this.LovServ.getLevelByCode(LovCode.GENDER),
@@ -165,7 +158,6 @@ export class RegistrationComponent implements OnInit {
     jobDescriptions: this.jobService.getall()
   }).subscribe({
     next: (results) => {
-      debugger
       // Assign data to your arrays
       this.genderList = results.gender.data;
       this.groupList = results.groups.data;
@@ -277,7 +269,6 @@ export class RegistrationComponent implements OnInit {
     getEmploymentTypeByLovCode(): void {
       this.LovServ.getLevelByCode(LovCode.EMPLOYMENT_TYPE).subscribe({
         next: (result) => {
-          debugger
           this.employmenttypeList = result.data;
         },
         error: (err: any) => {
@@ -332,7 +323,6 @@ export class RegistrationComponent implements OnInit {
     }
 
   setRegistrationValuesForupdate(item: any) {
-    debugger
     this.registrationForm.controls['EmployeeId'].setValue(item.employeeId);
     if (!item.employeeCode) {
      // this.common.generateRandomCode(6)
@@ -452,7 +442,6 @@ export class RegistrationComponent implements OnInit {
 
     this.jobService.getall().subscribe({
       next: result => {
-       debugger
         this.jobDescriptionList=[];
         this.jobDescriptionList = result.data;
       },
@@ -566,7 +555,6 @@ export class RegistrationComponent implements OnInit {
 
     this.employeeService.save(this.registrationForm.value).subscribe({
       next: (result: any) => {
-        debugger
         if (result) {
           this.employeeId = result.data;
           this.toast.success("Your details have been saved.");
@@ -575,7 +563,6 @@ export class RegistrationComponent implements OnInit {
         this.working = false;
       },
       error: (err: any) => {
-        debugger
         this.toast.error(err?.error?.message);
         this.working = false;
       },

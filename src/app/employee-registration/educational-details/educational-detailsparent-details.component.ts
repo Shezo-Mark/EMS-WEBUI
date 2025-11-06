@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
 import { ToastrService } from 'ngx-toastr';
@@ -19,6 +19,7 @@ export class EducationalDetailsComponent {
   form:FormGroup;
   submitted = false;
   @ViewChild('stepper') stepper!: MatStepper;
+  @Output() saveAndNext = new EventEmitter<void>();
   educationList :any[] = []
   EducationTypeId:any;
   educationTypesList: any[]=[];
@@ -52,7 +53,6 @@ export class EducationalDetailsComponent {
   SaveInformal(){
     this.employeeService.SaveEducationType(this.employeeId,this.selectedEducationType?.id).subscribe({
       next: (result) => {
-debugger;
         if(result.data){
 
         }
@@ -109,7 +109,7 @@ debugger;
             //this.form.controls['EducationId'].setValue(uuidv4());
            // this.ClearForm();
             this.getEducationByEmployeeId();
-            // this.stepper.next();
+            this.saveAndNext.emit();
             // return;
           } else this.toast.error('Somethings went wrong...');
         },
@@ -125,7 +125,7 @@ debugger;
       this.stepper.next();
   }
   getEducationByEmployeeId() {
-    this.employeeService. getEducationByEmployeeId(this.employeeId).subscribe({
+    this.employeeService.getEducationByEmployeeId(this.employeeId).subscribe({
       next: result => {
         this.educationList = result.data;
         if(this.educationList.length>0){

@@ -1,6 +1,6 @@
 
 import { DatePipe } from '@angular/common';
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
 import { ToastrService } from 'ngx-toastr';
@@ -23,6 +23,7 @@ export class MaritalDetailsComponent  {
   formchild:FormGroup;
   submitted = false;
   @ViewChild('stepper') stepper!: MatStepper;
+  @Output() saveAndNext = new EventEmitter<void>();
   maritalList: any[]=[];
   aliveList:any[]=[];
   fatherAlivelList:any[]=[];
@@ -123,7 +124,7 @@ export class MaritalDetailsComponent  {
     this.employeeService.Employee_Update_Family(this.formfamily.value).subscribe({
            next: (result) => {
           if (result) {
-            debugger
+            this.saveAndNext.emit();
             this.toast.success(result.message);
             //this.formfamily.controls['EducationId'].setValue(uuidv4());
           } else this.toast.error('Somethings went wrong...');
@@ -146,7 +147,6 @@ export class MaritalDetailsComponent  {
     //   });
   }
   ChildrenFormSubmit() {
-    debugger;
     if (this.employeeId == '' || this.employeeId == null) {
       this.toast.error('Please Edit employee first');
       return;
@@ -220,7 +220,6 @@ export class MaritalDetailsComponent  {
   getAliveStatusByLovCode(): void {
     this.LovServ.getLevelByCode(LovCode.ALIVE_STATUS).subscribe({
       next: (result) => {
-        debugger;
         this.aliveList = result.data;
         this.fatherAlivelList = result.data;
         this.motherAliveList = result.data;
@@ -242,7 +241,6 @@ export class MaritalDetailsComponent  {
   getFamilyByEmployeeId(){
     this.employeeService.getFamilyByEmployeeId(this.employeeId).subscribe({
       next: result => {
-        debugger;
        // this.childrenList = result.data;
        if(result.data.length>0){
         this.formfamily.controls['SpouseAliveStatusId'].setValue(result.data[0].spouseAliveStatusId);
@@ -278,7 +276,6 @@ if (Array.isArray(splitDOB)) {
     });
   }
   Edit(item:any){
-    debugger;
     this.formchild.controls['EmployeeId'].setValue(item.employeeId);
     this.formchild.controls['NameOfChild'].setValue(item.nameOfChild);
     this.formchild.controls['ChildGenderId'].setValue(item.childGenderId);

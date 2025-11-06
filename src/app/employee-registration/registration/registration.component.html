@@ -371,25 +371,25 @@
               <mat-step>
                 <ng-template matStepLabel>Family Information</ng-template>
                 <ng-template matStepContent>
-                  <app-marital-details [employeeId]="employeeId"></app-marital-details>
+                  <app-marital-details [employeeId]="employeeId" (saveAndNext)="goToNextStep()"></app-marital-details>
                 </ng-template>
               </mat-step>
               <mat-step>
                 <ng-template matStepLabel>Education Information</ng-template>
                 <ng-template matStepContent>
-                  <app-educational-details [employeeId]="employeeId"></app-educational-details>
+                  <app-educational-details [employeeId]="employeeId" (saveAndNext)="goToNextStep()"></app-educational-details>
                 </ng-template>
               </mat-step>
-                <mat-step>
+                <!-- <mat-step>
                 <ng-template matStepLabel>specialization and certification</ng-template>
-                <!-- <ng-template matStepContent>
+                <ng-template matStepContent>
                   <app-educational-details [employeeId]="employeeId"></app-educational-details>
-                </ng-template> -->
-              </mat-step>
+                </ng-template>
+              </mat-step> -->
               <mat-step>
                 <ng-template matStepLabel>Previous Experience Details</ng-template>
                 <ng-template matStepContent>
-                 <app-previous-experience-details [employeeId]="employeeId"></app-previous-experience-details>
+                 <app-previous-experience-details [employeeId]="employeeId" (saveAndNext)="goToNextStep()"></app-previous-experience-details>
                 </ng-template>
               </mat-step>
           </mat-stepper>

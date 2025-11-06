@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ItemsList } from '@ng-select/ng-select/lib/items-list';
@@ -15,6 +15,7 @@ import { v4 as uuidv4 } from 'uuid';
 })
 export class PreviousExperienceDetailsComponent {
   @Input() employeeId:any = '';
+   @Output() saveAndNext = new EventEmitter<void>();
   form: FormGroup;
  dateicker: { day?: number; month: number; year: number };
  submitted = false;
@@ -85,7 +86,6 @@ get basicFormControl() {
   return this.form.controls;
 }
 FormSubmit() {
-  debugger;
   if(this.employeeId == "" || this.employeeId == null){
     this.toast.error("Please Edit employee first"); return;
   }
@@ -106,7 +106,7 @@ FormSubmit() {
         //   window.location.reload();
         // });
         // return;
-        // this.stepper.next();
+        this.saveAndNext.emit();
         // return;
       } else this.toast.error('Somethings went wrong...');
     },
