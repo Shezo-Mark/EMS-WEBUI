@@ -183,42 +183,6 @@ export class RegistrationComponent implements OnInit {
     }
   });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  //    this.getGenderByLovCode();
-  //    this.getgroups();
-
-  //   //this.getdepartments();
-  //  // this.getfunctions();
-  //   // this.getlevels();
-  //    this.getEmployeeDesignationByLovCode();
-  //    this.getMaritalStatusByLovCode();
-  //    this.getEmployeeTypeByLovCode();
-  //    this.getEmploymentTypeByLovCode();
-  //    this.getjobDescriptions();
-
-  //    if (this.employeeId != null && this.employeeId != '') {
-  //     this.isEdit = true;
-  //     this.getEmployeeById(this.employeeId);
-  //   }else{
-  //     this.isEdit=false;
-  //   }
   }
 
   onGroupChange(event:any){
