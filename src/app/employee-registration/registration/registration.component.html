@@ -50,11 +50,11 @@
                         <label>Middle Name: </label>
                         <input class="form-control" formControlName="MiddleName" placeholder="Enter Middle Name "
                           [ngClass]="{'has-success': basicFormControl['MiddleName'].valid}">
-                        <div
+                        <!-- <div
                           *ngIf="(basicFormControl['MiddleName'].invalid) && submitted && (basicFormControl['MiddleName'].errors?.['required'])"
                           class="tx-danger">
                           <small>Middle Name is <strong>required</strong></small>
-                        </div>
+                        </div> -->
                       </div>
                       <div class="col-md-4 col-sm-12 col-md-4 my-1">
                         <label>Last Name: </label>

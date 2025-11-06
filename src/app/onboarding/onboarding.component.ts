@@ -11,7 +11,7 @@ import {
 import { MatStepper } from '@angular/material/stepper';
 import { ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ToastrService } from 'ngx-toastr';                                             
+import { ToastrService } from 'ngx-toastr';
 import { AreaService } from 'src/app/domain/services/area.service';
 import { CommonService } from 'src/app/shared/services/common.service';
 import { ConfigService } from 'src/app/shared/services/config.service';
@@ -31,8 +31,8 @@ export class OnboardingComponent implements OnInit {
   url: string | ArrayBuffer | null | undefined;
   urlAttachment!: string | ArrayBuffer | null;
   @ViewChild('stepper') stepper!: MatStepper;
-    
-  
+
+
   registrationForm!: FormGroup;
   parentRegistrationForm!: FormGroup;
   submitted = false;
@@ -61,7 +61,7 @@ export class OnboardingComponent implements OnInit {
         ClientId: ['',Validators.required],
       CompanyName: ['', Validators.required],
         ContactPersonInfo: this.fb.array([this.createContactPersonNameGroup()]), // One row by default
-      //Designation: ['', Validators.required], 
+      //Designation: ['', Validators.required],
       //ContactPhoneNumber:['', Validators.required],
       //ContactEmailAddress: ['', [Validators.pattern(this.common.emailPatteren)]], //Validators.required,
       ClientType: ['', Validators.required],
@@ -75,7 +75,7 @@ export class OnboardingComponent implements OnInit {
       IsDeleted: [false],
     });
     const today = new Date();
-   
+
     this.onboardingStartDatePicker = {
       year: today.getFullYear(),
       month: today.getMonth() + 1,
@@ -131,7 +131,7 @@ get contactPersonInfoArray(): FormArray {
   ngOnInit(): void {
     this.getonboardings();
      this.getClientCode();
-     
+
     this.onboardingId = this.route.snapshot.queryParamMap.get('id');
     if (this.onboardingId != null && this.onboardingId != '') {
       this.isEdit = true;
@@ -139,14 +139,14 @@ get contactPersonInfoArray(): FormArray {
 
     }else{
       this.isEdit=false;
-      
+
     }
-    
+
    // if(!this.isEdit)
     // this.getEmployeeCode();
     //  this.getGenderByLovCode();
     //  this.getgroups();
-   
+
     //this.getdepartments();
    // this.getfunctions();
     // this.getlevels();
@@ -160,7 +160,7 @@ get contactPersonInfoArray(): FormArray {
 
     this.onboardingService.getOnboardings(this.pagination.pageNo,this.pagination.pageSize,this.searchText).subscribe({
       next: result => {
-        
+
         this.onboardingList=[];
         this.onboardingList = result.data;
       },
@@ -168,12 +168,12 @@ get contactPersonInfoArray(): FormArray {
     });
   }
    getClientCode(): void {
-    this.onboardingService.getClientCode().subscribe({ 
+    this.onboardingService.getClientCode().subscribe({
       next: (result) => {
         this.registrationForm.controls['ClientId'].setValue(result.data);
       },
       error: (err: any) => {
-        this.toast.error(err?.error?.message);   
+        this.toast.error(err?.error?.message);
       },
     });
   }
@@ -189,12 +189,12 @@ get contactPersonInfoArray(): FormArray {
     });
   }
   setRegistrationValuesForupdate(item: any) {
-
+    debugger
     this.curdBtnIsList = false;
     this.isEdit = true;
     this.registrationForm.controls['OnboardingId'].setValue(item.onboardingId);
-       this.registrationForm.controls['ClientId'].setValue(item.clientId);
-  
+    this.registrationForm.controls['ClientId'].setValue(item.clientId);
+
     this.registrationForm.controls['CompanyName'].setValue(item.companyName);
     if(item.contactPersonInfo){
  const contactNames = JSON.parse(item.contactPersonInfo) as {
@@ -208,8 +208,8 @@ const contactArray = this.registrationForm.get('ContactPersonInfo') as FormArray
 contactArray.clear();
 // Add one FormGroup per name
 contactNames.forEach(contactPersonInfo => {
-  contactArray.push(this.fb.group({ 
-    name: [contactPersonInfo.name, Validators.required],     
+  contactArray.push(this.fb.group({
+    name: [contactPersonInfo.name, Validators.required],
     Designation: [contactPersonInfo.Designation, Validators.required],
     ContactEmailAddress: [contactPersonInfo.ContactEmailAddress, [Validators.pattern(this.common.emailPatteren)]],
     ContactPhoneNumber: [contactPersonInfo.ContactPhoneNumber, Validators.required],
@@ -219,8 +219,8 @@ contactNames.forEach(contactPersonInfo => {
 
     }
     // this.registrationForm.controls['ContactEmailAddress'].setValue(item.contactEmailAddress);
-    // this.registrationForm.controls['ContactPhoneNumber'].setValue(item.contactPhoneNumber);  
-      
+    // this.registrationForm.controls['ContactPhoneNumber'].setValue(item.contactPhoneNumber);
+
 
     this.registrationForm.controls['ClientType'].setValue(item.clientType);
     this.registrationForm.controls['CompanyAddress'].setValue(item.companyAddress);
@@ -230,17 +230,17 @@ contactNames.forEach(contactPersonInfo => {
     this.registrationForm.controls['ServicesRequired'].setValue(JSON.parse(item.servicesRequired));
   this.registrationForm.controls['ContractDate'].setValue(item.contractDate);
     this.registrationForm.controls['OnboardingStartDate'].setValue(item.onboardingStartDate);
-    
-    this.registrationForm.controls['SpeccialRequirementsOrNotes'].setValue(item.speccialRequirementsOrNotes);
-  
 
-    
- 
+    this.registrationForm.controls['SpeccialRequirementsOrNotes'].setValue(item.speccialRequirementsOrNotes);
+
+
+
+
     this.registrationForm.controls['IsActive'].setValue(item.isActive);
-    
+
   }
 
- 
+
 
   IsActive(row: any) {
     this.onboardingService.active(row.onboardingId).subscribe({
@@ -264,15 +264,15 @@ contactNames.forEach(contactPersonInfo => {
       }
     });
   }
-  
-  
- 
+
+
+
 
   onRemove() {
     this.url = null;
     this.registrationForm.controls['Base64'].setValue('');
   }
- 
+
   formatBytes(bytes: number): string {
     const UNITS = ['Bytes', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
     const factor = 1024;
@@ -293,7 +293,7 @@ contactNames.forEach(contactPersonInfo => {
       this.toast.error('Please complete all required fields before proceeding.');
       return;
     }
-    
+
     // if(this.RenewPicker!=null || this.RenewPicker!=undefined){
     //   let RenewPicker = this.RenewPicker.year + '-' + this.RenewPicker.month + '-' + this.RenewPicker.day;
     //   this.registrationForm.value['RenewDate'] = RenewPicker;

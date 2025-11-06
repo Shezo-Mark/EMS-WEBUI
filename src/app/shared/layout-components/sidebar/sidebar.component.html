@@ -63,8 +63,8 @@
                 </a>
               </li>
              </ng-container>
-           
-          
+
+
              <!-- *ngIf="Item.children.length > 0" -->
              <!-- <li class="slide" [class]="selectedItem=='1' ? 'show is-expanded' : ''">
               <a class="side-menu__item" (click)="toggleSlide('1')"><span class="shape1"></span><span class="shape2"></span><span class="side-menu__icon">
@@ -72,25 +72,32 @@
                   <i class="angle fe fe-chevron-right"></i>
               </a>
               <ul class="slide-menu open">
-               *ngFor="let item1 of Item.children 
+               *ngFor="let item1 of Item.children
                 <li><a routerLinkActive="active" class="slide-item"
                   routerLink="registration/student">Registration </a>
                 </li>
               </ul>
         </li> -->
-        <li class="slide" [class]="selectedItem=='1' ? 'show is-expanded' : ''">
+             <li class="slide">
+                <a routerLink="boarding/onboarding" class="side-menu__item">
+                  <span class="shape1"></span>
+                  <span class="shape2"></span>
+                  <span class="side-menu__icon">
+                  <i class="fe fe-home"></i></span><span class="side-menu__label">On Boarding</span>
+                </a>
+              </li>
+        <!-- <li class="slide" [class]="selectedItem=='1' ? 'show is-expanded' : ''">
           <a class="side-menu__item" (click)="toggleSlide('1')"><span class="shape1"></span><span class="shape2"></span><span class="side-menu__icon">
             <i class="fe fe-home"></i></span><span class="side-menu__label"> Client Onboarding</span>
               <i class="angle fe fe-chevron-right"></i>
           </a>
           <ul class="slide-menu open">
-            <!-- *ngFor="let item1 of Item.children -->
             <li><a routerLinkActive="active" class="slide-item"
               routerLink="boarding/onboarding">Onboarding </a>
             </li>
- 
+
           </ul>
-    </li>
+    </li> -->
         <li class="slide" [class]="selectedItem=='2' ? 'show is-expanded' : ''">
           <a class="side-menu__item" (click)="toggleSlide('2')"><span class="shape1"></span><span class="shape2"></span><span class="side-menu__icon">
             <i class="fe fe-home"></i></span><span class="side-menu__label">Employee</span>
@@ -98,12 +105,8 @@
           </a>
           <ul class="slide-menu open">
             <!-- *ngFor="let item1 of Item.children -->
-            <li><a routerLinkActive="active" class="slide-item"
-              routerLink="register/employee">Registration </a>
-            </li>
-            <li><a routerLinkActive="active" class="slide-item"
-              routerLink="register/employee-list">Employee List </a>
-            </li>
+            <li><a routerLinkActive="active" class="slide-item" routerLink="register/employee">Add New Employee </a></li>
+            <li><a routerLinkActive="active" class="slide-item" routerLink="register/employee-list">All Employee</a></li>
             <!-- <li><a routerLinkActive="active" class="slide-item"
               routerLink="register/employee-accessories">Accessories</a>
             </li> -->
@@ -164,9 +167,9 @@
         <li><a routerLinkActive="active" class="slide-item"
           routerLink="user-management/role">Roles </a>
         </li>
-        <li><a routerLinkActive="active" class="slide-item"
+        <!-- <li><a routerLinkActive="active" class="slide-item"
           routerLink="user-management/permission">Role Permissions </a>
-        </li>
+        </li> -->
         <li><a routerLinkActive="active" class="slide-item"
           routerLink="user-management/setting">Settings </a>
         </li>
