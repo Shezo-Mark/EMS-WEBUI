@@ -146,7 +146,7 @@ export class EducationalDetailsComponent {
     this.form.controls['PassingYear'].setValue(item.passingYear);
     this.form.controls['EducationTypeId'].setValue(item.educationTypeId);
     this.EducationTypeId=item.educationTypeId;
-              this.selectedEducationType=this.educationTypesList.find(obj => obj.id === item.educationTypeId);
+    this.selectedEducationType=this.educationTypesList.find(obj => obj.id === item.educationTypeId);
 
   }
   ClearForm(){
