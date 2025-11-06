@@ -26,7 +26,7 @@ export class EducationalDetailsComponent {
   constructor(
     private readonly fb: FormBuilder,
     private readonly toast: ToastrService,
-    private readonly http: HttpRequestService, 
+    private readonly http: HttpRequestService,
     private readonly studentService: StudentService,
     private readonly employeeService: EmployeeService,
     private readonly LovServ:LovService,
@@ -39,7 +39,7 @@ export class EducationalDetailsComponent {
       NameOfHighestDegree: ['', Validators.required],
       NameOfInstitute: ['', Validators.required],
       PassingYear: ['']
-     
+
     });
   }
   ngOnInit(): void {
@@ -54,7 +54,7 @@ export class EducationalDetailsComponent {
       next: (result) => {
 debugger;
         if(result.data){
-          
+
         }
       },
       error: (err: any) => {
@@ -93,7 +93,7 @@ debugger;
   ParentFormSubmit() {
     debugger;
     if (this.employeeId == '' || this.employeeId == null) {
-      this.toast.error('Please Edit employee first'); 
+      this.toast.error('Please Edit employee first');
       return;
     }
     this.form.controls['EmployeeId'].setValue(this.employeeId);
@@ -136,11 +136,14 @@ debugger;
     });
   }
   Edit(item:any){
+    debugger;
     this.form.controls['EducationId'].setValue(item.educationId);
     this.form.controls['EmployeeId'].setValue(item.employeeId);
     this.form.controls['NameOfHighestDegree'].setValue(item.nameOfHighestDegree);
     this.form.controls['NameOfInstitute'].setValue(item.nameOfInstitute);
     this.form.controls['PassingYear'].setValue(item.passingYear);
+    this.form.controls['EducationTypeId'].setValue(item.educationTypeId);
+    this.EducationTypeId=item.educationTypeId;
 
   }
   ClearForm(){

@@ -88,11 +88,10 @@ export class MaritalDetailsComponent  {
     }
   }
   onSelectChange(selectedValue:any) {
-    debugger;
+
     this.selectedMaritalStatus = selectedValue; // Assuming you want the id of the selected item
   }
   FamilyFormSubmit() {
-    debugger;
     if (this.employeeId == '' || this.employeeId == null) {
       this.toast.error('Please Edit employee first');
       return;

@@ -55,6 +55,7 @@ export class RegistrationComponent implements OnInit {
   levelList: any[] = [];
   departmentList: any[] = [];
   functionList: any[] = [];
+  EmploymentType: any[] = [];
 
   groupList: any[] = [];
   employeeDetails: any;
@@ -105,10 +106,6 @@ export class RegistrationComponent implements OnInit {
       JobDescriptionId: [null],
       // EducationTypeId: null,
       // EmployeeTypeId: null,
-      StreetAddress: [''],
-      Mohallah: [''],
-      City: [''],
-      State: [''],
       CurrentStreetAddress: [''],
       CurrentMohallah: [''],
       CurrentTehsil: [''],
@@ -149,29 +146,89 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void {
     this.employeeId = this.route.snapshot.queryParamMap.get('id');
 
-    if(!this.employeeId){
+
+
+
+
+
+
+
+
+// Use forkJoin for these specific API calls
+  forkJoin({
+    gender: this.LovServ.getLevelByCode(LovCode.GENDER),
+    groups: this.groupService.getall(),
+    employeeDesignation: this.LovServ.getLevelByCode(LovCode.EMPLOYEE_DESIGNATION),
+    maritalStatus: this.LovServ.getLevelByCode(LovCode.MARITAL_STATUS),
+    employeeType: this.LovServ.getLevelByCode(LovCode.EMPLOYMENT_TYPE),
+    employmentType: this.LovServ.getLevelByCode(LovCode.EMPLOYMENT_TYPE),
+    jobDescriptions: this.jobService.getall()
+  }).subscribe({
+    next: (results) => {
+      debugger
+      // Assign data to your arrays
+      this.genderList = results.gender.data;
+      this.groupList = results.groups.data;
+      this.emplyeeDesignationList = results.employeeDesignation.data;
+      this.maritalList = results.maritalStatus.data;
+      this.employeetypeList = results.employeeType.data;
+      this.employmenttypeList = results.employmentType.data;
+      this.jobDescriptionList = results.jobDescriptions.data;
+
+      // Now get employee data after dropdowns are loaded
+      if (this.employeeId != null && this.employeeId != '') {
+        this.isEdit = true;
+        this.getEmployeeById(this.employeeId);
+      } else {
+        this.isEdit = false;
+      }
+         if(!this.employeeId){
     this.getEmployeeCode();
     }
-
-     this.getGenderByLovCode();
-     this.getgroups();
-
-    //this.getdepartments();
-   // this.getfunctions();
-    // this.getlevels();
-     this.getEmployeeDesignationByLovCode();
-     this.getMaritalStatusByLovCode();
-     this.getEmployeeTypeByLovCode();
-     this.getEmploymentTypeByLovCode();
-     this.getjobDescriptions();
-
-         if (this.employeeId != null && this.employeeId != '') {
-      this.isEdit = true;
-      this.getEmployeeById(this.employeeId);
-    }else{
-      this.isEdit=false;
+    },
+    error: (err: any) => {
+      this.toast.error(err?.error?.message);
     }
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  //    this.getGenderByLovCode();
+  //    this.getgroups();
+
+  //   //this.getdepartments();
+  //  // this.getfunctions();
+  //   // this.getlevels();
+  //    this.getEmployeeDesignationByLovCode();
+  //    this.getMaritalStatusByLovCode();
+  //    this.getEmployeeTypeByLovCode();
+  //    this.getEmploymentTypeByLovCode();
+  //    this.getjobDescriptions();
+
+  //    if (this.employeeId != null && this.employeeId != '') {
+  //     this.isEdit = true;
+  //     this.getEmployeeById(this.employeeId);
+  //   }else{
+  //     this.isEdit=false;
+  //   }
   }
+
   onGroupChange(event:any){
     this.getdepartmentsbyGroupId(event.id);
     this.getlevelsbyGroupCode(event.code)
@@ -182,20 +239,24 @@ export class RegistrationComponent implements OnInit {
   const departments$ = this.departmentService.getdepartmentsbyGroupId(event.id);
   const levels$ = this.levelService.getlevelsbyGroupCode(event.code);
   const functions$ = this.functionService.getfunctionsbyGroupId(event.id);
+  const employment$ = this.LovServ.getLevelByCode(event.id);
 
   forkJoin({
     departments: departments$,
     levels: levels$,
-    functions: functions$
+    functions: functions$,
+    employment: employment$
   }).subscribe({
     next: (result) => {
       // Assign data from all three API calls
       this.departmentList = result.departments.data;
       this.levelList = result.levels.data;
       this.functionList = result.functions.data;
+      this.EmploymentType = result.employment.data;
             this.registrationForm.controls['LevelId'].setValue(item.levelId);
             this.registrationForm.controls['DepartmentId'].setValue(item.departmentId);
             this.registrationForm.controls['FunctionId'].setValue(item.functionId);
+            this.registrationForm.controls['EmploymentTypeId'].setValue(item.employmentTypeId);
     },
     error: (err) => {
       this.toast.error(err.message);
@@ -271,6 +332,7 @@ export class RegistrationComponent implements OnInit {
     }
 
   setRegistrationValuesForupdate(item: any) {
+    debugger
     this.registrationForm.controls['EmployeeId'].setValue(item.employeeId);
     if (!item.employeeCode) {
      // this.common.generateRandomCode(6)
@@ -319,19 +381,20 @@ export class RegistrationComponent implements OnInit {
 
     }
     this.registrationForm.controls['EmployeeDesignationId'].setValue(item.employeeDesignationId);
-    this.registrationForm.controls['EmployeeTypeId'].setValue(item.employeeTypeId);
-    this.registrationForm.controls['MaritalStatusId'].setValue(item.maritalStatusId);
-    this.registrationForm.controls['EducationTypeId'].setValue(item.educationTypeId);
+    // this.registrationForm.controls['EmployeeTypeId'].setValue(item.employeeTypeId);
+    // this.registrationForm.controls['MaritalStatusId'].setValue(item.maritalStatusId);
+    // this.registrationForm.controls['EducationTypeId'].setValue(item.educationTypeId);
     this.registrationForm.controls['JobDescriptionId'].setValue(item.jobDescriptionId);
     this.registrationForm.controls['EmploymentTypeId'].setValue(item.employmentTypeId);
 
-
     this.registrationForm.controls['IsPicturePermission'].setValue(item.isPicturePermission);
     this.registrationForm.controls['Picture'].setValue(item.picture);
-    this.registrationForm.controls['StreetAddress'].setValue(item.streetAddress);
-    this.registrationForm.controls['Mohallah'].setValue(item.mohallah);
-    this.registrationForm.controls['City'].setValue(item.city);
-    this.registrationForm.controls['State'].setValue(item.state);
+    this.registrationForm.controls['CurrentStreetAddress'].setValue(item.currentStreetAddress);
+    this.registrationForm.controls['CurrentMohallah'].setValue(item.currentMohallah);
+    this.registrationForm.controls['CurrentCity'].setValue(item.currentCity);
+        this.registrationForm.controls['CurrentTehsil'].setValue(item.currentTehsil);
+    this.registrationForm.controls['CurrentDistrict'].setValue(item.currentDistrict);
+    this.registrationForm.controls['CurrentState'].setValue(item.currentState);
     this.registrationForm.controls['PermanentStreetAddress'].setValue(item.permanentStreetAddress);
     this.registrationForm.controls['PermanentMohallah'].setValue(item.permanentMohallah);
     this.registrationForm.controls['PermanentTehsil'].setValue(item.permanentTehsil);
