@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
@@ -23,6 +23,7 @@ const Swal = require('sweetalert2');
   providers: [DatePipe]
 })
 export class EmployeeListComponent {
+  @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
   public teacherForm!: FormGroup;
   documentUploader: any = {};
   modelType: any = {};
@@ -248,6 +249,7 @@ export class EmployeeListComponent {
       this.selectedDocumentId == undefined ||
       this.selectedDocumentId == ''
     ) {
+      debugger
       this.toast.warning('Please select document type');
       event.target.value = '';
       return;
@@ -259,6 +261,7 @@ export class EmployeeListComponent {
       const file = event.target.files[0];
       let ext = event.target.files[0].name.split('.').pop();
       if (ext !== 'pdf') {
+        debugger
         this.toast.warning('Please select PDF formate file');
         event.target.value = '';
         return;
@@ -282,6 +285,12 @@ export class EmployeeListComponent {
           this.model.TableRefrenceId = this.tempEmployeeId;
         }
         this.uploadEmployeeDocument(this.model);
+
+
+        // ✅ Reset file input after upload (so user can re-upload same file later)
+        if (this.fileInput && this.fileInput.nativeElement) {
+          this.fileInput.nativeElement.value = '';
+        }
       };
     }
   }
@@ -293,6 +302,11 @@ export class EmployeeListComponent {
           debugger
           this.toast.success('Deleted SuccessFully');
           this.getUploadDocument();
+                 // ✅ Clear file input safely after delete
+        if (this.fileInput && this.fileInput.nativeElement) {
+          this.fileInput.nativeElement.value = '';
+          console.log('File input cleared');
+        }
         },
         error: (err: any) => {
           this.toast.error(err?.error?.message);

@@ -57,20 +57,22 @@ getExperienceoByEmployeeId() {
   this.employeeService.getExperienceoByEmployeeId(this.employeeId).subscribe({
     next: result => {
       this.previousExperienceList = result.data;
+       this.Update_data_record();
     },
     error: (err: any) => { this.toast.error(err?.error?.message) },
   });
 }
 Edit(item:any){
-  this.form.controls['PreviousExperienceId'].setValue(item.previousExperienceId);
-  this.form.controls['EmployeeId'].setValue(item.employeeId);
-  this.form.controls['YearOfExperience'].setValue(item.yearOfExperience);
-  this.form.controls['Industry'].setValue(item.industry);
-  this.form.controls['PreviousEmployerAdress'].setValue(item.previousEmployerAdress);
-  this.form.controls['ReasonForLeaving'].setValue(item.reasonForLeaving);
-  this.form.controls['ReferenceName'].setValue(item.referenceName);
-  this.form.controls['Contact'].setValue(item.contact);
-  this.form.controls['Email'].setValue(item.email);
+  // this.form.controls['PreviousExperienceId'].setValue(item.previousExperienceId);
+  // this.form.controls['EmployeeId'].setValue(item.employeeId);
+  // this.form.controls['YearOfExperience'].setValue(item.yearOfExperience);
+  // this.form.controls['Industry'].setValue(item.industry);
+  // this.form.controls['PreviousEmployerAdress'].setValue(item.previousEmployerAdress);
+  // this.form.controls['ReasonForLeaving'].setValue(item.reasonForLeaving);
+  // this.form.controls['ReferenceName'].setValue(item.referenceName);
+  // this.form.controls['Contact'].setValue(item.contact);
+  // this.form.controls['Email'].setValue(item.email);
+  this.Update_data_record();
 }
 ClearForm(){
   this.form.controls['YearOfExperience'].setValue('');
@@ -128,6 +130,29 @@ FormSubmit() {
   //   },
   //   error: (err: any) => { this.toast.error(err?.error?.message) },
   // });
+}
+
+Update_data_record(){
+  this.employeeService.getExperienceoByEmployeeId(this.employeeId).subscribe({
+    next: result => {
+      const existingData = result?.data?.[0];
+     if (existingData) {
+          this.form.patchValue({
+            PreviousExperienceId: existingData.previousExperienceId,
+            EmployeeId: existingData.employeeId,
+            YearOfExperience: existingData.yearOfExperience,
+            Industry: existingData.industry,
+            PreviousEmployerAdress: existingData.previousEmployerAdress,
+            ReasonForLeaving: existingData.reasonForLeaving,
+            ReferenceName: existingData.referenceName,
+            Contact: existingData.contact,
+            Email: existingData.email
+          });
+        }
+
+    },
+    error: (err: any) => { this.toast.error(err?.error?.message) },
+  });
 }
 
 }

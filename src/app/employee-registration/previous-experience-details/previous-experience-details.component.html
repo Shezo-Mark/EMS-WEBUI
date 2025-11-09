@@ -53,7 +53,7 @@
         </div>
       </div>
       <div class="row">
-       
+
         <div class="col-md-4 col-sm-12 col-md-4 my-1">
           <label>Reference Name</label>
           <input type="text" name="name" formControlName="ReferenceName" placeholder="Reference Name"
@@ -89,7 +89,7 @@
             <small>Email is not <strong>correct</strong></small>
           </div>
         </div>
-       
+
       </div>
     </section>
     <br><br>
@@ -103,7 +103,7 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Year of Experience</th>
-       
+
         <th scope="col">Previous Employer Address</th>
         <th scope="col">Reason for Leaving</th>
         <th scope="col">Reference Name</th>
@@ -113,23 +113,23 @@
       </tr>
     </thead>
     <tbody>
-      
+
         <tr *ngFor="let item of previousExperienceList;index as i">
           <th scope="row">{{i+1}}</th>
           <td>{{item.yearOfExperience}}</td>
-      
+
           <td>{{item.previousEmployerAdress}}</td>
           <td>{{item.reasonForLeaving}}</td>
           <td>{{item.referenceName}}</td>
           <td>{{item.previousEmployercontact}}</td>
           <td>{{item.email}}</td>
-          <td>   
-            <button type="button"  class="btn me-3 btn-sm btn-primary" (click)="Edit(item)">
+          <td>
+            <button type="button"  class="btn me-3 btn-sm d_action_edit" (click)="Edit(item)">
             <span class="fe fe-edit"> </span>
             <!-- Edit -->
           </button>
          </td>
         </tr>
-      
+
     </tbody>
   </table>
