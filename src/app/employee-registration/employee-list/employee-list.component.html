@@ -224,7 +224,6 @@
     </button>
   </div>
   <div class="modal-body">
-    <form action="" #file="ngForm" (ngSubmit)="submitForm(file.value)"></form>
     <div class="form-group row" *ngFor="let item of attachmentList; let ndx = index">
       <div class="col-md-10">
         <label for="file-{{ndx}}" style="font-weight: bold;">{{item.documentName}}</label>

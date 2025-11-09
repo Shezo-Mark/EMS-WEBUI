@@ -4,7 +4,7 @@
 
 Project        :   Adminor - Angular Dashboard Template
 Create Date    :   10/03/2023
-Copyright      :   Spruko Technologies Private Limited 
+Copyright      :   Spruko Technologies Private Limited
 Author         :   Spruko Technologies Private Limited
 Author URL     :   https://themeforest.net/user/spruko
 Support	       :   https://support.spruko.com/
@@ -89,7 +89,7 @@ License        :   https://spruko.com/licenses-details
 11. input-group
 12. modal
 13. nav
-14. pagination 
+14. pagination
 15. panel
 16. popover
 17. progress
@@ -23607,13 +23607,14 @@ input[type=text]::-ms-clear {
 }
 
 .login-img {
-    background: url(../img/media/20.jpg);
+    /* background: url(../img/media/20.jpg); */
     height: 100%;
     width: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     display: inline-table;
+    background: linear-gradient(45deg, var(--primary-bg-color), #9853af) !important;
 }
 
 .square-box div:nth-child(1) {
@@ -29756,7 +29757,7 @@ a.tag-addon:hover {
     .horizontal .mobile-logo.dark-logo-1 {
         display: none;
     }
- 
+
     .horizontal .main-content {
         margin-inline-start: 0px !important;
     }

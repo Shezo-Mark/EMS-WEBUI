@@ -26,6 +26,7 @@ uploadFile(model:DocumentModel): Observable<any> {
     return this.http.get(`master/document/get-employee-document?Table=${Table}&TableRefrenceId=${TableRefrenceId}`);
   }
   deleteDocument(documentId: string): Observable<any> {
+     debugger
     return this.http.delete(`master/document/deleteDocument/${documentId}`);
   }
 }

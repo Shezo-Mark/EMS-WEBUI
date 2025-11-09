@@ -248,6 +248,7 @@ export class EmployeeListComponent {
       return;
     }
     if (event.target.files && event.target.files[0]) {
+        debugger
       var reader = new FileReader();
       reader.readAsDataURL(event.target.files[0]); // read file as data url
       const file = event.target.files[0];
@@ -263,6 +264,7 @@ export class EmployeeListComponent {
       reader.onload = (event) => {
         // called once readAsDataURL is completed
         if (event.target) {
+            debugger
           let url = event.target.result;
           this.model.DocumentId = uuidv4();
           this.model.Base64Url = url;
@@ -278,14 +280,12 @@ export class EmployeeListComponent {
       };
     }
   }
-  submitForm(data:any){
-
-  }
 
   deleteDocument(documentId: string) {
     if (confirm('Are you sure to delete ')) {
       this.documentService.deleteDocument(documentId).subscribe({
         next: (result) => {
+          debugger
           this.toast.success('Deleted SuccessFully');
           this.getUploadDocument();
         },

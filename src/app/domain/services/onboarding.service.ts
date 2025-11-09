@@ -16,11 +16,11 @@ export class OnboardingService {
    delete(onboardingId: string, ): Observable<any> {
       const params = new HttpParams()
       .set('onboardingId', onboardingId)
-      
+
       return this.http.deleteWithParams(`onboarding`,  params);
     }
-  
-  
+
+
   getOnboardings(pageNo:string,pageSize:string,searchText:string): Observable<any> {
     return this.http.get(`onboarding/get-onboardings?pageNo=${pageNo}&pageSize=${pageSize}&searchText=${searchText}`);
   }
@@ -43,5 +43,5 @@ export class OnboardingService {
     return this.http.get(`onboarding/get-all`);
     }
 
-   
+
 }

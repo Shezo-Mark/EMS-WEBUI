@@ -160,7 +160,7 @@ get contactPersonInfoArray(): FormArray {
 
     this.onboardingService.getOnboardings(this.pagination.pageNo,this.pagination.pageSize,this.searchText).subscribe({
       next: result => {
-
+        debugger
         this.onboardingList=[];
         this.onboardingList = result.data;
       },
@@ -256,6 +256,7 @@ contactNames.forEach(contactPersonInfo => {
    onDelete(onboardingId: string) {
     this.onboardingService.delete(onboardingId).subscribe({
       next: () => {
+        debugger
         this.toast.success('Deleted successfully');
         this.getonboardings();
       },
@@ -287,7 +288,6 @@ contactNames.forEach(contactPersonInfo => {
     this.modalService.open(ScroleContent);
   }
   formSubmit() {
-    debugger;
     this.submitted = true;
     if (!this.registrationForm.valid) {
       this.toast.error('Please complete all required fields before proceeding.');
