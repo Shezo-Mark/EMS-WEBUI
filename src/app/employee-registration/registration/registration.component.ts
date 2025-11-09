@@ -159,6 +159,7 @@ export class RegistrationComponent implements OnInit {
   }).subscribe({
     next: (results) => {
       // Assign data to your arrays
+      debugger
       this.genderList = results.gender.data;
       this.groupList = results.groups.data;
       this.emplyeeDesignationList = results.employeeDesignation.data;

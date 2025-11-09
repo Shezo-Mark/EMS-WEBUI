@@ -24,9 +24,9 @@ export class PostHostComponent {
   branchId:any;
   posthostList: any[] = [];
   constructor(
-    private fb: FormBuilder, 
+    private fb: FormBuilder,
     private toast: ToastrService,
-    private posthostService: PostHostService, 
+    private posthostService: PostHostService,
     private http: HttpRequestService,
     private authSrv : AuthService) {
     this.posthostForm = this.fb.group({
@@ -58,6 +58,7 @@ export class PostHostComponent {
     this.posthostService.get(this.pagination.pageNo,this.pagination.pageSize,this.pagination.searchText ).subscribe({
       next: result => {
         debugger;
+        debugger
         this.posthostList=[];
         this.posthostList = result.data.data;
         if(result.data.data.length > 0)
@@ -83,6 +84,7 @@ export class PostHostComponent {
       return;
     this.posthostService.saveUpdate(this.posthostForm.value).subscribe({
       next: (data: any) => {
+        debugger
         this.posthostForm.reset();
         this.posthostForm.controls['PostHostId'].setValue(uuidv4());
         this.toast.success("posthost has been Saved.");

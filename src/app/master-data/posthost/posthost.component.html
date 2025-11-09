@@ -76,26 +76,34 @@
                 <thead>
                   <tr>
                     <th>Post Host Name</th>
-                    <th>Actions</th>
+                    <th width="2%">Status</th>
+                    <th width="5%">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let item of posthostList;let ndx = index">
                     <td>{{item.postHostName}}</td>
                     <td>
-                      <button type="button" (click)="setValueToForm(item)" class="btn btn-sm btn-primary">
-                        <span class="fe fe-edit"> </span>
-                        <!-- Edit -->
-                      </button>
-                      <button (click)="deleteRow(item)" id="bDel" type="button" class="btn mx-3 btn-sm btn-danger">
-                        <span class="fe fe-trash-2"> </span>
-                        <!-- trash -->
-                      </button>
-                      <label>
+                       <label>
                         <input (click)="IsActive(item)" type="checkbox" [checked]="item.isActive"
                           name="form-switch-checkbox1" class="form-switch-input">
                         <span class="form-switch-indicator"></span>
                       </label>
+                    </td>
+                    <td>
+                      <button type="button" (click)="setValueToForm(item)" class="btn btn-sm d_action_edit">
+                        <span class="fe fe-edit"> </span>
+                        <!-- Edit -->
+                      </button>
+                      <button (click)="deleteRow(item)" id="bDel" type="button" class="btn mx-3 btn-sm d_action_delete">
+                        <span class="fe fe-trash-2"> </span>
+                        <!-- trash -->
+                      </button>
+                      <!-- <label>
+                        <input (click)="IsActive(item)" type="checkbox" [checked]="item.isActive"
+                          name="form-switch-checkbox1" class="form-switch-input">
+                        <span class="form-switch-indicator"></span>
+                      </label> -->
                     </td>
                   </tr>
                 </tbody>
@@ -104,7 +112,7 @@
             <div class="d-flex justify-content-between p-2">
               <ngb-pagination [collectionSize]="pagination.totalCount" [(page)]="pagination.pageNo" [pageSize]="pagination.pageSize" (pageChange)="onPageChange($event)" [maxSize]="pagination.maxSize" [boundaryLinks]="true" [ellipses]="true"></ngb-pagination>
 
-              
+
               <ng-select class="" style="min-width: 100px" name="pageSize" (change)="getposthosts()" [(ngModel)]="pagination.pageSize">
                 <ng-option value="5">5</ng-option>
                 <ng-option value="10" selected>10</ng-option>

@@ -299,10 +299,10 @@ export class EmployeeListComponent {
     if (confirm('Are you sure to delete ')) {
       this.documentService.deleteDocument(documentId).subscribe({
         next: (result) => {
-          debugger
           this.toast.success('Deleted SuccessFully');
           this.getUploadDocument();
-                 // ✅ Clear file input safely after delete
+
+        // ✅ Clear file input safely after delete
         if (this.fileInput && this.fileInput.nativeElement) {
           this.fileInput.nativeElement.value = '';
           console.log('File input cleared');

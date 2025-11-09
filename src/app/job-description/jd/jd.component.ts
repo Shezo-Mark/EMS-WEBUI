@@ -203,7 +203,7 @@ loginUser:any={};
 
     this.postHostService.getall().subscribe({
       next: result => {
-
+          debugger
         this.posthostList = [];
         this.posthostList = result.data;
       },
@@ -315,6 +315,7 @@ debugger
     this.jobService.approve(row.jobDescriptionId).subscribe({
       next: result => {
         if (result.status) {
+          debugger
           this.getjobdescriptions();
           this.toast.success("Record Approved SuccessFully");
         }
@@ -368,7 +369,7 @@ debugger
 
   this.jobService.saveUpdate(this.jobForm.value).subscribe({
     next: (data: any) => {
-
+        debugger
       console.log("data",data)
       this.toast.success('Job Description has been saved.');
       this.jobForm.reset();
