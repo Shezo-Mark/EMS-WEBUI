@@ -221,7 +221,7 @@ contactNames.forEach(contactPersonInfo => {
     // this.registrationForm.controls['ContactEmailAddress'].setValue(item.contactEmailAddress);
     // this.registrationForm.controls['ContactPhoneNumber'].setValue(item.contactPhoneNumber);
 
-
+debugger
     this.registrationForm.controls['ClientType'].setValue(item.clientType);
     this.registrationForm.controls['CompanyAddress'].setValue(item.companyAddress);
     if(item.numberOfEmployees != null && item.numberOfEmployees != undefined)
@@ -337,10 +337,12 @@ this.registrationForm.value['ServicesRequired'] = JSON.stringify(this.registrati
     this.onboardingService.saveUpdate(this.registrationForm.value).subscribe({
       next: (result: any) => {
         if (result) {
+          debugger
           this.onboardingId = result.data;
           this.curdBtnIsList = true;
           this.isEdit = false;
              this.getClientCode();
+             this.getonboardings();
           this.toast.success("Your details have been saved.");
         } else this.toast.error('Somethings went wrong...');
       },

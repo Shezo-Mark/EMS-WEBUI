@@ -62,7 +62,7 @@ export class EmployeeService {
   getEmployeeById(employeeId: string): Observable<any> {
     return this.http.get('employee/get-employee-byId?employeeId='+employeeId);
   }
-  active(id:any): Observable<any> {
+  active(id:any, isActive: boolean): Observable<any> {
     return this.http.get(`employee/active?employeeId=`+id);
     }
      deleteemployee(employeeId: any ): Observable<any> {

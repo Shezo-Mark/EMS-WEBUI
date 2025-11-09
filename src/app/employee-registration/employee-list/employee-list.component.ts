@@ -215,13 +215,18 @@ export class EmployeeListComponent {
     });
   }
   IsActive(row: any) {
-
-    this.employeeService.active(row.employeeId).subscribe({
+    row.isActive = !row.isActive;
+    this.employeeService.active(row.employeeId, row.isActive).subscribe({
       next: result => {
+        debugger
         if (result.status) {
+          this.toast.success("updated employee status")
           this.getEmployees();
-          this.toast.success(result.message)
-        }
+
+        }else {
+        this.toast.error('Failed to update employee status');
+        row.isActive = !row.isActive;
+      }
       },
       error: (err: any) => { this.toast.error(err.message) },
     });
