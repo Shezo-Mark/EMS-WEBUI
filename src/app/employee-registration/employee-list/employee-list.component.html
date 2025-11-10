@@ -134,7 +134,7 @@
                 <th>Contact</th>
                 <th>Personal Email</th>
                 <th width="4%">Status</th>
-                <th width="10%">Documents</th>
+                <th width="5%">Documents</th>
                 <th width="5%" class="text-center">Actions</th>
               </tr>
             </thead>
@@ -155,13 +155,13 @@
                 <td>
                   <a title="Upload Attachments" href="javascript:void(0);"
                      (click)="openScrollableContentMd(uploadDocumentsModal, item.employeeId)"
-                     class="btn btn-sm btn-success w-100">
-                    Upload Documents
+                     class="btn btn-sm d_action_edit">
+                    <span class="fe fe-upload"> </span>
                   </a>
                     <a title="Download Attachments" href="javascript:void(0);"
                      (click)="this.getUploadDocumentbyId(item.employeeId);openScrollableContentMd(AttachmerntList, item.employeeId)"
-                     class="btn mt-1 btn-sm btn-primary d-block w-100">
-                    Documents List
+                     class="btn ms-1 btn-sm d_action_delete">
+                    <span class="fe fe-download"> </span>
                   </a>
                 </td>
                 <td>

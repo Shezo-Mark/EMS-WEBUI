@@ -3,37 +3,30 @@
 <div class="sticky" [ngClass]="{ 'sticky-pin': scrolled }">
   <div class="app-sidebar__overlay" data-bs-toggle="sidebar"></div>
   <aside class="app-sidebar sidebar-scroll">
-    <div class="main-sidebar-header active">
-      <a class="desktop-logo logo-light active"
-        ><img src="../../../../assets/logo/logo.jpg" class="main-logo" alt="logo"
-      /></a>
-      <a class="desktop-logo logo-dark active"
-        ><img
-          src="../../../../assets/logo/logo.jpg"
-          class="main-logo"
-          alt="logo"
-      /></a>
+    <div class="main-sidebar-header active px-2">
+      <a class="desktop-logo logo-light active">
+        <img src="../../../../assets/logo/logo.png" style="object-fit: contain;" class="main-logo ms-0" alt="logo"/>
+      </a>
+      <a class="desktop-logo logo-dark active">
+        <img src="../../../../assets/logo/logo-white.png" style="object-fit: contain;" class="main-logo" alt="logo"/>
+      </a>
       <a class="logo-icon mobile-logo icon-light active"
-        ><img src="../../../../assets/logo/logo.jpg" alt="logo"
+        ><img src="../../../../assets/logo/logo-collpse.png" style="object-fit: contain;" alt="logo"
       /></a>
       <a class="logo-icon mobile-logo icon-dark active"
-        ><img src="./assets/img/brand/favicon-white.png" alt="logo"
+        ><img src="./assets/img/brand/logo-white-collpse.png" style="object-fit: contain;" alt="logo"
       /></a>
     </div>
     <ng-scrollbar>
       <div class="main-sidemenu">
-        <div class="main-sidebar-loggedin">
+        <div class="main-sidebar-loggedin p-2">
           <div class="app-sidebar__user">
-            <div class="dropdown user-pro-body text-center">
-              <div class="user-pic">
-                <img
-                  src="https://www.w3schools.com/howto/img_avatar.png"
-                  alt="user-img"
-                  class="rounded-circle mCS_img_loaded"
-                />
+            <div class="dropdown user-pro-body text-center d-flex align-items-center">
+              <div class="user-pic mb-0" style="width: 50px; height: 50px;">
+                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="user-img" style="object-fit: cover; height: 100%;" class="img-fluid rounded mCS_img_loaded"/>
               </div>
-              <div class="user-info mb-4">
-                <h6 class="mb-0 text-dark">Bilal</h6>
+              <div class="user-info mb-0 ms-1">
+                <h6 class="mb-0 text-dark text-start">Bilal</h6>
                 <span class="text-muted app-sidebar__user-name text-sm">Admin</span>
               </div>
             </div>
