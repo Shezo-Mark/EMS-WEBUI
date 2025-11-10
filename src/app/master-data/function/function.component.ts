@@ -54,6 +54,41 @@ export class FunctionComponent {
     this.pagination.pageSize=10;
     this.getfunctions();
   }
+    onStatusChange(item: any) {
+
+  // If the checkbox was unchecked → Delete (soft delete)
+  if (item.isActive) {
+    // Checkbox was ON and now user turned it OFF
+    this.deletedRow(item);
+  } 
+  else {
+    // Checkbox was OFF and now user turned it ON → Re-activate
+    this.activateFunction(item);
+  }
+
+}
+  deletedRow(item: any) {
+  this.functionService.softDelete(item.functionId).subscribe({
+    next: () => {
+      this.toast.success("Function deactivated");
+      this.getfunctions();
+    },
+    error: () => {
+      this.toast.error("Failed to deactivate function");
+    }
+  });
+}
+activateFunction(item: any) {
+  this.functionService.activate(item.functionId).subscribe({
+    next: () => {
+      this.toast.success("Function activated");
+      this.getfunctions();
+    },
+    error: () => {
+      this.toast.error("Failed to activate function");
+    }
+  });
+}
   getfunctions() {
     if(this.pagination.pageSize==null)
     this.pagination.pageSize=10;

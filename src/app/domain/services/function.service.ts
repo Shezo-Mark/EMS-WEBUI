@@ -12,6 +12,14 @@ export class FunctionService {
   get(pageNo:any,pageSize:any,searchText:string): Observable<any> {
     return this.http.get(`master/function/function-list?pageNo=${pageNo}&pageSize=${pageSize}&searchText=${searchText}`);
     }
+softDelete(id: any) {
+  return this.http.post(`master/function/Delete/${id}`, {});
+}
+
+activate(id: any) {
+  return this.http.post(`master/function/Activate/${id}`, {});
+}
+
   getall(): Observable<any> {
     return this.http.get(`master/function`);
     }

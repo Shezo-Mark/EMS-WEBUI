@@ -55,9 +55,12 @@
                             <div class="parsley-input col-md-6" id="lnWrapper">
                               <div class="form-group">
                                 <label>Groups </label>
-                                <ng-select #select [items]="groups"  [ngClass]="{'has-success': basicFormControl['Group'].valid}"
+                                <!-- <ng-select #select [items]="groups"  [ngClass]="{'has-success': basicFormControl['Group'].valid}"
                                   bindLabel="text" bindValue="text" formControlName="Group">
-                                </ng-select>
+                                </ng-select> -->
+                                <ng-select #select [items]="groupList"  formControlName="Group" 
+                          bindLabel="name" bindValue="id">
+                        </ng-select>
                                 <div *ngIf="(basicFormControl['Group'].touched || submitted) && (basicFormControl['Group'].errors?.['required'])"
                                 class="tx-danger">
                                 <small>Group  is <strong>required</strong></small>
@@ -87,22 +90,26 @@
               <table class="table table-bordered border text-nowrap mb-0" id="new-edit">
                 <thead>
                   <tr>
-                    <th width="10%">Level Name</th>
-                    <th>Group</th>
+                       <th width="10%">Group</th>
+                    <th >Level Name</th>
+                 
                     <th width="2%">Status</th>
                     <th width="5%">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let item of levelList;let ndx = index">
-                    <td>{{item.levelName}}</td>
-                    <td>
+                      <td>
                       {{item.group}}
                     </td>
+                    <td>{{item.levelName}}</td>
+                  
                     <td>
                         <label>
-                        <input (click)="IsActive(item)" type="checkbox" [checked]="item.isActive"
-                          name="form-switch-checkbox1" class="form-switch-input">
+       <input type="checkbox"
+       [checked]="item.isActive"
+       (change)="onStatusChange(item)"
+       class="form-switch-input">
                         <span class="form-switch-indicator"></span>
                       </label>
                     </td>

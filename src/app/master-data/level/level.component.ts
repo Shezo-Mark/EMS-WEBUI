@@ -8,6 +8,7 @@ import { ZoneService } from 'src/app/domain/services/zone.service';
 import { AuthService } from 'src/app/shared/security/auth-service.service';
 import Swal from 'sweetalert2';
 import { LevelService } from 'src/app/domain/services/level.service ';
+import { GroupService } from 'src/app/domain/services/group.service';
 @Component({
   selector: 'app-level',
   templateUrl: './level.component.html',
@@ -22,6 +23,7 @@ export class LevelComponent {
   searchText:string='';
   branchId:any;
   levelList: any[] = [];
+    groupList: any[] = [];
   groups = [
     { text: 'Others' },
     { text: 'Executive' },
@@ -31,6 +33,7 @@ export class LevelComponent {
     private fb: FormBuilder, 
     private toast: ToastrService,
     private levelService: LevelService, 
+    private groupService: GroupService,
     private http: HttpRequestService,
     private authSrv : AuthService) {
     this.levelForm = this.fb.group({
@@ -42,6 +45,7 @@ export class LevelComponent {
 
   ngOnInit(): void {
     this.getlevels();
+    this.getgroups();
   }
   get basicFormControl() {
     return this.levelForm.controls;
@@ -50,11 +54,57 @@ export class LevelComponent {
     this.pagination.pageNo = event;
     this.getlevels();
   }
+   getgroups() {
+
+      this.groupService.getall().subscribe({
+        next: result => {
+
+          this.groupList=[];
+          this.groupList = result.data;
+        },
+        error: (err: any) => { this.toast.error(err.message) },
+      });
+    }
   onSearchText(){
     this.pagination.pageNo=1;
     this.pagination.pageSize=10;
     this.getlevels();
   }
+      onStatusChange(item: any) {
+
+  // If the checkbox was unchecked → Delete (soft delete)
+  if (item.isActive) {
+    // Checkbox was ON and now user turned it OFF
+    this.deletedRow(item);
+  } 
+  else {
+    // Checkbox was OFF and now user turned it ON → Re-activate
+    this.activateLevel(item);
+  }
+
+}
+  deletedRow(item: any) {
+  this.levelService.softDelete(item.levelId).subscribe({
+    next: () => {
+      this.toast.success("Level deactivated");
+      this.getlevels();
+    },
+    error: () => {
+      this.toast.error("Failed to deactivate level");
+    }
+  });
+}
+activateLevel(item: any) {
+  this.levelService.activate(item.levelId).subscribe({
+    next: () => {
+      this.toast.success("Level activated");
+      this.getlevels();
+    },
+    error: () => {
+      this.toast.error("Failed to activate Level");
+    }
+  });
+}
   getlevels() {
     if(this.pagination.pageSize==null)
     this.pagination.pageSize=10;

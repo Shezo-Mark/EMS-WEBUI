@@ -15,6 +15,13 @@ export class LevelService {
   getall(): Observable<any> {
     return this.http.get(`master/level`);
     }
+  softDelete(id: any) {
+  return this.http.post(`master/level/Delete/${id}`, {});
+}
+
+activate(id: any) {
+  return this.http.post(`master/level/Activate/${id}`, {});
+}
   delete(id: string): Observable<any> {
     return this.http.delete(`master/level/delete/${id}`);
   }
