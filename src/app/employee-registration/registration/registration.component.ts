@@ -207,6 +207,7 @@ export class RegistrationComponent implements OnInit {
     next: (result) => {
       // Assign data from all three API calls
       this.departmentList = result.departments.data;
+      console.log('Departments:', this.departmentList);
       this.levelList = result.levels.data;
       this.functionList = result.functions.data;
       this.EmploymentType = result.employment.data;

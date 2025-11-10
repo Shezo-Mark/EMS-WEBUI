@@ -22,6 +22,7 @@ export class DepartmentComponent {
   isEdit: boolean=false;
   searchText:string='';
   branchId:any;
+   departmentId:any;
   departmentList: any[] = [];
   groupList: any[] = [];
   constructor(
@@ -49,6 +50,42 @@ export class DepartmentComponent {
     this.pagination.pageNo = event;
     this.getdepartments();
   }
+  onStatusChange(item: any) {
+
+  // If the checkbox was unchecked → Delete (soft delete)
+  if (item.isActive) {
+    // Checkbox was ON and now user turned it OFF
+    this.deletedRow(item);
+  } 
+  else {
+    // Checkbox was OFF and now user turned it ON → Re-activate
+    this.activateDepartment(item);
+  }
+
+}
+deletedRow(item: any) {
+  this.departmentService.softDelete(item.departmentId).subscribe({
+    next: () => {
+      this.toast.success("Department deactivated");
+      this.getdepartments();
+    },
+    error: () => {
+      this.toast.error("Failed to deactivate department");
+    }
+  });
+}
+activateDepartment(item: any) {
+  this.departmentService.activate(item.departmentId).subscribe({
+    next: () => {
+      this.toast.success("Department activated");
+      this.getdepartments();
+    },
+    error: () => {
+      this.toast.error("Failed to activate department");
+    }
+  });
+}
+
   onSearchText(){
     this.pagination.pageNo=1;
     this.pagination.pageSize=10;

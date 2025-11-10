@@ -6,12 +6,23 @@ import { HttpRequestService } from 'src/app/shared/services/http-request.service
   providedIn: 'root',
 })
 export class DepartmentService {
+  baseUrl: any;
 
   constructor(private http: HttpRequestService, private toast: ToastrService) {
   }
   get(pageNo:any,pageSize:any,searchText:string): Observable<any> {
     return this.http.get(`master/department/department-list?pageNo=${pageNo}&pageSize=${pageSize}&searchText=${searchText}`);
     }
+softDelete(id: any) {
+  return this.http.post(`master/department/Delete/${id}`, {});
+}
+
+activate(id: any) {
+  return this.http.post(`master/department/Activate/${id}`, {});
+}
+
+
+
   getall(): Observable<any> {
     return this.http.get(`master/department`);
     }
