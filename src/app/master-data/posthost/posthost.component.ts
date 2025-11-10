@@ -21,6 +21,7 @@ export class PostHostComponent {
   pagination:any = paginationEnum;
   isEdit: boolean=false;
   searchText:string='';
+  postHostId:any;
   branchId:any;
   posthostList: any[] = [];
   constructor(
@@ -41,6 +42,41 @@ export class PostHostComponent {
   get basicFormControl() {
     return this.posthostForm.controls;
   }
+       onStatusChange(item: any) {
+
+  // If the checkbox was unchecked → Delete (soft delete)
+  if (item.isActive) {
+    // Checkbox was ON and now user turned it OFF
+    this.deletedRow(item);
+  } 
+  else {
+    // Checkbox was OFF and now user turned it ON → Re-activate
+    this.activatePostHost(item);
+  }
+
+}
+  deletedRow(item: any) {
+  this.posthostService.softDelete(item.postHostId).subscribe({
+    next: () => {
+      this.toast.success("PostHost deactivated");
+      this.getposthosts();
+    },
+    error: () => {
+      this.toast.error("Failed to deactivate PostHost");
+    }
+  });
+}
+activatePostHost(item: any) {
+  this.posthostService.activate(item.postHostId).subscribe({
+    next: () => {
+      this.toast.success("PostHost activated");
+      this.getposthosts();
+    },
+    error: () => {
+      this.toast.error("Failed to activate PostHost");
+    }
+  });
+}
   onPageChange(event: any) {
     this.pagination.pageNo = event;
     this.getposthosts();

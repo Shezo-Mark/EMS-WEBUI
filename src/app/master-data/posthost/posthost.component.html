@@ -85,8 +85,10 @@
                     <td>{{item.postHostName}}</td>
                     <td>
                        <label>
-                        <input (click)="IsActive(item)" type="checkbox" [checked]="item.isActive"
-                          name="form-switch-checkbox1" class="form-switch-input">
+                                                                        <input type="checkbox"
+       [checked]="item.isActive"
+       (change)="onStatusChange(item)"
+       class="form-switch-input">
                         <span class="form-switch-indicator"></span>
                       </label>
                     </td>

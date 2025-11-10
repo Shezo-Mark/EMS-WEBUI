@@ -15,6 +15,13 @@ export class PostHostService {
   getall(): Observable<any> {
     return this.http.get(`master/posthost`);
     }
+  softDelete(id: any) {
+  return this.http.post(`master/posthost/Delete/${id}`, {});
+}
+
+activate(id: any) {
+  return this.http.post(`master/posthost/Activate/${id}`, {});
+}
   delete(id: string): Observable<any> {
     return this.http.delete(`master/posthost/delete/${id}`);
   }
