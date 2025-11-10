@@ -15,6 +15,14 @@ export class GroupService {
   getall(): Observable<any> {
     return this.http.get(`master/group`);
     }
+
+    softDelete(id: any) {
+  return this.http.post(`master/group/Delete/${id}`, {});
+}
+
+activate(id: any) {
+  return this.http.post(`master/group/Activate/${id}`, {});
+}
   delete(id: string): Observable<any> {
     return this.http.delete(`master/group/delete/${id}`);
   }

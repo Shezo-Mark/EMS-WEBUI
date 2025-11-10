@@ -49,6 +49,41 @@ export class GroupComponent {
     this.pagination.pageSize=10;
     this.getgroups();
   }
+      onStatusChange(item: any) {
+
+  // If the checkbox was unchecked → Delete (soft delete)
+  if (item.isActive) {
+    // Checkbox was ON and now user turned it OFF
+    this.deletedRow(item);
+  } 
+  else {
+    // Checkbox was OFF and now user turned it ON → Re-activate
+    this.activateGroup(item);
+  }
+
+}
+  deletedRow(item: any) {
+  this.groupService.softDelete(item.groupId).subscribe({
+    next: () => {
+      this.toast.success("Group deactivated");
+      this.getgroups();
+    },
+    error: () => {
+      this.toast.error("Failed to deactivate group");
+    }
+  });
+}
+activateGroup(item: any) {
+  this.groupService.activate(item.groupId).subscribe({
+    next: () => {
+      this.toast.success("Group activated");
+      this.getgroups();
+    },
+    error: () => {
+      this.toast.error("Failed to activate group");
+    }
+  });
+}
   getgroups() {
     if(this.pagination.pageSize==null)
     this.pagination.pageSize=10;
